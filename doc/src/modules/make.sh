@@ -94,7 +94,7 @@ mv -f ${mainname}.pdf ${nickname}.pdf  # drop main_ prefix in PDF
 
 # Publish
 dest=/some/repo/some/where
-dest=../../../pub/chapters
+dest=../../../pub/modules
 if [ ! -d $dest ]; then
     #exit 0  # drop publishing
   mkdir $dest

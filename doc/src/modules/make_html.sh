@@ -69,7 +69,7 @@ system doconce split_html $html.html --nav_button=text
 
 # Publish
 dest=/some/repo/some/where
-dest=../../../pub/chapters
+dest=../../../pub/modules
 if [ ! -d $dest ]; then
 exit 0  # drop publishig
 fi
