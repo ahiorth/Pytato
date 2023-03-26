@@ -7,7 +7,7 @@
 
 # Latex files       #
 #####################
-#*.tex
+*.tex
 *.aux
 *.blg
 *.bbl
