@@ -1,0 +1,5 @@
+# Here goes the main text.
+# The text may be split into several files and included here
+# via preprocess: # #include "file1.do.txt" etc
+======= Why Python is so popular: The import statement =======
+It is always hard decide which coding language to learn, it usually depends on what you want to do. If you want to do very fast numerical calculations Fortan or C used to be the most popular languages, and for web or application programming Java. However, in recent years Python has become more and more popular, one of the reasons is its large amount of libraries and communities. If you have an idea of what you want to do and  
