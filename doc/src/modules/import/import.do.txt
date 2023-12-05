@@ -2,4 +2,99 @@
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
 ======= Why Python is so popular: The import statement =======
-It is always hard decide which coding language to learn, it usually depends on what you want to do. If you want to do very fast numerical calculations Fortan or C used to be the most popular languages, and for web or application programming Java. However, in recent years Python has become more and more popular, one of the reasons is its large amount of libraries and communities. If you have an idea of what you want to do and  
+It is always hard decide which coding language to learn, it usually depends on what you want to do. If you want to do very fast numerical calculations Fortan or C used to be the most popular languages, and for web or application programming Java. However, in recent years Python has become more and more popular, one of the reasons is its large amount of libraries and communities. If you have an idea of what you want to do, you can almost be certain that there exist a Python library written for that purpose. In the next chapters we will cover some advanced operations in Python and use them to motivate to learn more about the basic operations.
+
+===== Basic plotting in Python =====
+Visualizing data is a must, the code for plotting to sets of data is
+!bc pypro
+import matplotlib.pyplot as plt
+x=[1,2,3,4]
+y=[2,4,9,16] # y=x*x
+plt.plot(x,y,label='y=x^2')
+plt.legend() # try to remove and see what happens
+plt.grid()   # try to remove and see what happens
+!ec
+Let us go through each line
+o `import matplotlib.pyplot as plt` this line tells Python to import the "matplotlib.pyplot":"https://matplotlib.org/3.5.3/api/_as_gen/matplotlib.pyplot.html" library. This library contains a lot of functions that other people have made. We use the `as` statement to indicate that we will name the `matplotlib.pyplot` library as `plt`. Thus we do not need to write `matplotlib.pyplot` every time we want to use a function in this library. We access functions in the library by simply placing a `.` after `plt`.
+o Next, we define two lists `x` and `y`, these lists have to be of equal length
+o The `plt.plot` commands plots `y` vs `x`
+o `plt.legend()` display the legend given inside the `plt.plot` command
+o `plt.grid()` adds grid lines which makes it easier to read the plot
+
+This is also a good stage to introduce lists
+===== Lists =====
+idx{lists} idx{list comprehension}
+Lists are defined using the square bracket `[]` symbol, e.g.
+!bc pypro
+my_list = []      # an empty list
+my_list = []*10   # still an empty list ...
+my_list = [0]*10  # a list with 10 zeros
+my_list = ['one', 'two','three'] # a list of strings
+my_list = ['one']*10 # a list with 10 equal string elements 
+!ec
+!bnotice
+To get the first element in a list, we do e.g. `my_list[0]`. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be `my_list[9]`, the length of a list can be found by using the `len()` function, i.e. `len(my_list)` would give =10. Thus, the last element can also be found by doing `my_list[len(my_list)-1]`. However, in Python you can always get the last element by doing `my_list[-1]`, the second last element would be `my_list[-2]` and so on.
+!enotice
+
+=== List comprehension ===
+
+Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use *list comprehension*
+!bc pypro
+x = [i for i in range(10)] # a list from 0,1,2,..,9
+y = [i**2 for i in range(10)] # a list with elements 0,1,4, ..,81
+!ec
+We will cover the for loop later, but basically what is done is that the statement `i in range(10)`, gives `i` the value 0, 1, $\ldots$, 9 and the first `i` inside the list tells python to use that value as the element in the list. Using this syntax, there are plenty of opportunities to initialize. Maybe you want to pick from a list words that contain a particular subset of characters
+!bc pypro
+my_list  = ['hammer', 'nail','saw','lipstick','shirt']
+new_list = [i for i in my_list if 'a' in i]
+!ec
+Now `new_list=['hammer', 'nail', 'saw']`. The `in` function checks if the character `'a'` is somewhere in one of the words in the list. 
+
+=== List arithmetic ===
+I showed you some examples above, where we used multiplication to create a list with equal copies of a single element, you can also join two lists by using addition
+!bc pypro
+my_list  = ['hammer','saw']
+my_list2 = ['screw','nail','glue']
+new_list = my_list + my_list2
+!ec
+Now `new_list=['hammer', 'saw', 'screw', 'nail', 'glue']`, we can also multiply the list with an integer and get a larger list with several copies of the original list.
+
+=== List slicing ===
+Clearly we can access elements in a list by using the index to the element, i.e. first element is `my_list[0]`, and the last element is `my_list[-1]`. Python also has very nice syntax to pick out a subset of a list. The syntax is `my_list[start:stop:step]`, the step makes it possible to skip elements
+!bc pypro
+my_list=['hammer', 'saw', 'screw', 'nail', 'glue']
+my_list[:]      # ['hammer', 'saw', 'screw', 'nail', 'glue']
+my_list[1:]     # ['saw', 'screw', 'nail', 'glue']
+my_list[:-1]    # ['hammer', 'saw', 'screw', 'nail']
+my_list[1:-1]   # ['saw', 'screw', 'nail']
+my_list[1:-1:2] # ['saw','nail']
+my_list[::1]    # ['hammer', 'saw', 'screw', 'nail', 'glue']
+my_list[::2]    # ['hammer', 'screw', 'glue']
+!ec
+
+=== Example: use list comprehension to make a plot of $y=x^3$ ===
+
+* Create one list of $x\in[-3,3]$ and the corresponding $y$ values
+* Use `matplotlib.pyplot` to create a plot.
+
+=== Solution ===
+
+!bc pypro
+#first we create the x-values
+N=100 # 100 points
+dx=6/N
+x=[-3+i*dx for i in range(N)]
+y=[i**2 for i in x]
+plt.plot(x,y) # if you want you can add legend and grid lines
+!ec
+======= Working with files and folders in Python =======
+Usually we have files and folder located at different places on the computer. This could be excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder
+!bc pypro
+import pathlib as pt
+p=pt.Path('.') # the directory where this python file is located
+for x in p.iterdir():
+    if x.is_dir():
+        print('Found dir: ', x)
+    elif x.is_file():
+        print('Found file: ', x)
+!ec

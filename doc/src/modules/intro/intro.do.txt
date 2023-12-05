@@ -2,7 +2,14 @@
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
 ======= Introductory Remarks =======
-The aim of this course is to start with practical applications and gradually move to basic operations. Thus, we are actually reversing "traditional" Python courses. A traditional Python course would normally start by defining basic programming concepts and move into advanced concepts. There is nothing wrong with this, but it would require quite some time of Python coding before you would be able to do something advanced. What we want to do is to get some useful applications up and running fast, and then investigate from a programming perspective what is going on.
+The aim of this course is to start with practical applications and gradually move to basic operations. We choose a top-down approach, because we hope it will be more engaging. Thus, we will start with some advanced features and move to basic programming concepts. What we want to do is to get some useful applications up and running fast, and then investigate from a programming perspective what is going on.
 
 ======= Online programming resources =======
-There are plenty of online courses, youtube videos, and books. The If you have never coded before, there is a very good  programmed a
+This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are "w3schools":"https://www.w3schools.com/python/default.asp", and "A Whirlwind tour of Python":"https://jakevdp.github.io/WhirlwindTourOfPython/". These resources explains quite briefly important concepts and give examples, such as
+* specific Python syntax
+* data types (float, int, Boolean, etc.)
+* data structures (lists, dictionaries, tuples, etc.)
+* control flow (if, else, while, for loops etc.)
+* functions and classes
+
+When it comes to the vast number of libraries in Python it becomes much harder to master them, because it is so easy to just google ''How can I do this or that in Python''. What happens is that you quickly end up at "Stack Overflow":"https://stackoverflow.com/", where people suggest that this can be achieved by using their favorite library. My experience is that coded suggested by others can be unnecessary complicated, and what is maybe more important is that you want over time to develop your own personalized style. As a general rule of thumb, you should try to limit yourself to a limited number of libraries, and for basic operations use vanilla Python (i.e. Python without libraries).
