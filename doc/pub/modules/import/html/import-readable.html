@@ -7,8 +7,9 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="import">
-<title>import</title>
+<meta name="description" content="Introduction to Practical Applications">
+<meta name="keywords" content="lists,list comprehension">
+<title>Introduction to Practical Applications</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +42,46 @@ code { color: inherit; background-color: transparent; }
                1,
                'table_of_contents',
                'table_of_contents'),
+              ('Why Python is so popular: The import statement',
+               1,
+               None,
+               'why-python-is-so-popular-the-import-statement'),
+              ('Basic plotting in Python', 2, None, 'basic-plotting-in-python'),
+              ('Lists', 2, None, 'lists'),
+              ('List comprehension', 3, None, 'list-comprehension'),
+              ('Example: use list comprehension to make a plot of $y=x^3$',
+               3,
+               None,
+               'example-use-list-comprehension-to-make-a-plot-of-y-x-3'),
+              ('Solution', 3, None, 'solution'),
+              ('Numpy: Working with numerical arrays in Python',
+               1,
+               None,
+               'numpy-working-with-numerical-arrays-in-python'),
+              ('Pathlib: Working with files and folders in Python',
+               1,
+               None,
+               'pathlib-working-with-files-and-folders-in-python'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
 <body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 <!-- Bootstrap navigation bar -->
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
@@ -53,15 +90,23 @@ end of tocinfo -->
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="import-readable.html">import</a>
+    <a class="navbar-brand" href="import-readable.html">Introduction to Practical Applications</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;">Table of contents</a></li>
-     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;">Bibliography</a></li>
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#why-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>Why Python is so popular: The import statement</b></a></li>
+     <!-- navigation toc: --> <li><a href="#basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Basic plotting in Python</a></li>
+     <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
+     <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -75,7 +120,7 @@ end of tocinfo -->
 <!-- ------------------- main content ---------------------- -->
 <div class="jumbotron">
 <center>
-<h1>import</h1>
+<h1>Introduction to Practical Applications</h1>
 </center>  <!-- document title -->
 
 <!-- author(s): Aksel Hiorth -->
@@ -86,7 +131,7 @@ end of tocinfo -->
 <br>
 <p>University of Stavanger
 <center>
-<h4>Nov 28, 2023</h4>
+<h4>Dec 7, 2023</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -96,6 +141,11 @@ end of tocinfo -->
 <h1 id="table_of_contents">Table of contents</h1>
 
 <div class='toc'>
+<p><a href="#why-python-is-so-popular-the-import-statement"> Why Python is so popular: The import statement </a></p>
+<p><span class="tab"> <a href="#basic-plotting-in-python"> Basic plotting in Python </a></p>
+<p><span class="tab"> <a href="#lists"> Lists </a></p>
+<p><a href="#numpy-working-with-numerical-arrays-in-python"> Numpy: Working with numerical arrays in Python </a></p>
+<p><a href="#pathlib-working-with-files-and-folders-in-python"> Pathlib: Working with files and folders in Python </a></p>
 <p><a href="#bibliography"> Bibliography </a></p>
 </div>
 <br>
@@ -105,6 +155,307 @@ end of tocinfo -->
 <!-- Here goes the main text. -->
 <!-- The text may be split into several files and included here -->
 <!-- via preprocess: # #include "file1.do.txt" etc -->
+<h1 id="why-python-is-so-popular-the-import-statement" class="anchor">Why Python is so popular: The import statement </h1>
+<p>It is always hard decide which coding language to learn, it usually depends on what you want to do. If you want to do very fast numerical calculations Fortan or C used to be the most popular languages, and for web or application programming Java. However, in recent years Python has become more and more popular, one of the reasons is its large amount of libraries and communities. If you have an idea of what you want to do, you can almost be certain that there exist a Python library written for that purpose. In the next chapters we will cover some advanced operations in Python and use them to motivate to learn more about the basic operations.</p>
+<h2 id="basic-plotting-in-python" class="anchor">Basic plotting in Python </h2>
+<p>Visualizing data is a must, the code for plotting to sets of data is</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+x<span style="color: #666666">=</span>[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>]
+y<span style="color: #666666">=</span>[<span style="color: #666666">2</span>,<span style="color: #666666">4</span>,<span style="color: #666666">9</span>,<span style="color: #666666">16</span>] <span style="color: #3D7B7B; font-style: italic"># y=x*x</span>
+plt<span style="color: #666666">.</span>plot(x,y,label<span style="color: #666666">=</span><span style="color: #BA2121">&#39;y=x^2&#39;</span>)
+plt<span style="color: #666666">.</span>legend() <span style="color: #3D7B7B; font-style: italic"># try to remove and see what happens</span>
+plt<span style="color: #666666">.</span>grid()   <span style="color: #3D7B7B; font-style: italic"># try to remove and see what happens</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let us go through each line</p>
+<ol>
+<li> <code>import matplotlib.pyplot as plt</code> this line tells Python to import the <a href="https://matplotlib.org/3.5.3/api/_as_gen/matplotlib.pyplot.html" target="_self">matplotlib.pyplot</a> library. This library contains a lot of functions that other people have made. We use the <code>as</code> statement to indicate that we will name the <code>matplotlib.pyplot</code> library as <code>plt</code>. Thus we do not need to write <code>matplotlib.pyplot</code> every time we want to use a function in this library. We access functions in the library by simply placing a <code>.</code> after <code>plt</code>.</li>
+<li> Next, we define two lists <code>x</code> and <code>y</code>, these lists have to be of equal length</li>
+<li> The <code>plt.plot</code> commands plots <code>y</code> vs <code>x</code></li>
+<li> <code>plt.legend()</code> display the legend given inside the <code>plt.plot</code> command</li>
+<li> <code>plt.grid()</code> adds grid lines which makes it easier to read the plot</li>
+</ol>
+<p>There is a lot of This is also a good stage to introduce lists
+<h2 id="lists" class="anchor">Lists </h2>
+ Lists are defined using the square bracket <code>[]</code> symbol, e.g.
+</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
+my_list <span style="color: #666666">=</span> []<span style="color: #666666">*10</span>   <span style="color: #3D7B7B; font-style: italic"># still an empty list ...</span>
+my_list <span style="color: #666666">=</span> [<span style="color: #666666">0</span>]<span style="color: #666666">*10</span>  <span style="color: #3D7B7B; font-style: italic"># a list with 10 zeros</span>
+my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>, <span style="color: #BA2121">&#39;two&#39;</span>,<span style="color: #BA2121">&#39;three&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># a list of strings</span>
+my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>]<span style="color: #666666">*10</span> <span style="color: #3D7B7B; font-style: italic"># a list with 10 equal string elements </span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Notice</b>
+<p>To get the first element in a list, we do e.g. <code>my_list[0]</code>. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be <code>my_list[9]</code>, the length of a list can be found by using the <code>len()</code> function, i.e. <code>len(my_list)</code> would give =10. Thus, the last element can also be found by doing <code>my_list[len(my_list)-1]</code>. However, in Python you can always get the last element by doing <code>my_list[-1]</code>, the second last element would be <code>my_list[-2]</code> and so on.</p>
+</div>
+
+
+<p>To add stuff to a list, we use the <code>append</code> function</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
+my_list<span style="color: #666666">.</span>append(<span style="color: #666666">2</span>) <span style="color: #3D7B7B; font-style: italic"># [2]</span>
+my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;dog&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># [2, &#39;dog&#39;]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can also remove stuff, using the <code>pop</code> function, then you also have to give the index</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_list<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #3D7B7B; font-style: italic"># my_list=[&#39;dog&#39;]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 id="list-comprehension" class="anchor">List comprehension </h3>
+
+<p>Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use <em>list comprehension</em></p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x <span style="color: #666666">=</span> [i <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>)] <span style="color: #3D7B7B; font-style: italic"># a list from 0,1,2,..,9</span>
+y <span style="color: #666666">=</span> [i<span style="color: #666666">**2</span> <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">10</span>)] <span style="color: #3D7B7B; font-style: italic"># a list with elements 0,1,4, ..,81</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>We will cover the for loop later, but basically what is done is that the statement <code>i in range(10)</code>, gives <code>i</code> the value 0, 1, \( \ldots \), 9 and the first <code>i</code> inside the list tells python to use that value as the element in the list. Using this syntax, there are plenty of opportunities to initialize.</p>
+<h3 id="example-use-list-comprehension-to-make-a-plot-of-y-x-3" class="anchor">Example: use list comprehension to make a plot of \( y=x^3 \) </h3>
+
+<ul>
+<li> Create one list of \( x\in[-3,3] \) and the corresponding \( y \) values</li>
+<li> Use <code>matplotlib.pyplot</code> to create a plot.</li>
+</ul>
+<h3 id="solution" class="anchor">Solution </h3>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#first we create the x-values</span>
+N<span style="color: #666666">=100</span> <span style="color: #3D7B7B; font-style: italic"># 100 points</span>
+dx<span style="color: #666666">=6/</span>N
+x<span style="color: #666666">=</span>[<span style="color: #666666">-3+</span>i<span style="color: #666666">*</span>dx <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N)]
+y<span style="color: #666666">=</span>[i<span style="color: #666666">**2</span> <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> x]
+plt<span style="color: #666666">.</span>plot(x,y) <span style="color: #3D7B7B; font-style: italic"># if you want you can add legend and grid lines</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="numpy-working-with-numerical-arrays-in-python" class="anchor">Numpy: Working with numerical arrays in Python </h1>
+<p>In the above example we used lists to store values that we wanted to plot. Lists are one of the basic data structures in Python, but since they are so flexible they are not well suited for mathematical operations. If you are only working with arrays that contain numbers you should use the <a href="https://numpy.org/" target="_self">Numpy</a> library. The above example in Numpy would be</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>linspace(<span style="color: #666666">-3</span>,<span style="color: #666666">3</span>,<span style="color: #666666">100</span>) <span style="color: #3D7B7B; font-style: italic"># vector of 100 points from -3 to 3</span>
+y<span style="color: #666666">=</span>x<span style="color: #666666">*</span>x <span style="color: #3D7B7B; font-style: italic"># multiply each number in x by itself</span>
+plt<span style="color: #666666">.</span>plot(x,y)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Numpy has built in functions that allows you to calculate e.g. the logarithm, sine, exponential of arrays</p>
+
+<!-- code=text (!bc dat) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">np.log(x) # log of all elements in x
+np.exp(x) # exp of all elements in x
+np.sin(x) # sin of all elements in x
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If you have a list, it can easily be converted to a Numpy array</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>[<span style="color: #666666">1</span>,<span style="color: #666666">4</span>,<span style="color: #666666">7</span>] <span style="color: #3D7B7B; font-style: italic"># x is a list</span>
+x<span style="color: #666666">+</span>x <span style="color: #3D7B7B; font-style: italic"># x+x would give [1,4,7,1,4,7]</span>
+x<span style="color: #666666">*</span>x <span style="color: #3D7B7B; font-style: italic"># would give an error message</span>
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">1</span>,<span style="color: #666666">4</span>,<span style="color: #666666">7</span>]) <span style="color: #3D7B7B; font-style: italic"># now x is a Numpy array</span>
+x<span style="color: #666666">+</span>x <span style="color: #3D7B7B; font-style: italic"># would give [2,8,14]</span>
+x<span style="color: #666666">*</span>x <span style="color: #3D7B7B; font-style: italic"># would give [1,16,49]</span>
+x<span style="color: #666666">/</span>x <span style="color: #3D7B7B; font-style: italic"># would give [1.,1.,1.]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="pathlib-working-with-files-and-folders-in-python" class="anchor">Pathlib: Working with files and folders in Python </h1>
+<p>Usually we have files and folder located at different places on the computer. This could be excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pathlib</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pt</span>
+p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;.&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># the directory where this python file is located</span>
+<span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> p<span style="color: #666666">.</span>iterdir():
+    <span style="color: #008000; font-weight: bold">if</span> x<span style="color: #666666">.</span>is_dir():
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found dir: &#39;</span>, x)
+    <span style="color: #008000; font-weight: bold">elif</span> x<span style="color: #666666">.</span>is_file():
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found file: &#39;</span>, x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <h1 id="bibliography" class="anchor">Bibliography </h1>
 
 <!-- begin bibliography -->

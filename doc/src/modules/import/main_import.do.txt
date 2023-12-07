@@ -1,4 +1,4 @@
-TITLE: Pythons import statement
+TITLE:  Introduction to Practical Applications
 AUTHOR: Aksel Hiorth
 University of Stavanger
 DATE: today

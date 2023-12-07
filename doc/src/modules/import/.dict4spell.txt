@@ -1,4 +1,8 @@
 
 Aksel
+Fortan
 Hiorth
+Numpy
+Pathlib
 Stavanger
+pyplot

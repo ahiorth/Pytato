@@ -1,6 +1,6 @@
-TITLE: intro
+TITLE: Preliminaries
 AUTHOR: Aksel Hiorth
-University of Stavanger
+University of Stavanger, Institute for Energy Resources, Norway
 DATE: today
 
 TOC: on
