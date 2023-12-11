@@ -8,8 +8,8 @@ It is always hard decide which coding language to learn, it usually depends on w
 This is not easy to answer, but here we will introduce you to the most popular libraries. We will suggest to stick to as few libraries as possible and try to achieve what you want with these. 
 !enotice
 
-===== Matplotlib: Plotting in Python =====
-Visualizing data is a must, the code for plotting two sets of data is
+======= Matplotlib: Basic plotting in Python =======
+Visualizing data is a must, the code for plotting two arrays of data is
 !bc pypro
 import matplotlib.pyplot as plt
 x=[1,2,3,4]
@@ -25,7 +25,11 @@ o The `plt.plot` commands plots `y` vs `x`
 o `plt.legend()` display the legend given inside the `plt.plot` command
 o `plt.grid()` adds grid lines which makes it easier to read the plot
 
-There is a lot of This is also a good stage to introduce lists
+By visiting the official documentation, and view the "matplotlib gallery":"https://matplotlib.org/stable/gallery/index.html", you will see a lot of examples on how to visualize your data.
+
+======= Data structures  (Basic) =======
+The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. One of the most basic way to  In the example above we stored the date in lists `x=[1,2,3,4]`.  
+
 ===== Lists =====
 idx{lists} idx{list comprehension}
 Lists are defined using the square bracket `[]` symbol, e.g.

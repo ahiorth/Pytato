@@ -1,6 +1,10 @@
 
 Aksel
 Hiorth
+IDE
+IDEs
+Matkasse
+Spyder
 Stavanger
 int
 youtube
