@@ -1,9 +1,11 @@
 
 Aksel
+ChatGPT
 Hiorth
 IDE
 IDEs
 Matkasse
+OpenAI
 Spyder
 Stavanger
 int

@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_intro.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=intro-readable --html_code_style=inherit
 -->
 <html>
@@ -41,15 +42,20 @@ code { color: inherit; background-color: transparent; }
                1,
                'table_of_contents',
                'table_of_contents'),
-              ('Why should you learn programming?',
+              ('Is it possible to learn Python in two days?',
                2,
                None,
-               'why-should-you-learn-programming'),
+               'is-it-possible-to-learn-python-in-two-days'),
+              ('Why should you learn coding?',
+               2,
+               None,
+               'why-should-you-learn-coding'),
               ('About this course', 1, None, 'about-this-course'),
               ('Online programming resources',
                1,
                None,
                'online-programming-resources'),
+              ('ChatGPT', 2, None, 'chatgpt'),
               ('Stuff you need to do', 1, None, 'stuff-you-need-to-do'),
               ('Concepts you should know before the course starts',
                1,
@@ -59,6 +65,10 @@ code { color: inherit; background-color: transparent; }
               ('Functions', 2, None, 'functions'),
               ('Objects and Classes', 2, None, 'objects-and-classes'),
               ('Library', 2, None, 'library'),
+              ('Exercise: Install a Python library in a separate environment',
+               1,
+               None,
+               'exercise-install-a-python-library-in-a-separate-environment'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -79,15 +89,18 @@ end of tocinfo -->
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
-     <!-- navigation toc: --> <li><a href="#why-should-you-learn-programming" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn programming?</a></li>
+     <!-- navigation toc: --> <li><a href="#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Is it possible to learn Python in two days?</a></li>
+     <!-- navigation toc: --> <li><a href="#why-should-you-learn-coding" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn coding?</a></li>
      <!-- navigation toc: --> <li><a href="#about-this-course" style="font-size: 80%;"><b>About this course</b></a></li>
      <!-- navigation toc: --> <li><a href="#online-programming-resources" style="font-size: 80%;"><b>Online programming resources</b></a></li>
+     <!-- navigation toc: --> <li><a href="#chatgpt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;ChatGPT</a></li>
      <!-- navigation toc: --> <li><a href="#stuff-you-need-to-do" style="font-size: 80%;"><b>Stuff you need to do</b></a></li>
      <!-- navigation toc: --> <li><a href="#concepts-you-should-know-before-the-course-starts" style="font-size: 80%;"><b>Concepts you should know before the course starts</b></a></li>
      <!-- navigation toc: --> <li><a href="#variable" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Variable</a></li>
      <!-- navigation toc: --> <li><a href="#functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Functions</a></li>
      <!-- navigation toc: --> <li><a href="#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
      <!-- navigation toc: --> <li><a href="#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Library</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;"><b>Exercise: Install a Python library in a separate environment</b></a></li>
      <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
@@ -123,15 +136,18 @@ end of tocinfo -->
 <h1 id="table_of_contents">Table of contents</h1>
 
 <div class='toc'>
-<p><span class="tab"> <a href="#why-should-you-learn-programming"> Why should you learn programming? </a></p>
+<p><span class="tab"> <a href="#is-it-possible-to-learn-python-in-two-days"> Is it possible to learn Python in two days? </a></p>
+<p><span class="tab"> <a href="#why-should-you-learn-coding"> Why should you learn coding? </a></p>
 <p><a href="#about-this-course"> About this course </a></p>
 <p><a href="#online-programming-resources"> Online programming resources </a></p>
+<p><span class="tab"> <a href="#chatgpt"> ChatGPT </a></p>
 <p><a href="#stuff-you-need-to-do"> Stuff you need to do </a></p>
 <p><a href="#concepts-you-should-know-before-the-course-starts"> Concepts you should know before the course starts </a></p>
 <p><span class="tab"> <a href="#variable"> Variable </a></p>
 <p><span class="tab"> <a href="#functions"> Functions </a></p>
 <p><span class="tab"> <a href="#objects-and-classes"> Objects and Classes </a></p>
 <p><span class="tab"> <a href="#library"> Library </a></p>
+<p><a href="#exercise-install-a-python-library-in-a-separate-environment"> Exercise: Install a Python library in a separate environment  </a></p>
 <p><a href="#bibliography"> Bibliography </a></p>
 </div>
 <br>
@@ -141,15 +157,25 @@ end of tocinfo -->
 <!-- Here goes the main text. -->
 <!-- The text may be split into several files and included here -->
 <!-- via preprocess: # #include "file1.do.txt" etc -->
-<h2 id="why-should-you-learn-programming" class="anchor">Why should you learn programming? </h2>
+<h2 id="is-it-possible-to-learn-python-in-two-days" class="anchor">Is it possible to learn Python in two days? </h2>
 
-<p>A quick google search will tell you that you should learn to code because it will lead to job opportunities and boost your career. This is almost certainly true. I would highlight that it will let you test out ideas much more efficiently. When you have a lot of domain knowledge of a certain phenomena, you will most likely have ideas that can lead to innovation. As an example, maybe you have observed something that makes you believe that phenomena that most people think are unrelated actually are related. To prove or support you claim you need to collect data from these phenomena and present them together. Since the phenomena are unrelated the data are most likely located different places. With some basic knowledge of Python you can easily access different files, folders, web pages, scrap data from them, filter the data and visualize them. Furthermore as you are using a computer program there will be much less manual errors. The first step in any data exploratory phase is usually to make some plots and look for patterns visually. The next steps is quantify correlations by e.g. regression analysis or to use more advanced machine learning techniques. Using Python it is almost trivial to get started, it takes of course time to master, but with basic Python knowledge you can easily run through tutorials yourself and become quite advanced within weeks.     </p>
+<p>You will for sure not master Python in two days, but you will be able to perform many useful tasks, and lay the foundation for further development. In particular with the release of <a href="https://chat.openai.com/auth/login" target="_self">ChatGPT</a>, I would say it has never been so easy to get advanced applications up and running with only a basic understanding of Python. If you manage to formulate what you want to achieve precisely, then ChatGPT will translate your request into code (see e.g. figure <a href="#fig:intro:chat1">1</a>). This is clearly not foolproof, the code you get back might not work exactly as you want and you will need to modify it, or you have to break your task into several smaller pieces and then you are left with adding them together yourself.</p>
+<h2 id="why-should-you-learn-coding" class="anchor">Why should you learn coding? </h2>
+
+<p>A quick google search will tell you that you should learn to code because it will lead to job opportunities and boost your career. I would also highlight that it will let you test out ideas much more efficiently. When you have a lot of domain knowledge in a certain area, you will most likely have ideas that can lead to innovation or new insight. As an example, maybe you have observed something that makes you believe some phenomena originally believed to be unrelated, actually are related. To prove or support you claim you would then need to collect data from these phenomena and present them together. Since the phenomena are unrelated the data are most likely located in different places. With some basic knowledge of Python you can easily access different files, folders, web pages, scrap data from them, filter the data. Once you have collected the data you would then make some plots, and inspect the plots to discover patterns. The next steps is quantify correlations by e.g. regression analysis or to use more advanced machine learning techniques. All this can be achieved with Python, it will take you time to master this fully, but with basic Python knowledge you can easily run through tutorials yourself and become quite advanced within weeks.     </p>
 <h1 id="about-this-course" class="anchor">About this course </h1>
 
-<p>The aim of this course is to start with practical applications and gradually move to basic operations. We choose a top-down approach, because we hope it will be more engaging. Thus, we will start with some advanced features and move to basic programming concepts. What we want to do is to get some useful applications up and running fast, and then investigate from a programming perspective what is going on.</p>
+<p>With the development of tools that can write code for you and also the large number of libraries in Python, it becomes less important to learn syntax. Rather, you should focus on learning the basic concepts, and to learn the logic of coding. For the examples presented in this course, try to focus on</p>
+<ol>
+<li> What kind of task do we want to perform?</li>
+<li> How is this task broken down into smaller pieces?</li>
+<li> How are these smaller pieces implemented in order for the computer to understand us?</li>
+</ol>
+<p>In this course we start with practical applications and gradually move to basic operations, because we hope it will be more engaging. Once we have achieved our goal we will explain the logic, and  investigate line by line what is happening.</p>
 
 <p>This has the consequence that we will introduce basic programming concepts such as types, lists, dictionaries <em>when it is needed, and only the minimal amount of information</em>. The challenge with this approach is that there is always more to learn about the basic programming concepts, thus if you feel that you would like to know more about the different concepts you should explore this on your own. See the next section for where to find resources.</p>
 <h1 id="online-programming-resources" class="anchor">Online programming resources </h1>
+
 <p>This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are <a href="https://www.w3schools.com/python/default.asp" target="_self">w3schools</a>, and <a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_self">A Whirlwind tour of Python</a>. These resources explains quite briefly important concepts and give examples, such as</p>
 <ul>
 <li> specific Python syntax</li>
@@ -158,18 +184,31 @@ end of tocinfo -->
 <li> control flow (if, else, while, for loops etc.)</li>
 <li> functions and classes</li>
 </ul>
+<h2 id="chatgpt" class="anchor">ChatGPT </h2>
+<p><a href="https://chat.openai.com/auth/login" target="_self">ChatGPT</a>, developed by <a href="https://openai.com/" target="_self">OpenAI</a> is perhaps one of the best online sources to help you write code. So far all the examples in this course can be generated from ChatGPT. Just type in ''Show me how to plot sin(x) in Python'', you will get the output in figure <a href="#fig:intro:chat1">1</a>.</p>
+
+<center> <!-- figure label: --> <div id="fig:intro:chat1"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 1:  Output from ChatGPT and the result after running the code.  <!-- caption label: fig:intro:chat1 --> </p>
+</center>
+<p><img src="fig-intro/chat1.png" align="bottom" width=400></p>
+</center>
+
+<p>I would encourage you to use ChatGPT actively in your coding, you will be more efficient. The code generated is generally good, and if there are parts you do not understand it is possible to get additional help from ChatGPT.  </p>
 <h1 id="stuff-you-need-to-do" class="anchor">Stuff you need to do </h1>
 
 <ol>
 <li> You need to install Python, even if you have installed Python before we recommend you to install the <a href="https://www.anaconda.com/download" target="_self">Anaconda distribution</a>. It is straight forward to install, just follow the instructions and choose default options that are suggested.</li>
-<li> Install an integrated development environment (IDE). An IDE is simply where you write the Python code. After installing Anaconda you should already have Spyder installed, if not you can install it by opening the Anaconda Navigator. You will find the Anaconda Navigator in the start menu in the Anaconda folder, but most likely there will already be a program called Spyder in your program folder. Another IDE is <a href="https://code.visualstudio.com/" target="_self">Visual Studio Code</a> or VS Code for short, see figure <a href="#fig:intro:ide">1</a> for two examples. An IDE will help you to write code, because it will give information about the code you write and also help you to find errors.</li>
+<li> Install an integrated development environment (IDE). An IDE is simply where you write the Python code. After installing Anaconda you should already have Spyder installed, if not you can install it by opening the Anaconda Navigator. You will find the Anaconda Navigator in the start menu in the Anaconda folder, but most likely there will already be a program called Spyder in your program folder. Another IDE is <a href="https://code.visualstudio.com/" target="_self">Visual Studio Code</a> or VS Code for short, see figure <a href="#fig:intro:ide">2</a> for two examples. An IDE will help you to write code, because it will give information about the code you write and also help you to find errors.</li>
+<li> Sign up for an account for <a href="https://chat.openai.com/auth/login" target="_self">ChatGPT</a>. This is not mandatory, but it will help you write code faster.</li>
 </ol>
 <center> <!-- figure label: --> <div id="fig:intro:ide"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 1: Two IDEs to write Python code (left) Spyder (right) VS Code.  <!-- caption label: fig:intro:ide --></p>
+<p class="caption">Figure 2:  Two IDEs to write Python code (left) Spyder (right) VS Code.  <!-- caption label: fig:intro:ide --> </p>
 </center>
-<p><img src="fig-intro/string_ex.png" width="800" align="bottom"></p>
+<p><img src="fig-intro/string_ex.png" align="bottom" width=400></p>
 </center>
 
 <h1 id="concepts-you-should-know-before-the-course-starts" class="anchor">Concepts you should know before the course starts </h1>
@@ -201,17 +240,17 @@ y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Dog&#39;
   </div>
 </div>
 
-<p>In the examples above we have two variables <code>x</code> and <code>y</code>, we have assigned the value 13 and the string <code>Dog</code> to them, respectively. The value 13 (or the string <code>Dog</code>) is stored somewhere in the computer memory, we can think of this piece of memory as a box with a label, as illustrated in figure <a href="#fig:intro:var">2</a>.</p>
+<p>In the examples above we have two variables <code>x</code> and <code>y</code>, we have assigned the value 13 and the string <code>Dog</code> to them, respectively. The value 13 (or the string <code>Dog</code>) is stored somewhere in the computer memory, we can think of this piece of memory as a box with a label, as illustrated in figure <a href="#fig:intro:var">3</a>.</p>
 
 <center> <!-- figure label: --> <div id="fig:intro:var"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 2: A visualization of a variable.  <!-- caption label: fig:intro:var --></p>
+<p class="caption">Figure 3:  A visualization of a variable.  <!-- caption label: fig:intro:var --> </p>
 </center>
-<p><img src="fig-intro/box.png" width="800" align="bottom"></p>
+<p><img src="fig-intro/box.png" align="bottom" width=400></p>
 </center>
 
-<p>The illustration in figure <a href="#fig:intro:var">2</a> also indicate that the size of the box may vary dependent on the content. Note that <code>x</code> and <code>y</code> are labels, it does not matter what kind of label we use, it is the content of the box that is important not the label you put on it. Normally you would use a more descriptive name than <code>x</code> or <code>y</code> to simply help other humans to better understand your code.</p>
+<p>The illustration in figure <a href="#fig:intro:var">3</a> also indicate that the size of the box may vary dependent on the content. Note that <code>x</code> and <code>y</code> are labels, it does not matter what kind of label we use, it is the content of the box that is important not the label you put on it. Normally you would use a more descriptive name than <code>x</code> or <code>y</code> to simply help other humans to better understand your code.</p>
 <h2 id="functions" class="anchor">Functions </h2>
 
 <p>A function is several lines of code that perform a specific task. We can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).</p>
@@ -219,16 +258,16 @@ y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Dog&#39;
 <p>Functions are useful because it allows us to wrap several lines of code that we believe we will use many times into reusable functions. Thus, we write the function (recipe) once and every time we want to make the same cake, we invoke the function to produce the output (cake).</p>
 <h2 id="objects-and-classes" class="anchor">Objects and Classes </h2>
 
-<p>In Python everything is an object. An object is a variable (a box) that contains data and functions. That means that the boxes in figure <a href="#fig:intro:var">2</a> is more than just  pieces of memory. To continue the with the recipe example above, we can think of an object as a cookbook that also contains ingredients, in Norwegian ''Matkasse'' or in English a ''Meal Kit''. There will be many recipes in this meal kit and many ingredients. In Python the syntax for accessing the functions (recipes) or data (ingredients) is by using the <code>.</code> syntax. In figure <a href="#fig:intro:ide">1</a>, this is illustrated. When we write <code>x='This is a string'</code>, we can e.g. do <code>x.capitalize()</code>, which will (not surprisingly) transform all the small letters to capital letters, <code>'THIS IS A STRING'</code>.</p>
+<p>In Python everything is an object. An object is a variable (a box) that contains data and functions. That means that the boxes in figure <a href="#fig:intro:var">3</a> is more than just  pieces of memory. To continue the with the recipe example above, we can think of an object as a cookbook that also contains ingredients, in Norwegian ''Matkasse'' or in English a ''Meal Kit''. There will be many recipes in this meal kit and many ingredients. In Python the syntax for accessing the functions (recipes) or data (ingredients) is by using the <code>.</code> syntax. In figure <a href="#fig:intro:ide">2</a>, this is illustrated. When we write <code>x='This is a string'</code>, we can e.g. do <code>x.capitalize()</code>, which will (not surprisingly) transform all the small letters to capital letters, <code>'THIS IS A STRING'</code>.</p>
 
 <p>Thus in Python there will be a lot of ready made functions that you can use to quickly perform simple operations on your variables.</p>
 
 <center> <!-- figure label: --> <div id="fig:intro:obj"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 3: A visualization of an object, containing functions (recipes) and variables (ingredients).  <!-- caption label: fig:intro:obj --></p>
+<p class="caption">Figure 4:  A visualization of an object, containing functions (recipes) and variables (ingredients).  <!-- caption label: fig:intro:obj --> </p>
 </center>
-<p><img src="fig-intro/food_box.png" width="800" align="bottom"></p>
+<p><img src="fig-intro/food_box.png" align="bottom" width=400></p>
 </center>
 
 <div class="alert alert-block alert-success alert-text-normal"><b>Objects vs Classes</b>
@@ -238,7 +277,37 @@ y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Dog&#39;
 <h2 id="library" class="anchor">Library </h2>
 
 <p>Python has a lot of libraries, which is one of the reasons why Python is so popular. These libraries are free and you can import them into your code. You can think of a library as a collection of cookbooks or meal kits as they also contains data. A Python library consists of a collection of objects, functions and or variables. We will discuss in detail how we import libraries in Python.  </p>
+<h1 id="exercise-install-a-python-library-in-a-separate-environment" class="anchor">Exercise: Install a Python library in a separate environment  </h1>
+
+<p>Hopefully you have managed to install Anaconda Python. Next, you want to open a terminal, if you are working on Linux or Mac, you open the terminal window. On Windows you open Anaconda Prompt from the Windows start menu. On my machine it looks something like this </p>
+
+<!-- code=text (!bc sys) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">(base) PS C:\Users\2902412&gt;
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The <code>(base)</code> to the left indicates that we are in the base environment in Anaconda. As a general rule we do not want to install new packages or libraries in this environment, this is simply because different packages are not always internally consistent. If you are unlucky you will install two packages that requires two different version of a third package, this will then break your installation and suddenly code that used to run will no longer work.</p>
+
+<p>A good practice is for each new project you start on that requires some special packages or libraries that you have not used before to create a new environment.
 <h1 id="bibliography" class="anchor">Bibliography </h1>
+</p>
 
 <!-- begin bibliography -->
 
@@ -259,4 +328,5 @@ y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Dog&#39;
 -->
 </body>
 </html>
+    
 
