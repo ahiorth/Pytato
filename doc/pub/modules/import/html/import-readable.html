@@ -1,6 +1,6 @@
 <!--
 File automatically generated using DocOnce (https://github.com/doconce/doconce/):
-doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -nospell
+doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
 <head>
@@ -11,7 +11,7 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta name="keywords" content="lists,list comprehension">
 <title>Introduction to Practical Applications</title>
 <!-- Bootstrap style: bootswatch_readable -->
-<!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -nospell -->
+<!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
 <!-- not necessary
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -47,13 +47,10 @@ code { color: inherit; background-color: transparent; }
                None,
                'why-python-is-so-popular-the-import-statement'),
               ('Matplotlib: Basic plotting in Python',
-               2,
+               1,
                None,
                'matplotlib-basic-plotting-in-python'),
-              ('Example: How can I add a second axis?',
-               2,
-               None,
-               'example-how-can-i-add-a-second-axis'),
+              ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
               ('Lists', 2, None, 'lists'),
               ('List comprehension', 3, None, 'list-comprehension'),
               ('Example: use list comprehension to make a plot of $y=x^3$',
@@ -106,8 +103,8 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="#why-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>Why Python is so popular: The import statement</b></a></li>
-     <!-- navigation toc: --> <li><a href="#matplotlib-basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Matplotlib: Basic plotting in Python</a></li>
-     <!-- navigation toc: --> <li><a href="#example-how-can-i-add-a-second-axis" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Example: How can I add a second axis?</a></li>
+     <!-- navigation toc: --> <li><a href="#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
      <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
      <!-- navigation toc: --> <li><a href="#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
@@ -139,7 +136,7 @@ MathJax.Hub.Config({
 <br>
 <p>University of Stavanger
 <center>
-<h4>Dec 11, 2023</h4>
+<h4>Dec 12, 2023</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -150,8 +147,8 @@ MathJax.Hub.Config({
 
 <div class='toc'>
 <p><a href="#why-python-is-so-popular-the-import-statement"> Why Python is so popular: The import statement </a></p>
-<p><span class="tab"> <a href="#matplotlib-basic-plotting-in-python"> Matplotlib: Basic plotting in Python </a></p>
-<p><span class="tab"> <a href="#example-how-can-i-add-a-second-axis"> Example: How can I add a second axis? </a></p>
+<p><a href="#matplotlib-basic-plotting-in-python"> Matplotlib: Basic plotting in Python </a></p>
+<p><a href="#data-structures-basic"> Data structures  (Basic) </a></p>
 <p><span class="tab"> <a href="#lists"> Lists </a></p>
 <p><a href="#numpy-working-with-numerical-arrays-in-python"> Numpy: Working with numerical arrays in Python </a></p>
 <p><a href="#pathlib-working-with-files-and-folders-in-python"> Pathlib: Working with files and folders in Python </a></p>
@@ -171,8 +168,8 @@ MathJax.Hub.Config({
 <p>This is not easy to answer, but here we will introduce you to the most popular libraries. We will suggest to stick to as few libraries as possible and try to achieve what you want with these. </p>
 </div>
 
-<h2 id="matplotlib-basic-plotting-in-python" class="anchor">Matplotlib: Basic plotting in Python </h2>
-<p>Visualizing data is a must, the code for plotting two sets of data is</p>
+<h1 id="matplotlib-basic-plotting-in-python" class="anchor">Matplotlib: Basic plotting in Python </h1>
+<p>Visualizing data is a must, the code for plotting two arrays of data is</p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -209,17 +206,11 @@ plt<span style="color: #666666">.</span>grid()   <span style="color: #3D7B7B; fo
 <li> <code>plt.legend()</code> display the legend given inside the <code>plt.plot</code> command</li>
 <li> <code>plt.grid()</code> adds grid lines which makes it easier to read the plot</li>
 </ol>
-<p>By visiting the official documentation, and view the <a href="https://matplotlib.org/stable/gallery/index.html" target="_self">matplotlib gallery</a>, you will see a lot of examples on how to visualize your data.</p>
-
-<p>Below there are some examples of stuff you might want to
-<h2 id="example-how-can-i-add-a-second-axis" class="anchor">Example: How can I add a second axis? </h2>
-Sometimes 
-</p>
-
-<p>There is a lot of This is also a good stage to introduce lists
+<p>By visiting the official documentation, and view the <a href="https://matplotlib.org/stable/gallery/index.html" target="_self">Matplotlib gallery</a>, you will see a lot of examples on how to visualize your data.</p>
+<h1 id="data-structures-basic" class="anchor">Data structures  (Basic) </h1>
+<p>The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. One of the most basic way to  In the example above we stored the date in lists <code>x=[1,2,3,4]</code>.  </p>
 <h2 id="lists" class="anchor">Lists </h2>
- Lists are defined using the square bracket <code>[]</code> symbol, e.g.
-</p>
+<p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -481,7 +472,7 @@ p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Pat
 
 <p>Let us go through each line</p>
 <ol>
-<li> <code>import pathlib as pt</code> as before, imports a useful library, in this case pathlib which we name <code>pt</code>. Functions in pathlib is accessed with the <code>.</code> syntax.</li>
+<li> <code>import pathlib as pt</code> as before, imports a useful library, in this case Pathlib which we name <code>pt</code>. Functions in Pathlib is accessed with the <code>.</code> syntax.</li>
 <li> <code>p=pt.Path('.')</code> we create a Path object and name it <code>p</code>. We will return to objects and classes later, for now you can think of it as a variable that may contain data and functions that can be used to manipulate</li> 
 </ol>
 <h1 id="bibliography" class="anchor">Bibliography </h1>

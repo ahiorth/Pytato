@@ -25,10 +25,11 @@ o The `plt.plot` commands plots `y` vs `x`
 o `plt.legend()` display the legend given inside the `plt.plot` command
 o `plt.grid()` adds grid lines which makes it easier to read the plot
 
-By visiting the official documentation, and view the "matplotlib gallery":"https://matplotlib.org/stable/gallery/index.html", you will see a lot of examples on how to visualize your data.
+By visiting the official documentation, and view the "Matplotlib gallery":"https://matplotlib.org/stable/gallery/index.html", you will see a lot of examples on how to visualize your data.
 
 ======= Data structures  (Basic) =======
-The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. One of the most basic way to  In the example above we stored the date in lists `x=[1,2,3,4]`.  
+idx{data structures}
+The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. Below we give a short explanation of the most used data structures, which you should be familiar with
 
 ===== Lists =====
 idx{lists} idx{list comprehension}
@@ -79,7 +80,30 @@ y=[i**2 for i in x]
 plt.plot(x,y) # if you want you can add legend and grid lines
 !ec
 
+===== Dictionaries  =====
+
+Dictionaries is useful if your data fits the template of key:value pairs. A very good mental image to have is an excel sheet where data are organized in columns. Each column has a header name, or a *key*. Assume we have the following table
+
+|-----------------------------------|
+| x        | y           | z        |
+|----c-----------c------------c-----|
+|  1.0     | 1.0         | 3.0      |
+|  2.0     | 4.0         |          |
+|  3.0     | 9.0         |          |
+|  4.0     | 16.0        |          |
+|-----------------------------------|
+
+This could be represented as a dictionary as
+!bc pypro
+my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
+!ec
+The syntax is `{key1:values, key2:values2, ...}`. We access the values in the dictionary by the key i.e. `print(my_dict['x'])` would print `[1.,2.,3.,4.]`.
+
+===== Tuples =====
+A tuple is a data structure that in many respects is equal to a list. It can contain various Python objects, *but the elements cannot be changed after the tuple has been created*. It is created by using round parenthesis, `()` as opposed to the square parenthesis, `[]`, used in list creation. 
+
 ======= Numpy: Working with numerical arrays in Python =======
+
 In the above example we used lists to store values that we wanted to plot. Lists are one of the basic data structures in Python, but since they are so flexible they are not well suited for mathematical operations. If you are only working with arrays that contain numbers you should use the "Numpy":"https://numpy.org/" library. The above example in Numpy would be
 !bc pypro
 import numpy as np
@@ -117,5 +141,5 @@ for x in p.iterdir():
         print('Found file: ', x)
 !ec
 Let us go through each line
-o `import pathlib as pt` as before, imports a useful library, in this case pathlib which we name `pt`. Functions in pathlib is accessed with the `.` syntax.
+o `import pathlib as pt` as before, imports a useful library, in this case Pathlib which we name `pt`. Functions in Pathlib is accessed with the `.` syntax.
 o `p=pt.Path('.')` we create a Path object and name it `p`. We will return to objects and classes later, for now you can think of it as a variable that may contain data and functions that can be used to manipulate 

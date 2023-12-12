@@ -2,6 +2,7 @@
 Aksel
 Fortan
 Hiorth
+Matplotlib
 Numpy
 Pathlib
 Stavanger
