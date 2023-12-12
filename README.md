@@ -4,4 +4,4 @@ Work in progress: This is supposed to be a skill based python course. The docume
 ## Index
 
 1. [Preliminaries](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/intro/notebook/main_intro.ipynb)
-2. [Introduction to Practical Applications] (https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/import/notebook/main_import.ipynb)
+2. [Introduction to Practical Applications](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/import/notebook/main_import.ipynb)
