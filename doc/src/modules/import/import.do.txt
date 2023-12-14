@@ -55,6 +55,14 @@ You can also remove stuff, using the `pop` function, then you also have to give 
 !bc pypro
 my_list.pop(0) # my_list=['dog']
 !ec
+!bnotice print statement
+As default python will usually write to screen your last statement. But at any time you can use the `print` statement to force python to print out any variable, e.g.
+!bc pypro
+print(my_list[0]) # first element
+print(my_list[0],my_list[1]) # first and second element
+print(my_list) # the whole list 
+!ec
+!enotice
 === List comprehension ===
 
 Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use *list comprehension*
@@ -76,7 +84,7 @@ We will cover the for loop later, but basically what is done is that the stateme
 N=100 # 100 points
 dx=6/N
 x=[-3+i*dx for i in range(N)]
-y=[i**2 for i in x]
+y=[i**3 for i in x]
 plt.plot(x,y) # if you want you can add legend and grid lines
 !ec
 
@@ -99,8 +107,36 @@ my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
 !ec
 The syntax is `{key1:values, key2:values2, ...}`. We access the values in the dictionary by the key i.e. `print(my_dict['x'])` would print `[1.,2.,3.,4.]`.
 
+=== Example: Add numbers to dictionary and plot ===
+* Add two numbers to `x` and `y` in `my_dict` and plot `y` vs `x`
+
+=== Solution ===
+!bc pycod
+import matplotlib.pyplot as plt
+my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
+# add two numbers
+my_dict['x'].append(-3)
+my_dict['y'].append(-10)
+plt.plot(my_dict['x'],my_dict['y'])
+#alternatively only points
+plt.plot(my_dict['x'],my_dict['y'],'*')
+!ec
 ===== Tuples =====
-A tuple is a data structure that in many respects is equal to a list. It can contain various Python objects, *but the elements cannot be changed after the tuple has been created*. It is created by using round parenthesis, `()` as opposed to the square parenthesis, `[]`, used in list creation. 
+A tuple is a data structure that in many respects is equal to a list. It can contain various Python objects, *but the elements cannot be changed after the tuple has been created*. It is created by using round parenthesis, `()` as opposed to the square parenthesis, `[]`, used in list creation.
+!bc pycod
+my_tuple=(1,2,3,4)
+print(my_tuple[0]) # would give 1
+print(my_tuple[-1]) # would give 4
+my_tuple[0]=2 # would give an error message
+!ec
+
+!bnotice Tuples vs Lists
+The obvious difference between tuples and lists is that you cannot change tuples after they have been created, in Python an object where you cannot change the state after it has been created is called *immutable* as opposed to *mutable*. Since tuples are immutable, you can also use them as keys in dictionaries. This can be useful if you need a lookup value that contains more information, e.g.
+!bc pycod
+my_dict={}
+my_dict[('perm','mD')]=[50,100,250]
+!ec
+!enotice
 
 ======= Numpy: Working with numerical arrays in Python =======
 
@@ -128,9 +164,21 @@ x*x # would give [1,16,49]
 x/x # would give [1.,1.,1.]
 !ec
 
+======= Boolean masking =======
+In Python we also have a Boolean type, which is `True` or `False` (note the big letters), it takes up the smallest amount of memory (one byte). It is a subclass of integer, `int`, and if you add or subtract them, `True` and `False` will be given the value of 1 and 0 respectively.  In many applications you would like to pick out only a part of the elements of an array. If we work with Numpy arrays, it is extremely easy achieve this using Boolean masking or Boolean indexing. We use the word ''mask'' to indicate which bits we want to keep, and which we want to remove. It is best demonstrated on some examples (remember: it will not work on lists)
+!bc pycod
+x=np.array([4,5,7,8,9]) #create numpy array from a list
+print(x>5) # [False, False, True, True, True]
+print(np.sum(x>5)) # 3
+x[x>5] # [7,8,9]
+!ec
+
+
+
 ======= Pathlib: Working with files and folders in Python =======
 
-Usually we have files and folder located at different places on the computer. This could be excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder
+When you want to open a file in a Python script, you first have to locate it. If you have downloaded all the files, there will be a `data` folder in which there are several data sets, we look at some well data from "GeoProvider":"http://geoprovider.no/". 
+Usually we have files and folder located at different places on the computer. This could be Excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder
 !bc pypro
 import pathlib as pt
 p=pt.Path('.') # the directory where this python file is located

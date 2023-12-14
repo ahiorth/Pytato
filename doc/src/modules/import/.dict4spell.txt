@@ -1,6 +1,7 @@
 
 Aksel
 Fortan
+GeoProvider
 Hiorth
 Matplotlib
 Numpy

@@ -8,5 +8,7 @@ Matkasse
 OpenAI
 Spyder
 Stavanger
+conda
 int
+matkasse
 youtube

@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -8,7 +9,7 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Introduction to Practical Applications">
-<meta name="keywords" content="lists,list comprehension">
+<meta name="keywords" content="data structures,lists,list comprehension">
 <title>Introduction to Practical Applications</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
@@ -58,10 +59,18 @@ code { color: inherit; background-color: transparent; }
                None,
                'example-use-list-comprehension-to-make-a-plot-of-y-x-3'),
               ('Solution', 3, None, 'solution'),
+              ('Dictionaries', 2, None, 'dictionaries'),
+              ('Example: Add numbers to dictionary and plot',
+               3,
+               None,
+               'example-add-numbers-to-dictionary-and-plot'),
+              ('Solution', 3, None, 'solution'),
+              ('Tuples', 2, None, 'tuples'),
               ('Numpy: Working with numerical arrays in Python',
                1,
                None,
                'numpy-working-with-numerical-arrays-in-python'),
+              ('Boolean masking', 1, None, 'boolean-masking'),
               ('Pathlib: Working with files and folders in Python',
                1,
                None,
@@ -109,7 +118,12 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
      <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
      <!-- navigation toc: --> <li><a href="#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
      <!-- navigation toc: --> <li><a href="#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
@@ -136,7 +150,7 @@ MathJax.Hub.Config({
 <br>
 <p>University of Stavanger
 <center>
-<h4>Dec 12, 2023</h4>
+<h4>Dec 14, 2023</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -150,7 +164,10 @@ MathJax.Hub.Config({
 <p><a href="#matplotlib-basic-plotting-in-python"> Matplotlib: Basic plotting in Python </a></p>
 <p><a href="#data-structures-basic"> Data structures  (Basic) </a></p>
 <p><span class="tab"> <a href="#lists"> Lists </a></p>
+<p><span class="tab"> <a href="#dictionaries"> Dictionaries  </a></p>
+<p><span class="tab"> <a href="#tuples"> Tuples </a></p>
 <p><a href="#numpy-working-with-numerical-arrays-in-python"> Numpy: Working with numerical arrays in Python </a></p>
+<p><a href="#boolean-masking"> Boolean masking </a></p>
 <p><a href="#pathlib-working-with-files-and-folders-in-python"> Pathlib: Working with files and folders in Python </a></p>
 <p><a href="#bibliography"> Bibliography </a></p>
 </div>
@@ -208,7 +225,7 @@ plt<span style="color: #666666">.</span>grid()   <span style="color: #3D7B7B; fo
 </ol>
 <p>By visiting the official documentation, and view the <a href="https://matplotlib.org/stable/gallery/index.html" target="_self">Matplotlib gallery</a>, you will see a lot of examples on how to visualize your data.</p>
 <h1 id="data-structures-basic" class="anchor">Data structures  (Basic) </h1>
-<p>The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. One of the most basic way to  In the example above we stored the date in lists <code>x=[1,2,3,4]</code>.  </p>
+<p>The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. Below we give a short explanation of the most used data structures, which you should be familiar with</p>
 <h2 id="lists" class="anchor">Lists </h2>
 <p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
 
@@ -292,6 +309,35 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     </div>
   </div>
 </div>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>print statement</b>
+<p>As default python will usually write to screen your last statement. But at any time you can use the <code>print</code> statement to force python to print out any variable, e.g.</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># first element</span>
+<span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>],my_list[<span style="color: #666666">1</span>]) <span style="color: #3D7B7B; font-style: italic"># first and second element</span>
+<span style="color: #008000">print</span>(my_list) <span style="color: #3D7B7B; font-style: italic"># the whole list </span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <h3 id="list-comprehension" class="anchor">List comprehension </h3>
 
 <p>Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use <em>list comprehension</em></p>
@@ -339,7 +385,7 @@ y <span style="color: #666666">=</span> [i<span style="color: #666666">**2</span
 N<span style="color: #666666">=100</span> <span style="color: #3D7B7B; font-style: italic"># 100 points</span>
 dx<span style="color: #666666">=6/</span>N
 x<span style="color: #666666">=</span>[<span style="color: #666666">-3+</span>i<span style="color: #666666">*</span>dx <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N)]
-y<span style="color: #666666">=</span>[i<span style="color: #666666">**2</span> <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> x]
+y<span style="color: #666666">=</span>[i<span style="color: #666666">**3</span> <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> x]
 plt<span style="color: #666666">.</span>plot(x,y) <span style="color: #3D7B7B; font-style: italic"># if you want you can add legend and grid lines</span>
 </pre>
 </div>
@@ -355,7 +401,143 @@ plt<span style="color: #666666">.</span>plot(x,y) <span style="color: #3D7B7B; f
     </div>
   </div>
 </div>
+<h2 id="dictionaries" class="anchor">Dictionaries  </h2>
+
+<p>Dictionaries is useful if your data fits the template of key:value pairs. A very good mental image to have is an excel sheet where data are organized in columns. Each column has a header name, or a <em>key</em>. Assume we have the following table</p>
+
+<div class="row">
+  <div class="col-xs-1">
+    <table class="table table-striped table-hover table-condensed">
+<thead>
+<tr><td align="center"><b> x </b></td> <td align="center"><b> y  </b></td> <td align="center"><b> z </b></td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   1.0    </td> <td align="center">   1.0     </td> <td align="center">   3.0    </td> </tr>
+<tr><td align="center">   2.0    </td> <td align="center">   4.0     </td> <td align="center">          </td> </tr>
+<tr><td align="center">   3.0    </td> <td align="center">   9.0     </td> <td align="center">          </td> </tr>
+<tr><td align="center">   4.0    </td> <td align="center">   16.0    </td> <td align="center">          </td> </tr>
+</tbody>
+    </table>
+  </div> <!-- col-xs-1 -->
+</div> <!-- cell row -->
+
+<p>This could be represented as a dictionary as</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;x&#39;</span>:[<span style="color: #666666">1.</span>,<span style="color: #666666">2.</span>,<span style="color: #666666">3.</span>,<span style="color: #666666">4.</span>],<span style="color: #BA2121">&#39;y&#39;</span>:[<span style="color: #666666">1.</span>,<span style="color: #666666">4.</span>,<span style="color: #666666">9.</span>,<span style="color: #666666">16.</span>],<span style="color: #BA2121">&#39;z&#39;</span>:[<span style="color: #666666">3.</span>]}
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The syntax is <code>{key1:values, key2:values2, ...}</code>. We access the values in the dictionary by the key i.e. <code>print(my_dict['x'])</code> would print <code>[1.,2.,3.,4.]</code>.</p>
+<h3 id="example-add-numbers-to-dictionary-and-plot" class="anchor">Example: Add numbers to dictionary and plot </h3>
+<ul>
+<li> Add two numbers to <code>x</code> and <code>y</code> in <code>my_dict</code> and plot <code>y</code> vs <code>x</code></li>
+</ul>
+<h3 id="solution" class="anchor">Solution </h3>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+my_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;x&#39;</span>:[<span style="color: #666666">1.</span>,<span style="color: #666666">2.</span>,<span style="color: #666666">3.</span>,<span style="color: #666666">4.</span>],<span style="color: #BA2121">&#39;y&#39;</span>:[<span style="color: #666666">1.</span>,<span style="color: #666666">4.</span>,<span style="color: #666666">9.</span>,<span style="color: #666666">16.</span>],<span style="color: #BA2121">&#39;z&#39;</span>:[<span style="color: #666666">3.</span>]}
+<span style="color: #3D7B7B; font-style: italic"># add two numbers</span>
+my_dict[<span style="color: #BA2121">&#39;x&#39;</span>]<span style="color: #666666">.</span>append(<span style="color: #666666">-3</span>)
+my_dict[<span style="color: #BA2121">&#39;y&#39;</span>]<span style="color: #666666">.</span>append(<span style="color: #666666">-10</span>)
+plt<span style="color: #666666">.</span>plot(my_dict[<span style="color: #BA2121">&#39;x&#39;</span>],my_dict[<span style="color: #BA2121">&#39;y&#39;</span>])
+<span style="color: #3D7B7B; font-style: italic">#alternatively only points</span>
+plt<span style="color: #666666">.</span>plot(my_dict[<span style="color: #BA2121">&#39;x&#39;</span>],my_dict[<span style="color: #BA2121">&#39;y&#39;</span>],<span style="color: #BA2121">&#39;*&#39;</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="tuples" class="anchor">Tuples </h2>
+<p>A tuple is a data structure that in many respects is equal to a list. It can contain various Python objects, <em>but the elements cannot be changed after the tuple has been created</em>. It is created by using round parenthesis, <code>()</code> as opposed to the square parenthesis, <code>[]</code>, used in list creation.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_tuple<span style="color: #666666">=</span>(<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>)
+<span style="color: #008000">print</span>(my_tuple[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># would give 1</span>
+<span style="color: #008000">print</span>(my_tuple[<span style="color: #666666">-1</span>]) <span style="color: #3D7B7B; font-style: italic"># would give 4</span>
+my_tuple[<span style="color: #666666">0</span>]<span style="color: #666666">=2</span> <span style="color: #3D7B7B; font-style: italic"># would give an error message</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Tuples vs Lists</b>
+<p>The obvious difference between tuples and lists is that you cannot change tuples after they have been created, in Python an object where you cannot change the state after it has been created is called <em>immutable</em> as opposed to <em>mutable</em>. Since tuples are immutable, you can also use them as keys in dictionaries. This can be useful if you need a lookup value that contains more information, e.g.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;">my_dict<span style="color: #666666">=</span>{}
+my_dict[(<span style="color: #BA2121">&#39;perm&#39;</span>,<span style="color: #BA2121">&#39;mD&#39;</span>)]<span style="color: #666666">=</span>[<span style="color: #666666">50</span>,<span style="color: #666666">100</span>,<span style="color: #666666">250</span>]
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <h1 id="numpy-working-with-numerical-arrays-in-python" class="anchor">Numpy: Working with numerical arrays in Python </h1>
+
 <p>In the above example we used lists to store values that we wanted to plot. Lists are one of the basic data structures in Python, but since they are so flexible they are not well suited for mathematical operations. If you are only working with arrays that contain numbers you should use the <a href="https://numpy.org/" target="_self">Numpy</a> library. The above example in Numpy would be</p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
@@ -385,18 +567,19 @@ plt<span style="color: #666666">.</span>plot(x,y)
 
 <p>Numpy has built in functions that allows you to calculate e.g. the logarithm, sine, exponential of arrays</p>
 
-<!-- code=text (!bc dat) typeset with pygments style "default" -->
+<!-- code=text (!bc ccq) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
+        <blockquote>
+<div class="highlight" style="background: #f8f8f8">
   <pre style="line-height: 125%;">np.log(x) # log of all elements in x
 np.exp(x) # exp of all elements in x
 np.sin(x) # sin of all elements in x
 </pre>
 </div>
-      </div>
+</blockquote>      </div>
     </div>
   </div>
   <div class="output_wrapper">
@@ -438,9 +621,38 @@ x<span style="color: #666666">/</span>x <span style="color: #3D7B7B; font-style:
     </div>
   </div>
 </div>
+<h1 id="boolean-masking" class="anchor">Boolean masking </h1>
+<p>In Python we also have a Boolean type, which is <code>True</code> or <code>False</code> (note the big letters), it takes up the smallest amount of memory (one byte). It is a subclass of integer, <code>int</code>, and if you add or subtract them, <code>True</code> and <code>False</code> will be given the value of 1 and 0 respectively.  In many applications you would like to pick out only a part of the elements of an array. If we work with Numpy arrays, it is extremely easy achieve this using Boolean masking or Boolean indexing. We use the word ''mask'' to indicate which bits we want to keep, and which we want to remove. It is best demonstrated on some examples (remember: it will not work on lists)</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">4</span>,<span style="color: #666666">5</span>,<span style="color: #666666">7</span>,<span style="color: #666666">8</span>,<span style="color: #666666">9</span>]) <span style="color: #3D7B7B; font-style: italic">#create numpy array from a list</span>
+<span style="color: #008000">print</span>(x<span style="color: #666666">&gt;5</span>) <span style="color: #3D7B7B; font-style: italic"># [False, False, True, True, True]</span>
+<span style="color: #008000">print</span>(np<span style="color: #666666">.</span>sum(x<span style="color: #666666">&gt;5</span>)) <span style="color: #3D7B7B; font-style: italic"># 3</span>
+x[x<span style="color: #666666">&gt;5</span>] <span style="color: #3D7B7B; font-style: italic"># [7,8,9]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <h1 id="pathlib-working-with-files-and-folders-in-python" class="anchor">Pathlib: Working with files and folders in Python </h1>
 
-<p>Usually we have files and folder located at different places on the computer. This could be excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder</p>
+<p>When you want to open a file in a Python script, you first have to locate it. If you have downloaded all the files, there will be a <code>data</code> folder in which there are several data sets, we look at some well data from <a href="http://geoprovider.no/" target="_self">GeoProvider</a>. 
+Usually we have files and folder located at different places on the computer. This could be Excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder
+</p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -496,4 +708,5 @@ p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Pat
 -->
 </body>
 </html>
+    
 

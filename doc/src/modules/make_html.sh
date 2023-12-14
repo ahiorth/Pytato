@@ -50,6 +50,7 @@ style=bootswatch_readable
 html=${nickname}-readable
 system doconce format html $mainname $opt --html_style=$style --html_output=$html --html_code_style=inherit $args
 system doconce replace 'width="400"' 'width="800"' $html.html
+system doconce replace 'width=400' 'width=800' $html.html
 
 system doconce split_html $html.html --nav_button=text
 
