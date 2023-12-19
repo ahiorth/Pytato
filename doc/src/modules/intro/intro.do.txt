@@ -1,15 +1,17 @@
 # Here goes the main text.
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
-
+!split
 ===== Is it possible to learn Python in two days? =====
 
 You will for sure not master Python in two days, but you will be able to perform many useful tasks, and lay the foundation for further development. In particular with the release of "ChatGPT":"https://chat.openai.com/auth/login", I would say it has never been so easy to get advanced applications up and running with only a basic understanding of Python. If you manage to formulate what your task precisely, then ChatGPT will translate your request into code (see e.g. figure ref{fig:intro:chat1}). This is clearly not foolproof, the code you get back might not work exactly as you want and you will need to modify it, or perhaps you have to break your task into several smaller pieces to get useful answers from ChatGPT (or the web) and then you are left with the task of gluing them together yourself.
 
+!split
 ===== Why should you learn coding? =====
 
 A quick google search will tell you that you should learn to code because it will lead to job opportunities and boost your career. I would also highlight that it will let you test out ideas much more efficiently. When you have a lot of domain knowledge in a certain area, you will most likely have ideas that can lead to innovation or new insight. As an example, maybe you have made some observation indicating that two phenomena originally believed to be unrelated, actually are related. To prove or support you claim, you would then need to collect data from these phenomena and present them together. Since the phenomena are unrelated the data are most likely located in different places. With some basic knowledge of Python you can easily access different files, folders, web pages, scrap data from them, filter the data, and join them. Once you have collected the data you would then make some plots, and inspect the plots to discover patterns. The next steps is to quantify correlations by e.g. regression analysis or to use more advanced machine learning techniques. All this can be achieved with Python, it will take you time to master this fully, but with basic Python knowledge you can easily run through tutorials yourself and become quite advanced within weeks.     
 
+!split
 ======= About this course =======
 
 With the development of tools that can write code for you and also the large number of libraries in Python, it becomes less important to learn syntax. Rather, you should focus on learning the basic concepts, and to learn the logic of coding. For the examples presented in this course, try to focus on
@@ -22,6 +24,7 @@ In this course we start with practical applications and gradually move to basic 
 
 This has the consequence that we will introduce basic programming concepts such as types, lists, dictionaries *when it is needed, and only the minimal amount of information*. The challenge with this approach is that there is always more to learn about the basic programming concepts, thus if you feel that you would like to know more about the different concepts you should explore this on your own. See the next section for where to find resources.
 
+!split
 ======= Online programming resources =======
 
 This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are "w3schools":"https://www.w3schools.com/python/default.asp", and "A Whirlwind tour of Python":"https://jakevdp.github.io/WhirlwindTourOfPython/". These resources explains quite briefly important concepts and give examples, such as
@@ -43,6 +46,7 @@ I would encourage you to use ChatGPT actively in your coding, you will be more e
 When it comes to the vast number of libraries in Python it becomes much harder to master them, because it is so easy to just google ''How can I do this or that in Python''. What happens is that you quickly end up at "Stack Overflow":"https://stackoverflow.com/", where it is usually plenty of suggestions on how to solve your problem. suggest that this can be achieved by using their favorite library. My experience is that coded suggested by others can be unnecessary complicated, and what is maybe more important is that you want over time to develop your own personalized style. As a general rule of thumb, you should try to limit yourself to a limited number of libraries, and for basic operations use vanilla Python (i.e. Python without libraries).
 # #endif
 
+!split
 ======= Stuff you need to do =======
 
 o You need to install Python, even if you have installed Python before we recommend you to install the "Anaconda distribution":"https://www.anaconda.com/download". It is straight forward to install, just follow the instructions and choose default options that are suggested.
@@ -51,11 +55,12 @@ o Sign up for an account for "ChatGPT":"https://chat.openai.com/auth/login". Thi
 
 FIGURE: [fig-intro/string_ex.png, width=400 frac=1.0] Two IDEs to write Python code (left) Spyder (right) VS Code. label{fig:intro:ide}
 
+!split
 ======= If you never have coded before =======
 
 Here I have collected stuff that will make your life easier, and increase the speed of understanding. I have tried to explain some concepts below, if this is too little information there are plenty of online resources that you can check out. The purpose of this section is to introduce you to some concepts that are key to any programming language, but can take some time to master or to get under your skin. If you understand these concepts, coding will be easier. Do not focus on how we use these concepts in coding, that is what the course is all about, rather try to understand the meaning of the concepts. 
 
-
+!split
 ===== Variable =====
 Coding is very much about passing information around and do something with that information. In Python we can easily import an Excel sheet, then we typically pass the Excel sheet around in the code and do some mathematical operations on the different columns. To pass data around in our code we use *variables*, below are two variables called `x` and `y` 
 !bc pypro
@@ -68,6 +73,7 @@ FIGURE: [fig-intro/box.png, width=400 frac=1.0] A visualization of a variable. l
 
 The illustration in figure ref{fig:intro:var} also indicate that the size of the box may vary dependent on the content. Note that `x` and `y` are labels, it does not matter what kind of label we use, it is the content of the box that is important not the label you put on it. Normally you would use a more descriptive name than `x` or `y` to simply help other humans to better understand your code.
 
+!split
 ===== Functions =====
 
 A function is several lines of code that perform a specific task. We can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
@@ -76,6 +82,7 @@ Functions are useful because it allows us to wrap several lines of code that we 
 
 FIGURE: [fig-intro/batter.png, width=400 frac=1.0] My favorite chocolate fondant recipe and a Python code. label{fig:intro:batter}
 
+!split
 ===== Objects and Classes =====
 
 In Python everything is an object. An object is a variable (a box) that contains data and functions. That means that the boxes in figure ref{fig:intro:var} is more than just  pieces of memory. To continue the with the recipe example above, we can think of an object as a cookbook that also contains ingredients, in Norwegian ''matkasse'' or in English a ''meal kit''. There will be many recipes in this meal kit and many ingredients. In Python the syntax for accessing the functions (recipes) or data (ingredients) is by using the `.` syntax. In figure ref{fig:intro:ide}, this is illustrated. When we write `x='This is a string'`, we can e.g. do `x.capitalize()`, which will (not surprisingly) transform all the small letters to capital letters, `'THIS IS A STRING'`.
@@ -87,11 +94,12 @@ FIGURE: [fig-intro/food_box.png, width=400 frac=1.0] A visualization of an objec
 !bnotice Objects vs Classes
 A class is a blueprint and objects are an instance of the class. We create a class by writing lines of code, to create objects we execute the code in the class. In many ways you can say that objects are physical whereas a class is logical. For the food kit case a class can be a description of the food kit on paper, describing how many recipes, how much potatoes, meat etc. should be included in each food kit, whereas all the physical food kits delivered to the customers are the objects. 
 !enotice
-
+!split
 ===== Library =====
 
 Python has a lot of libraries, which is one of the reasons why Python is so popular. These libraries are free and you can import them into your code. You can think of a library as a collection of cookbooks or meal kits as they also contains data. A Python library consists of a collection of objects, functions and or variables. In figure ref{fig:intro:chat1} two libraries are imported `numpy` and `matplotlib.pyplot`, we will return to these libraries later.
 
+!split
 ======= Exercise: Install a Python library in a separate environment  =======
 
 Hopefully you have managed to install Anaconda Python. Next, you want to open a terminal, if you are working on Linux or Mac, you open the terminal window. On Windows you open Anaconda Prompt from the Windows start menu. On my machine it looks something like this 

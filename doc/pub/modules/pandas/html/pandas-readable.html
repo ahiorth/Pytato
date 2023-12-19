@@ -1,6 +1,5 @@
 <!--
-HTML file automatically generated from DocOnce source
-(https://github.com/doconce/doconce/)
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
 doconce format html main_pandas.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=pandas-readable --html_code_style=inherit
 -->
 <html>
@@ -172,7 +171,7 @@ end of tocinfo -->
 <br>
 <p>University of Stavanger
 <center>
-<h4>Dec 13, 2023</h4>
+<h4>Dec 19, 2023</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -324,9 +323,9 @@ df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>Da
 <center> <!-- figure label: --> <div id="fig:file"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 1:  Official Covid-19 data, and example of files (left) tab separated (right) excel file.  <!-- caption label: fig:file --> </p>
+<p class="caption">Figure 1: Official Covid-19 data, and example of files (left) tab separated (right) excel file.  <!-- caption label: fig:file --></p>
 </center>
-<p><img src="fig-pandas/covid_comb.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/covid_comb.png" width="800" align="bottom"></p>
 </center>
 
 
@@ -1078,9 +1077,9 @@ df<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>
 <center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 2:  The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --> </p>
+<p class="caption">Figure 2: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
 </center>
-<p><img src="fig-pandas/group.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/group.png" width="800" align="bottom"></p>
 </center>
 
 <h2 id="simple-statistics-in-pandas" class="anchor">Simple statistics in Pandas </h2>
@@ -1113,9 +1112,9 @@ df<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>
 <center> <!-- figure label: --> <div id="fig:pandas:desc"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 3:  Output from the describe command.  <!-- caption label: fig:pandas:desc --> </p>
+<p class="caption">Figure 3: Output from the describe command.  <!-- caption label: fig:pandas:desc --></p>
 </center>
-<p><img src="fig-pandas/describe.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/describe.png" width="800" align="bottom"></p>
 </center>
 
 <h2 id="joining-two-dataframes" class="anchor">Joining two DataFrames </h2>
@@ -1190,9 +1189,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:concat"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 4:  The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --> </p>
+<p class="caption">Figure 4: The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --></p>
 </center>
-<p><img src="fig-pandas/concat.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/concat.png" width="800" align="bottom"></p>
 </center>
 
 <p>If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing <code>df=pd.concat([df1,df2],ignore_index=True)</code> resets the index. It is also possible to join DataFrames column vise</p>
@@ -1262,9 +1261,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:join"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 5:  The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --> </p>
+<p class="caption">Figure 5: The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --></p>
 </center>
-<p><img src="fig-pandas/fig_join.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/fig_join.png" width="800" align="bottom"></p>
 </center>
 
 <p>To be even more specific, after performing the commands</p>
@@ -1297,9 +1296,9 @@ df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666"
 <center> <!-- figure label: --> <div id="fig:pd:merge"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 6:  Merging to dataframes using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --> </p>
+<p class="caption">Figure 6: Merging to dataframes using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --></p>
 </center>
-<p><img src="fig-pandas/merge.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/merge.png" width="800" align="bottom"></p>
 </center>
 
 <p>Clearly in this case we need to choose <code>outer</code>. In the merge process pandas adds an extra subscript <code>_x</code> and <code>_y</code> on columns that contains the same header name. We also need to sum those, which can be done as follows
@@ -1340,9 +1339,9 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 <center> <!-- figure label: --> <div id="fig:pandas:merge3"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 7:  Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --> </p>
+<p class="caption">Figure 7: Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --></p>
 </center>
-<p><img src="fig-pandas/merge3.png" align="bottom" width=400></p>
+<p><img src="fig-pandas/merge3.png" width="800" align="bottom"></p>
 </center>
 
 <h2 id="working-with-folders-and-files" class="anchor">Working with folders and files </h2>
@@ -1965,5 +1964,4 @@ get_rows_from_dataframe(<span style="color: #BA2121">&#39;afGhaniStan&#39;</span
 -->
 </body>
 </html>
-    
 

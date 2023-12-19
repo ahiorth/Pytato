@@ -130,6 +130,7 @@ fi
 doconce format ipynb ${mainname} $args
 system doconce replace 'width="400"' 'width="800"' ${mainname}.ipynb
 system doconce replace 'width=400' 'width=800' ${mainname}.ipynb
+system doconce replace 'width=\"400\"' 'width=\"800\"' ${mainname}.ipynb
 cp ${mainname}.ipynb $dest/notebook/
 if [ -e ipynb-${mainname}*.tar.gz ]; then
   tar xvfz ipynb-${mainname}*.tar.gz  -C $dest/notebook/
