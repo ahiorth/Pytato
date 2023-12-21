@@ -1,5 +1,8 @@
 
 Aksel
+Covid
+DataFrame
+DataFrames
 Fortan
 GeoProvider
 Hiorth
@@ -7,4 +10,8 @@ Matplotlib
 Numpy
 Pathlib
 Stavanger
+Wes
+covid
+csv
 pyplot
+vectorized

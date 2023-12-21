@@ -1,13 +1,15 @@
 # Here goes the main text.
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
-======= Why Python is so popular: The import statement =======
+!split
+======= One reason Python is so popular: The import statement =======
 It is always hard decide which coding language to learn, it usually depends on what you want to do. If you want to do very fast numerical calculations Fortan or C used to be the most popular languages, and for web or application programming Java. However, in recent years Python has become more and more popular, one of the reasons is its large amount of libraries and communities. If you have an idea of what you want to do, you can almost be certain that there exist a Python library written for that purpose. In the next chapters we will cover some advanced operations in Python and use them to motivate to learn more about the basic operations.
 
 !bnotice Which library to use?
 This is not easy to answer, but here we will introduce you to the most popular libraries. We will suggest to stick to as few libraries as possible and try to achieve what you want with these. 
 !enotice
 
+!split
 ======= Matplotlib: Basic plotting in Python =======
 Visualizing data is a must, the code for plotting two arrays of data is
 !bc pypro
@@ -27,10 +29,11 @@ o `plt.grid()` adds grid lines which makes it easier to read the plot
 
 By visiting the official documentation, and view the "Matplotlib gallery":"https://matplotlib.org/stable/gallery/index.html", you will see a lot of examples on how to visualize your data.
 
+!split
 ======= Data structures  (Basic) =======
 idx{data structures}
-The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. Below we give a short explanation of the most used data structures, which you should be familiar with
-
+The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. In the next subsections we give a short overview of the most used data structures, which you should be familiar with.
+!split
 ===== Lists =====
 idx{lists} idx{list comprehension}
 Lists are defined using the square bracket `[]` symbol, e.g.
@@ -63,6 +66,7 @@ print(my_list[0],my_list[1]) # first and second element
 print(my_list) # the whole list 
 !ec
 !enotice
+!split
 === List comprehension ===
 
 Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use *list comprehension*
@@ -70,8 +74,9 @@ Sometimes you do not want to initialize the list with everything equal, and it c
 x = [i for i in range(10)] # a list from 0,1,2,..,9
 y = [i**2 for i in range(10)] # a list with elements 0,1,4, ..,81
 !ec
-We will cover the for loop later, but basically what is done is that the statement `i in range(10)`, gives `i` the value 0, 1, $\ldots$, 9 and the first `i` inside the list tells python to use that value as the element in the list. Using this syntax, there are plenty of opportunities to initialize.
+We will cover for loops later, but basically what is done is that the statement `i in range(10)`, gives `i` the value 0, 1, $\ldots$, 9 and the first `i` inside the list tells python to use that value as the element in the list. Using this syntax, there are plenty of opportunities to initialize.
 
+!split
 === Example: use list comprehension to make a plot of $y=x^3$ ===
 
 * Create one list of $x\in[-3,3]$ and the corresponding $y$ values
@@ -87,7 +92,7 @@ x=[-3+i*dx for i in range(N)]
 y=[i**3 for i in x]
 plt.plot(x,y) # if you want you can add legend and grid lines
 !ec
-
+!split
 ===== Dictionaries  =====
 
 Dictionaries is useful if your data fits the template of key:value pairs. A very good mental image to have is an excel sheet where data are organized in columns. Each column has a header name, or a *key*. Assume we have the following table
@@ -106,9 +111,9 @@ This could be represented as a dictionary as
 my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
 !ec
 The syntax is `{key1:values, key2:values2, ...}`. We access the values in the dictionary by the key i.e. `print(my_dict['x'])` would print `[1.,2.,3.,4.]`.
-
+!split
 === Example: Add numbers to dictionary and plot ===
-* Add two numbers to `x` and `y` in `my_dict` and plot `y` vs `x`
+* Add two numbers to the list of `x` and `y` in `my_dict` and plot `y` vs `x`
 
 === Solution ===
 !bc pycod
@@ -121,6 +126,8 @@ plt.plot(my_dict['x'],my_dict['y'])
 #alternatively only points
 plt.plot(my_dict['x'],my_dict['y'],'*')
 !ec
+
+!split
 ===== Tuples =====
 A tuple is a data structure that in many respects is equal to a list. It can contain various Python objects, *but the elements cannot be changed after the tuple has been created*. It is created by using round parenthesis, `()` as opposed to the square parenthesis, `[]`, used in list creation.
 !bc pycod
@@ -138,6 +145,7 @@ my_dict[('perm','mD')]=[50,100,250]
 !ec
 !enotice
 
+!split
 ======= Numpy: Working with numerical arrays in Python =======
 
 In the above example we used lists to store values that we wanted to plot. Lists are one of the basic data structures in Python, but since they are so flexible they are not well suited for mathematical operations. If you are only working with arrays that contain numbers you should use the "Numpy":"https://numpy.org/" library. The above example in Numpy would be
@@ -163,7 +171,7 @@ x+x # would give [2,8,14]
 x*x # would give [1,16,49]
 x/x # would give [1.,1.,1.]
 !ec
-
+!split
 ======= Boolean masking =======
 In Python we also have a Boolean type, which is `True` or `False` (note the big letters), it takes up the smallest amount of memory (one byte). It is a subclass of integer, `int`, and if you add or subtract them, `True` and `False` will be given the value of 1 and 0 respectively.  In many applications you would like to pick out only a part of the elements of an array. If we work with Numpy arrays, it is extremely easy achieve this using Boolean masking or Boolean indexing. We use the word ''mask'' to indicate which bits we want to keep, and which we want to remove. It is best demonstrated on some examples (remember: it will not work on lists)
 !bc pycod
@@ -173,12 +181,29 @@ print(np.sum(x>5)) # 3
 x[x>5] # [7,8,9]
 !ec
 
-
-
+!split
 ======= Pathlib: Working with files and folders in Python =======
 
-When you want to open a file in a Python script, you first have to locate it. If you have downloaded all the files, there will be a `data` folder in which there are several data sets, we look at some well data from "GeoProvider":"http://geoprovider.no/". 
-Usually we have files and folder located at different places on the computer. This could be Excel files containing different types of information, and you might want to combine data from them. You could of course open them separately, copy and paste data manually. However, it is so much easier to use Python. Let us start with the following code that will list all sub directories and files in a folder
+When you want to open a file in a Python script, you first have to locate it. If you have downloaded all the files, there will be a `data` folder in which there are several data sets. Sometimes we would like to list all files in a folder, or files of a certain type, and maybe create a unique file name that does not already exists. 
+##, we look at some well data from "GeoProvider":"http://geoprovider.no/". 
+
+To access files one can use strings, but in practice this can be very tiresome, especially as a path in Windows has a different syntax than e.g. Linux. In Windows directories and sub directories are indicated with a backslash, `\`, whereas in Linux it is a forward slash `/`. It is much better to use the Pathlib library and work with *Path objects*, then your code would work 
+
+===== cwd(): Current working directory =====
+
+How can you know which directory your are currently in? Using Pathlib we can do
+!bc pypro
+import pathlib as pt
+p=pt.Path('.') # we create a Path object
+print(p.cwd())
+!ec
+What happens here?
+o `import pathlib as pt` imports Pathlib which we name `pt`. Functions in Pathlib is accessed with the `.` syntax.
+o We create a Path object, by `p=pt.Path('.')` and store it in the variable `p`. The `'.'` argument is the current directory.
+o Now we have access to build-in functions int the Path object by using the `.` syntax, and we can print current working directory `print(p.cwd())`
+
+===== Finding list all files and folder =====
+
 !bc pypro
 import pathlib as pt
 p=pt.Path('.') # the directory where this python file is located
@@ -189,5 +214,254 @@ for x in p.iterdir():
         print('Found file: ', x)
 !ec
 Let us go through each line
-o `import pathlib as pt` as before, imports a useful library, in this case Pathlib which we name `pt`. Functions in Pathlib is accessed with the `.` syntax.
-o `p=pt.Path('.')` we create a Path object and name it `p`. We will return to objects and classes later, for now you can think of it as a variable that may contain data and functions that can be used to manipulate 
+o `p=pt.Path('.')` we create a Path object and name it `p`.
+o The next part is a for loop (we will come back to this later)We will return to objects and classes later, for now you can think of it as a variable that may contain data and functions that can be used to manipulate 
+
+!split
+======= Pandas: Working with tabulated data (Excel files) =======
+Pandas is a Python package that among many things are used to handle data, and perform operations on groups of data. It is built on top of Numpy, which makes it easy to perform vectorized operations. Pandas is written by Wes McKinney, and one of it objectives is according to the official website " '' providing fast, flexible, and expressive data structures designed to make working with ''relational'' or ''labeled'' data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python''":"https://pandas.pydata.org/". Pandas also has excellent functions for reading and writing excel and csv files.  An excel file is read directly into memory in what is called a `DataFrame` in Pandas. A DataFrame is a two dimensional object where data are typically stored in column or row format.
+
+!bnotice Pandas has a lot of functionality
+Pandas has so much functionality that it is almost like a programming language. Here we will only use it to read and write excel files, and do some basic filtering of data. However, there is a high probability that whatever you would like to do with your data, e.g. clean, filter, mathematical operations, there is already a Pandas command to achieve your goal.
+!enotice
+
+===== DataFrame: The basic object in Pandas =====
+
+!bnotice What is a DataFrame?
+You should think of a DataFrame as a single sheet in Excel with tabulated data. A DataFrame will typically have data stored with a header name and data in an array associated with that header, as illustrated in ref{fig:file}.  
+!enotice
+
+FIGURE: [fig-import/covid_comb.png, width=400 frac=1.0] Official Covid-19 data, and example of files (left) tab separated (right) excel file. label{fig:file}
+
+If we have file in the `data` directory, we can import them into a DataFrame as follows
+
+!bc pypro
+df=pd.read_excel('../data/corona_data.xlsx') # excel file
+df2=pd.read_csv('../data/corona_data.dat',sep='\t') # csv tab separated file
+!ec
+If the excel file has several sheets, you can give the sheet name directly, e.g. `df=pd.read_excel('file.xlsx',sheet_name="Sheet1")`, for more information see the "documentation":"https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html". 
+
+We can easily save the data frame to excel format and open it in excel
+!bc pypro
+df.to_excel('covid19.xlsx', index=False) # what happens if you put index=True?
+!ec
+
+!bnotice Index column
+Whenever you create a DataFrame Pandas by default create an index column, it contains an integer for each row starting at zero. It can be accessed by `df.index`, and it is also possible to define another column as index column. 
+!enotice
+
+===== Create DataFrame from dictionary =====
+A DataFrame can be quite easily be generated from a dictionary. A dictionary is a special data structure, where an unique key is associated with a data type (key:value pair). In this case, the key would be the title of the column, and the value would be the data in the columns.
+##To generate the excel file in figure ref{fig:file}, we can do (see figure ref{fig:pandas:cc} for the final result)
+!bc pypro
+my_dict={'ints':[0,1,2,3], 'floats':[4.,5.,6.,7.],
+'tools':['hammer','saw','rock','nail']
+}
+df=pd.DataFrame(my_dict)
+print(df) # to view
+!ec
+===== Accessing data in  DataFrames =====
+
+===  Selecting columns  ===
+
+If we want to pick out a specific column we can access it in the following ways
+!bc pypro
+# following two are equivalent
+time=df['TIME'] # by the name, alternatively
+time=df[df.columns[1]]
+# following two are equivalent
+time=df.loc[:,['TIME']] # by loc[] if we use name
+time=df.iloc[:,1] # by iloc, pick column number 1
+!ec
+The `loc[]` and `iloc[]` functions also allows for list slicing, one can then pick e.g. every second element in the column by `time=df.iloc[::2,1]` etc. The difference is that `loc[]` uses the name, and `iloc[]` the index (usually an integer). 
+
+Why several ways of doing the same operation? It turns out that although we are able to extract what we want with these operations, they are of different type
+!bc pypro
+print(type(df['TIME']))
+print(type(df.loc[:,['TIME']]))
+!ec
+===  Selecting rows  ===
+When selecting rows in a DataFrame, we can use the `loc[]` and `iloc[]` functions
+!bc pypro
+# pick column number 0 and 1
+time=df.loc[0:1,:] # by loc[] 
+time=df.iloc[0:2,:] # by iloc
+!ec
+
+!bnotice `pandas.DataFrame.loc` vs `pandas.DataFrame.iloc`
+When selecting rows `loc` and `iloc` they behave differently, `loc` includes the endpoints (in the example above both row 0 and 1), whereas `iloc` includes the starting point and up to 1 minus the endpoint. 
+!enotice
+
+=== Challenges when accessing columns or rows ===
+
+!bnotice Special characters 
+Sometimes when reading files from excel, headers may contains invisible characters like newline `\n` or tab `\t` or maybe Norwegian special letters that have not been read in properly. If you have problem accessing a column by name do `print(df.columns)` and check if the name matches what you would expect.  
+!enotice
+
+If the header names has unwanted white space, one can do
+!bc pypro
+df.columns = df.columns.str.replace(' ', '') # all white spaces
+df.columns = df.columns.str.lstrip() # the beginning of string
+df.columns = df.columns.str.rstrip() # end of string
+df.columns = df.columns.str.strip()  # both ends
+!ec
+Similarly for unwanted tabs
+!bc pypro
+df.columns = df.columns.str.replace('\t', '') # remove tab
+!ec
+If you want to make sure that the columns does not contain any white spaces, one can use "`pandas.Series.str.strip()`":"https://pandas.pydata.org/pandas-docs/version/1.2.4/reference/api/pandas.Series.str.strip.html"
+!bc pypro
+df['LOCATION']=df['LOCATION'].str.strip()
+!ec
+
+=== Time columns not parsed properly ===
+If you have dates in the file (as in our case for the `TIME` column), you should check if they are in the `datetime` format and not read as `str`.
+
+!bnotice `datetime`
+The `datetime` library is very useful for working with dates. Data types of the type `datetime` (or equivalently `timestamp` used by Pandas) contains both date and time in the format `YYYY-MM-DD hh:mm:ss`. We can initialize a variable, `a`, by `a=datetime.datetime(2022,8,30,10,14,1)`, to access the hour we do `a.hour`, the year by `a.year` etc. It also easy to increase e.g. the day by one by doing `a+datetime.timedelta(days=1)`. 
+!enotice
+
+!bc pypro
+import datetime as dt
+time=df['TIME']
+# what happens if you set
+# time=df2['TIME'] #i.e df2 is from pd.read_csv ?
+print(time[0])
+print(time[0]+dt.timedelta(days=1))
+!ec
+
+The code above might work fine or in some cases a date is parsed as a string by Pandas, then we need to convert that column to the correct format. If not, we get into problems if you want to plot data vs the time column.
+
+Below are two ways of converting the `TIME` column
+!bc pypro
+df2['TIME']=pd.to_datetime(df2['TIME'])
+# just for testing that everything went ok
+time=df2['TIME']
+print(time[0])
+print(time[0]+dt.timedelta(days=1))
+!ec
+
+Another possibility is to do the conversion when reading the data:
+!bc pypro
+df2=pd.read_csv('../data/corona_data.dat',sep='\t',parse_dates=['TIME']) 
+!ec
+If you have a need to specify all data types, to avoid potential problems down the line this can also be done. First create a dictionary, with column names and data types
+!bc pypro
+types_dict={"LOCATION":str,"TIME":str,"ELAPSED_TIME_SINCE_OUTBREAK":int,"CONFIRMED":int,"DEATHS":int,"RECOVERED":int}
+df2=pd.read_csv('../data/corona_data.dat',sep='\t',dtype=types_dict,parse_dates=['TIME']) # set data types explicit
+!ec
+Note that the time data type is `str`, but we explicitly tell Pandas to convert those to `datetime`.
+
+===== Filtering and visualizing data =====
+=== Boolean masking ===
+Typically you would select rows based on a criterion, the syntax in Pandas is that you enter a series containing `True` and `False` for the rows you want to pick out, e.g. to pick out all entries with Afghanistan we can do
+!bc pypro
+df[df['LOCATION'] == 'Afghanistan']
+!ec
+The innermost statement `df['LOCATION'] == 'Afghanistan'` gives a logical vector with the value `True` for the five last elements and `False` for the rest. Then we pass this to the DataFrame, and in one go the unwanted elements are removed. It is also possible to use several criteria, e.g. only extracting data after a specific time
+!bc pypro
+df[(df['LOCATION'] == 'Afghanistan') & (df['ELAPSED_TIME_SINCE_OUTBREAK'] > 2)]
+!ec
+Note that the parenthesis are necessary, otherwise the logical operation would fail.
+
+=== Plotting a DataFrame ===
+Pandas has built in plotting, by calling "`pandas.DataFrame.plot`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html".
+!bc pypro
+df2=df[(df['LOCATION'] == 'Afghanistan')]
+df2.plot()
+#try 
+#df2=df2.set_index('TIME')
+#df2.plot() # what is the difference?
+#df2.plot(y=['CONFIRMED','DEATHS'])
+!ec
+===== Performing mathematical operations on DataFrames =====
+When performing mathematical operations on DataFrames there are at least two strategies
+* Extract columns from the DataFrame and perform mathematical operations on the columns using Numpy, leaving the original DataFrame intact
+* To operate directly on the data in the DataFrame using the Pandas library
+
+!bnotice Speed and performance
+Using Pandas or Numpy should in principle be equally fast. The advice is to not worry about performance before it is necessary. Use the methods you are confident with, and try to be consistent. By consistent, we mean that if you have found one way of doing a certain operation stick to that one and try not to implement many different ways of doing the same thing. 
+!enotice
+
+We can always access the individual columns in a DataFrame by the syntax `df['column_name']`. 
+=== Example: mathematical operations on DataFrames ===
+o Create a DataFrame with one column (`a`) containing ten thousand random uniformly distributed numbers between 0 and 1 (checkout "`np.random.uniform`":"https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html")
+o Add two new columns: one which all elements of `a` is squared and one where the sine function is applied to column `a`
+o Calculate the inverse of all the numbers in the DataFrame
+o Make a plot of the results (i.e. `a` vs `a*a`, and `a` vs `sin(a)`)
+
+=== Solution ===
+o First we make the DataFrame
+!bc pypro
+import numpy as np
+import pandas as pd
+N=10000
+a=np.random.uniform(0,1,size=N)
+df=pd.DataFrame() # empty DataFrame
+df['a']=a
+!ec
+If you like you could also try to use a dictionary. Next, we add the new columns
+!bc pypro
+df['b']=df['a']*df['a'] # alternatively np.square(df['a'])
+df['c']=np.sin(df['a'])
+!ec
+
+o The inverse of all the numbers in the DataFrame can be calculated by simply doing
+!bc pypro
+1/df
+!ec
+Note: you can also do `df+df` and many other operations on the whole DataFrame.
+
+o To make plots there are several possibilities. Personally, I tend most of the time to use the  "`matplotlib`":"https://matplotlib.org/" library, simply because I know it quite well, but Pandas has a great deal of very simple methods you can use to generate nice plots with very few commands.
+
+__Matplotlib:__
+!bc pypro
+import matplotlib.pyplot as plt
+plt.plot(df['a'],df['b'], '*', label='$a^2$')
+plt.plot(df['a'],df['c'], '^', label='$\sin(a)$')
+plt.legend() 
+plt.grid() # make small grid lines
+plt.show()
+!ec
+
+__Pandas plotting:__
+First, let us try the built in plot command in Pandas
+!bc pypro
+df.plot()
+!ec
+If you compare this plot with the previous plot, you will see that Pandas plots all columns versus the index columns, which is not what we want. But, we can set `a` to be the index column
+!bc pypro
+df=df.set_index('a')
+df.plot()
+!ec
+We can also make separate plots
+!bc pypro
+df.plot(subplots=True)
+!ec
+or scatter plots
+!bc pypro
+df=df.reset_index()
+df.plot.scatter(x='a',y='b')
+df.plot.scatter(x='a',y='c')
+!ec
+Note that we have to reset the index, otherwise there are no column named `a`. 
+
+===== Grouping, filtering and aggregating data =====
+Whenever you have a data set, you would like to do some exploratory analysis. That typically means that you would like to group, filter or aggregate data. Perhaps, we would like to plot the covid data not per country, but the data as a function of dates. Then you first must sort the data according to date, and then sum all the occurrences on that particular date. For all of these purposes we can use the "`pd.DataFrame.groupby()`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html " function. To sort our DataFrame on dates and sum the occurrences we can do
+!bc pypro
+df.groupby('TIME').sum()
+!ec
+
+Another case could be that we wanted to find the total number of confirmed, deaths and recovered cases in the full database. As always in Python it can be done in different ways, by e.g. splitting the database into individual countries and do  `df[['CONFIRMED','DEATHS','RECOVERED']].sum()` or accessing each column individually and sum each of them e.g. `np.sum(df['CONFIRMED'])`.  However, with the `groupby()` function
+# #if FORMAT in ("html","pdflatex", "latex")
+(see figure ref{fig:pandas:group} for final result)
+# #endif
+!bc pypro
+df.groupby('LOCATION').sum()
+!ec
+Here Pandas sum all columns with the same location, and drop columns that cannot be summed. By doing `df.groupby('LOCATION').mean()` or `df.groupby('LOCATION').std()` we can find the mean or standard deviation (per day).
+
+# #if FORMAT not in ("ipynb")
+FIGURE: [fig-import/group.png, width=400 frac=1.0] The results of `df.groupby('LOCATION').sum()`. label{fig:pandas:group}
+# #endif
+
