@@ -13,5 +13,7 @@ Stavanger
 Wes
 covid
 csv
+cwd
+int
 pyplot
 vectorized

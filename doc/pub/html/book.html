@@ -1,0 +1,346 @@
+<!--
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
+doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Python for subsurface applications">
+<meta name="keywords" content="data structures,lists,list comprehension">
+<title>Python for subsurface applications</title>
+<!-- Bootstrap style: bootswatch_journal -->
+<!-- doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:60px;      /* fixed header height for style bootswatch_journal */
+  margin:-60px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 0,
+ 'sections': [('Table of contents',
+               0,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Preliminaries', 0, 'ch:pre', 'ch:pre'),
+              ('Is it possible to learn Python in two days?',
+               1,
+               None,
+               'is-it-possible-to-learn-python-in-two-days'),
+              ('Why should you learn coding?',
+               1,
+               None,
+               'why-should-you-learn-coding'),
+              ('About this course', 1, None, 'about-this-course'),
+              ('Online programming resources',
+               1,
+               None,
+               'online-programming-resources'),
+              ('ChatGPT', 2, None, 'chatgpt'),
+              ('Stuff you need to do', 1, None, 'stuff-you-need-to-do'),
+              ('If you never have coded before',
+               1,
+               None,
+               'if-you-never-have-coded-before'),
+              ('Variable', 2, None, 'variable'),
+              ('Functions', 2, None, 'functions'),
+              ('Objects and Classes', 2, None, 'objects-and-classes'),
+              ('Library', 2, None, 'library'),
+              ('Exercise: Install a Python library in a separate environment',
+               1,
+               None,
+               'exercise-install-a-python-library-in-a-separate-environment'),
+              ('Exercise 2: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-2-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Introduction to practical applications', 0, 'ch:pr', 'ch:pr'),
+              ('One reason Python is so popular: The import statement',
+               1,
+               None,
+               'one-reason-python-is-so-popular-the-import-statement'),
+              ('Matplotlib: Basic plotting in Python',
+               1,
+               None,
+               'matplotlib-basic-plotting-in-python'),
+              ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
+              ('Lists', 2, None, 'lists'),
+              ('List comprehension', 3, None, 'list-comprehension'),
+              ('Example: use list comprehension to make a plot of $y=x^3$',
+               3,
+               None,
+               'example-use-list-comprehension-to-make-a-plot-of-y-x-3'),
+              ('Solution', 3, None, 'solution'),
+              ('Dictionaries', 2, None, 'dictionaries'),
+              ('Example: Add numbers to dictionary and plot',
+               3,
+               None,
+               'example-add-numbers-to-dictionary-and-plot'),
+              ('Solution', 3, None, 'solution'),
+              ('Tuples', 2, None, 'tuples'),
+              ('Numpy: Working with numerical arrays in Python',
+               1,
+               None,
+               'numpy-working-with-numerical-arrays-in-python'),
+              ('Boolean masking', 1, None, 'boolean-masking'),
+              ('Pathlib: Working with files and folders in Python',
+               1,
+               None,
+               'pathlib-working-with-files-and-folders-in-python'),
+              ('cwd(): Current working directory',
+               2,
+               None,
+               'cwd-current-working-directory'),
+              ('Our first for loop: List all files and folder in current '
+               'directory',
+               2,
+               None,
+               'our-first-for-loop-list-all-files-and-folder-in-current-directory'),
+              ('Pandas: Working with tabulated data (Excel files)',
+               1,
+               None,
+               'pandas-working-with-tabulated-data-excel-files'),
+              ('DataFrame: The basic object in Pandas',
+               2,
+               None,
+               'dataframe-the-basic-object-in-pandas'),
+              ('Create DataFrame from dictionary',
+               2,
+               None,
+               'create-dataframe-from-dictionary'),
+              ('Accessing data in  DataFrames',
+               2,
+               None,
+               'accessing-data-in-dataframes'),
+              ('Selecting columns', 3, None, 'selecting-columns'),
+              ('Selecting rows', 3, None, 'selecting-rows'),
+              ('Challenges when accessing columns or rows',
+               3,
+               None,
+               'challenges-when-accessing-columns-or-rows'),
+              ('Time columns not parsed properly',
+               3,
+               None,
+               'time-columns-not-parsed-properly'),
+              ('Filtering and visualizing data',
+               2,
+               None,
+               'filtering-and-visualizing-data'),
+              ('Boolean masking', 3, None, 'boolean-masking'),
+              ('Plotting a DataFrame', 3, None, 'plotting-a-dataframe'),
+              ('Performing mathematical operations on DataFrames',
+               2,
+               None,
+               'performing-mathematical-operations-on-dataframes'),
+              ('Example: mathematical operations on DataFrames',
+               3,
+               None,
+               'example-mathematical-operations-on-dataframes'),
+              ('Solution', 3, None, 'solution'),
+              ('Grouping, filtering and aggregating data',
+               2,
+               None,
+               'grouping-filtering-and-aggregating-data'),
+              ('References', 1, None, 'references')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="book.html">Python for subsurface applications</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book001.html#ch:pre" style="font-size: 80%;"><b>Preliminaries</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book002.html#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Is it possible to learn Python in two days?</a></li>
+     <!-- navigation toc: --> <li><a href="._book003.html#why-should-you-learn-coding" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn coding?</a></li>
+     <!-- navigation toc: --> <li><a href="._book004.html#about-this-course" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;About this course</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#online-programming-resources" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Online programming resources</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#chatgpt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChatGPT</a></li>
+     <!-- navigation toc: --> <li><a href="._book006.html#stuff-you-need-to-do" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Stuff you need to do</a></li>
+     <!-- navigation toc: --> <li><a href="._book007.html#if-you-never-have-coded-before" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;If you never have coded before</a></li>
+     <!-- navigation toc: --> <li><a href="._book008.html#variable" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable</a></li>
+     <!-- navigation toc: --> <li><a href="._book009.html#functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book010.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
+     <!-- navigation toc: --> <li><a href="._book011.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</a></li>
+     <!-- navigation toc: --> <li><a href="._book012.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise: Install a Python library in a separate environment</a></li>
+     <!-- navigation toc: --> <li><a href="._book013.html#exercise-2-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Install Bedmap to visualize Antarctica ice data</a></li>
+     <!-- navigation toc: --> <li><a href="._book014.html#ch:pr" style="font-size: 80%;"><b>Introduction to practical applications</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book015.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;One reason Python is so popular: The import statement</a></li>
+     <!-- navigation toc: --> <li><a href="._book016.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Matplotlib: Basic plotting in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book017.html#data-structures-basic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Data structures  (Basic)</a></li>
+     <!-- navigation toc: --> <li><a href="._book018.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._book019.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._book020.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book021.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._book022.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book023.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._book024.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Numpy: Working with numerical arrays in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book026.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib: Working with files and folders in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book027.html#cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._book028.html#our-first-for-loop-list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our first for loop: List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Working with tabulated data (Excel files)</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#references" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;References</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0000"></a>
+<!-- ------------------- main content ---------------------- -->
+<!-- Note on the Springer T4 style: here we use the modifications -->
+<!-- introduced in t4do.sty and svmonodo.sty (both are bundled with DocOnce). -->
+
+<div class="jumbotron">
+<center>
+<h1>Python for subsurface applications</h1>
+</center>  <!-- document title -->
+
+<!-- author(s): Aksel Hiorth, University of Stavanger -->
+<center>
+<b>Aksel Hiorth, University of Stavanger</b> 
+</center>
+<!-- institution(s) -->
+<br>
+<center>
+<h4>Dec 22, 2023</h4>
+</center> <!-- date -->
+<br>
+
+<p>
+<b>Summary.</b> (Work in progress) Material prepared for MOD321 at University of Stavanger. The documents have been prepared by the use of <a href="https://github.com/doconce/doconce" target="_self">doconce</a>.
+</p>
+
+
+</div> <!-- end jumbotron -->
+<h1 id="table_of_contents">
+Table of contents</h1>
+
+<div class='toc'>
+<p><a href="._book001.html#ch:pre"> Preliminaries  </a></p>
+<p><span class="tab"> <a href="._book002.html#is-it-possible-to-learn-python-in-two-days"> Is it possible to learn Python in two days? </a></p>
+<p><span class="tab"> <a href="._book003.html#why-should-you-learn-coding"> Why should you learn coding? </a></p>
+<p><span class="tab"> <a href="._book004.html#about-this-course"> About this course </a></p>
+<p><span class="tab"> <a href="._book005.html#online-programming-resources"> Online programming resources </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book005.html#chatgpt"> ChatGPT </a></p>
+<p><span class="tab"> <a href="._book006.html#stuff-you-need-to-do"> Stuff you need to do </a></p>
+<p><span class="tab"> <a href="._book007.html#if-you-never-have-coded-before"> If you never have coded before </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book008.html#variable"> Variable </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book009.html#functions"> Functions </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book010.html#objects-and-classes"> Objects and Classes </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book011.html#library"> Library </a></p>
+<p><span class="tab"> <a href="._book012.html#exercise-install-a-python-library-in-a-separate-environment"> Exercise: Install a Python library in a separate environment  </a></p>
+<p><span class="tab"> <a href="._book013.html#exercise-2-install-bedmap-to-visualize-antarctica-ice-data"> Exercise 2: Install Bedmap to visualize Antarctica ice data  </a></p>
+<p><a href="._book014.html#ch:pr"> Introduction to practical applications   </a></p>
+<p><span class="tab"> <a href="._book015.html#one-reason-python-is-so-popular-the-import-statement"> One reason Python is so popular: The import statement </a></p>
+<p><span class="tab"> <a href="._book016.html#matplotlib-basic-plotting-in-python"> Matplotlib: Basic plotting in Python </a></p>
+<p><span class="tab"> <a href="._book017.html#data-structures-basic"> Data structures  (Basic) </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book018.html#lists"> Lists </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book021.html#dictionaries"> Dictionaries  </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book023.html#tuples"> Tuples </a></p>
+<p><span class="tab"> <a href="._book024.html#numpy-working-with-numerical-arrays-in-python"> Numpy: Working with numerical arrays in Python </a></p>
+<p><span class="tab"> <a href="._book031.html#boolean-masking"> Boolean masking </a></p>
+<p><span class="tab"> <a href="._book026.html#pathlib-working-with-files-and-folders-in-python"> Pathlib: Working with files and folders in Python </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book027.html#cwd-current-working-directory"> cwd(): Current working directory </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book028.html#our-first-for-loop-list-all-files-and-folder-in-current-directory"> Our first for loop: List all files and folder in current directory </a></p>
+<p><span class="tab"> <a href="._book031.html#pandas-working-with-tabulated-data-excel-files"> Pandas: Working with tabulated data (Excel files) </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#dataframe-the-basic-object-in-pandas"> DataFrame: The basic object in Pandas </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#create-dataframe-from-dictionary"> Create DataFrame from dictionary </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#accessing-data-in-dataframes"> Accessing data in  DataFrames </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#filtering-and-visualizing-data"> Filtering and visualizing data </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#performing-mathematical-operations-on-dataframes"> Performing mathematical operations on DataFrames </a></p>
+<p><span class="tab"> <span class="tab"> <a href="._book031.html#grouping-filtering-and-aggregating-data"> Grouping, filtering and aggregating data </a></p>
+<p><span class="tab"> <a href="._book031.html#references"> References </a></p>
+</div>
+<br>
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+
+  <li class="next">
+    <a href="._book001.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+    
+

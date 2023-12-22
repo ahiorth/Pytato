@@ -6,9 +6,14 @@ IDE
 IDEs
 Matkasse
 OpenAI
+SLR
 Spyder
 Stavanger
+bedmap
+cmocean
 conda
 int
 matkasse
+rockhound
+rockound
 youtube
