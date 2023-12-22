@@ -34,6 +34,7 @@ label{ch:pr}
 
 # #include "../modules/import/import.do.txt"
 
+!split
 ======= References =======
 
 BIBFILE: ../modules/papers.pub

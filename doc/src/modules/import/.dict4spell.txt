@@ -3,6 +3,7 @@ Aksel
 Covid
 DataFrame
 DataFrames
+Datetime
 Fortan
 GeoProvider
 Hiorth
