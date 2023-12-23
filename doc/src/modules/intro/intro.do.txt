@@ -108,7 +108,7 @@ Python has a lot of libraries, which is one of the reasons why Python is so popu
 !split
 ======= Exercise: Install a Python library in a separate environment  =======
 
-Hopefully you have managed to install Anaconda Python. Next, you want to open a terminal, if you are working on Linux or Mac, you open the terminal window. On Windows you open Anaconda Prompt from the Windows start menu. On my machine it looks something like this 
+Hopefully you have managed to install Anaconda Python. Next, you want to open a terminal, if you are working on Linux or Mac, you open the terminal window. On Windows you open Anaconda Powershell Prompt from the Windows start menu. On my machine the prompt is a black screen, with the following text
 !bc sys
 (base) PS C:\Users\Aksel Hiorth>
 !ec
@@ -119,10 +119,10 @@ As a general rule we do not want to install new packages or libraries in the `ba
 A good practice is for each new project you start on that requires some special packages or libraries that you have not used before is to create a new environment.
 
 __Step 1 (Update conda, if you did not recently installed Anaconda):__
-* Open your anaconda prompt (on Windows) and terminal (Mac or Linux)
+* Open your anaconda powershell prompt (on Windows) and terminal (Mac or Linux)
 * Make sure that conda is updated (conda is the package manager of Anaconda), by enter the following command.
 !bc sys
-(base) PS C:\Users\Aksel Hiorth>conda update -n base -c conda-forge conda
+(base) Aksel Hiorth>conda update -n base -c conda-forge conda
 !ec
 This may take some time.
 
@@ -130,7 +130,7 @@ __Step 2 (Create environment):__
 
 * Create a new environment by the following command
 !bc sys
-(base) PS C:\Users\Aksel Hiorth>conda create -n MOD321 
+(base) Aksel Hiorth>conda create -n MOD321 
 !ec
 Here I tell python create a new environment called MOD321, which is the course code of this course. After you have accepted everything, you will get sometime like this
 !bc sys
@@ -145,26 +145,28 @@ Here I tell python create a new environment called MOD321, which is the course c
 !ec
 * Execute the above command
 !bc sys
-(base) PS C:\Users\Aksel Hiorth>conda activate MOD321
+(base) Aksel Hiorth>conda activate MOD321
 !ec
 !bnotice Delete environments
 If something goes wrong you can always delete the environment and create it once more. You simply has to deactivate it
 !bc sys
-(MOD321) PS C:\Users\Aksel Hiorth>conda deactivate 
+(MOD321) Aksel Hiorth>conda deactivate 
 !ec
 Then you delete it
 !bc sys
-(base) PS C:\Users\Aksel Hiorth>conda remove --name MOD321 --all 
+(base) Aksel Hiorth>conda remove --name MOD321 --all 
 !ec
 !enotice
 
 __Step 3 (Install packages):__
 There are several packages we will need and if we list all packages simultaneously conda will make sure that they are internally consistent. Enter the following command
 !bc sys
-(base) PS C:\Users\Aksel Hiorth>conda activate MOD321
-(MOD321) PS C:\Users\Aksel Hiorth>conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba 
+(base) Aksel Hiorth>conda activate MOD321
+(MOD321) Aksel Hiorth>conda install matplotlib pandas jupyter scipy \
+numpy ipykernel pathlib numba 
 !ec
-If you later find out you need additional packages, you just can just open a terminal window, activate the correct environment and then do `conda install PACKAGE_NAME`. But, as already mentioned if you install more and more very specialized packages, you might get inconsistencies. However, then you can just delete your environment and install everything once mote.
+(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: `conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba `.)
+If you later find out you need additional packages, you just can just open a terminal window, activate the correct environment and then do `conda install PACKAGE_NAME`. But, as already mentioned if you install more and more very specialized packages, you might get inconsistencies. However, then you can just delete your environment and install everything once more.
 
 !bnotice pip install vs conda install
 If you find a package you would like to install, the documentation may in many cases say run the command `pip install PACKAGE_NAME`. That may very well work, but I would always advice you to do `conda install PACKAGE_NAME` first, because I believe conda is better at checking for internal consistency. If `conda install` fails, you can do `pip install` and 99 out 100 times this will work out just fine. 
@@ -197,7 +199,8 @@ library can be used to load the data. As an aid to plotting, you might also want
 "cmocean":"https://pypi.org/project/cmocean/" package cite{thyng2016true}. To install bedmap2 data you have to create a new conda environment (we call it ice)
 !bc sys
 conda config --add channels conda-forge
-conda create -n ice python matplotlib numpy scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
+conda create -n ice python matplotlib numpy \
+scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
 !ec
 Note that we need a specific version of the `xarray` library.
 !bc pypro

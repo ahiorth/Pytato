@@ -5,7 +5,9 @@ Hiorth
 IDE
 IDEs
 Matkasse
+NB
 OpenAI
+Powershell
 SLR
 Spyder
 Stavanger
@@ -14,6 +16,7 @@ cmocean
 conda
 int
 matkasse
+powershell
 rockhound
 rockound
 youtube
