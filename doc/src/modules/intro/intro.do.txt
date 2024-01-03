@@ -215,6 +215,11 @@ The code below is taken from the
 "rockound library documentation":"https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html":
 
 !bc pypro
+import rockhound as rh
+import matplotlib.pyplot as plt
+import cmocean
+import numpy as np
+
 bedmap = rh.fetch_bedmap2(datasets=["thickness","surface","bed"])
 plt.figure(figsize=(8, 7))
 ax = plt.subplot(111)

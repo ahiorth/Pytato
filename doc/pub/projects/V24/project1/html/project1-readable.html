@@ -1,0 +1,201 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html project1.do.txt LANG=C.UTF-8 --html_style=bootswatch_readable --html_output=project1-readable --html_code_style=inherit
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="E-MOD321 Basic Python coding for subsurface applications">
+<title>E-MOD321 Basic Python coding for subsurface applications</title>
+<!-- Bootstrap style: bootswatch_readable -->
+<!-- doconce format html project1.do.txt LANG=C.UTF-8 --html_style=bootswatch_readable --html_output=project1-readable --html_code_style=inherit -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:64px;      /* fixed header height for style bootswatch_readable */
+  margin:-64px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Read data from file',
+               1,
+               None,
+               'exercise-2-read-data-from-file'),
+              ('Pandas (easy):', 2, None, 'pandas-easy'),
+              ('`numpy.loadtxt` (medium):', 2, None, 'numpy-loadtxt-medium'),
+              ('Vanilla Python (hard):', 2, None, 'vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 3: Matplotlib visualization',
+               1,
+               None,
+               'exercise-3-matplotlib-visualization'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 4: Use Pandas to visualize oil production data',
+               1,
+               None,
+               'exercise-4-use-pandas-to-visualize-oil-production-data'),
+              ('Exercise 5: More wells, more oil?',
+               1,
+               None,
+               'exercise-5-more-wells-more-oil'),
+              ('Bibliography', 1, None, 'bibliography')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="project1-readable.html">E-MOD321 Basic Python coding for subsurface applications</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-2-read-data-from-file" style="font-size: 80%;"><b>Exercise 2: Read data from file</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;`numpy.loadtxt` (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-3-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 3: Matplotlib visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-4-use-pandas-to-visualize-oil-production-data" style="font-size: 80%;"><b>Exercise 4: Use Pandas to visualize oil production data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-5-more-wells-more-oil" style="font-size: 80%;"><b>Exercise 5: More wells, more oil?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0000"></a>
+<!-- ------------------- main content ---------------------- -->
+<div class="jumbotron">
+<center>
+<h1>E-MOD321 Basic Python coding for subsurface applications </h1>
+</center>  <!-- document title -->
+
+<!-- author(s): Aksel Hiorth -->
+<center>
+<b>Aksel Hiorth</b> 
+</center>
+<!-- institution(s) -->
+<br>
+<center>
+<h4>Jan 3, 2024</h4>
+</center> <!-- date -->
+<br>
+
+<p>
+<b>Learning objectives.</b>
+</p>
+<ul>
+<li> Create an environment using conda and install required packages</li>
+<li> Use Pandas to combine and manipulate data from different input, Excel and comma separated values (CSV),  files.</li>
+<li> Wrap code in functions to reuse them</li>
+<li> Visualize data using <a href="https://matplotlib.org" target="_self"><tt>matplotlib</tt></a> and the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html" target="_self">Pandas library</a>.</li>  
+</ul>
+<p>The work done to answer the exercises should be documented clearly in a
+handed-in Jupyter notebook.
+</p>
+
+
+</div> <!-- end jumbotron -->
+<h1 id="table_of_contents">Table of contents</h1>
+
+<div class='toc'>
+<p><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data"> Exercise 1: Install Bedmap to visualize Antarctica ice data  </a></p>
+<p><span class="tab"> <a href="._project1-readable001.html#background"> Background  </a></p>
+<p><a href="._project1-readable001.html#exercise-2-read-data-from-file"> Exercise 2: Read data from file </a></p>
+<p><span class="tab"> <a href="._project1-readable001.html#pandas-easy"> Pandas (easy): </a></p>
+<p><span class="tab"> <a href="._project1-readable001.html#numpy-loadtxt-medium"> <code>numpy.loadtxt</code> (medium): </a></p>
+<p><span class="tab"> <a href="._project1-readable001.html#vanilla-python-hard"> Vanilla Python (hard): </a></p>
+<p><a href="._project1-readable001.html#exercise-3-matplotlib-visualization"> Exercise 3: Matplotlib visualization  </a></p>
+<p><a href="._project1-readable001.html#exercise-4-use-pandas-to-visualize-oil-production-data"> Exercise 4: Use Pandas to visualize oil production data </a></p>
+<p><a href="._project1-readable001.html#exercise-5-more-wells-more-oil"> Exercise 5: More wells, more oil? </a></p>
+<p><a href="._project1-readable001.html#bibliography"> Bibliography </a></p>
+</div>
+<br>
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="next">
+    <a href="._project1-readable001.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

@@ -1,0 +1,557 @@
+* articles
+** Equations of the End: Teaching Mathematical Modeling Using the Zombie Apocalypse
+   key:       lofgren2016equations
+   author:    Eric T. Lofgren, Kristy M. Collins, Tara C. Smith, Reed A. Cartwright
+   year:      2016
+   journal:   Journal of microbiology \& biology education
+   publisher: American Society for Microbiology (ASM)
+   volume:    17
+   number:    1
+   pages:     137
+   status:    published
+   entrytype: article
+** Modeling Zombie Outbreaks: a Problem-Based Approach to Improving Mathematics One Brain at a Time
+   key:       lewis2016
+   author:    Matthew Lewis, James A. Powell
+   year:      2016
+   journal:   PRIMUS
+   publisher: Taylor & Francis
+   volume:    26
+   number:    7
+   pages:     705-726
+   status:    published
+   entrytype: article
+** You Can Run, You Can Hide: the Epidemiology and Statistical Mechanics of Zombies
+   key:       alemi2015you
+   author:    Alexander A. Alemi, Matthew Bierbaum, Christopher R. Myers, James P. Sethna
+   year:      2015
+   journal:   Physical Review E
+   publisher: APS
+   volume:    92
+   number:    5
+   pages:     052801
+   status:    published
+   entrytype: article
+** {Python} for Scientific Computing
+   key:       NumPy:paper
+   author:    T. E. Oliphant
+   year:      2007
+   journal:   Computing in Science \& Engineering
+   volume:    9
+   status:    published
+   entrytype: article
+** {IPython}: a System for Interactive Scientific Computing
+   key:       IPython:paper
+   author:    F. Perez, B. E. Granger
+   year:      2007
+   journal:   Computing in Science \& Engineering
+   volume:    9
+   status:    published
+   entrytype: article
+** {Matplotlib}: a 2D Graphics Environment
+   key:       Matplotlib:paper
+   author:    J. D. Hunter
+   year:      2007
+   journal:   Computing in Science \& Engineering
+   volume:    9
+   status:    published
+   entrytype: article
+** A New Two-Constant Equation of State
+   key:       peng1976new
+   author:    Ding-Yu Peng, Donald B. Robinson
+   year:      1976
+   journal:   Industrial \& Engineering Chemistry Fundamentals
+   publisher: ACS Publications
+   volume:    15
+   number:    1
+   pages:     59--64
+   status:    published
+   entrytype: article
+** Mathematical Epidemiology: Past, Present, and Future
+   key:       brauer2017
+   author:    Fred Brauer
+   year:      2017
+   journal:   Infectious Disease Modelling
+   publisher: Elsevier
+   volume:    2
+   number:    2
+   pages:     113--127
+   status:    published
+   entrytype: article
+** Estimating the Reproduction Number of Ebola Virus (EBOV) During the 2014 Outbreak in West Africa
+   key:       althaus2014
+   author:    Christian L. Althaus
+   year:      2014
+   journal:   PLoS currents
+   publisher: Public Library of Science
+   volume:    6
+   status:    published
+   entrytype: article
+** The Effect of Solar Radiation Variations on the Climate of the Earth
+   key:       budyko1969effect
+   author:    Mikhail I. Budyko
+   year:      1969
+   journal:   {T}ellus
+   publisher: Taylor \& Francis
+   volume:    21
+   number:    5
+   pages:     611--619
+   status:    published
+   entrytype: article
+** A Global Climatic Model Based on the Energy Balance of the Earth-Atmosphere System
+   key:       sellers1969global
+   author:    William D. Sellers
+   year:      1969
+   journal:   Journal of Applied Meteorology
+   volume:    8
+   number:    3
+   pages:     392--400
+   status:    published
+   entrytype: article
+** Energy Balance Climate Models
+   key:       north1981energy
+   author:    Gerald R. North, Robert F. Cahalan, James A. Coakley Jr
+   year:      1981
+   journal:   Reviews of Geophysics
+   publisher: Wiley Online Library
+   volume:    19
+   number:    1
+   pages:     91--121
+   status:    published
+   entrytype: article
+** The Gap Between Simulation and Understanding in Climate Modeling
+   key:       held2005gap
+   author:    Isaac M. Held
+   year:      2005
+   journal:   Bulletin of the American Meteorological Society
+   publisher: American Meteorological Society
+   volume:    86
+   number:    11
+   pages:     1609--1614
+   status:    published
+   entrytype: article
+** Feedbacks, Timescales, and Seeing Red
+   key:       roe2009feedbacks
+   author:    Gerard Roe
+   year:      2009
+   journal:   Annual Review of Earth and Planetary Sciences
+   publisher: Annual Reviews
+   volume:    37
+   pages:     93--115
+   status:    published
+   entrytype: article
+** Water Vapor Feedback and Global Warming
+   key:       held2000water
+   author:    Isaac M. Held, Brian J. Soden
+   year:      2000
+   journal:   Annual review of energy and the environment
+   publisher: Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA
+   volume:    25
+   number:    1
+   pages:     441--475
+   status:    published
+   entrytype: article
+** The Equilibrium Sensitivity of the Earth's Temperature to Radiation Changes
+   key:       knutti2008equilibrium
+   author:    Reto Knutti, Gabriele C. Hegerl
+   year:      2008
+   journal:   Nature Geoscience
+   publisher: Nature Publishing Group
+   volume:    1
+   number:    11
+   pages:     735
+   status:    published
+   entrytype: article
+** Feedbacks, Climate Sensitivity and the Limits of Linear Models
+   key:       knutti2015feedbacks
+   author:    Reto Knutti, Maria AA Rugenstein
+   year:      2015
+   journal:   Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences
+   publisher: The Royal Society Publishing
+   volume:    373
+   number:    2054
+   pages:     20150146
+   status:    published
+   entrytype: article
+** Heat Capacity, Time Constant, and Sensitivity of Earth's Climate System
+   key:       schwartz2007heat
+   author:    Stephen E. Schwartz
+   year:      2007
+   journal:   Journal of Geophysical Research: Atmospheres
+   publisher: Wiley Online Library
+   volume:    112
+   number:    D24
+   status:    published
+   entrytype: article
+** Warming of the World Ocean
+   key:       levitus2000warming
+   author:    Sydney Levitus, John I. Antonov, Timothy P. Boyer, Cathy Stephens
+   year:      2000
+   journal:   Science
+   publisher: American Association for the Advancement of Science
+   volume:    287
+   number:    5461
+   pages:     2225--2229
+   status:    published
+   entrytype: article
+** An Assessment of Climate Feedbacks in Coupled Ocean-Atmosphere Models
+   key:       soden2006assessment
+   author:    Brian J. Soden, Isaac M. Held
+   year:      2006
+   journal:   Journal of Climate
+   volume:    19
+   number:    14
+   pages:     3354--3360
+   status:    published
+   entrytype: article
+** Earth's Global Energy Budget
+   key:       trenberth2009earth
+   author:    Kevin E. Trenberth, John T. Fasullo, Jeffrey Kiehl
+   year:      2009
+   journal:   Bulletin of the American Meteorological Society
+   publisher: American Meteorological Society
+   volume:    90
+   number:    3
+   pages:     311--324
+   status:    published
+   entrytype: article
+** Another Look at Climate Sensitivity
+   key:       zaliapin2010another
+   author:    Ilya Zaliapin, Michael Ghil
+   year:      2010
+   journal:   arXiv preprint arXiv:1003.0253
+   status:    published
+   entrytype: article
+** Tracking Earth’s Energy: From El Ni{\~n}o to Global Warming
+   key:       trenberth2012tracking
+   author:    Kevin E. Trenberth, John T. Fasullo
+   year:      2012
+   journal:   Surveys in geophysics
+   publisher: Springer
+   volume:    33
+   number:    3-4
+   pages:     413--426
+   status:    published
+   entrytype: article
+** Evaluation of Climate Models
+   key:       flato2014evaluation
+   author:    Gregory Flato, Jochem Marotzke, Babatunde Abiodun, Pascale Braconnot, S. Chan Chou, William Collins, Peter Cox, Fatima Driouech, Seita Emori, Veronika Eyring, others
+   year:      2014
+   journal:   Climate change 2013: the physical science basis. Contribution of Working Group I to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change
+   publisher: Cambridge University Press
+   pages:     741--866
+   status:    published
+   entrytype: article
+** Contributions to the Mathematical Theory of Epidemics. II.—The Problem of Endemicity
+   key:       kermack1932_endemicity
+   author:    William Ogilvy Kermack, Anderson G. McKendrick
+   year:      1932
+   journal:   Proceedings of the royal society of london. Series A, Containing papers of a mathematical and physical character
+   publisher: The Royal Society London
+   volume:    138
+   number:    834
+   pages:     55--83
+   status:    published
+   entrytype: article
+** Contributions to the Mathematical Theory of Epidemics. III.—Further Studies of the Problem of Endemicity
+   key:       kermack1933_further
+   author:    William Ogilvy Kermack, Anderson G. McKendrick
+   year:      1933
+   journal:   Proceedings of the royal society of london. Series A, Containing papers of a mathematical and physical character
+   publisher: The Royal Society London
+   volume:    141
+   number:    843
+   pages:     94--122
+   status:    published
+   entrytype: article
+** Escaping the Zombie Threat by Mathematics
+   key:       langtangen2013escaping
+   author:    Hans Petter Langtangen, Kent-Andre Mardal, Pål Røtnes
+   year:      2013
+   journal:   Zombies in the Academy-Living Death in Higher Education
+   status:    published
+   entrytype: article
+** On the Definition and the Computation of the Basic Reproduction Ratio R 0 in Models for Infectious Diseases in Heterogeneous Populations
+   key:       diekmann1990definition
+   author:    Odo Diekmann, Johan Andre Peter Heesterbeek, Johan AJ Metz
+   year:      1990
+   journal:   Journal of mathematical biology
+   publisher: Springer
+   volume:    28
+   number:    4
+   pages:     365--382
+   status:    published
+   entrytype: article
+** Generality of the Final Size Formula for an Epidemic of a Newly Invading Infectious Disease
+   key:       ma2006generality
+   author:    Junling Ma, David JD Earn
+   year:      2006
+   journal:   Bulletin of mathematical biology
+   publisher: Springer
+   volume:    68
+   number:    3
+   pages:     679--702
+   status:    published
+   entrytype: article
+** How Should Pathogen Transmission Be Modelled?
+   key:       mccallum2001should
+   author:    Hamish McCallum, Nigel Barlow, Jim Hone
+   year:      2001
+   journal:   Trends in ecology \& evolution
+   publisher: Elsevier
+   volume:    16
+   number:    6
+   pages:     295--300
+   status:    published
+   entrytype: article
+** A Contribution to the Mathematical Theory of Epidemics
+   key:       kermack1927contribution
+   author:    William Ogilvy Kermack, Anderson G. McKendrick
+   year:      1927
+   journal:   Proceedings of the royal society of london. Series A, Containing papers of a mathematical and physical character
+   publisher: The Royal Society London
+   volume:    115
+   number:    772
+   pages:     700--721
+   status:    published
+   entrytype: article
+** A Systematic Review of Early Modelling Studies of Ebola Virus Disease in West Africa
+   key:       wong2017systematic
+   author:    ZSY Wong, CM Bui, AA Chughtai, CR Macintyre
+   year:      2017
+   journal:   Epidemiology \& Infection
+   publisher: Cambridge University Press
+   volume:    145
+   number:    6
+   pages:     1069--1094
+   status:    published
+   entrytype: article
+** A Clarification of Transmission Terms in Host-Microparasite Models: Numbers, Densities and Areas
+   key:       begon2002clarification
+   author:    Michael Begon, Malcolm Bennett, Roger G. Bowers, Nigel P. French, SM Hazel, Joseph Turner
+   year:      2002
+   journal:   Epidemiology \& Infection
+   publisher: Cambridge University Press
+   volume:    129
+   number:    1
+   pages:     147--153
+   status:    published
+   entrytype: article
+** The Problem of the Random Walk
+   key:       pearson1905problem
+   author:    Karl Pearson
+   year:      1905
+   journal:   Nature
+   publisher: Nature Publishing Group
+   volume:    72
+   number:    1867
+   pages:     342
+   status:    published
+   entrytype: article
+** Random Walk Models in Biology
+   key:       codling2008random
+   author:    Edward A. Codling, Michael J. Plank, Simon Benhamou
+   year:      2008
+   journal:   Journal of the Royal society interface
+   publisher: The Royal Society London
+   volume:    5
+   number:    25
+   pages:     813--834
+   status:    published
+   entrytype: article
+** An Improved Antarctic Dataset for High Resolution Numerical Ice Sheet Models (ALBMAP V1).
+   key:       le2010improved
+   author:    Anne M. Le Brocq, Antony J. Payne, Andreas Vieli
+   year:      2010
+   journal:   Earth system science data.
+   publisher: Copernicus Publications
+   volume:    2
+   number:    2
+   pages:     247--260
+   status:    published
+   entrytype: article
+** Antarctic Mapping Tools for {MATLAB}
+   key:       greene2017antarctic
+   author:    Chad A. Greene, David E. Gwyther, Donald D. Blankenship
+   year:      2017
+   journal:   Computational Geosciences
+   publisher: Elsevier
+   volume:    104
+   pages:     151--157
+   status:    published
+   entrytype: article
+* books
+** Zombies in the Academy: Living Death in Higher Education
+   key:       whelan2013zombies
+   author:    A. Whelan, R. Walker, C. Moore
+   year:      2013
+   publisher: Intellect Books Limited
+   url:       https://books.google.no/books?id=87arDwAAQBAJ
+   status:    published
+   entrytype: book
+   isbn:      9781783200764
+** A Primer on Scientific Programming With {P}ython
+   key:       Langtangen_2014
+   author:    H. P. Langtangen
+   year:      2014
+   publisher: Springer
+   status:    published
+   edition:   Fourth
+   entrytype: book
+   series:    Texts in Computational Science and Engineering
+** Computational Physics
+   key:       newman2013
+   author:    Mark Newman
+   year:      2013
+   publisher: CreateSpace Independent Publ.
+   status:    published
+   entrytype: book
+** Introduction to Numerical Analysis
+   key:       stoer2013
+   author:    Josef Stoer, Roland Bulirsch
+   year:      2013
+   publisher: Springer Science \& Business Media
+   volume:    12
+   status:    published
+   entrytype: book
+** Linear Algebra and Learning From Data
+   key:       strang2019
+   author:    Gilbert Strang
+   year:      2019
+   publisher: Wellesley-Cambridge Press
+   status:    published
+   entrytype: book
+** Numerical Linear Algebra
+   key:       trefethen1997
+   author:    Lloyd N. Trefethen, David Bau III
+   year:      1997
+   publisher: SIAM
+   volume:    50
+   status:    published
+   entrytype: book
+** Numerical Recipes in C++: the Art of Scientific Computing
+   key:       press2001
+   author:    William H. Press, William T. Vetterling, Saul A. Teukolsky, Brian P. Flannery
+   year:      2002
+   publisher: Cambridge University Press
+   status:    published
+   address:   New York, NY, USA
+   edition:   2nd
+   entrytype: book
+   isbn:      0-521-75033-4
+** Numerical Recipes 3rd Edition: the Art of Scientific Computing
+   key:       press2007
+   author:    William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery
+   year:      2007
+   publisher: Cambridge University Press
+   status:    published
+   address:   New York, NY, USA
+   edition:   3
+   entrytype: book
+   isbn:      0521880688, 9780521880688
+** The Serpent and the Rainbow: a Harvard Scientist's Astonishing Journey Into the Secret Societies of Haitian Voodoo, Zombies, and Magic
+   key:       davis1985
+   author:    W. Davis
+   year:      1985
+   publisher: New York: Simon and Schuster
+   status:    published
+   entrytype: book
+** Introduction to Climate Dynamics and Climate Modeling
+   key:       goosse2010introduction
+   author:    Hugues Goosse, Pierre-Yves Barriat, Marie-France Loutre, Violette Zunz
+   year:      2010
+   publisher: Centre de recherche sur la Terre et le climat Georges Lemaitre
+   status:    published
+   entrytype: book
+** Introduction to Climate Modelling
+   key:       stocker2016introduction
+   author:    Thomas Stocker
+   year:      2016
+   publisher: Lecture Notes, University of Bern
+   status:    published
+   entrytype: book
+** Radiative Processes in Astrophysics
+   key:       rybicki2008radiative
+   author:    George B. Rybicki, Alan P. Lightman
+   year:      2008
+   publisher: John Wiley \& Sons
+   status:    published
+   entrytype: book
+** Atmospheric Science: an Introductory Survey
+   key:       wallace2006atmospheric
+   author:    John M. Wallace, Peter V. Hobbs
+   year:      2006
+   publisher: Elsevier
+   volume:    92
+   status:    published
+   entrytype: book
+** The Serpent and the Rainbow
+   key:       davis2010serpent
+   author:    Wade Davis
+   year:      2010
+   publisher: New York: Simon and Schuster
+   status:    published
+   entrytype: book
+** The Zombie Survival Guide: Complete Protection From the Living Dead
+   key:       brooks2003zombie
+   author:    Max Brooks
+   year:      2003
+   publisher: Broadway books
+   status:    published
+   entrytype: book
+** Computational Engineering and Modeling
+   key:       hiorth2019
+   author:    Aksel Hiorth
+   year:      2019
+   publisher: https://github.com/ahiorth/CompEngineering
+   status:    published
+   entrytype: book
+* misc
+** {Python} Programming Language
+   key:       Python
+   url:       http://python.org
+   status:    published
+   entrytype: misc
+   note:      \url{http://python.org}
+   sortkey:   Python
+** Loops and Lists
+   key:       Langtangen_TCSE6_looplist
+   author:    H. P. Langtangen
+   url:       http://hplgit.github.io/primer.html/doc/pub/looplist
+   status:    published
+   entrytype: misc
+   note:      \emph{http://hplgit.github.io/primer.html/doc/pub/looplist}
+** Some Document
+   key:       Langtangen_dobook_fake
+   author:    H. P. Langtangen
+   url:       http://hplgit.github.io/setup4book-doconce/doc/pub/fake/html
+   status:    published
+   entrytype: misc
+   note:      \emph{http://hplgit.github.io/setup4book-doconce/doc/pub/fake/html}
+** Use of Mako to Aid Book Writing
+   key:       Langtangen_dobook_mako
+   author:    H. P. Langtangen
+   url:       http://hplgit.github.io/setup4book-doconce/doc/pub/mako/html
+   status:    published
+   entrytype: misc
+   note:      \emph{http://hplgit.github.io/setup4book-doconce/doc/pub/mako/html}
+** Directory and File Structure
+   key:       Langtangen_dobook_rules
+   author:    H. P. Langtangen
+   url:       http://hplgit.github.io/setup4book-doconce/doc/pub/rules/html
+   status:    published
+   entrytype: misc
+   note:      \emph{http://hplgit.github.io/setup4book-doconce/doc/pub/rules/html}
+** Debugging in {Python}
+   key:       Langtangen_TCSE6_debug
+   author:    H. P. Langtangen
+   url:       http://hplgit.github.io/primer.html/doc/pub/debug
+   status:    published
+   entrytype: misc
+   note:      \emph{http://hplgit.github.io/primer.html/doc/pub/debug}
+** {S}tore {N}orske {L}eksikon
+   key:          snl
+   status:       published
+   entrytype:    misc
+   howpublished: \url{https://snl.no}
+   note:         Accessed: 2019-10-24
