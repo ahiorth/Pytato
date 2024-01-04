@@ -12,7 +12,7 @@ This is not easy to answer, but here we will introduce you to the most popular l
 !split
 ======= Matplotlib: Basic plotting in Python =======
 Visualizing data is a must, the code for plotting two arrays of data is
-!bc pypro
+!bc pycod
 import matplotlib.pyplot as plt
 x=[1,2,3,4]
 y=[2,4,9,16] # y=x*x
@@ -37,7 +37,7 @@ The data we want to e.g. visualize has to be stored or passed around in the code
 ===== Lists =====
 idx{lists} idx{list comprehension}
 Lists are defined using the square bracket `[]` symbol, e.g.
-!bc pypro
+!bc pycod
 my_list = []      # an empty list
 my_list = []*10   # still an empty list ...
 my_list = [0]*10  # a list with 10 zeros
@@ -49,18 +49,18 @@ To get the first element in a list, we do e.g. `my_list[0]`. Notice that the cou
 !enotice
 
 To add stuff to a list, we use the `append` function
-!bc pypro
+!bc pycod
 my_list = []      # an empty list
 my_list.append(2) # [2]
 my_list.append('dog') # [2, 'dog']
 !ec
 You can also remove stuff, using the `pop` function, then you also have to give the index
-!bc pypro
+!bc pycod
 my_list.pop(0) # my_list=['dog']
 !ec
 !bnotice print statement
 As default python will usually write to screen your last statement. But at any time you can use the `print` statement to force python to print out any variable, e.g.
-!bc pypro
+!bc pycod
 print(my_list[0]) # first element
 print(my_list[0],my_list[1]) # first and second element
 print(my_list) # the whole list 
@@ -70,7 +70,7 @@ print(my_list) # the whole list
 === List comprehension ===
 
 Sometimes you do not want to initialize the list with everything equal, and it can be tiresome to write everything out yourself. If that is the case you can use *list comprehension*
-!bc pypro
+!bc pycod
 x = [i for i in range(10)] # a list from 0,1,2,..,9
 y = [i**2 for i in range(10)] # a list with elements 0,1,4, ..,81
 !ec
@@ -84,7 +84,7 @@ We will cover for loops later, but basically what is done is that the statement 
 
 === Solution ===
 
-!bc pypro
+!bc pycod
 #first we create the x-values
 N=100 # 100 points
 dx=6/N
@@ -107,7 +107,7 @@ Dictionaries is useful if your data fits the template of key:value pairs. A very
 |-----------------------------------|
 
 This could be represented as a dictionary as
-!bc pypro
+!bc pycod
 my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
 !ec
 The syntax is `{key1:values, key2:values2, ...}`. We access the values in the dictionary by the key i.e. `print(my_dict['x'])` would print `[1.,2.,3.,4.]`.
@@ -149,7 +149,7 @@ my_dict[('perm','mD')]=[50,100,250]
 ======= Numpy: Working with numerical arrays in Python =======
 
 In the above example we used lists to store values that we wanted to plot. Lists are one of the basic data structures in Python, but since they are so flexible they are not well suited for mathematical operations. If you are only working with arrays that contain numbers you should use the "Numpy":"https://numpy.org/" library. The above example in Numpy would be
-!bc pypro
+!bc pycod
 import numpy as np
 x=np.linspace(-3,3,100) # vector of 100 points from -3 to 3
 y=x*x # multiply each number in x by itself
@@ -162,7 +162,7 @@ np.exp(x) # exp of all elements in x
 np.sin(x) # sin of all elements in x
 !ec
 If you have a list, it can easily be converted to a Numpy array
-!bc pypro
+!bc pycod
 x=[1,4,7] # x is a list
 x+x # x+x would give [1,4,7,1,4,7]
 x*x # would give an error message
@@ -195,7 +195,7 @@ It is much better to use the Pathlib library and work with *Path objects*, then 
 ===== Pathlib cwd(): Current working directory =====
 
 How can you know which directory your are currently in? Using Pathlib we can do
-!bc pypro
+!bc pycod
 import pathlib as pt
 p=pt.Path('.') # we create a Path object
 print(p.cwd())
@@ -206,33 +206,9 @@ o We create a Path object, by `p=pt.Path('.')` and store it in the variable `p`.
 o Now we have access to build-in functions int the Path object by using the `.` syntax, and we can print current working directory `print(p.cwd())`
 
 !split
-===== Our first for-loop: List all files and folder in current directory =====
-Here we will encounter or first for-loop, a for-loop is a way to tell the computer to do something until a certain condition has been met. In Python it is very common to combine a for-loop with a the `in` command. Let say we have a list of strings: `my_list=['dog','cat','rock']` if we want to print out everything in this list, we can do
-!bc pypro
-my_list=['dog','cat','rock']
-for x in my_list:
-    print(x)
-!ec
-The variable `x` will then recursively take the value `dog`, `cat`, and `rock`. 
-!bnotice Meaningful variable names
-The specific name we give `x` (or `my_list`), is not important for the computer. But if you choose a more descriptive name, it makes the code easier to read for humans, e.g.
-!bc pypro
-words=['dog','cat','rock']
-for word in words:
-    print(word)
-!ec
-!enotice
-
-!bnotice Indentation matters!
-The for-loop above ends with `:`, and then Python uses indentation to indicate a block of code. *You have to use the same amount of spaces in the same block of code.* The following code will give an *error*.
-!bc pypro
-my_list=['dog','cat','rock']
-for word in my_list:
-print(word) #Error because no intendation
-!ec
-!enotice
-Anyway, here is the code for listing all files and directories in a folder
-!bc pypro
+===== List all files and folder in current directory =====
+As mentioned before a for-loop is a way to tell the computer to do something until a certain condition has been met. The code for listing all files and directories in a folder is then
+!bc pycod
 import pathlib as pt
 p=pt.Path('.') # the directory where this python file is located
 for x in p.iterdir():
@@ -241,8 +217,8 @@ for x in p.iterdir():
     elif x.is_file():
         print('Found file: ', x) #NB Indentation, belongs to if x.is_file()
 !ec
-`p.iterdir()` is a *generator*, and for now you can simply think of it as generating a list of all files and folders in the `'.'` (current) directory. To view the elements in `p.iterdir()`, you can do
-!bc pypro
+`p.iterdir()` is a *generator*, and you can simply think of it as generating a list of all files and folders in the `'.'` (current) directory. To view the elements in `p.iterdir()`, you can do
+!bc pycod
 print(list(p.iterdir()))
 !ec
 Let us go through each line
@@ -254,7 +230,7 @@ o `x.is_file()`, gives True if `x` is a file and False if not.
 !split
 __List all files of a type:__
 Below we use `p.rglob()`, and not `p.iterdir()`, the difference is that `rglob()` also lists recursively the sub directories, and files within.
-!bc pypro
+!bc pycod
 p=Path('.')
 for p in p.rglob("*.xlsx"):# rglob means recursively, searches sub directories
     print(p.name)
@@ -263,14 +239,14 @@ If you want to print the full path do `print(p.absolute())`.
 
 !split
 __Create a directory, files and joining paths:__
-!bc pypro
+!bc pycod
 Path('tmp_dir').mkdir()
 !ec
 If you run the code twice it will produce an error, because the directory exists, then we can simply do `Path('tmp_dir').mkdir(exist_ok=True)`.
 
 
 Furthermore, the forward slash, `/`, can be used combine paths
-!bc pypro
+!bc pycod
 p=Path('.')
 new_path = p / 'tmp_dir' / 'my_file.txt'
 print(new_path.absolute())
@@ -297,14 +273,14 @@ FIGURE: [fig-import/covid_comb.png, width=400 frac=1.0] Official Covid-19 data, 
 
 If we have file in the `data` directory, we can import them into a DataFrame as follows
 
-!bc pypro
+!bc pycod
 df=pd.read_excel('../data/corona_data.xlsx') # excel file
 df2=pd.read_csv('../data/corona_data.dat',sep='\t') # csv tab separated file
 !ec
 If the excel file has several sheets, you can give the sheet name directly, e.g. `df=pd.read_excel('file.xlsx',sheet_name="Sheet1")`, for more information see the "documentation":"https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html". 
 
 We can easily save the data frame to excel format and open it in excel
-!bc pypro
+!bc pycod
 df.to_excel('covid19.xlsx', index=False) # what happens if you put index=True?
 !ec
 
@@ -315,7 +291,7 @@ Whenever you create a DataFrame Pandas by default create an index column, it con
 ===== Create DataFrame from dictionary =====
 A DataFrame can be quite easily be generated from a dictionary. A dictionary is a special data structure, where an unique key is associated with a data type (key:value pair). In this case, the key would be the title of the column, and the value would be the data in the columns.
 ##To generate the excel file in figure ref{fig:file}, we can do (see figure ref{fig:pandas:cc} for the final result)
-!bc pypro
+!bc pycod
 my_dict={'ints':[0,1,2,3], 'floats':[4.,5.,6.,7.],
 'tools':['hammer','saw','rock','nail']
 }
@@ -329,7 +305,7 @@ print(df) # to view
 ===  Selecting columns  ===
 
 If we want to pick out a specific column we can access it in the following ways
-!bc pypro
+!bc pycod
 # following two are equivalent
 time=df['TIME'] # by the name, alternatively
 time=df[df.columns[1]]
@@ -340,13 +316,13 @@ time=df.iloc[:,1] # by iloc, pick column number 1
 The `loc[]` and `iloc[]` functions also allows for list slicing, one can then pick e.g. every second element in the column by `time=df.iloc[::2,1]` etc. The difference is that `loc[]` uses the name, and `iloc[]` the index (usually an integer). 
 
 Why several ways of doing the same operation? It turns out that although we are able to extract what we want with these operations, they are of different type
-!bc pypro
+!bc pycod
 print(type(df['TIME']))
 print(type(df.loc[:,['TIME']]))
 !ec
 ===  Selecting rows  ===
 When selecting rows in a DataFrame, we can use the `loc[]` and `iloc[]` functions
-!bc pypro
+!bc pycod
 # pick column number 0 and 1
 time=df.loc[0:1,:] # by loc[] 
 time=df.iloc[0:2,:] # by iloc
@@ -363,18 +339,18 @@ Sometimes when reading files from excel, headers may contains invisible characte
 !enotice
 
 If the header names has unwanted white space, one can do
-!bc pypro
+!bc pycod
 df.columns = df.columns.str.replace(' ', '') # all white spaces
 df.columns = df.columns.str.lstrip() # the beginning of string
 df.columns = df.columns.str.rstrip() # end of string
 df.columns = df.columns.str.strip()  # both ends
 !ec
 Similarly for unwanted tabs
-!bc pypro
+!bc pycod
 df.columns = df.columns.str.replace('\t', '') # remove tab
 !ec
 If you want to make sure that the columns does not contain any white spaces, one can use "`pandas.Series.str.strip()`":"https://pandas.pydata.org/pandas-docs/version/1.2.4/reference/api/pandas.Series.str.strip.html"
-!bc pypro
+!bc pycod
 df['LOCATION']=df['LOCATION'].str.strip()
 !ec
 
@@ -387,7 +363,7 @@ If you have dates in the file (as in our case for the `TIME` column), you should
 The `datetime` library is very useful for working with dates. Data types of the type `datetime` (or equivalently `timestamp` used by Pandas) contains both date and time in the format `YYYY-MM-DD hh:mm:ss`. We can initialize a variable, `a`, by `a=datetime.datetime(2022,8,30,10,14,1)`, to access the hour we do `a.hour`, the year by `a.year` etc. It also easy to increase e.g. the day by one by doing `a+datetime.timedelta(days=1)`. 
 !enotice
 
-!bc pypro
+!bc pycod
 import datetime as dt
 time=df['TIME']
 # what happens if you set
@@ -399,7 +375,7 @@ print(time[0]+dt.timedelta(days=1))
 The code above might work fine or in some cases a date is parsed as a string by Pandas, then we need to convert that column to the correct format. If not, we get into problems if you want to plot data vs the time column.
 
 Below are two ways of converting the `TIME` column
-!bc pypro
+!bc pycod
 df2['TIME']=pd.to_datetime(df2['TIME'])
 # just for testing that everything went ok
 time=df2['TIME']
@@ -408,11 +384,11 @@ print(time[0]+dt.timedelta(days=1))
 !ec
 
 Another possibility is to do the conversion when reading the data:
-!bc pypro
+!bc pycod
 df2=pd.read_csv('../data/corona_data.dat',sep='\t',parse_dates=['TIME']) 
 !ec
 If you have a need to specify all data types, to avoid potential problems down the line this can also be done. First create a dictionary, with column names and data types
-!bc pypro
+!bc pycod
 types_dict={"LOCATION":str,"TIME":str,"ELAPSED_TIME_SINCE_OUTBREAK":int,"CONFIRMED":int,"DEATHS":int,"RECOVERED":int}
 df2=pd.read_csv('../data/corona_data.dat',sep='\t',dtype=types_dict,parse_dates=['TIME']) # set data types explicit
 !ec
@@ -422,18 +398,18 @@ Note that the time data type is `str`, but we explicitly tell Pandas to convert 
 ===== Pandas: Filtering and visualizing data =====
 === Boolean masking ===
 Typically you would select rows based on a criterion, the syntax in Pandas is that you enter a series containing `True` and `False` for the rows you want to pick out, e.g. to pick out all entries with Afghanistan we can do
-!bc pypro
+!bc pycod
 df[df['LOCATION'] == 'Afghanistan']
 !ec
 The innermost statement `df['LOCATION'] == 'Afghanistan'` gives a logical vector with the value `True` for the five last elements and `False` for the rest. Then we pass this to the DataFrame, and in one go the unwanted elements are removed. It is also possible to use several criteria, e.g. only extracting data after a specific time
-!bc pypro
+!bc pycod
 df[(df['LOCATION'] == 'Afghanistan') & (df['ELAPSED_TIME_SINCE_OUTBREAK'] > 2)]
 !ec
 Note that the parenthesis are necessary, otherwise the logical operation would fail.
 
 === Plotting a DataFrame ===
 Pandas has built in plotting, by calling "`pandas.DataFrame.plot`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html".
-!bc pypro
+!bc pycod
 df2=df[(df['LOCATION'] == 'Afghanistan')]
 df2.plot()
 #try 
@@ -460,7 +436,7 @@ o Make a plot of the results (i.e. `a` vs `a*a`, and `a` vs `sin(a)`)
 
 === Solution ===
 o First we make the DataFrame
-!bc pypro
+!bc pycod
 import numpy as np
 import pandas as pd
 N=10000
@@ -469,13 +445,13 @@ df=pd.DataFrame() # empty DataFrame
 df['a']=a
 !ec
 If you like you could also try to use a dictionary. Next, we add the new columns
-!bc pypro
+!bc pycod
 df['b']=df['a']*df['a'] # alternatively np.square(df['a'])
 df['c']=np.sin(df['a'])
 !ec
 
 o The inverse of all the numbers in the DataFrame can be calculated by simply doing
-!bc pypro
+!bc pycod
 1/df
 !ec
 Note: you can also do `df+df` and many other operations on the whole DataFrame.
@@ -483,7 +459,7 @@ Note: you can also do `df+df` and many other operations on the whole DataFrame.
 o To make plots there are several possibilities. Personally, I tend most of the time to use the  "`matplotlib`":"https://matplotlib.org/" library, simply because I know it quite well, but Pandas has a great deal of very simple methods you can use to generate nice plots with very few commands.
 
 __Matplotlib:__
-!bc pypro
+!bc pycod
 import matplotlib.pyplot as plt
 plt.plot(df['a'],df['b'], '*', label='$a^2$')
 plt.plot(df['a'],df['c'], '^', label='$\sin(a)$')
@@ -494,20 +470,20 @@ plt.show()
 
 __Pandas plotting:__
 First, let us try the built in plot command in Pandas
-!bc pypro
+!bc pycod
 df.plot()
 !ec
 If you compare this plot with the previous plot, you will see that Pandas plots all columns versus the index columns, which is not what we want. But, we can set `a` to be the index column
-!bc pypro
+!bc pycod
 df=df.set_index('a')
 df.plot()
 !ec
 We can also make separate plots
-!bc pypro
+!bc pycod
 df.plot(subplots=True)
 !ec
 or scatter plots
-!bc pypro
+!bc pycod
 df=df.reset_index()
 df.plot.scatter(x='a',y='b')
 df.plot.scatter(x='a',y='c')
@@ -517,7 +493,7 @@ Note that we have to reset the index, otherwise there are no column named `a`.
 !split
 ===== Grouping, filtering and aggregating data =====
 Whenever you have a data set, you would like to do some exploratory analysis. That typically means that you would like to group, filter or aggregate data. Perhaps, we would like to plot the covid data not per country, but the data as a function of dates. Then you first must sort the data according to date, and then sum all the occurrences on that particular date. For all of these purposes we can use the "`pd.DataFrame.groupby()`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html " function. To sort our DataFrame on dates and sum the occurrences we can do
-!bc pypro
+!bc pycod
 df.groupby('TIME').sum()
 !ec
 
@@ -525,7 +501,7 @@ Another case could be that we wanted to find the total number of confirmed, deat
 # #if FORMAT in ("html","pdflatex", "latex")
 (see figure ref{fig:pandas:group} for final result)
 # #endif
-!bc pypro
+!bc pycod
 df.groupby('LOCATION').sum()
 !ec
 Here Pandas sum all columns with the same location, and drop columns that cannot be summed. By doing `df.groupby('LOCATION').mean()` or `df.groupby('LOCATION').std()` we can find the mean or standard deviation (per day).

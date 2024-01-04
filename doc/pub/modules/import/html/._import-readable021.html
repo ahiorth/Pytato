@@ -166,7 +166,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable003.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable005.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable006.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
@@ -186,7 +186,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable020.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable021.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
@@ -204,10 +204,17 @@ MathJax.Hub.Config({
 </div> <!-- end of navigation bar -->
 <div class="container">
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-<a name="part0004"></a>
+<a name="part0021"></a>
 <!-- !split -->
-<h2 id="lists" class="anchor">Lists </h2>
-<p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
+<h2 id="datetime-time-columns-not-parsed-properly" class="anchor">Datetime: Time columns not parsed properly  </h2>
+
+<p>If you have dates in the file (as in our case for the <code>TIME</code> column), you should check if they are in the <code>datetime</code> format and not read as <code>str</code>.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b><code>datetime</code></b>
+<p>The <code>datetime</code> library is very useful for working with dates. Data types of the type <code>datetime</code> (or equivalently <code>timestamp</code> used by Pandas) contains both date and time in the format <code>YYYY-MM-DD hh:mm:ss</code>. We can initialize a variable, <code>a</code>, by <code>a=datetime.datetime(2022,8,30,10,14,1)</code>, to access the hour we do <code>a.hour</code>, the year by <code>a.year</code> etc. It also easy to increase e.g. the day by one by doing <code>a+datetime.timedelta(days=1)</code>. </p>
+</div>
+
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -215,11 +222,12 @@ MathJax.Hub.Config({
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list <span style="color: #666666">=</span> []<span style="color: #666666">*10</span>   <span style="color: #3D7B7B; font-style: italic"># still an empty list ...</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #666666">0</span>]<span style="color: #666666">*10</span>  <span style="color: #3D7B7B; font-style: italic"># a list with 10 zeros</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>, <span style="color: #BA2121">&#39;two&#39;</span>,<span style="color: #BA2121">&#39;three&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># a list of strings</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>]<span style="color: #666666">*10</span> <span style="color: #3D7B7B; font-style: italic"># a list with 10 equal string elements </span>
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">dt</span>
+time<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;TIME&#39;</span>]
+<span style="color: #3D7B7B; font-style: italic"># what happens if you set</span>
+<span style="color: #3D7B7B; font-style: italic"># time=df2[&#39;TIME&#39;] #i.e df2 is from pd.read_csv ?</span>
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>])
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>]<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=1</span>))
 </pre>
 </div>
       </div>
@@ -235,12 +243,9 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>Notice</b>
-<p>To get the first element in a list, we do e.g. <code>my_list[0]</code>. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be <code>my_list[9]</code>, the length of a list can be found by using the <code>len()</code> function, i.e. <code>len(my_list)</code> would give =10. Thus, the last element can also be found by doing <code>my_list[len(my_list)-1]</code>. However, in Python you can always get the last element by doing <code>my_list[-1]</code>, the second last element would be <code>my_list[-2]</code> and so on.</p>
-</div>
+<p>The code above might work fine or in some cases a date is parsed as a string by Pandas, then we need to convert that column to the correct format. If not, we get into problems if you want to plot data vs the time column.</p>
 
-
-<p>To add stuff to a list, we use the <code>append</code> function</p>
+<p>Below are two ways of converting the <code>TIME</code> column</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -248,9 +253,11 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #666666">2</span>) <span style="color: #3D7B7B; font-style: italic"># [2]</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;dog&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># [2, &#39;dog&#39;]</span>
+  <pre style="line-height: 125%;">df2[<span style="color: #BA2121">&#39;TIME&#39;</span>]<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>to_datetime(df2[<span style="color: #BA2121">&#39;TIME&#39;</span>])
+<span style="color: #3D7B7B; font-style: italic"># just for testing that everything went ok</span>
+time<span style="color: #666666">=</span>df2[<span style="color: #BA2121">&#39;TIME&#39;</span>]
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>])
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>]<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=1</span>))
 </pre>
 </div>
       </div>
@@ -266,7 +273,7 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
   </div>
 </div>
 
-<p>You can also remove stuff, using the <code>pop</code> function, then you also have to give the index</p>
+<p>Another possibility is to do the conversion when reading the data:</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -274,7 +281,7 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #3D7B7B; font-style: italic"># my_list=[&#39;dog&#39;]</span>
+  <pre style="line-height: 125%;">df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/corona_data.dat&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>,parse_dates<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;TIME&#39;</span>]) 
 </pre>
 </div>
       </div>
@@ -290,18 +297,16 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>print statement</b>
-<p>As default python will usually write to screen your last statement. But at any time you can use the <code>print</code> statement to force python to print out any variable, e.g.</p>
+<p>If you have a need to specify all data types, to avoid potential problems down the line this can also be done. First create a dictionary, with column names and data types</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># first element</span>
-<span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>],my_list[<span style="color: #666666">1</span>]) <span style="color: #3D7B7B; font-style: italic"># first and second element</span>
-<span style="color: #008000">print</span>(my_list) <span style="color: #3D7B7B; font-style: italic"># the whole list </span>
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">types_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;LOCATION&quot;</span>:<span style="color: #008000">str</span>,<span style="color: #BA2121">&quot;TIME&quot;</span>:<span style="color: #008000">str</span>,<span style="color: #BA2121">&quot;ELAPSED_TIME_SINCE_OUTBREAK&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;CONFIRMED&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;DEATHS&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;RECOVERED&quot;</span>:<span style="color: #008000">int</span>}
+df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/corona_data.dat&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>,dtype<span style="color: #666666">=</span>types_dict,parse_dates<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;TIME&#39;</span>]) <span style="color: #3D7B7B; font-style: italic"># set data types explicit</span>
 </pre>
 </div>
       </div>
@@ -316,16 +321,17 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     </div>
   </div>
 </div>
-</div>
+
+<p>Note that the time data type is <code>str</code>, but we explicitly tell Pandas to convert those to <code>datetime</code>.</p>
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
-    <a href="._import-readable003.html">&larr; Prev</a>
+    <a href="._import-readable020.html">&larr; Prev</a>
   </li>
   <li class="next">
-    <a href="._import-readable005.html">Next &rarr;</a>
+    <a href="._import-readable022.html">Next &rarr;</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->

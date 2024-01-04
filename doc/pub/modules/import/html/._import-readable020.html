@@ -166,7 +166,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable003.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable005.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable006.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
@@ -182,10 +182,10 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable017.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable018.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable019.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable021.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
@@ -204,10 +204,12 @@ MathJax.Hub.Config({
 </div> <!-- end of navigation bar -->
 <div class="container">
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-<a name="part0004"></a>
+<a name="part0020"></a>
 <!-- !split -->
-<h2 id="lists" class="anchor">Lists </h2>
-<p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
+<h2 id="accessing-data-in-dataframes" class="anchor">Accessing data in  DataFrames </h2>
+<h3 id="selecting-columns" class="anchor">Selecting columns  </h3>
+
+<p>If we want to pick out a specific column we can access it in the following ways</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -215,11 +217,12 @@ MathJax.Hub.Config({
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list <span style="color: #666666">=</span> []<span style="color: #666666">*10</span>   <span style="color: #3D7B7B; font-style: italic"># still an empty list ...</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #666666">0</span>]<span style="color: #666666">*10</span>  <span style="color: #3D7B7B; font-style: italic"># a list with 10 zeros</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>, <span style="color: #BA2121">&#39;two&#39;</span>,<span style="color: #BA2121">&#39;three&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># a list of strings</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>]<span style="color: #666666">*10</span> <span style="color: #3D7B7B; font-style: italic"># a list with 10 equal string elements </span>
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># following two are equivalent</span>
+time<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;TIME&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># by the name, alternatively</span>
+time<span style="color: #666666">=</span>df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">1</span>]]
+<span style="color: #3D7B7B; font-style: italic"># following two are equivalent</span>
+time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>loc[:,[<span style="color: #BA2121">&#39;TIME&#39;</span>]] <span style="color: #3D7B7B; font-style: italic"># by loc[] if we use name</span>
+time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>iloc[:,<span style="color: #666666">1</span>] <span style="color: #3D7B7B; font-style: italic"># by iloc, pick column number 1</span>
 </pre>
 </div>
       </div>
@@ -235,12 +238,9 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>Notice</b>
-<p>To get the first element in a list, we do e.g. <code>my_list[0]</code>. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be <code>my_list[9]</code>, the length of a list can be found by using the <code>len()</code> function, i.e. <code>len(my_list)</code> would give =10. Thus, the last element can also be found by doing <code>my_list[len(my_list)-1]</code>. However, in Python you can always get the last element by doing <code>my_list[-1]</code>, the second last element would be <code>my_list[-2]</code> and so on.</p>
-</div>
+<p>The <code>loc[]</code> and <code>iloc[]</code> functions also allows for list slicing, one can then pick e.g. every second element in the column by <code>time=df.iloc[::2,1]</code> etc. The difference is that <code>loc[]</code> uses the name, and <code>iloc[]</code> the index (usually an integer). </p>
 
-
-<p>To add stuff to a list, we use the <code>append</code> function</p>
+<p>Why several ways of doing the same operation? It turns out that although we are able to extract what we want with these operations, they are of different type</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -248,9 +248,8 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #666666">2</span>) <span style="color: #3D7B7B; font-style: italic"># [2]</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;dog&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># [2, &#39;dog&#39;]</span>
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #008000">type</span>(df[<span style="color: #BA2121">&#39;TIME&#39;</span>]))
+<span style="color: #008000">print</span>(<span style="color: #008000">type</span>(df<span style="color: #666666">.</span>loc[:,[<span style="color: #BA2121">&#39;TIME&#39;</span>]]))
 </pre>
 </div>
       </div>
@@ -265,8 +264,8 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     </div>
   </div>
 </div>
-
-<p>You can also remove stuff, using the <code>pop</code> function, then you also have to give the index</p>
+<h3 id="selecting-rows" class="anchor">Selecting rows  </h3>
+<p>When selecting rows in a DataFrame, we can use the <code>loc[]</code> and <code>iloc[]</code> functions</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -274,7 +273,9 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #3D7B7B; font-style: italic"># my_list=[&#39;dog&#39;]</span>
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># pick column number 0 and 1</span>
+time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>loc[<span style="color: #666666">0</span>:<span style="color: #666666">1</span>,:] <span style="color: #3D7B7B; font-style: italic"># by loc[] </span>
+time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>iloc[<span style="color: #666666">0</span>:<span style="color: #666666">2</span>,:] <span style="color: #3D7B7B; font-style: italic"># by iloc</span>
 </pre>
 </div>
       </div>
@@ -290,18 +291,30 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>print statement</b>
-<p>As default python will usually write to screen your last statement. But at any time you can use the <code>print</code> statement to force python to print out any variable, e.g.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b><code>pandas.DataFrame.loc</code> vs <code>pandas.DataFrame.iloc</code></b>
+<p>When selecting rows <code>loc</code> and <code>iloc</code> they behave differently, <code>loc</code> includes the endpoints (in the example above both row 0 and 1), whereas <code>iloc</code> includes the starting point and up to 1 minus the endpoint. </p>
+</div>
+
+<h3 id="challenges-when-accessing-columns-or-rows" class="anchor">Challenges when accessing columns or rows </h3>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Special characters</b>
+<p>Sometimes when reading files from excel, headers may contains invisible characters like newline <code>\n</code> or tab <code>\t</code> or maybe Norwegian special letters that have not been read in properly. If you have problem accessing a column by name do <code>print(df.columns)</code> and check if the name matches what you would expect.  </p>
+</div>
+
+
+<p>If the header names has unwanted white space, one can do</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># first element</span>
-<span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>],my_list[<span style="color: #666666">1</span>]) <span style="color: #3D7B7B; font-style: italic"># first and second element</span>
-<span style="color: #008000">print</span>(my_list) <span style="color: #3D7B7B; font-style: italic"># the whole list </span>
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># all white spaces</span>
+df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>lstrip() <span style="color: #3D7B7B; font-style: italic"># the beginning of string</span>
+df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>rstrip() <span style="color: #3D7B7B; font-style: italic"># end of string</span>
+df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>strip()  <span style="color: #3D7B7B; font-style: italic"># both ends</span>
 </pre>
 </div>
       </div>
@@ -316,16 +329,64 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
     </div>
   </div>
 </div>
+
+<p>Similarly for unwanted tabs</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>, <span style="color: #BA2121">&#39;&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># remove tab</span>
+</pre>
 </div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If you want to make sure that the columns does not contain any white spaces, one can use <a href="https://pandas.pydata.org/pandas-docs/version/1.2.4/reference/api/pandas.Series.str.strip.html" target="_self"><tt>pandas.Series.str.strip()</tt></a></p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>]<span style="color: #666666">.</span>str<span style="color: #666666">.</span>strip()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
-    <a href="._import-readable003.html">&larr; Prev</a>
+    <a href="._import-readable019.html">&larr; Prev</a>
   </li>
   <li class="next">
-    <a href="._import-readable005.html">Next &rarr;</a>
+    <a href="._import-readable021.html">Next &rarr;</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->

@@ -166,7 +166,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable003.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable005.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable006.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
@@ -193,8 +193,8 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable022.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -204,10 +204,10 @@ MathJax.Hub.Config({
 </div> <!-- end of navigation bar -->
 <div class="container">
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-<a name="part0004"></a>
+<a name="part0023"></a>
 <!-- !split -->
-<h2 id="lists" class="anchor">Lists </h2>
-<p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
+<h2 id="grouping-filtering-and-aggregating-data" class="anchor">Grouping, filtering and aggregating data </h2>
+<p>Whenever you have a data set, you would like to do some exploratory analysis. That typically means that you would like to group, filter or aggregate data. Perhaps, we would like to plot the covid data not per country, but the data as a function of dates. Then you first must sort the data according to date, and then sum all the occurrences on that particular date. For all of these purposes we can use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html " target="_self"><tt>pd.DataFrame.groupby()</tt></a> function. To sort our DataFrame on dates and sum the occurrences we can do</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -215,11 +215,7 @@ MathJax.Hub.Config({
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list <span style="color: #666666">=</span> []<span style="color: #666666">*10</span>   <span style="color: #3D7B7B; font-style: italic"># still an empty list ...</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #666666">0</span>]<span style="color: #666666">*10</span>  <span style="color: #3D7B7B; font-style: italic"># a list with 10 zeros</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>, <span style="color: #BA2121">&#39;two&#39;</span>,<span style="color: #BA2121">&#39;three&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># a list of strings</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>]<span style="color: #666666">*10</span> <span style="color: #3D7B7B; font-style: italic"># a list with 10 equal string elements </span>
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;TIME&#39;</span>)<span style="color: #666666">.</span>sum()
 </pre>
 </div>
       </div>
@@ -235,12 +231,9 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>Notice</b>
-<p>To get the first element in a list, we do e.g. <code>my_list[0]</code>. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be <code>my_list[9]</code>, the length of a list can be found by using the <code>len()</code> function, i.e. <code>len(my_list)</code> would give =10. Thus, the last element can also be found by doing <code>my_list[len(my_list)-1]</code>. However, in Python you can always get the last element by doing <code>my_list[-1]</code>, the second last element would be <code>my_list[-2]</code> and so on.</p>
-</div>
-
-
-<p>To add stuff to a list, we use the <code>append</code> function</p>
+<p>Another case could be that we wanted to find the total number of confirmed, deaths and recovered cases in the full database. As always in Python it can be done in different ways, by e.g. splitting the database into individual countries and do  <code>df[['CONFIRMED','DEATHS','RECOVERED']].sum()</code> or accessing each column individually and sum each of them e.g. <code>np.sum(df['CONFIRMED'])</code>.  However, with the <code>groupby()</code> function
+(see figure <a href="#fig:pandas:group">2</a> for final result)
+</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -248,9 +241,7 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #666666">2</span>) <span style="color: #3D7B7B; font-style: italic"># [2]</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;dog&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># [2, &#39;dog&#39;]</span>
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;LOCATION&#39;</span>)<span style="color: #666666">.</span>sum()
 </pre>
 </div>
       </div>
@@ -266,66 +257,26 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
   </div>
 </div>
 
-<p>You can also remove stuff, using the <code>pop</code> function, then you also have to give the index</p>
+<p>Here Pandas sum all columns with the same location, and drop columns that cannot be summed. By doing <code>df.groupby('LOCATION').mean()</code> or <code>df.groupby('LOCATION').std()</code> we can find the mean or standard deviation (per day).</p>
 
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #3D7B7B; font-style: italic"># my_list=[&#39;dog&#39;]</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 2: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
+</center>
+<p><img src="fig-import/group.png" width="800" align="bottom"></p>
+</center>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>print statement</b>
-<p>As default python will usually write to screen your last statement. But at any time you can use the <code>print</code> statement to force python to print out any variable, e.g.</p>
+<h1 id="bibliography" class="anchor">Bibliography </h1>
 
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># first element</span>
-<span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>],my_list[<span style="color: #666666">1</span>]) <span style="color: #3D7B7B; font-style: italic"># first and second element</span>
-<span style="color: #008000">print</span>(my_list) <span style="color: #3D7B7B; font-style: italic"># the whole list </span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+<!-- begin bibliography -->
 
+<!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
-    <a href="._import-readable003.html">&larr; Prev</a>
-  </li>
-  <li class="next">
-    <a href="._import-readable005.html">Next &rarr;</a>
+    <a href="._import-readable022.html">&larr; Prev</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->

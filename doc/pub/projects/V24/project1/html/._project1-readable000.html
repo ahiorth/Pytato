@@ -46,10 +46,10 @@ code { color: inherit; background-color: transparent; }
                None,
                'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
               ('Background', 2, None, 'background'),
-              ('Exercise 2: Read data from file',
+              ('Exercise 2: Read tabulated data from file',
                1,
                None,
-               'exercise-2-read-data-from-file'),
+               'exercise-2-read-tabulated-data-from-file'),
               ('Pandas (easy):', 2, None, 'pandas-easy'),
               ('`numpy.loadtxt` (medium):', 2, None, 'numpy-loadtxt-medium'),
               ('Vanilla Python (hard):', 2, None, 'vanilla-python-hard'),
@@ -61,18 +61,24 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'exercise-3-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
               ('Convert list to Numpy arrays and plot (easy)',
                3,
                None,
                'convert-list-to-numpy-arrays-and-plot-easy'),
-              ('Exercise 4: Use Pandas to visualize oil production data',
+              ('Exercise 4: Group data', 1, None, 'exercise-4-group-data'),
+              ('Exercise 5: Use Pandas to manipulate data and  visualization',
                1,
                None,
-               'exercise-4-use-pandas-to-visualize-oil-production-data'),
-              ('Exercise 5: More wells, more oil?',
+               'exercise-5-use-pandas-to-manipulate-data-and-visualization'),
+              ('Exercise 6: Use Pandas to visualize oil production data',
                1,
                None,
-               'exercise-5-more-wells-more-oil'),
+               'exercise-6-use-pandas-to-visualize-oil-production-data'),
+              ('Exercise 7: More wells, more oil?',
+               1,
+               None,
+               'exercise-7-more-wells-more-oil'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -111,15 +117,18 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-2-read-data-from-file" style="font-size: 80%;"><b>Exercise 2: Read data from file</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-2-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 2: Read tabulated data from file</b></a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas (easy):</a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;`numpy.loadtxt` (medium):</a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Vanilla Python (hard):</a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-3-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 3: Matplotlib visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-4-use-pandas-to-visualize-oil-production-data" style="font-size: 80%;"><b>Exercise 4: Use Pandas to visualize oil production data</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-5-more-wells-more-oil" style="font-size: 80%;"><b>Exercise 5: More wells, more oil?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-4-group-data" style="font-size: 80%;"><b>Exercise 4: Group data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-5-use-pandas-to-manipulate-data-and-visualization" style="font-size: 80%;"><b>Exercise 5: Use Pandas to manipulate data and  visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-6-use-pandas-to-visualize-oil-production-data" style="font-size: 80%;"><b>Exercise 6: Use Pandas to visualize oil production data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-7-more-wells-more-oil" style="font-size: 80%;"><b>Exercise 7: More wells, more oil?</b></a></li>
      <!-- navigation toc: --> <li><a href="._project1-readable001.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
@@ -144,7 +153,7 @@ MathJax.Hub.Config({
 <!-- institution(s) -->
 <br>
 <center>
-<h4>Jan 3, 2024</h4>
+<h4>Jan 4, 2024</h4>
 </center> <!-- date -->
 <br>
 
@@ -168,13 +177,15 @@ handed-in Jupyter notebook.
 <div class='toc'>
 <p><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data"> Exercise 1: Install Bedmap to visualize Antarctica ice data  </a></p>
 <p><span class="tab"> <a href="._project1-readable001.html#background"> Background  </a></p>
-<p><a href="._project1-readable001.html#exercise-2-read-data-from-file"> Exercise 2: Read data from file </a></p>
+<p><a href="._project1-readable001.html#exercise-2-read-tabulated-data-from-file"> Exercise 2: Read tabulated data from file </a></p>
 <p><span class="tab"> <a href="._project1-readable001.html#pandas-easy"> Pandas (easy): </a></p>
 <p><span class="tab"> <a href="._project1-readable001.html#numpy-loadtxt-medium"> <code>numpy.loadtxt</code> (medium): </a></p>
 <p><span class="tab"> <a href="._project1-readable001.html#vanilla-python-hard"> Vanilla Python (hard): </a></p>
 <p><a href="._project1-readable001.html#exercise-3-matplotlib-visualization"> Exercise 3: Matplotlib visualization  </a></p>
-<p><a href="._project1-readable001.html#exercise-4-use-pandas-to-visualize-oil-production-data"> Exercise 4: Use Pandas to visualize oil production data </a></p>
-<p><a href="._project1-readable001.html#exercise-5-more-wells-more-oil"> Exercise 5: More wells, more oil? </a></p>
+<p><a href="._project1-readable001.html#exercise-4-group-data"> Exercise 4: Group data  </a></p>
+<p><a href="._project1-readable001.html#exercise-5-use-pandas-to-manipulate-data-and-visualization"> Exercise 5: Use Pandas to manipulate data and  visualization  </a></p>
+<p><a href="._project1-readable001.html#exercise-6-use-pandas-to-visualize-oil-production-data"> Exercise 6: Use Pandas to visualize oil production data </a></p>
+<p><a href="._project1-readable001.html#exercise-7-more-wells-more-oil"> Exercise 7: More wells, more oil? </a></p>
 <p><a href="._project1-readable001.html#bibliography"> Bibliography </a></p>
 </div>
 <br>

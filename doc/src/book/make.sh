@@ -38,7 +38,7 @@ if [ "$spellcheck" != 'nospell' ]; then
 python -c 'import scripts; scripts.spellcheck()'
 fi
 
-preprocess -DFORMAT=pdflatex ../chapters/newcommands.p.tex > newcommands_keep.tex
+preprocess -DFORMAT=pdflatex ../modules/newcommands.p.tex > newcommands_keep.tex
 
 opt="CHAPTER=$CHAPTER BOOK=$BOOK APPENDIX=$APPENDIX"
 

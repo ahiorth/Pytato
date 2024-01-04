@@ -103,9 +103,9 @@ end of tocinfo -->
      <!-- navigation toc: --> <li><a href="._intro-readable008.html#functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Functions</a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable009.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable010.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Library</a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;"><b>Exercise: Install a Python library in a separate environment</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable012.html#exercise-2-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 2: Install Bedmap to visualize Antarctica ice data</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable012.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._intro-readable011.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;"><b>Exercise: Install a Python library in a separate environment</b></a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-2-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 2: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -115,161 +115,35 @@ end of tocinfo -->
 </div> <!-- end of navigation bar -->
 <div class="container">
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-<a name="part0011"></a>
+<a name="part0012"></a>
 <!-- !split -->
-<h1 id="exercise-install-a-python-library-in-a-separate-environment" class="anchor">Exercise: Install a Python library in a separate environment  </h1>
-
-<p>Hopefully you have managed to install Anaconda Python. Next, you want to open a terminal, if you are working on Linux or Mac, you open the terminal window. On Windows you open Anaconda Powershell Prompt from the Windows start menu. On my machine the prompt is a black screen, with the following text</p>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">(base) PS C:\Users\Aksel Hiorth&gt;
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The <code>(base)</code> to the left indicates that we are in the base environment in Anaconda, <code>C:\Users\2902412</code>, show me that I am at the <code>C</code> disk, in the <code>Aksel Hiorth</code> folder, which is a sub directory of the <code>User</code> folder.</p>
-
-<p>As a general rule we do not want to install new packages or libraries in the <code>base</code> environment, this is simply because different packages are not always internally consistent. If you are unlucky you will install two packages that requires two different version of a third package, this will then break your installation and suddenly code that used to run will no longer work.</p>
-
-<p>A good practice is for each new project you start on that requires some special packages or libraries that you have not used before is to create a new environment.</p>
-
-<p>
-<b>Step 1 (Update conda, if you did not recently installed Anaconda):</b>
-</p>
-<ul>
-<li> Open your anaconda powershell prompt (on Windows) and terminal (Mac or Linux)</li>
-<li> Make sure that conda is updated (conda is the package manager of Anaconda), by enter the following command.</li>
-</ul>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda update -n base -c conda-forge conda
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>This may take some time.</p>
-
-<p>
-<b>Step 2 (Create environment):</b>
+<h1 id="exercise-2-install-bedmap-to-visualize-antarctica-ice-data" class="anchor">Exercise 2: Install Bedmap to visualize Antarctica ice data  </h1>
+<p>There is currently a great deal of concern about global warming.
+Some critical issues are whether we are more likely to observe
+extreme local temperatures, increased frequencies of natural
+disasters like forest fires and droughts, and if there are
+"tipping points" in the climate system that are, at least on the
+human timescale, irreversible <a href="#IPCC2021">[1]</a>.
+One particular question to ask is: How much ice is likely to melt?
+And, what would be the consequence of ice melting for sea level rise (SLR)?
 </p>
 
-<ul>
-<li> Create a new environment by the following command</li>
-</ul>
+<p>Since most of the ice on Planet Earth is located in Antarctica, substantial
+effort has been spent in mapping the ice and the bedrock of this continent.
+Most of the data is freely available, and we can use Python to investigate
+different scenarios. Here we will only show you how to install the packages and visualize the ice thickness. 
+</p>
 
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda create -n MOD321 
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<p>
+<b>Part 1.</b>
+</p>
 
-<p>Here I tell python create a new environment called MOD321, which is the course code of this course. After you have accepted everything, you will get sometime like this</p>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">#
-# To activate this environment, use
-#
-#     $ conda activate MOD321
-#
-# To deactivate an active environment, use
-#
-#     $ conda deactivate
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<ul>
-<li> Execute the above command</li>
-</ul>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda activate MOD321
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Delete environments</b>
-<p>If something goes wrong you can always delete the environment and create it once more. You simply has to deactivate it</p>
+<div class="alert alert-block alert-success alert-text-normal"><b>Create a new environment</b>
+<p>The ice data are located in the <em>bedmap2</em> dataset <a href="#fretwell2013bedmap2">[2]</a>
+The <a href="https://github.com/fatiando/rockhound" target="_self">rockhound</a>
+library can be used to load the data. As an aid to plotting, you might also want to use color maps from the
+<a href="https://pypi.org/project/cmocean/" target="_self">cmocean</a> package <a href="#thyng2016true">[3]</a>. To install bedmap2 data you have to create a new conda environment (we call it ice)
+</p>
 
 <!-- code=text (!bc sys) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -277,7 +151,9 @@ end of tocinfo -->
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;">(MOD321) Aksel Hiorth&gt;conda deactivate 
+  <pre style="line-height: 125%;">conda config --add channels conda-forge
+conda create -n ice python matplotlib numpy \ 
+scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
 </pre>
 </div>
       </div>
@@ -293,15 +169,16 @@ end of tocinfo -->
   </div>
 </div>
 
-<p>Then you delete it</p>
+<p>Note that we need a specific version of the <code>xarray</code> library.</p>
 
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda remove --name MOD321 --all 
+  <pre style="line-height: 125%;">conda activate project1
+jupyter notebook
 </pre>
 </div>
       </div>
@@ -320,19 +197,31 @@ end of tocinfo -->
 
 
 <p>
-<b>Step 3 (Install packages):</b>
-There are several packages we will need and if we list all packages simultaneously conda will make sure that they are internally consistent. Enter the following command
+<b>Part 2.</b>
+The code below is taken from the
+<a href="https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html" target="_self">rockound library documentation</a>:
 </p>
 
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda activate MOD321
-(MOD321) Aksel Hiorth&gt;conda install matplotlib pandas jupyter scipy \ 
-numpy ipykernel pathlib numba 
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">rockhound</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">rh</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">cmocean</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+
+bedmap <span style="color: #666666">=</span> rh<span style="color: #666666">.</span>fetch_bedmap2(datasets<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;thickness&quot;</span>,<span style="color: #BA2121">&quot;surface&quot;</span>,<span style="color: #BA2121">&quot;bed&quot;</span>])
+plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">8</span>, <span style="color: #666666">7</span>))
+ax <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>subplot(<span style="color: #666666">111</span>)
+bedmap<span style="color: #666666">.</span>surface<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>pcolormesh(ax<span style="color: #666666">=</span>ax,cmap<span style="color: #666666">=</span>cmocean<span style="color: #666666">.</span>cm<span style="color: #666666">.</span>ice,
+                       cbar_kwargs<span style="color: #666666">=</span><span style="color: #008000">dict</span>(pad<span style="color: #666666">=0.01</span>, aspect<span style="color: #666666">=30</span>))
+plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">&quot;Bedmap2 Antarctica&quot;</span>)
+plt<span style="color: #666666">.</span>tight_layout()
+plt<span style="color: #666666">.</span>show()
 </pre>
 </div>
       </div>
@@ -348,23 +237,35 @@ numpy ipykernel pathlib numba
   </div>
 </div>
 
-<p>(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: <code>conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba </code>.)
-If you later find out you need additional packages, you just can just open a terminal window, activate the correct environment and then do <code>conda install PACKAGE_NAME</code>. But, as already mentioned if you install more and more very specialized packages, you might get inconsistencies. However, then you can just delete your environment and install everything once more.
+
+<ul>
+<li> Run the code and reproduce figure <a href="#fig:bedmap2_ice_thickness">6</a>.</li>
+</ul>
+<center> <!-- figure label: --> <div id="fig:bedmap2_ice_thickness"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 6: Visualization of the ice thickness in Antarctica.  <!-- caption label: fig:bedmap2_ice_thickness --></p>
+</center>
+<p><img src="fig-intro/bedmap2_plot.png" width="800" align="bottom"></p>
+</center>
+
+<p>This may take quite some time, so it is recommended that you do not execute
+the cell generating the plot more often than you have to.
+<h1 id="bibliography" class="anchor">Bibliography </h1>
 </p>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>pip install vs conda install</b>
-<p>If you find a package you would like to install, the documentation may in many cases say run the command <code>pip install PACKAGE_NAME</code>. That may very well work, but I would always advice you to do <code>conda install PACKAGE_NAME</code> first, because I believe conda is better at checking for internal consistency. If <code>conda install</code> fails, you can do <code>pip install</code> and 99 out 100 times this will work out just fine. </p>
-</div>
-
-
+<!-- begin bibliography -->
+<ol>
+ <li> <div id="IPCC2021"></div> <b>V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Pean, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J. B. R. Matthews, T. K. Maycock, T. Waterfield, O. Yelekci, R. Yu and B. Z. (eds.)</b>.  Climate Change 2021: the Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, <em>Cambridge University Press. In Press.</em>, 2021.</li>
+ <li> <div id="fretwell2013bedmap2"></div> <b>P. Fretwell, H. D. Pritchard, D. G. Vaughan, J. L. Bamber, N. E. Barrand, R. Bell, C. Bianchi, R. Bingham, D. D. Blankenship and G. Casassa</b>.  Bedmap2: Improved Ice Bed, Surface and Thickness Datasets for Antarctica, <em>The Cryosphere</em>, 7(1), pp. 375-393, 2013.</li>
+ <li> <div id="thyng2016true"></div> <b>K. M. Thyng, C. A. Greene, R. D. Hetland, H. M. Zimmerle and S. F. DiMarco</b>.  True Colors of Oceanography: Guidelines for Effective and Accurate Colormap Selection, <em>Oceanography</em>, 29(3), pp. 9-13, 2016.</li>
+</ol>
+<!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
-    <a href="._intro-readable010.html">&larr; Prev</a>
-  </li>
-  <li class="next">
-    <a href="._intro-readable012.html">Next &rarr;</a>
+    <a href="._intro-readable011.html">&larr; Prev</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->

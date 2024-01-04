@@ -42,11 +42,11 @@ code { color: inherit; background-color: transparent; }
                'table_of_contents',
                'table_of_contents'),
               ('Is it possible to learn Python in two days?',
-               2,
+               1,
                None,
                'is-it-possible-to-learn-python-in-two-days'),
               ('Why should you learn coding?',
-               2,
+               1,
                None,
                'why-should-you-learn-coding'),
               ('About this course', 1, None, 'about-this-course'),
@@ -68,6 +68,10 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'exercise-install-a-python-library-in-a-separate-environment'),
+              ('Exercise 2: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-2-install-bedmap-to-visualize-antarctica-ice-data'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -88,8 +92,8 @@ end of tocinfo -->
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="._intro-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable001.html#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Is it possible to learn Python in two days?</a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable002.html#why-should-you-learn-coding" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn coding?</a></li>
+     <!-- navigation toc: --> <li><a href="._intro-readable001.html#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;"><b>Is it possible to learn Python in two days?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._intro-readable002.html#why-should-you-learn-coding" style="font-size: 80%;"><b>Why should you learn coding?</b></a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable003.html#about-this-course" style="font-size: 80%;"><b>About this course</b></a></li>
      <!-- navigation toc: --> <li><a href="#online-programming-resources" style="font-size: 80%;"><b>Online programming resources</b></a></li>
      <!-- navigation toc: --> <li><a href="#chatgpt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;ChatGPT</a></li>
@@ -100,7 +104,8 @@ end of tocinfo -->
      <!-- navigation toc: --> <li><a href="._intro-readable009.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable010.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Library</a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable011.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;"><b>Exercise: Install a Python library in a separate environment</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable011.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._intro-readable012.html#exercise-2-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 2: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._intro-readable012.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -114,7 +119,12 @@ end of tocinfo -->
 <!-- !split -->
 <h1 id="online-programming-resources" class="anchor">Online programming resources </h1>
 
-<p>This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are <a href="https://www.w3schools.com/python/default.asp" target="_self">w3schools</a>, and <a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_self">A Whirlwind tour of Python</a>. These resources explains quite briefly important concepts and give examples, such as</p>
+<p>This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are</p>
+<ul>
+<li> <a href="https://www.w3schools.com/python/default.asp" target="_self">w3schools</a>, brief description of different functionality in Python, has an extensive index, which makes it is easy to look up different concepts.</li>
+<li> <a href="https://jakevdp.github.io/WhirlwindTourOfPython/" target="_self">A Whirlwind tour of Python</a>. Basic introduction to Python, from simple to more complex concepts.</li>
+</ul>
+<p>These resources explains quite briefly important concepts and give examples, such as</p>
 <ul>
 <li> specific Python syntax,</li>
 <li> data types (float, int, Boolean, etc.),</li>
@@ -122,6 +132,7 @@ end of tocinfo -->
 <li> control flow (if, else, while, for loops etc.),</li>
 <li> functions and classes.</li>
 </ul>
+<p>I would also like to highlight <a href="https://realpython.com/" target="_self">Real Python</a>. Real Python is comprehensive, it offers different learning paths from <a href="https://realpython.com/learning-paths/python-basics/" target="_self">python basics</a>, to <a href="https://realpython.com/learning-paths/machine-learning-python/" target="_self">machine learning with python</a>. Whenever I want to understand certain Python concepts in depth, I often end up at Real Python, I find it to be precise and not too lengthy.</p>
 <h2 id="chatgpt" class="anchor">ChatGPT </h2>
 <p><a href="https://chat.openai.com/auth/login" target="_self">ChatGPT</a>, developed by <a href="https://openai.com/" target="_self">OpenAI</a> is perhaps one of the best online sources to help you write code. So far all the examples in this course can be generated from ChatGPT. Just type in ''Show me how to plot sin(x) in Python'', you will get the output in figure <a href="#fig:intro:chat1">1</a>.</p>
 

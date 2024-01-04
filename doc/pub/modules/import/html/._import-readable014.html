@@ -166,7 +166,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable003.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable005.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable006.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable022.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
@@ -178,7 +178,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable022.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable012.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable013.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable014.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable017.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable018.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
      <!-- navigation toc: --> <li><a href="._import-readable019.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
@@ -204,10 +204,10 @@ MathJax.Hub.Config({
 </div> <!-- end of navigation bar -->
 <div class="container">
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-<a name="part0004"></a>
+<a name="part0014"></a>
 <!-- !split -->
-<h2 id="lists" class="anchor">Lists </h2>
-<p> Lists are defined using the square bracket <code>[]</code> symbol, e.g.</p>
+<h2 id="list-all-files-and-folder-in-current-directory" class="anchor">List all files and folder in current directory </h2>
+<p>As mentioned before a for-loop is a way to tell the computer to do something until a certain condition has been met. The code for listing all files and directories in a folder is then</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -215,11 +215,13 @@ MathJax.Hub.Config({
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list <span style="color: #666666">=</span> []<span style="color: #666666">*10</span>   <span style="color: #3D7B7B; font-style: italic"># still an empty list ...</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #666666">0</span>]<span style="color: #666666">*10</span>  <span style="color: #3D7B7B; font-style: italic"># a list with 10 zeros</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>, <span style="color: #BA2121">&#39;two&#39;</span>,<span style="color: #BA2121">&#39;three&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># a list of strings</span>
-my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39;one&#39;</span>]<span style="color: #666666">*10</span> <span style="color: #3D7B7B; font-style: italic"># a list with 10 equal string elements </span>
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pathlib</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pt</span>
+p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;.&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># the directory where this python file is located</span>
+<span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> p<span style="color: #666666">.</span>iterdir():
+    <span style="color: #008000; font-weight: bold">if</span> x<span style="color: #666666">.</span>is_dir():<span style="color: #3D7B7B; font-style: italic">#NB Indentation, all below belongs to p.iterdir()</span>
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found dir: &#39;</span>, x) <span style="color: #3D7B7B; font-style: italic">#NB Indentation, belongs to if x.is_dir()</span>
+    <span style="color: #008000; font-weight: bold">elif</span> x<span style="color: #666666">.</span>is_file():
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found file: &#39;</span>, x) <span style="color: #3D7B7B; font-style: italic">#NB Indentation, belongs to if x.is_file()</span>
 </pre>
 </div>
       </div>
@@ -235,12 +237,7 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
   </div>
 </div>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>Notice</b>
-<p>To get the first element in a list, we do e.g. <code>my_list[0]</code>. Notice that the counter start at 0 and not 1. In a list with 10 elements the last element would be <code>my_list[9]</code>, the length of a list can be found by using the <code>len()</code> function, i.e. <code>len(my_list)</code> would give =10. Thus, the last element can also be found by doing <code>my_list[len(my_list)-1]</code>. However, in Python you can always get the last element by doing <code>my_list[-1]</code>, the second last element would be <code>my_list[-2]</code> and so on.</p>
-</div>
-
-
-<p>To add stuff to a list, we use the <code>append</code> function</p>
+<p><code>p.iterdir()</code> is a <em>generator</em>, and you can simply think of it as generating a list of all files and folders in the <code>'.'</code> (current) directory. To view the elements in <code>p.iterdir()</code>, you can do</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -248,9 +245,7 @@ my_list <span style="color: #666666">=</span> [<span style="color: #BA2121">&#39
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list <span style="color: #666666">=</span> []      <span style="color: #3D7B7B; font-style: italic"># an empty list</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #666666">2</span>) <span style="color: #3D7B7B; font-style: italic"># [2]</span>
-my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;dog&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># [2, &#39;dog&#39;]</span>
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #008000">list</span>(p<span style="color: #666666">.</span>iterdir()))
 </pre>
 </div>
       </div>
@@ -266,66 +261,21 @@ my_list<span style="color: #666666">.</span>append(<span style="color: #BA2121">
   </div>
 </div>
 
-<p>You can also remove stuff, using the <code>pop</code> function, then you also have to give the index</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>) <span style="color: #3D7B7B; font-style: italic"># my_list=[&#39;dog&#39;]</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="alert alert-block alert-success alert-text-normal"><b>print statement</b>
-<p>As default python will usually write to screen your last statement. But at any time you can use the <code>print</code> statement to force python to print out any variable, e.g.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># first element</span>
-<span style="color: #008000">print</span>(my_list[<span style="color: #666666">0</span>],my_list[<span style="color: #666666">1</span>]) <span style="color: #3D7B7B; font-style: italic"># first and second element</span>
-<span style="color: #008000">print</span>(my_list) <span style="color: #3D7B7B; font-style: italic"># the whole list </span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
+<p>Let us go through each line</p>
+<ol>
+<li> <code>p=pt.Path('.')</code> we create a Path object and name it <code>p</code>.</li>
+<li> The next part is the for-loop, the variable <code>x</code> takes on the value of each element in the list generated by <code>p.iter_dir()</code>.</li>
+<li> <code>x.is_dir()</code>, gives True if <code>x</code> is a directory and False if not.</li>
+<li> <code>x.is_file()</code>, gives True if <code>x</code> is a file and False if not.</li>
+</ol>
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
-    <a href="._import-readable003.html">&larr; Prev</a>
+    <a href="._import-readable013.html">&larr; Prev</a>
   </li>
   <li class="next">
-    <a href="._import-readable005.html">Next &rarr;</a>
+    <a href="._import-readable015.html">Next &rarr;</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
