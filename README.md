@@ -5,4 +5,4 @@
 
 1. [Preliminaries](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/intro/notebook/main_intro.ipynb)
 2. [Introduction to Practical Applications](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/import/notebook/main_import.ipynb)
-3. [Exercises](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/import/notebook/main_exercises.ipynb)
+3. [Exercises](https://github.com/ahiorth/Pytato/blob/master/doc/pub/modules/exercises/notebook/main_exercises.ipynb)
