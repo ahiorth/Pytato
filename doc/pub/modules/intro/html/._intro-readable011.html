@@ -68,10 +68,6 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'exercise-install-a-python-library-in-a-separate-environment'),
-              ('Exercise 2: Install Bedmap to visualize Antarctica ice data',
-               1,
-               None,
-               'exercise-2-install-bedmap-to-visualize-antarctica-ice-data'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -104,8 +100,7 @@ end of tocinfo -->
      <!-- navigation toc: --> <li><a href="._intro-readable009.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
      <!-- navigation toc: --> <li><a href="._intro-readable010.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Library</a></li>
      <!-- navigation toc: --> <li><a href="#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;"><b>Exercise: Install a Python library in a separate environment</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable012.html#exercise-2-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 2: Install Bedmap to visualize Antarctica ice data</b></a></li>
-     <!-- navigation toc: --> <li><a href="._intro-readable012.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -143,7 +138,7 @@ end of tocinfo -->
   </div>
 </div>
 
-<p>The <code>(base)</code> to the left indicates that we are in the base environment in Anaconda, <code>C:\Users\2902412</code>, show me that I am at the <code>C</code> disk, in the <code>Aksel Hiorth</code> folder, which is a sub directory of the <code>User</code> folder.</p>
+<p>The <code>(base)</code> to the left indicates that we are in the base environment in Anaconda, <code>C:\Users\Aksel Hiorth</code>, show me that I am at the <code>C</code> disk, in the <code>Aksel Hiorth</code> folder, which is a sub directory of the <code>User</code> folder.</p>
 
 <p>As a general rule we do not want to install new packages or libraries in the <code>base</code> environment, this is simply because different packages are not always internally consistent. If you are unlucky you will install two packages that requires two different version of a third package, this will then break your installation and suddenly code that used to run will no longer work.</p>
 
@@ -332,7 +327,7 @@ There are several packages we will need and if we list all packages simultaneous
         <div class="highlight" style="background: #f8f8f8">
   <pre style="line-height: 125%;">(base) Aksel Hiorth&gt;conda activate MOD321
 (MOD321) Aksel Hiorth&gt;conda install matplotlib pandas jupyter scipy \ 
-numpy ipykernel pathlib numba 
+numpy ipykernel pathlib numba openpyxl 
 </pre>
 </div>
       </div>
@@ -348,7 +343,7 @@ numpy ipykernel pathlib numba
   </div>
 </div>
 
-<p>(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: <code>conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba </code>.)
+<p>(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: <code>conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba openpyxl</code>.)
 If you later find out you need additional packages, you just can just open a terminal window, activate the correct environment and then do <code>conda install PACKAGE_NAME</code>. But, as already mentioned if you install more and more very specialized packages, you might get inconsistencies. However, then you can just delete your environment and install everything once more.
 </p>
 
@@ -356,15 +351,16 @@ If you later find out you need additional packages, you just can just open a ter
 <p>If you find a package you would like to install, the documentation may in many cases say run the command <code>pip install PACKAGE_NAME</code>. That may very well work, but I would always advice you to do <code>conda install PACKAGE_NAME</code> first, because I believe conda is better at checking for internal consistency. If <code>conda install</code> fails, you can do <code>pip install</code> and 99 out 100 times this will work out just fine. </p>
 </div>
 
+<h1 id="bibliography" class="anchor">Bibliography </h1>
 
+<!-- begin bibliography -->
+
+<!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
   <li class="previous">
     <a href="._intro-readable010.html">&larr; Prev</a>
-  </li>
-  <li class="next">
-    <a href="._intro-readable012.html">Next &rarr;</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->

@@ -1,0 +1,309 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Exercises">
+<title>Exercises</title>
+<!-- Bootstrap style: bootswatch_readable -->
+<!-- doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:64px;      /* fixed header height for style bootswatch_readable */
+  margin:-64px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Matplotlib visualization',
+               1,
+               None,
+               'exercise-2-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
+              ('Exercise 4: Read tabulated data from file',
+               1,
+               None,
+               'exercise-4-read-tabulated-data-from-file'),
+              ('Solution 1 Pandas (easy):', 2, None, 'solution-1-pandas-easy'),
+              ('Solution 2 `numpy.loadtxt` (medium):',
+               2,
+               None,
+               'solution-2-numpy-loadtxt-medium'),
+              ('Solution 3 Vanilla Python (hard):',
+               2,
+               None,
+               'solution-3-vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 5: Splitting data into files using Pandas',
+               1,
+               None,
+               'exercise-5-splitting-data-into-files-using-pandas'),
+              ('Exercise 6: Splitting all field data into separate files',
+               1,
+               None,
+               'exercise-6-splitting-all-field-data-into-separate-files'),
+              ('Exercise 7: Splitting field data into separate files and '
+               'folder',
+               1,
+               None,
+               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('Bibliography', 1, None, 'bibliography')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="exercises-readable.html">Exercises</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._exercises-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable002.html#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable004.html#exercise-3-group-data" style="font-size: 80%;"><b>Exercise 3: Group data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable006.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 4: Read tabulated data from file</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable008.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;"><b>Exercise 5: Splitting data into files using Pandas</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable010.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;"><b>Exercise 6: Splitting all field data into separate files</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable012.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;"><b>Exercise 7: Splitting field data into separate files and folder</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable013.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0001"></a>
+<!-- !split -->
+<h1 id="exercise-1-install-bedmap-to-visualize-antarctica-ice-data" class="anchor">Exercise 1: Install Bedmap to visualize Antarctica ice data  </h1>
+<h2 id="background" class="anchor">Background  </h2>
+<p>There is currently a great deal of concern about global warming.
+Some critical issues are whether we are more likely to observe
+extreme local temperatures, increased frequencies of natural
+disasters like forest fires and droughts, and if there are
+"tipping points" in the climate system that are, at least on the
+human timescale, irreversible <a href="._exercises-readable013.html#IPCC2021">[1]</a>.
+One particular question to ask is: How much ice is likely to melt?
+And, what would be the consequence of ice melting for sea level rise (SLR)?
+</p>
+
+<p>Since most of the ice on Planet Earth is located in Antarctica, substantial
+effort has been spent in mapping the ice and the bedrock of this continent.
+Most of the data is freely available, and we can use Python to investigate
+different scenarios. Here we will only show you how to install the packages and visualize the ice thickness. 
+</p>
+
+<p>
+<b>Part 1.</b>
+</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Create a new environment</b>
+<p>The ice data are located in the <em>bedmap2</em> dataset <a href="._exercises-readable013.html#fretwell2013bedmap2">[2]</a>
+The <a href="https://github.com/fatiando/rockhound" target="_self">rockhound</a>
+library can be used to load the data. As an aid to plotting, you might also want to use color maps from the
+<a href="https://pypi.org/project/cmocean/" target="_self">cmocean</a> package <a href="._exercises-readable013.html#thyng2016true">[3]</a>. To install bedmap2 data you have to create a new conda environment (we call it ice)
+</p>
+
+<!-- code=text (!bc sys) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;">conda config --add channels conda-forge
+conda create -n ice python matplotlib numpy \ 
+scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Note that we need a specific version of the <code>xarray</code> library.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;">conda activate ice
+jupyter notebook
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<p>
+<b>Part 2.</b>
+The code below is taken from the
+<a href="https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html" target="_self">rockound library documentation</a>:
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">rockhound</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">rh</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">cmocean</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+
+bedmap <span style="color: #666666">=</span> rh<span style="color: #666666">.</span>fetch_bedmap2(datasets<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;thickness&quot;</span>,<span style="color: #BA2121">&quot;surface&quot;</span>,<span style="color: #BA2121">&quot;bed&quot;</span>])
+plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">8</span>, <span style="color: #666666">7</span>))
+ax <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>subplot(<span style="color: #666666">111</span>)
+bedmap<span style="color: #666666">.</span>surface<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>pcolormesh(ax<span style="color: #666666">=</span>ax,cmap<span style="color: #666666">=</span>cmocean<span style="color: #666666">.</span>cm<span style="color: #666666">.</span>ice,
+                       cbar_kwargs<span style="color: #666666">=</span><span style="color: #008000">dict</span>(pad<span style="color: #666666">=0.01</span>, aspect<span style="color: #666666">=30</span>))
+plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">&quot;Bedmap2 Antarctica&quot;</span>)
+plt<span style="color: #666666">.</span>tight_layout()
+plt<span style="color: #666666">.</span>show()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ul>
+<li> Run the code and reproduce figure <a href="#fig:bedmap2_ice_thickness">1</a>, modify the code to plot the ice surface or the bed rock.</li>
+</ul>
+<center> <!-- figure label: --> <div id="fig:bedmap2_ice_thickness"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 1: Visualization of the ice thickness in Antarctica.  <!-- caption label: fig:bedmap2_ice_thickness --></p>
+</center>
+<p><img src="fig-exercises/bedmap2_plot.png" width="800" align="bottom"></p>
+</center>
+
+<ul>
+<li> Check out <a href="https://www.fatiando.org/rockhound/latest/gallery/index.html" target="_self">the gallery</a>. Choose one of the datasets, copy and paste the code and reproduce one of the figures in the gallery.</li> 
+</ul>
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._exercises-readable000.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._exercises-readable002.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

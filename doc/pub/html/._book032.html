@@ -1,0 +1,427 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="E-MOD321 Basic Python coding for subsurface applications">
+<meta name="keywords" content="data structures,lists,list comprehension">
+<title>E-MOD321 Basic Python coding for subsurface applications</title>
+<!-- Bootstrap style: bootswatch_journal -->
+<!-- doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:60px;      /* fixed header height for style bootswatch_journal */
+  margin:-60px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 0,
+ 'sections': [('Table of contents',
+               0,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Preliminaries', 0, 'ch:pre', 'ch:pre'),
+              ('Is it possible to learn Python in two days?',
+               1,
+               None,
+               'is-it-possible-to-learn-python-in-two-days'),
+              ('Why should you learn coding?',
+               1,
+               None,
+               'why-should-you-learn-coding'),
+              ('About this course', 1, None, 'about-this-course'),
+              ('Online programming resources',
+               1,
+               None,
+               'online-programming-resources'),
+              ('ChatGPT', 2, None, 'chatgpt'),
+              ('Stuff you need to do', 1, None, 'stuff-you-need-to-do'),
+              ('If you never have coded before',
+               1,
+               None,
+               'if-you-never-have-coded-before'),
+              ('Variable', 2, None, 'variable'),
+              ('Functions', 2, None, 'functions'),
+              ('Objects and Classes', 2, None, 'objects-and-classes'),
+              ('Library', 2, None, 'library'),
+              ('Exercise: Install a Python library in a separate environment',
+               1,
+               None,
+               'exercise-install-a-python-library-in-a-separate-environment'),
+              ('Introduction to practical applications', 0, 'ch:pr', 'ch:pr'),
+              ('One reason Python is so popular: The import statement',
+               1,
+               None,
+               'one-reason-python-is-so-popular-the-import-statement'),
+              ('Matplotlib: Basic plotting in Python',
+               1,
+               None,
+               'matplotlib-basic-plotting-in-python'),
+              ('Exercise 1: Reproduce a plot',
+               1,
+               None,
+               'exercise-1-reproduce-a-plot'),
+              ('Solution:', 2, None, 'solution'),
+              ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
+              ('Lists', 2, None, 'lists'),
+              ('List comprehension', 3, None, 'list-comprehension'),
+              ('Exercise 2: Make a plot of $y=x^3$',
+               1,
+               None,
+               'exercise-2-make-a-plot-of-y-x-3'),
+              ('Solution', 2, None, 'solution'),
+              ('Dictionaries', 2, None, 'dictionaries'),
+              ('Example: Add numbers to dictionary and plot',
+               3,
+               None,
+               'example-add-numbers-to-dictionary-and-plot'),
+              ('Solution', 3, None, 'solution'),
+              ('Tuples', 2, None, 'tuples'),
+              ('Numpy: Working with numerical arrays in Python',
+               1,
+               None,
+               'numpy-working-with-numerical-arrays-in-python'),
+              ('Boolean masking', 1, None, 'boolean-masking'),
+              ('Exercise 3: Make a plot of $y=x^3$ using Numpy',
+               1,
+               None,
+               'exercise-3-make-a-plot-of-y-x-3-using-numpy'),
+              ('Solution', 2, None, 'solution'),
+              ('Pathlib: Working with files and folders in Python',
+               1,
+               None,
+               'pathlib-working-with-files-and-folders-in-python'),
+              ('Pathlib cwd(): Current working directory',
+               2,
+               None,
+               'pathlib-cwd-current-working-directory'),
+              ('List all files and folder in current directory',
+               2,
+               None,
+               'list-all-files-and-folder-in-current-directory'),
+              ('Pandas: Working with tabulated data (Excel files)',
+               1,
+               None,
+               'pandas-working-with-tabulated-data-excel-files'),
+              ('DataFrame: The basic object in Pandas',
+               2,
+               None,
+               'dataframe-the-basic-object-in-pandas'),
+              ('Create DataFrame from dictionary',
+               2,
+               None,
+               'create-dataframe-from-dictionary'),
+              ('Accessing data in  DataFrames',
+               2,
+               None,
+               'accessing-data-in-dataframes'),
+              ('Selecting columns', 3, None, 'selecting-columns'),
+              ('Selecting rows', 3, None, 'selecting-rows'),
+              ('Challenges when accessing columns or rows',
+               3,
+               None,
+               'challenges-when-accessing-columns-or-rows'),
+              ('Datetime: Time columns not parsed properly',
+               2,
+               None,
+               'datetime-time-columns-not-parsed-properly'),
+              ('Pandas: Filtering and visualizing data',
+               2,
+               None,
+               'pandas-filtering-and-visualizing-data'),
+              ('Boolean masking', 3, None, 'boolean-masking'),
+              ('Plotting a DataFrame', 3, None, 'plotting-a-dataframe'),
+              ('Performing mathematical operations on DataFrames',
+               2,
+               None,
+               'performing-mathematical-operations-on-dataframes'),
+              ('Example: mathematical operations on DataFrames',
+               3,
+               None,
+               'example-mathematical-operations-on-dataframes'),
+              ('Solution', 3, None, 'solution'),
+              ('Grouping, filtering and aggregating data',
+               2,
+               None,
+               'grouping-filtering-and-aggregating-data'),
+              ('Simple statistics in Pandas',
+               2,
+               None,
+               'simple-statistics-in-pandas'),
+              ('Joining two DataFrames', 2, None, 'joining-two-dataframes'),
+              ('Appending DataFrames', 3, None, 'appending-dataframes'),
+              ('Merging DataFrames', 3, None, 'merging-dataframes'),
+              ('Working with folders and files',
+               2,
+               None,
+               'working-with-folders-and-files'),
+              ('Exercises', 0, 'ch:ex', 'ch:ex'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Matplotlib visualization',
+               1,
+               None,
+               'exercise-2-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
+              ('Exercise 4: Read tabulated data from file',
+               1,
+               None,
+               'exercise-4-read-tabulated-data-from-file'),
+              ('Solution 1 Pandas (easy):', 2, None, 'solution-1-pandas-easy'),
+              ('Solution 2 `numpy.loadtxt` (medium):',
+               2,
+               None,
+               'solution-2-numpy-loadtxt-medium'),
+              ('Solution 3 Vanilla Python (hard):',
+               2,
+               None,
+               'solution-3-vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 5: Splitting data into files using Pandas',
+               1,
+               None,
+               'exercise-5-splitting-data-into-files-using-pandas'),
+              ('Exercise 6: Splitting all field data into separate files',
+               1,
+               None,
+               'exercise-6-splitting-all-field-data-into-separate-files'),
+              ('Exercise 7: Splitting field data into separate files and '
+               'folder',
+               1,
+               None,
+               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('References', 1, None, 'references')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="book.html">E-MOD321 Basic Python coding for subsurface applications</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._book000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book001.html#ch:pre" style="font-size: 80%;"><b>Preliminaries</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book002.html#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Is it possible to learn Python in two days?</a></li>
+     <!-- navigation toc: --> <li><a href="._book003.html#why-should-you-learn-coding" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn coding?</a></li>
+     <!-- navigation toc: --> <li><a href="._book004.html#about-this-course" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;About this course</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#online-programming-resources" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Online programming resources</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#chatgpt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChatGPT</a></li>
+     <!-- navigation toc: --> <li><a href="._book006.html#stuff-you-need-to-do" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Stuff you need to do</a></li>
+     <!-- navigation toc: --> <li><a href="._book007.html#if-you-never-have-coded-before" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;If you never have coded before</a></li>
+     <!-- navigation toc: --> <li><a href="._book008.html#variable" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable</a></li>
+     <!-- navigation toc: --> <li><a href="._book009.html#functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book010.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
+     <!-- navigation toc: --> <li><a href="._book011.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</a></li>
+     <!-- navigation toc: --> <li><a href="._book012.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise: Install a Python library in a separate environment</a></li>
+     <!-- navigation toc: --> <li><a href="._book013.html#ch:pr" style="font-size: 80%;"><b>Introduction to practical applications</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book014.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;One reason Python is so popular: The import statement</a></li>
+     <!-- navigation toc: --> <li><a href="._book015.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Matplotlib: Basic plotting in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book016.html#exercise-1-reproduce-a-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Reproduce a plot</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._book018.html#data-structures-basic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Data structures  (Basic)</a></li>
+     <!-- navigation toc: --> <li><a href="._book019.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._book020.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._book021.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Make a plot of \( y=x^3 \)</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book023.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._book024.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book025.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._book026.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Numpy: Working with numerical arrays in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book028.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Make a plot of \( y=x^3 \) using Numpy</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book030.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib: Working with files and folders in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="._book035.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Working with tabulated data (Excel files)</a></li>
+     <!-- navigation toc: --> <li><a href="._book036.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book037.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book039.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book041.html#working-with-folders-and-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Working with folders and files</a></li>
+     <!-- navigation toc: --> <li><a href="._book042.html#ch:ex" style="font-size: 80%;"><b>Exercises</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book043.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Install Bedmap to visualize Antarctica ice data</a></li>
+     <!-- navigation toc: --> <li><a href="._book043.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._book044.html#exercise-2-matplotlib-visualization" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Matplotlib visualization</a></li>
+     <!-- navigation toc: --> <li><a href="._book045.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._book045.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._book046.html#exercise-3-group-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Group data</a></li>
+     <!-- navigation toc: --> <li><a href="._book048.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 4: Read tabulated data from file</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._book050.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 5: Splitting data into files using Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book052.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 6: Splitting all field data into separate files</a></li>
+     <!-- navigation toc: --> <li><a href="._book054.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 7: Splitting field data into separate files and folder</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#references" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;References</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0032"></a>
+<!-- !split -->
+<h2 id="list-all-files-and-folder-in-current-directory" class="anchor">List all files and folder in current directory </h2>
+<p>As mentioned before a for-loop is a way to tell the computer to do something until a certain condition has been met. The code for listing all files and directories in a folder is then</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pathlib</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pt</span>
+p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;.&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># the directory where this python file is located</span>
+<span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> p<span style="color: #666666">.</span>iterdir():
+    <span style="color: #008000; font-weight: bold">if</span> x<span style="color: #666666">.</span>is_dir():<span style="color: #3D7B7B; font-style: italic">#NB Indentation, all below belongs to p.iterdir()</span>
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found dir: &#39;</span>, x) <span style="color: #3D7B7B; font-style: italic">#NB Indentation, belongs to if x.is_dir()</span>
+    <span style="color: #008000; font-weight: bold">elif</span> x<span style="color: #666666">.</span>is_file():
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Found file: &#39;</span>, x) <span style="color: #3D7B7B; font-style: italic">#NB Indentation, belongs to if x.is_file()</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p><code>p.iterdir()</code> is a <em>generator</em>, and you can simply think of it as generating a list of all files and folders in the <code>'.'</code> (current) directory. To view the elements in <code>p.iterdir()</code>, you can do</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #008000">list</span>(p<span style="color: #666666">.</span>iterdir()))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Let us go through each line</p>
+<ol>
+<li> <code>p=pt.Path('.')</code> we create a Path object and name it <code>p</code>.</li>
+<li> The next part is the for-loop, the variable <code>x</code> takes on the value of each element in the list generated by <code>p.iter_dir()</code>.</li>
+<li> <code>x.is_dir()</code>, gives True if <code>x</code> is a directory and False if not.</li>
+<li> <code>x.is_file()</code>, gives True if <code>x</code> is a file and False if not.</li>
+</ol>
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._book031.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._book033.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

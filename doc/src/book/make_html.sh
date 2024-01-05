@@ -42,7 +42,7 @@ theme=alabaster
 system doconce format sphinx $name $opt --sphinx_keep_splits
 system doconce replace 'width=400' 'width=800' $name.html
 system doconce split_rst $name
-system doconce  sphinx_dir theme=$theme dirname=sphinx-${theme} $name
+#system doconce  sphinx_dir theme=$theme dirname=sphinx-${theme} $name
 # Change logo
 #doconce replace _static/uio_logo.png https://raw.githubusercontent.com/CINPLA/logo/master/brain/cinpla_logo_transparent.png sphinx-${theme}/_themes/uio/layout.html
 

@@ -1,0 +1,691 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="E-MOD321 Basic Python coding for subsurface applications">
+<meta name="keywords" content="data structures,lists,list comprehension">
+<title>E-MOD321 Basic Python coding for subsurface applications</title>
+<!-- Bootstrap style: bootswatch_journal -->
+<!-- doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:60px;      /* fixed header height for style bootswatch_journal */
+  margin:-60px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 0,
+ 'sections': [('Table of contents',
+               0,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Preliminaries', 0, 'ch:pre', 'ch:pre'),
+              ('Is it possible to learn Python in two days?',
+               1,
+               None,
+               'is-it-possible-to-learn-python-in-two-days'),
+              ('Why should you learn coding?',
+               1,
+               None,
+               'why-should-you-learn-coding'),
+              ('About this course', 1, None, 'about-this-course'),
+              ('Online programming resources',
+               1,
+               None,
+               'online-programming-resources'),
+              ('ChatGPT', 2, None, 'chatgpt'),
+              ('Stuff you need to do', 1, None, 'stuff-you-need-to-do'),
+              ('If you never have coded before',
+               1,
+               None,
+               'if-you-never-have-coded-before'),
+              ('Variable', 2, None, 'variable'),
+              ('Functions', 2, None, 'functions'),
+              ('Objects and Classes', 2, None, 'objects-and-classes'),
+              ('Library', 2, None, 'library'),
+              ('Exercise: Install a Python library in a separate environment',
+               1,
+               None,
+               'exercise-install-a-python-library-in-a-separate-environment'),
+              ('Introduction to practical applications', 0, 'ch:pr', 'ch:pr'),
+              ('One reason Python is so popular: The import statement',
+               1,
+               None,
+               'one-reason-python-is-so-popular-the-import-statement'),
+              ('Matplotlib: Basic plotting in Python',
+               1,
+               None,
+               'matplotlib-basic-plotting-in-python'),
+              ('Exercise 1: Reproduce a plot',
+               1,
+               None,
+               'exercise-1-reproduce-a-plot'),
+              ('Solution:', 2, None, 'solution'),
+              ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
+              ('Lists', 2, None, 'lists'),
+              ('List comprehension', 3, None, 'list-comprehension'),
+              ('Exercise 2: Make a plot of $y=x^3$',
+               1,
+               None,
+               'exercise-2-make-a-plot-of-y-x-3'),
+              ('Solution', 2, None, 'solution'),
+              ('Dictionaries', 2, None, 'dictionaries'),
+              ('Example: Add numbers to dictionary and plot',
+               3,
+               None,
+               'example-add-numbers-to-dictionary-and-plot'),
+              ('Solution', 3, None, 'solution'),
+              ('Tuples', 2, None, 'tuples'),
+              ('Numpy: Working with numerical arrays in Python',
+               1,
+               None,
+               'numpy-working-with-numerical-arrays-in-python'),
+              ('Boolean masking', 1, None, 'boolean-masking'),
+              ('Exercise 3: Make a plot of $y=x^3$ using Numpy',
+               1,
+               None,
+               'exercise-3-make-a-plot-of-y-x-3-using-numpy'),
+              ('Solution', 2, None, 'solution'),
+              ('Pathlib: Working with files and folders in Python',
+               1,
+               None,
+               'pathlib-working-with-files-and-folders-in-python'),
+              ('Pathlib cwd(): Current working directory',
+               2,
+               None,
+               'pathlib-cwd-current-working-directory'),
+              ('List all files and folder in current directory',
+               2,
+               None,
+               'list-all-files-and-folder-in-current-directory'),
+              ('Pandas: Working with tabulated data (Excel files)',
+               1,
+               None,
+               'pandas-working-with-tabulated-data-excel-files'),
+              ('DataFrame: The basic object in Pandas',
+               2,
+               None,
+               'dataframe-the-basic-object-in-pandas'),
+              ('Create DataFrame from dictionary',
+               2,
+               None,
+               'create-dataframe-from-dictionary'),
+              ('Accessing data in  DataFrames',
+               2,
+               None,
+               'accessing-data-in-dataframes'),
+              ('Selecting columns', 3, None, 'selecting-columns'),
+              ('Selecting rows', 3, None, 'selecting-rows'),
+              ('Challenges when accessing columns or rows',
+               3,
+               None,
+               'challenges-when-accessing-columns-or-rows'),
+              ('Datetime: Time columns not parsed properly',
+               2,
+               None,
+               'datetime-time-columns-not-parsed-properly'),
+              ('Pandas: Filtering and visualizing data',
+               2,
+               None,
+               'pandas-filtering-and-visualizing-data'),
+              ('Boolean masking', 3, None, 'boolean-masking'),
+              ('Plotting a DataFrame', 3, None, 'plotting-a-dataframe'),
+              ('Performing mathematical operations on DataFrames',
+               2,
+               None,
+               'performing-mathematical-operations-on-dataframes'),
+              ('Example: mathematical operations on DataFrames',
+               3,
+               None,
+               'example-mathematical-operations-on-dataframes'),
+              ('Solution', 3, None, 'solution'),
+              ('Grouping, filtering and aggregating data',
+               2,
+               None,
+               'grouping-filtering-and-aggregating-data'),
+              ('Simple statistics in Pandas',
+               2,
+               None,
+               'simple-statistics-in-pandas'),
+              ('Joining two DataFrames', 2, None, 'joining-two-dataframes'),
+              ('Appending DataFrames', 3, None, 'appending-dataframes'),
+              ('Merging DataFrames', 3, None, 'merging-dataframes'),
+              ('Working with folders and files',
+               2,
+               None,
+               'working-with-folders-and-files'),
+              ('Exercises', 0, 'ch:ex', 'ch:ex'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Matplotlib visualization',
+               1,
+               None,
+               'exercise-2-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
+              ('Exercise 4: Read tabulated data from file',
+               1,
+               None,
+               'exercise-4-read-tabulated-data-from-file'),
+              ('Solution 1 Pandas (easy):', 2, None, 'solution-1-pandas-easy'),
+              ('Solution 2 `numpy.loadtxt` (medium):',
+               2,
+               None,
+               'solution-2-numpy-loadtxt-medium'),
+              ('Solution 3 Vanilla Python (hard):',
+               2,
+               None,
+               'solution-3-vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 5: Splitting data into files using Pandas',
+               1,
+               None,
+               'exercise-5-splitting-data-into-files-using-pandas'),
+              ('Exercise 6: Splitting all field data into separate files',
+               1,
+               None,
+               'exercise-6-splitting-all-field-data-into-separate-files'),
+              ('Exercise 7: Splitting field data into separate files and '
+               'folder',
+               1,
+               None,
+               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('References', 1, None, 'references')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="book.html">E-MOD321 Basic Python coding for subsurface applications</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._book000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book001.html#ch:pre" style="font-size: 80%;"><b>Preliminaries</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book002.html#is-it-possible-to-learn-python-in-two-days" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Is it possible to learn Python in two days?</a></li>
+     <!-- navigation toc: --> <li><a href="._book003.html#why-should-you-learn-coding" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why should you learn coding?</a></li>
+     <!-- navigation toc: --> <li><a href="._book004.html#about-this-course" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;About this course</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#online-programming-resources" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Online programming resources</a></li>
+     <!-- navigation toc: --> <li><a href="._book005.html#chatgpt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ChatGPT</a></li>
+     <!-- navigation toc: --> <li><a href="._book006.html#stuff-you-need-to-do" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Stuff you need to do</a></li>
+     <!-- navigation toc: --> <li><a href="._book007.html#if-you-never-have-coded-before" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;If you never have coded before</a></li>
+     <!-- navigation toc: --> <li><a href="._book008.html#variable" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variable</a></li>
+     <!-- navigation toc: --> <li><a href="._book009.html#functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book010.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
+     <!-- navigation toc: --> <li><a href="._book011.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</a></li>
+     <!-- navigation toc: --> <li><a href="._book012.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise: Install a Python library in a separate environment</a></li>
+     <!-- navigation toc: --> <li><a href="._book013.html#ch:pr" style="font-size: 80%;"><b>Introduction to practical applications</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book014.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;One reason Python is so popular: The import statement</a></li>
+     <!-- navigation toc: --> <li><a href="._book015.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Matplotlib: Basic plotting in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book016.html#exercise-1-reproduce-a-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Reproduce a plot</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._book018.html#data-structures-basic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Data structures  (Basic)</a></li>
+     <!-- navigation toc: --> <li><a href="._book019.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._book020.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._book021.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Make a plot of \( y=x^3 \)</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book023.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._book024.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book025.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._book026.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Numpy: Working with numerical arrays in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book028.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Make a plot of \( y=x^3 \) using Numpy</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._book030.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib: Working with files and folders in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book031.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._book032.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="._book035.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Working with tabulated data (Excel files)</a></li>
+     <!-- navigation toc: --> <li><a href="._book036.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book037.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book038.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._book039.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._book040.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="#working-with-folders-and-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Working with folders and files</a></li>
+     <!-- navigation toc: --> <li><a href="._book042.html#ch:ex" style="font-size: 80%;"><b>Exercises</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book043.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Install Bedmap to visualize Antarctica ice data</a></li>
+     <!-- navigation toc: --> <li><a href="._book043.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._book044.html#exercise-2-matplotlib-visualization" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Matplotlib visualization</a></li>
+     <!-- navigation toc: --> <li><a href="._book045.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._book045.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._book046.html#exercise-3-group-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Group data</a></li>
+     <!-- navigation toc: --> <li><a href="._book048.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 4: Read tabulated data from file</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._book050.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 5: Splitting data into files using Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book052.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 6: Splitting all field data into separate files</a></li>
+     <!-- navigation toc: --> <li><a href="._book054.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 7: Splitting field data into separate files and folder</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#references" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;References</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0041"></a>
+<!-- !split -->
+<h2 id="grouping-filtering-and-aggregating-data" class="anchor">Grouping, filtering and aggregating data </h2>
+<p>Whenever you have a data set, you would like to do some exploratory analysis. That typically means that you would like to group, filter or aggregate data. Perhaps, we would like to plot the covid data not per country, but the data as a function of dates. Then you first must sort the data according to date, and then sum all the occurrences on that particular date. For all of these purposes we can use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html " target="_self"><tt>pd.DataFrame.groupby()</tt></a> function. To sort our DataFrame on dates and sum the occurrences we can do</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;TIME&#39;</span>)<span style="color: #666666">.</span>sum()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Another case could be that we wanted to find the total number of confirmed, deaths and recovered cases in the full database. As always in Python it can be done in different ways, by e.g. splitting the database into individual countries and do  <code>df[['CONFIRMED','DEATHS','RECOVERED']].sum()</code> or accessing each column individually and sum each of them e.g. <code>np.sum(df['CONFIRMED'])</code>.  However, with the <code>groupby()</code> function
+(see figure <a href="#fig:pandas:group">9</a> for final result)
+</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;LOCATION&#39;</span>)<span style="color: #666666">.</span>sum()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Here Pandas sum all columns with the same location, and drop columns that cannot be summed. By doing <code>df.groupby('LOCATION').mean()</code> or <code>df.groupby('LOCATION').std()</code> we can find the mean or standard deviation (per day).</p>
+
+<center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 9: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
+</center>
+<p><img src="fig-import/group.png" width="400" align="bottom"></p>
+</center>
+
+<h2 id="simple-statistics-in-pandas" class="anchor">Simple statistics in Pandas </h2>
+<p>At the end it is worth mentioning the built in methods <code>pd.DataFrame.mean</code>, <code>pd.DataFrame.median</code>, <code>pd.DataFrame.std</code> which calculates the mean, median and standard deviation on the columns in the DataFrame where it make sense (i.e. avoid strings and dates). To get all these values in one go (and a few more) on can also use <code>pd.DataFrame.describe()</code></p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>describe()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The output is shown in figure <a href="#fig:pandas:desc">10</a></p>
+
+<center> <!-- figure label: --> <div id="fig:pandas:desc"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 10: Output from the describe command.  <!-- caption label: fig:pandas:desc --></p>
+</center>
+<p><img src="fig-import/describe.png" width="400" align="bottom"></p>
+</center>
+
+<h2 id="joining-two-dataframes" class="anchor">Joining two DataFrames </h2>
+<h3 id="appending-dataframes" class="anchor">Appending DataFrames  </h3>
+<p>The DataFrame with the Covid-19 data in the previous section could have been created from two separate DataFrames, using <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_self"><tt>concat()</tt></a>. First, create two DataFrames </p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">dt</span>
+a<span style="color: #666666">=</span>dt<span style="color: #666666">.</span>datetime(<span style="color: #666666">2020</span>,<span style="color: #666666">2</span>,<span style="color: #666666">24</span>,<span style="color: #666666">23</span>,<span style="color: #666666">59</span>)
+b<span style="color: #666666">=</span>dt<span style="color: #666666">.</span>datetime(<span style="color: #666666">2020</span>,<span style="color: #666666">2</span>,<span style="color: #666666">7</span>,<span style="color: #666666">23</span>,<span style="color: #666666">59</span>)
+my_dict1<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #BA2121">&#39;Afghanistan&#39;</span>], 
+<span style="color: #BA2121">&#39;TIME&#39;</span>:[a<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">7</span>)],
+<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>],
+<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">1</span>],
+<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">0</span>],
+<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">7*</span>[<span style="color: #666666">0</span>]}
+my_dict2<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">6*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
+<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">6</span>)],
+<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>],
+<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:[<span style="color: #666666">61</span>, <span style="color: #666666">61</span>, <span style="color: #666666">64</span>, <span style="color: #666666">135</span>, <span style="color: #666666">135</span>, <span style="color: #666666">175</span>],
+<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">6*</span>[<span style="color: #666666">0</span>],
+<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">6*</span>[<span style="color: #666666">0</span>]}
+df1<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict1)
+df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict2)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Next, add them row wise (see figure <a href="#fig:pandas:concat">11</a>)</p>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>concat([df1,df2])
+<span style="color: #008000">print</span>(df) <span style="color: #3D7B7B; font-style: italic"># to view</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<center> <!-- figure label: --> <div id="fig:pandas:concat"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 11: The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --></p>
+</center>
+<p><img src="fig-import/concat.png" width="400" align="bottom"></p>
+</center>
+
+<p>If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing <code>df=pd.concat([df1,df2],ignore_index=True)</code> resets the index. It is also possible to join DataFrames column vise</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">pd<span style="color: #666666">.</span>concat([df1,df2],axis<span style="color: #666666">=1</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 id="merging-dataframes" class="anchor">Merging DataFrames </h3>
+
+<p>In the previous example we had two non overlapping DataFrames (separate countries and times). It could also be the case that some of the data was overlapping e.g. continuing with the Covid-19 data, one could assume that there was one data set from one region and one from another region in the same country</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">my_dict1<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
+<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">7</span>)],
+<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>],
+<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">1</span>],
+<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">0</span>],
+<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">7*</span>[<span style="color: #666666">0</span>]}
+my_dict2<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">2*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
+<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">2</span>)],
+<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>],
+<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:[<span style="color: #666666">60</span>, <span style="color: #666666">60</span>],
+<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">2*</span>[<span style="color: #666666">0</span>],
+<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">2*</span>[<span style="color: #666666">0</span>]}
+df1<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict1)
+df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict2)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If we do <code>pd.concat([df1,df2])</code> we will simply add all values after each other. What we want to do is to sum the number of confirmed, recovered and deaths for the same date. This can be done in several ways, but one way is to use <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html" target="_self"><tt>pd.DataFrame.merge()</tt></a>.You can specify the columns to merge on, and choose <code>outer</code> which is union (all data from both frames) or <code>inner</code> which means the intersect (only data which you merge on that exists in both frames), see figure <a href="#fig:pandas:join">12</a> for a visual image.</p>
+
+<center> <!-- figure label: --> <div id="fig:pandas:join"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 12: The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --></p>
+</center>
+<p><img src="fig-import/fig_join.png" width="400" align="bottom"></p>
+</center>
+
+<p>To be even more specific, after performing the commands</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;outer&#39;</span>)
+df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;inner&#39;</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>we get the results in figure <a href="#fig:pd:merge">13</a> </p>
+
+<center> <!-- figure label: --> <div id="fig:pd:merge"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 13: Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --></p>
+</center>
+<p><img src="fig-import/merge.png" width="400" align="bottom"></p>
+</center>
+
+<p>Clearly in this case we need to choose <code>outer</code>. In the merge process pandas adds an extra subscript <code>_x</code> and <code>_y</code> on columns that contains the same header name. We also need to sum those, which can be done as follows
+(see figure <a href="#fig:pandas:merge3">14</a> for the final result)
+</p>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;outer&#39;</span>)
+cols<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>,<span style="color: #BA2121">&#39;DEATHS&#39;</span>, <span style="color: #BA2121">&#39;RECOVERED&#39;</span>]
+<span style="color: #008000; font-weight: bold">for</span> col <span style="color: #AA22FF; font-weight: bold">in</span> cols:
+    df[col]<span style="color: #666666">=</span>df[[col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_x&#39;</span>,col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_y&#39;</span>]]<span style="color: #666666">.</span>sum(axis<span style="color: #666666">=1</span>) <span style="color: #3D7B7B; font-style: italic"># sum row elements</span>
+    df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>drop(columns<span style="color: #666666">=</span>[col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_x&#39;</span>,col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_y&#39;</span>]) <span style="color: #3D7B7B; font-style: italic"># remove obsolete columns</span>
+<span style="color: #3D7B7B; font-style: italic"># final clean up</span>
+df[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_x&#39;</span>]		
+df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>drop(columns<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_y&#39;</span>,<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_x&#39;</span>])
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<center> <!-- figure label: --> <div id="fig:pandas:merge3"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 14: Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --></p>
+</center>
+<p><img src="fig-import/merge3.png" width="400" align="bottom"></p>
+</center>
+
+<h2 id="working-with-folders-and-files" class="anchor">Working with folders and files </h2>
+<p>When working with big data sets you might want to split data into smaller sets, and also write them to different folders (or files) to view each individually in excel. Working with files and folders in a way that will work on any kind of platform has always been a challenge, but it is greatly simplified by the <a href="https://docs.python.org/3/library/pathlib.html" target="_self">Pathlib library</a>.</p>
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._book040.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._book042.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

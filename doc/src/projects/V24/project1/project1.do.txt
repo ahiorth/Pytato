@@ -109,93 +109,6 @@ FIGURE: [fig-project1/bedmap2_plot.png, width=400 frac=1.0] Visualization of the
 
 * Check out "the gallery":"https://www.fatiando.org/rockhound/latest/gallery/index.html". Choose one of the datasets, copy and paste the code and reproduce one of the figures in the gallery. 
 
-
-<% ex_id += 1 %>
-======= Exercise ${ex_id}: Read tabulated data from file =======
-As part of this project we will look at some of the datasets that
-are available at the Norwegian Offshore Directorate
-"website":"https://factpages.sodir.no/".
-
-!bnotice Data directory
-In the following we will assume that you have a `src` directory containing all your Python code and a `data` folder inside your course folder. Thus, if you are in your `src` folder you can access files in the `data` folder by moving one folder up an down inside your `data` folder.
-!enotice
-
-Choose one or more of the exercises below
-===== Pandas (easy): =====
-Pandas will most likely be your first choice, because it has so much built in functionalities
-
-* Run the following code and explain why the first `pd.read_csv` fails or does not produce the output we want
-
-!bc pycod
-import pandas as pd
-df=pd.read_csv('../data/draugen.txt')
-print(df)
-df=pd.read_csv('../data/draugen.txt',sep='\t')
-print(df)
-!ec
-
-* Print only the year column from `df` i) using the label `Year` and ii) `df.columns[0]`
-* Print the column with oil equivalents
-
-===== `numpy.loadtxt` (medium): =====
-
-`Numpy.loadtxt` is a build in function in Numpy that reads tabulated data. It does not know how to process header lines, and we need to skip them.
-
-!bc pycod
-import numpy as np
-data=np.loadtxt('../data/draugen.txt',skiprows=1)
-!ec
-
-* How can you print out only the year, month, etc. columns from the `data` variable?
-* Use `data=np.loadtxt('../data/draugen.txt',skiprows=1,unpack=True)`, what changes now? 
-
-
-===== Vanilla Python (hard): =====
-
-When accessing files, it can be easy to forget to *close* the file after opening it. This can lead to problems as an open file, in many cases, cannot be accessed by other programs. To avoid this we use the `with` statement. The following code can be used to print out all the lines of a file, and Python will open and close the file for you
-!bc pycod
-with open("../data/draugen.txt") as my_file:
-     for line in my_file:
-     	 print(line)
-!ec
-After the code is run, the variable `line` will still hold the last line of the file, which should be `'2023\t10\t0.072419\t0.019985\t0\t0.092404\t1.005672\n'`. The first two numbers are year (2023) and the month (10), for the rest check the header in the file. The `\t` means tabular and `\n` means a newline. In order to parse this line we need to pick out the numbers, the easiest way in Python is to split the line on `\t`, if you do
-!bc pycod
-data_list=line.split('\t')
-print(data_list)
-!ec
-we conveniently get all the elements separated by `\t` into a list (of strings). To convert a string to a number we can do e.g. `float(data_list[0])`.
-
-* Modify the following code to extract year, month, and oil equivalents. Remember we need to skip the first header line, which contains only text.
-
-!bc pycod
-years=[] # empty list
-months=[] # empty list
-oe=[] # empty list
-read_first_line=False
-with open("../data/draugen.txt") as my_file:
-     for line in my_file:
-     	 if read_first_line:
-	    data_list=line.split('\t')
-	    years.append(float(data_list[0]))
-	    #same for month
-	    #same for oil equivalents
-	 read_first_line=True
-	 
-!ec
-
-=== Store the data in a dictionary (optional) ===
-Tabulated data with a header is perfect for a dictionary, here we create a dictionary based on the header in the file.
-!bc pycod
-data_dict={'year':[], 'month':[],'oil':[],'gas':[],'cond':[],'oe':[],'wat':[]}
-!ec
-
-* modify the code above to store all data in each line in the dictionary. To loop over all entries in the `data_dict`, and the list elements in `data_list`, you can use the `zip` function
-
-!bc pycod
-for key,data in zip(data_dict,data_list):
-    data_dict[key].append(float(data))
-!ec
-
 <% ex_id += 1 %>
 ======= Exercise ${ex_id}: Matplotlib visualization  =======
 To access the data a bit easier I have added a file `draugen_pandas.py` in the `data` folder containing our data as lists. We can access them by importing them directly into our script. However, as we are in the `src` folder it causes a practical problem to access a Python file in a different folder and the only way to do this is to add the `data` folder to our path
@@ -205,16 +118,19 @@ sys.path.append('../data/')
 from draugen_data import years,months,oil,gas,wat,cond,oe
 !ec
 
+__Question1:__
 * Use matplotlib to plot oil equivalents, `oe`, vs the `years` data, compare with the "official data":"https://factpages.sodir.no/en/field/PageView/All/43758".
 
+__Solution:__
 !bc pycod
 import matplotlib.pyplot as plt
-
-plt.plot(#fill inn code)
-
+plt.plot(years,oe)
 !ec
 
-Our plot looks a bit strange, because we do not take into account the month column. We need to create a new list e.g. `year_month=years+months/12`.
+__Question2:__
+Our plot looks a bit strange, because we do not take into account the month column. Instead of only plotting the year array, plot  `years+months/12` on the x-axis.
+
+__Solution:__
 
 === Use vanilla Python (hard) ===
 Here we need to loop over all elements and for each year add the month, divided by 12 to convert the month to year. What we want is
@@ -394,184 +310,163 @@ df2.plot.bar() #make the plot
 Note that most of the code above was to create the DataFrame. Pandas also has built-in plotting.
 
 <% ex_id += 1 %>
-======= Exercise ${ex_id}: Use Pandas to manipulate data and  visualization  =======
-
-
-<% ex_id += 1 %>
-======= Exercise ${ex_id}: Use Pandas to visualize oil production data =======
-<% exercise_plot_func = ex_id %>
-
-<% counter = 0 %>
-<% counter += 1 %>
-
-When analyzing data it is very advantageous to start by making a plot.
-The human mind is usually good at detecting patterns, and by looking at
-the data one can test out ideas, before possibly
-doing a more comprehensive analysis.
-
+======= Exercise ${ex_id}: Read tabulated data from file =======
 As part of this project we will look at some of the datasets that
-are available at the Norwegian Petroleum Directorate (NPD)
-"website":"http://factpages.npd.no/factpages/".
+are available at the Norwegian Offshore Directorate
+"website":"https://factpages.sodir.no/".
 
-!bnotice Do not Repeat Yourself (DRY)
-Use functions to divide a problem into smaller pieces. Functions should not do too much, that increases the probability that they can be reused. 
+!bnotice Data directory
+In the following we will assume that you have a `src` directory containing all your Python code and a `data` folder inside your course folder. Thus, if you are in your `src` folder you can access files in the `data` folder by moving one folder up an down inside your `data` folder.
 !enotice
 
-<% counter = 1 %>
-__Part ${counter}.__
-<% ex_df_field = counter %>
+Choose one or more of the exercises below
+===== Pandas (easy): =====
+Pandas will most likely be your first choice, because it has so much built in functionalities
 
-* Write a function that has the signature as indicated below, and returns a DataFrame containing data for all fields. It should return an empty DataFrame along with an error message if something went wrong.
-
-Note: you can join strings by simply doing `folder+datafile` 
-!bc pycod
-
-def df_all_data(datafile='field_production_gross_monthly.xls',folder='../data/'):
-    '''
-    datafile: name (and path) to data file
-    returns DataFrame 
-    '''
-
-
-!ec
-
-!bnotice
-All data files needed for this project are located in the `data` folder.
-!enotice
-
-* Write a function that take as argument the name of a field and returns a DataFrame with data from that specific field.
-* The function should return an error message if the name cannot be found. As a help to the user one could also print out possible (unique) names that exists in the data file for the specific column.
+* Run the following code and explain why the first `pd.read_csv` fails or does not produce the output we want
 
 !bc pycod
-df_fields=df_all_data()
-def df_field(name,df_fields, col=0):
-    '''
-    name: name of field
-    df_fields: DataFrame with all field data 
-    col: which column to test against to find field data
-    returns DataFrame 
-    '''
+import pandas as pd
+df=pd.read_csv('../data/draugen.txt')
+print(df)
+df=pd.read_csv('../data/draugen.txt',sep='\t')
+print(df)
 !ec
 
-* To check your code, open the file `field_production_gross_monthly.xls`, and compare its contents with output from the command `print(df_field('OSEBERG'))`.
+* Print only the year column from `df` i) using the label `Year` and ii) `df.columns[0]`
+* Print the column with oil equivalents
 
+===== `numpy.loadtxt` (medium): =====
 
-<% counter += 1 %>
-__Part ${counter}.__
-
-Next, we wish to look at the historical oil production versus time for a
-specific field. Such plots are already available at the
-"NPD website":"http://factpages.npd.no/factpages/", but here you are going to
-make your own by using the "`matplotlib`":"https://matplotlib.org" library, and "Pandas":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html". 
-
-* Start by extracting oil production data for a specific field with the function already defined in Part ${ex_df_field}:
+`Numpy.loadtxt` is a build in function in Numpy that reads tabulated data. It does not know how to process header lines, and we need to skip them.
 
 !bc pycod
-def plot_prod_data(name,df_fields,fluid='oil', pandas=True):
-
-    df = df_field(name,df_fields) # get DataFrame
-    # extract production data, and plot using matplotlib or the build in pandas
-    # functions
-
+import numpy as np
+data=np.loadtxt('../data/draugen.txt',skiprows=1)
 !ec
 
-!bnotice Speed
-It will be much faster *not* to read the Excel file each time, read it once and pass the DataFrame to the function.
-!enotice
+* How can you print out only the year, month, etc. columns from the `data` variable?
+* Use `data=np.loadtxt('../data/draugen.txt',skiprows=1,unpack=True)`, what changes now? 
 
-* Finish implementation of the code above, if `pandas=True` it should make a plot using the Pandas library, and if `pandas=False` it should make a plot using the Matplotlib library.
 
-Calling `plot_prod_data('OSEBERG')` should generate a figure that looks
-something like this:
+===== Vanilla Python (hard): =====
 
-FIGURE: [fig-project1/oseberg.png, width=400 frac=1.0]
+When accessing files, it can be easy to forget to *close* the file after opening it. This can lead to problems as an open file, in many cases, cannot be accessed by other programs. To avoid this we use the `with` statement. The following code can be used to print out all the lines of a file, and Python will open and close the file for you
+!bc pycod
+with open("../data/draugen.txt") as my_file:
+     for line in my_file:
+     	 print(line)
+!ec
+After the code is run, the variable `line` will still hold the last line of the file, which should be `'2023\t10\t0.072419\t0.019985\t0\t0.092404\t1.005672\n'`. The first two numbers are year (2023) and the month (10), for the rest check the header in the file. The `\t` means tabular and `\n` means a newline. In order to parse this line we need to pick out the numbers, the easiest way in Python is to split the line on `\t`, if you do
+!bc pycod
+data_list=line.split('\t')
+print(data_list)
+!ec
+we conveniently get all the elements separated by `\t` into a list (of strings). To convert a string to a number we can do e.g. `float(data_list[0])`.
 
-<% counter += 1 %>
-__Part ${counter}.__
-In the oil production plot for a given field, we additionally want to include
-information about the number of wells that have been drilled. Specifically,
-we wish to plot, on a separate $y$-axis, the cumulative number of wells present
-in the field at any given moment in time.
-
-Well data is stored in the file `wellbore_development_all.xlsx`.
-In this file, each row entry corresponds to a single well, and the
-field to which it belongs is stored in the column with index 14.
-Hence, we can start by writing:
+* Modify the following code to extract year, month, and oil equivalents. Remember we need to skip the first header line, which contains only text.
 
 !bc pycod
-df_wells=df_all_data(datafile=`wellbore_development_all.xlsx`)
-def plot_prod_and_well_data(name,df_fields,df_wells):
-    df_w = df_field(name, df_wells, col=14)
-    year = df['Completed year']  
-    ...
+years=[] # empty list
+months=[] # empty list
+oe=[] # empty list
+read_first_line=False
+with open("../data/draugen.txt") as my_file:
+     for line in my_file:
+     	 if read_first_line:
+	    data_list=line.split('\t')
+	    years.append(float(data_list[0]))
+	    #same for month
+	    #same for oil equivalents
+	 read_first_line=True
+	 
 !ec
-* Note 1: you can choose to use Pandas *or* Matplotlib, pick the one that you find most practical.
-* Note 2: the Excel file only tells you the year in which each well was completed; *there could be many wells drilled in a given year, and the list is not sorted*. This means that you need to a little more work to process the data
 
-* Finish implementing the above Python function.
-* Calling it with a specific field as input should generate a plot that looks something like this:
+=== Store the data in a dictionary (optional) ===
+Tabulated data with a header is perfect for a dictionary, here we create a dictionary based on the header in the file.
+!bc pycod
+data_dict={'year':[], 'month':[],'oil':[],'gas':[],'cond':[],'oe':[],'wat':[]}
+!ec
 
-FIGURE: [fig-project1/oseberg_wells.png, width=400 frac=1.0]
+* modify the code above to store all data in each line in the dictionary. To loop over all entries in the `data_dict`, and the list elements in `data_list`, you can use the `zip` function
 
-If you want, you can also distinguish between different types of wells, i.e.,
-between injection/production/observation wells.
+!bc pycod
+for key,data in zip(data_dict,data_list):
+    data_dict[key].append(float(data))
+!ec
 
 
 <% ex_id += 1 %>
-======= Exercise ${ex_id}: More wells, more oil? =======
-<% ex_more_wells_oil = ex_id %>
+======= Exercise ${ex_id}: Splitting data into files using Pandas  =======
+If you open the file `field_production_gross_monthly.xlsx` in the `data` folder in Excel, you will see that the field names are listed in the leftmost column.
 
-A very common statement is "more wells - more oil". The fields on the Norwegian
-Continental Shelf (NCS) are in different stages of production, and they have
-varying reservoir properties, so a thorough analysis would take time.
-However, we would at least expect to see some correlation between the
-*total amount of oil produced* and *the number of wells drilled*, if the
-hypothesis is correct.
+__Question:__
+Open the file `field_production_gross_monthly.xlsx` in Pandas and write a new file in the same directory containing only data for a given field.
 
-<% counter = 0 %>
-<% counter += 1 %>
-__Part ${counter} (OPTIONAL).__
-So far we have plotted production or well data against time. To investigate relationships, we can also plot cumulative production vs cumulative number wells. We now have two time series i) production vs time and wells vs time, they have different lengths and to plot e.g. production vs wells, you have to have *two time series at the same time*. This can easily be achieved in Python by using "`numpy.interp`":"https://numpy.org/doc/stable/reference/generated/numpy.interp.html".   
+__Solution:__
 
-Hint: the cumulative sum for a vector can be found using "`numpy.cumsum`":"https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html"
+!bc pypro
+import pandas as pd 
+df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+field='DRAUGEN'
+file_out='../data/'+field+'.xlsx'
+df2=df[df[df.columns[0]]==field]
+df2.to_excel(file_out,index=False)
+!ec
 
-* plot the cumulative production on the $y$-axis and cumulative number of wells on the $x$-axis. A successful plot would look something like: 
-
-FIGURE: [fig-project1/oseberg_cum.png, width=400 frac=1.0]
-
-<% counter += 1 %>
-__Part ${counter}.__
-The first task is to fetch the (final) number of wells drilled for each field,
-as well as the total (cumulative) oil production. 
-
-* Create a Pandas DataFrame, one column with the field names, second column the total volumes produced, and the third column the total number of wells drilled for each field (if you like you can distinguish between producers, injectors and observation wells). Hence, there will only be *one entry for each field*. 
-
-
-<% counter += 1 %>
-__Part ${counter}.__
-<% ex_plot_eo_wells = counter %>
-
-* Make a scatter plot showing the cumulative oil production of all the fields on the $y$-axis. On the $x$-axis, plot the number of wells for the fields (you might want to exclude observation wells).
+The tricky part is perhaps the syntax `df[df[df.columns[0]]==field]`. To understand it in more detail, start by printing the innermost statements and work from there
+!bc pypro
+print(df.columns[0]) # gives the header of the first column
+# gives True for all entries in the first column that contains
+# the specific field name (in this case DRAGUEN) 
+df[df.columns[0]]==field
+# Following code is equivalent, we use iloc to specify the first column
+df.iloc[:,0]==field
+!ec
 
 
-<% counter += 1 %>
-__Part ${counter}.__
-The Draugen field is very homogeneous, and it is therefore regarded as an ideal
-field on the NCS. It also has an active aquifer underlying the reservoir,
-meaning that when producing oil by water injection the aquifer provides
-additional pressure support.
-##The Draugen field has one of the highest recoveries on the NCS.
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Splitting all field data into separate files   =======
 
-* Does the plot you made in Part ${ex_plot_eo_wells} indicate that Draugen has been a successful field compared to the others? Why/why not?
+__Question:__ Split all production in `field_production_gross_monthly.xlsx` into different Excel files containing only data from one specific field.
 
-(OPTIONAL)
-* To help guide the eye you can also add a regression line, which you can do as follows (assuming data you want to fit a line to are stored in `x` and `y` arrays)
+To help you, here are the different steps
 
-!bc pycod
-from scipy import stats
-slope, intercept, r_value, p_value, std_err= stats.linregress(x,y)
-trendline = slope*np.array(x)+intercept
-plt.plot(x,trendline, label=str("R value=")+str("{:.3f}".format(r_value)))
+o First we need to find a unique list of all field names, this can be done by `fields=df[df.columns[0]].unique()`
+o Then we need to loop over all these fields and perform the operations as in the previous exercise
+
+__Solution:__
+
+There is one problem, and that is that some of the field names contains a slash `/`. A `/` indicates a new directory which does not exists, hence we need to replace the slash  with something else
+!bc pypro
+df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+fields=df[df.columns[0]].unique()
+for field in fields:
+    new_name=str.replace(field,'/','')
+    file_out='../data/'+new_name+'.xlsx'
+    df2=df[df[df.columns[0]]==field]
+    df2.to_excel(file_out,index=False)
+!ec
+
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Splitting field data into separate files and folder  =======
+Splitting the data into different Excel files generates a lot of files in the same directory.
+
+__Question:__ Use Pathlib to split the data into a different folder. All data should be stored in a folder named `tmp_data`, the `tmp_data` should contain a directory named after the field and this folder should contain a file named `production_data.xlsx` containing only data for that field.
+
+__Solution:__
+
+!bc pypro
+df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+fields=df[df.columns[0]].unique() #skip duplicates
+data_folder=pt.Path('../tmp_data')
+data_folder.mkdir(exist_ok=True)
+for field in fields:
+    new_name=str.replace(field,'/','')
+    new_path=data_folder / new_name
+    new_path.mkdir(exist_ok=True)
+    df2.to_excel(new_path/'production_data.xlsx',index=False)
 !ec
 
 ======= Bibliography =======

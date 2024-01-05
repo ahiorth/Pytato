@@ -50,14 +50,19 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'matplotlib-basic-plotting-in-python'),
+              ('Exercise 1: Reproduce a plot',
+               1,
+               None,
+               'exercise-1-reproduce-a-plot'),
+              ('Solution:', 2, None, 'solution'),
               ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
               ('Lists', 2, None, 'lists'),
               ('List comprehension', 3, None, 'list-comprehension'),
-              ('Example: use list comprehension to make a plot of $y=x^3$',
-               3,
+              ('Exercise 2: Make a plot of $y=x^3$',
+               1,
                None,
-               'example-use-list-comprehension-to-make-a-plot-of-y-x-3'),
-              ('Solution', 3, None, 'solution'),
+               'exercise-2-make-a-plot-of-y-x-3'),
+              ('Solution', 2, None, 'solution'),
               ('Dictionaries', 2, None, 'dictionaries'),
               ('Example: Add numbers to dictionary and plot',
                3,
@@ -70,6 +75,11 @@ code { color: inherit; background-color: transparent; }
                None,
                'numpy-working-with-numerical-arrays-in-python'),
               ('Boolean masking', 1, None, 'boolean-masking'),
+              ('Exercise 3: Make a plot of $y=x^3$ using Numpy',
+               1,
+               None,
+               'exercise-3-make-a-plot-of-y-x-3-using-numpy'),
+              ('Solution', 2, None, 'solution'),
               ('Pathlib: Working with files and folders in Python',
                1,
                None,
@@ -127,6 +137,17 @@ code { color: inherit; background-color: transparent; }
                2,
                None,
                'grouping-filtering-and-aggregating-data'),
+              ('Simple statistics in Pandas',
+               2,
+               None,
+               'simple-statistics-in-pandas'),
+              ('Joining two DataFrames', 2, None, 'joining-two-dataframes'),
+              ('Appending DataFrames', 3, None, 'appending-dataframes'),
+              ('Merging DataFrames', 3, None, 'merging-dataframes'),
+              ('Working with folders and files',
+               2,
+               None,
+               'working-with-folders-and-files'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -165,36 +186,45 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._import-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable003.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable004.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable005.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable006.html#example-use-list-comprehension-to-make-a-plot-of-y-x-3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: use list comprehension to make a plot of \( y=x^3 \)</a></li>
-     <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable007.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable008.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
-     <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable009.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable010.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable012.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable013.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable014.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable017.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable018.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable019.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable020.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable021.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
-     <!-- navigation toc: --> <li><a href="#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
-     <!-- navigation toc: --> <li><a href="#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
-     <!-- navigation toc: --> <li><a href="#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
-     <!-- navigation toc: --> <li><a href="#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable005.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable006.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable007.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable008.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable010.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable011.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable012.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable013.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable015.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable017.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable018.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable019.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable023.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable024.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable026.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#working-with-folders-and-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Working with folders and files</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -206,329 +236,12 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0022"></a>
 <!-- !split -->
-<h2 id="pandas-filtering-and-visualizing-data" class="anchor">Pandas: Filtering and visualizing data </h2>
-<h3 id="boolean-masking" class="anchor">Boolean masking </h3>
-<p>Typically you would select rows based on a criterion, the syntax in Pandas is that you enter a series containing <code>True</code> and <code>False</code> for the rows you want to pick out, e.g. to pick out all entries with Afghanistan we can do</p>
+<h1 id="pandas-working-with-tabulated-data-excel-files" class="anchor">Pandas: Working with tabulated data (Excel files) </h1>
+<p>Pandas is a Python package that among many things are used to handle data, and perform operations on groups of data. It is built on top of Numpy, which makes it easy to perform vectorized operations. Pandas is written by Wes McKinney, and one of it objectives is according to the official website <a href="https://pandas.pydata.org/" target="_self"> '' providing fast, flexible, and expressive data structures designed to make working with ''relational'' or ''labeled'' data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python''</a>. Pandas also has excellent functions for reading and writing excel and csv files.  An excel file is read directly into memory in what is called a <code>DataFrame</code> in Pandas. A DataFrame is a two dimensional object where data are typically stored in column or row format.</p>
 
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df[df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;Afghanistan&#39;</span>]
-</pre>
+<div class="alert alert-block alert-success alert-text-normal"><b>Pandas has a lot of functionality</b>
+<p>Pandas has so much functionality that it is almost like a programming language. Here we will only use it to read and write excel files, and do some basic filtering of data. However, there is a high probability that whatever you would like to do with your data, e.g. clean, filter, mathematical operations, there is already a Pandas command to achieve your goal.</p>
 </div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The innermost statement <code>df['LOCATION'] == 'Afghanistan'</code> gives a logical vector with the value <code>True</code> for the five last elements and <code>False</code> for the rest. Then we pass this to the DataFrame, and in one go the unwanted elements are removed. It is also possible to use several criteria, e.g. only extracting data after a specific time</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df[(df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;Afghanistan&#39;</span>) <span style="color: #666666">&amp;</span> (df[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>] <span style="color: #666666">&gt;</span> <span style="color: #666666">2</span>)]
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Note that the parenthesis are necessary, otherwise the logical operation would fail.</p>
-<h3 id="plotting-a-dataframe" class="anchor">Plotting a DataFrame </h3>
-<p>Pandas has built in plotting, by calling <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html" target="_self"><tt>pandas.DataFrame.plot</tt></a>.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df2<span style="color: #666666">=</span>df[(df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;Afghanistan&#39;</span>)]
-df2<span style="color: #666666">.</span>plot()
-<span style="color: #3D7B7B; font-style: italic">#try </span>
-<span style="color: #3D7B7B; font-style: italic">#df2=df2.set_index(&#39;TIME&#39;)</span>
-<span style="color: #3D7B7B; font-style: italic">#df2.plot() # what is the difference?</span>
-<span style="color: #3D7B7B; font-style: italic">#df2.plot(y=[&#39;CONFIRMED&#39;,&#39;DEATHS&#39;])</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h2 id="performing-mathematical-operations-on-dataframes" class="anchor">Performing mathematical operations on DataFrames </h2>
-<p>When performing mathematical operations on DataFrames there are at least two strategies</p>
-<ul>
-<li> Extract columns from the DataFrame and perform mathematical operations on the columns using Numpy, leaving the original DataFrame intact</li>
-<li> To operate directly on the data in the DataFrame using the Pandas library</li>
-</ul>
-<div class="alert alert-block alert-success alert-text-normal"><b>Speed and performance</b>
-<p>Using Pandas or Numpy should in principle be equally fast. The advice is to not worry about performance before it is necessary. Use the methods you are confident with, and try to be consistent. By consistent, we mean that if you have found one way of doing a certain operation stick to that one and try not to implement many different ways of doing the same thing. </p>
-</div>
-
-
-<p>We can always access the individual columns in a DataFrame by the syntax <code>df['column_name']</code>.
-<h3 id="example-mathematical-operations-on-dataframes" class="anchor">Example: mathematical operations on DataFrames </h3>
-</p>
-<ol>
-<li> Create a DataFrame with one column (<code>a</code>) containing ten thousand random uniformly distributed numbers between 0 and 1 (checkout <a href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html" target="_self"><tt>np.random.uniform</tt></a>)</li>
-<li> Add two new columns: one which all elements of <code>a</code> is squared and one where the sine function is applied to column <code>a</code></li>
-<li> Calculate the inverse of all the numbers in the DataFrame</li>
-<li> Make a plot of the results (i.e. <code>a</code> vs <code>a*a</code>, and <code>a</code> vs <code>sin(a)</code>)</li>
-</ol>
-<h3 id="solution" class="anchor">Solution </h3>
-<ol>
-<li> First we make the DataFrame</li>
-</ol>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
-N<span style="color: #666666">=10000</span>
-a<span style="color: #666666">=</span>np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>uniform(<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,size<span style="color: #666666">=</span>N)
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame() <span style="color: #3D7B7B; font-style: italic"># empty DataFrame</span>
-df[<span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">=</span>a
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>If you like you could also try to use a dictionary. Next, we add the new columns</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df[<span style="color: #BA2121">&#39;b&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;a&#39;</span>]<span style="color: #666666">*</span>df[<span style="color: #BA2121">&#39;a&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># alternatively np.square(df[&#39;a&#39;])</span>
-df[<span style="color: #BA2121">&#39;c&#39;</span>]<span style="color: #666666">=</span>np<span style="color: #666666">.</span>sin(df[<span style="color: #BA2121">&#39;a&#39;</span>])
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ol>
-<li> The inverse of all the numbers in the DataFrame can be calculated by simply doing</li>
-</ol>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #666666">1/</span>df
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Note: you can also do <code>df+df</code> and many other operations on the whole DataFrame.</p>
-
-<ol>
-<li> To make plots there are several possibilities. Personally, I tend most of the time to use the  <a href="https://matplotlib.org/" target="_self"><tt>matplotlib</tt></a> library, simply because I know it quite well, but Pandas has a great deal of very simple methods you can use to generate nice plots with very few commands.</li>
-</ol>
-<p>
-<b>Matplotlib:</b>
-</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
-plt<span style="color: #666666">.</span>plot(df[<span style="color: #BA2121">&#39;a&#39;</span>],df[<span style="color: #BA2121">&#39;b&#39;</span>], <span style="color: #BA2121">&#39;*&#39;</span>, label<span style="color: #666666">=</span><span style="color: #BA2121">&#39;$a^2$&#39;</span>)
-plt<span style="color: #666666">.</span>plot(df[<span style="color: #BA2121">&#39;a&#39;</span>],df[<span style="color: #BA2121">&#39;c&#39;</span>], <span style="color: #BA2121">&#39;^&#39;</span>, label<span style="color: #666666">=</span><span style="color: #BA2121">&#39;$\sin(a)$&#39;</span>)
-plt<span style="color: #666666">.</span>legend() 
-plt<span style="color: #666666">.</span>grid() <span style="color: #3D7B7B; font-style: italic"># make small grid lines</span>
-plt<span style="color: #666666">.</span>show()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>
-<b>Pandas plotting:</b>
-First, let us try the built in plot command in Pandas
-</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>plot()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>If you compare this plot with the previous plot, you will see that Pandas plots all columns versus the index columns, which is not what we want. But, we can set <code>a</code> to be the index column</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>set_index(<span style="color: #BA2121">&#39;a&#39;</span>)
-df<span style="color: #666666">.</span>plot()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>We can also make separate plots</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>plot(subplots<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>or scatter plots</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>reset_index()
-df<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>scatter(x<span style="color: #666666">=</span><span style="color: #BA2121">&#39;a&#39;</span>,y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;b&#39;</span>)
-df<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>scatter(x<span style="color: #666666">=</span><span style="color: #BA2121">&#39;a&#39;</span>,y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;c&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Note that we have to reset the index, otherwise there are no column named <code>a</code>. </p>
 
 <p>
 <!-- navigation buttons at the bottom of the page -->

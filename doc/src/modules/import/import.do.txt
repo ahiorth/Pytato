@@ -30,6 +30,31 @@ o `plt.grid()` adds grid lines which makes it easier to read the plot
 By visiting the official documentation, and view the "Matplotlib gallery":"https://matplotlib.org/stable/gallery/index.html", you will see a lot of examples on how to visualize your data.
 
 !split
+
+<% ex_id = 0 %>
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Reproduce a plot  =======
+
+* Reproduce figure ref{fig:imp:ex1} as closely as possible
+
+FIGURE: [fig-import/ex1.png, width=400 frac=1.0] A plot of a linear function. label{fig:imp:ex1}
+
+!split
+===== Solution: =====
+
+!bc pypro
+import matplotlib.pyplot as plt
+x=[1,2,3,4]
+y=[1,2,3,4]
+plt.title('A linear function')
+plt.plot(x,y,'-o',label='y=x')
+plt.xlabel('x-values')
+plt.ylabel('y-values')
+plt.grid() #minor grid lines for readability
+plt.legend()
+!ec
+
+!split
 ======= Data structures  (Basic) =======
 idx{data structures}
 The data we want to e.g. visualize has to be stored or passed around in the code somehow. Data structures provide an interface to your data, that makes it efficient to access them. In the next subsections we give a short overview of the most used data structures, which you should be familiar with.
@@ -61,11 +86,13 @@ my_list.pop(0) # my_list=['dog']
 !bnotice print statement
 As default python will usually write to screen your last statement. But at any time you can use the `print` statement to force python to print out any variable, e.g.
 !bc pycod
+my_list=['dog','cat',2]
 print(my_list[0]) # first element
 print(my_list[0],my_list[1]) # first and second element
 print(my_list) # the whole list 
 !ec
 !enotice
+
 !split
 === List comprehension ===
 
@@ -77,21 +104,31 @@ y = [i**2 for i in range(10)] # a list with elements 0,1,4, ..,81
 We will cover for loops later, but basically what is done is that the statement `i in range(10)`, gives `i` the value 0, 1, $\ldots$, 9 and the first `i` inside the list tells python to use that value as the element in the list. Using this syntax, there are plenty of opportunities to initialize.
 
 !split
-=== Example: use list comprehension to make a plot of $y=x^3$ ===
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Make a plot of $y=x^3$  =======
 
-* Create one list of $x\in[-3,3]$ and the corresponding $y$ values
-* Use `matplotlib.pyplot` to create a plot.
+* Use $x\in[-3,3]$ and make a plot of $y=x^3$, similar to the one in figure ref{fig:imp:ex2}
 
-=== Solution ===
+FIGURE: [fig-import/ex2.png, width=400 frac=1.0] A plot of a non linear function. label{fig:imp:ex2}
+
+!split
+===== Solution =====
 
 !bc pycod
 #first we create the x-values
 N=100 # 100 points
-dx=6/N
-x=[-3+i*dx for i in range(N)]
+dx=6/(N-1) #N-1 to include end-points
+x=[-3+i*dx for i in range(N)] #List comprehension
 y=[i**3 for i in x]
-plt.plot(x,y) # if you want you can add legend and grid lines
+plt.title('A non linear function')
+plt.plot(x,y,label='$y=x^3$') # if you want you can add legend and grid lines
+plt.xlabel('x-values')
+plt.ylabel('y-values')
+plt.grid() #minor grid lines for readability
+plt.legend()
 !ec
+
+
 !split
 ===== Dictionaries  =====
 
@@ -112,6 +149,7 @@ my_dict={'x':[1.,2.,3.,4.],'y':[1.,4.,9.,16.],'z':[3.]}
 !ec
 The syntax is `{key1:values, key2:values2, ...}`. We access the values in the dictionary by the key i.e. `print(my_dict['x'])` would print `[1.,2.,3.,4.]`.
 !split
+
 === Example: Add numbers to dictionary and plot ===
 * Add two numbers to the list of `x` and `y` in `my_dict` and plot `y` vs `x`
 
@@ -166,6 +204,8 @@ If you have a list, it can easily be converted to a Numpy array
 x=[1,4,7] # x is a list
 x+x # x+x would give [1,4,7,1,4,7]
 x*x # would give an error message
+!ec
+!bc pycod
 x=np.array([1,4,7]) # now x is a Numpy array
 x+x # would give [2,8,14]
 x*x # would give [1,16,49]
@@ -182,6 +222,30 @@ x[x>5] # [7,8,9]
 !ec
 
 !split
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Make a plot of $y=x^3$ using Numpy =======
+
+* Use $x\in[-3,3]$ and make a plot of $y=x^3$, similar to the one in figure ref{fig:imp:ex2} as you did before, but this time use Numpy.
+
+!split
+===== Solution =====
+
+!bc pycod
+import numpy as np
+N=100
+x=np.linspace(-3,3,N)
+y=x**3 #element wise operation 
+#Done, rest is just to make the plot
+plt.title('A non linear function')
+plt.plot(x,y,label='$y=x^3$') # if you want you can add legend and grid lines
+plt.xlabel('x-values')
+plt.ylabel('y-values')
+plt.grid()
+plt.legend()
+!ec
+
+!split
+
 ======= Pathlib: Working with files and folders in Python =======
 
 When you want to open a file in a Python script, you first have to locate it. If you have downloaded all the files, there will be a `data` folder in which there are several data sets. Sometimes we would like to list all files in a folder, or files of a certain type, and maybe create a unique file name that does not already exists. 
@@ -231,7 +295,7 @@ o `x.is_file()`, gives True if `x` is a file and False if not.
 __List all files of a type:__
 Below we use `p.rglob()`, and not `p.iterdir()`, the difference is that `rglob()` also lists recursively the sub directories, and files within.
 !bc pycod
-p=Path('.')
+p=pt.Path('.')
 for p in p.rglob("*.xlsx"):# rglob means recursively, searches sub directories
     print(p.name)
 !ec
@@ -240,14 +304,14 @@ If you want to print the full path do `print(p.absolute())`.
 !split
 __Create a directory, files and joining paths:__
 !bc pycod
-Path('tmp_dir').mkdir()
+pt.Path('tmp_dir').mkdir()
 !ec
 If you run the code twice it will produce an error, because the directory exists, then we can simply do `Path('tmp_dir').mkdir(exist_ok=True)`.
 
 
 Furthermore, the forward slash, `/`, can be used combine paths
 !bc pycod
-p=Path('.')
+p=pt.Path('.')
 new_path = p / 'tmp_dir' / 'my_file.txt'
 print(new_path.absolute())
 print(p.exists()) # gives False, because my_file.txt does not exists
@@ -274,6 +338,7 @@ FIGURE: [fig-import/covid_comb.png, width=400 frac=1.0] Official Covid-19 data, 
 If we have file in the `data` directory, we can import them into a DataFrame as follows
 
 !bc pycod
+import pandas as pd
 df=pd.read_excel('../data/corona_data.xlsx') # excel file
 df2=pd.read_csv('../data/corona_data.dat',sep='\t') # csv tab separated file
 !ec
@@ -295,8 +360,8 @@ A DataFrame can be quite easily be generated from a dictionary. A dictionary is 
 my_dict={'ints':[0,1,2,3], 'floats':[4.,5.,6.,7.],
 'tools':['hammer','saw','rock','nail']
 }
-df=pd.DataFrame(my_dict)
-print(df) # to view
+my_df=pd.DataFrame(my_dict)
+print(my_df) # to view
 !ec
 
 !split
@@ -307,6 +372,7 @@ print(df) # to view
 If we want to pick out a specific column we can access it in the following ways
 !bc pycod
 # following two are equivalent
+df=pd.read_excel('../data/corona_data.xlsx')
 time=df['TIME'] # by the name, alternatively
 time=df[df.columns[1]]
 # following two are equivalent
@@ -365,8 +431,10 @@ The `datetime` library is very useful for working with dates. Data types of the 
 
 !bc pycod
 import datetime as dt
+df=pd.read_excel('../data/corona_data.xlsx')
 time=df['TIME']
 # what happens if you set
+# df2=pd.read_csv('../data/corona_data.dat',sep='\t') # csv tab separated file
 # time=df2['TIME'] #i.e df2 is from pd.read_csv ?
 print(time[0])
 print(time[0]+dt.timedelta(days=1))
@@ -509,4 +577,114 @@ Here Pandas sum all columns with the same location, and drop columns that cannot
 # #if FORMAT not in ("ipynb")
 FIGURE: [fig-import/group.png, width=400 frac=1.0] The results of `df.groupby('LOCATION').sum()`. label{fig:pandas:group}
 # #endif
+
+
+===== Simple statistics in Pandas =====
+At the end it is worth mentioning the built in methods `pd.DataFrame.mean`, `pd.DataFrame.median`, `pd.DataFrame.std` which calculates the mean, median and standard deviation on the columns in the DataFrame where it make sense (i.e. avoid strings and dates). To get all these values in one go (and a few more) on can also use `pd.DataFrame.describe()`
+!bc pypro
+df.describe()
+!ec
+# #if FORMAT not in ("ipynb")
+The output is shown in figure ref{fig:pandas:desc}
+FIGURE: [fig-import/describe.png, width=400 frac=1.0] Output from the describe command. label{fig:pandas:desc}
+# #endif
+
+
+===== Joining two DataFrames =====
+=== Appending DataFrames  ===
+The DataFrame with the Covid-19 data in the previous section could have been created from two separate DataFrames, using "`concat()`":"https://pandas.pydata.org/docs/reference/api/pandas.concat.html". First, create two DataFrames 
+!bc pypro
+import datetime as dt
+a=dt.datetime(2020,2,24,23,59)
+b=dt.datetime(2020,2,7,23,59)
+my_dict1={'LOCATION':7*['Afghanistan'], 
+'TIME':[a+dt.timedelta(days=i) for i in range(7)],
+'ELAPSED_TIME_SINCE_OUTBREAK':[0, 1, 2, 3, 4, 5, 6],
+'CONFIRMED':7*[1],
+'DEATHS':7*[0],
+'RECOVERED': 7*[0]}
+my_dict2={'LOCATION':6*['Diamond Princess'], 
+'TIME':[b+dt.timedelta(days=i) for i in range(6)],
+'ELAPSED_TIME_SINCE_OUTBREAK':[0, 1, 2, 3, 4, 5],
+'CONFIRMED':[61, 61, 64, 135, 135, 175],
+'DEATHS':6*[0],
+'RECOVERED': 6*[0]}
+df1=pd.DataFrame(my_dict1)
+df2=pd.DataFrame(my_dict2)
+!ec
+# #if FORMAT not in ("ipynb")
+Next, add them row wise (see figure ref{fig:pandas:concat})
+# #endif
+
+!bc pypro
+df=pd.concat([df1,df2])
+print(df) # to view
+!ec
+
+# #if FORMAT not in ("ipynb")
+FIGURE: [fig-import/concat.png, width=400 frac=1.0] The result of `concat()`. label{fig:pandas:concat}
+# #endif
+
+If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing `df=pd.concat([df1,df2],ignore_index=True)` resets the index. It is also possible to join DataFrames column vise
+!bc pypro
+pd.concat([df1,df2],axis=1)
+!ec
+
+=== Merging DataFrames ===
+
+In the previous example we had two non overlapping DataFrames (separate countries and times). It could also be the case that some of the data was overlapping e.g. continuing with the Covid-19 data, one could assume that there was one data set from one region and one from another region in the same country
+!bc pypro
+my_dict1={'LOCATION':7*['Diamond Princess'], 
+'TIME':[b+dt.timedelta(days=i) for i in range(7)],
+'ELAPSED_TIME_SINCE_OUTBREAK':[0, 1, 2, 3, 4, 5, 6],
+'CONFIRMED':7*[1],
+'DEATHS':7*[0],
+'RECOVERED': 7*[0]}
+my_dict2={'LOCATION':2*['Diamond Princess'], 
+'TIME':[b+dt.timedelta(days=i) for i in range(2)],
+'ELAPSED_TIME_SINCE_OUTBREAK':[0, 1],
+'CONFIRMED':[60, 60],
+'DEATHS':2*[0],
+'RECOVERED': 2*[0]}
+df1=pd.DataFrame(my_dict1)
+df2=pd.DataFrame(my_dict2)
+!ec
+If we do `pd.concat([df1,df2])` we will simply add all values after each other. What we want to do is to sum the number of confirmed, recovered and deaths for the same date. This can be done in several ways, but one way is to use "`pd.DataFrame.merge()`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html".You can specify the columns to merge on, and choose `outer` which is union (all data from both frames) or `inner` which means the intersect (only data which you merge on that exists in both frames), see figure ref{fig:pandas:join} for a visual image.
+
+FIGURE: [fig-import/fig_join.png, width=400 frac=1.0] The result of using `how=outer, inner, left`, or `right` in `pd.DataFrame.merge()`. label{fig:pandas:join}
+
+To be even more specific, after performing the commands
+!bc pypro
+df1.merge(df2,on=['LOCATION','TIME'],how='outer')
+df1.merge(df2,on=['LOCATION','TIME'],how='inner')
+!ec
+
+# #if FORMAT not in ("ipynb")
+we get the results in figure ref{fig:pd:merge} 
+
+FIGURE: [fig-import/merge.png, width=400 frac=1.0] Merging to DataFrame using `outer` (top) and `inner` (bottom). label{fig:pd:merge}
+
+# #endif
+Clearly in this case we need to choose `outer`. In the merge process pandas adds an extra subscript `_x` and `_y` on columns that contains the same header name. We also need to sum those, which can be done as follows
+# #if FORMAT not in ("ipynb")
+(see figure ref{fig:pandas:merge3} for the final result)
+# #endif
+
+!bc pypro
+df=df1.merge(df2,on=['LOCATION','TIME'],how='outer')
+cols=['CONFIRMED','DEATHS', 'RECOVERED']
+for col in cols:
+    df[col]=df[[col+'_x',col+'_y']].sum(axis=1) # sum row elements
+    df=df.drop(columns=[col+'_x',col+'_y']) # remove obsolete columns
+# final clean up
+df['ELAPSED_TIME_SINCE_OUTBREAK']=df['ELAPSED_TIME_SINCE_OUTBREAK_x']		
+df=df.drop(columns=['ELAPSED_TIME_SINCE_OUTBREAK_y','ELAPSED_TIME_SINCE_OUTBREAK_x'])
+!ec
+
+# #if FORMAT not in ("ipynb")
+FIGURE: [fig-import/merge3.png, width=400 frac=1.0] Result of outer merging and summing. label{fig:pandas:merge3}
+# #endif
+
+===== Working with folders and files =====
+When working with big data sets you might want to split data into smaller sets, and also write them to different folders (or files) to view each individually in excel. Working with files and folders in a way that will work on any kind of platform has always been a challenge, but it is greatly simplified by the "Pathlib library":"https://docs.python.org/3/library/pathlib.html".
 

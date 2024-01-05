@@ -1,0 +1,394 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Exercises">
+<title>Exercises</title>
+<!-- Bootstrap style: bootswatch_readable -->
+<!-- doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:64px;      /* fixed header height for style bootswatch_readable */
+  margin:-64px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Matplotlib visualization',
+               1,
+               None,
+               'exercise-2-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
+              ('Exercise 4: Read tabulated data from file',
+               1,
+               None,
+               'exercise-4-read-tabulated-data-from-file'),
+              ('Solution 1 Pandas (easy):', 2, None, 'solution-1-pandas-easy'),
+              ('Solution 2 `numpy.loadtxt` (medium):',
+               2,
+               None,
+               'solution-2-numpy-loadtxt-medium'),
+              ('Solution 3 Vanilla Python (hard):',
+               2,
+               None,
+               'solution-3-vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 5: Splitting data into files using Pandas',
+               1,
+               None,
+               'exercise-5-splitting-data-into-files-using-pandas'),
+              ('Exercise 6: Splitting all field data into separate files',
+               1,
+               None,
+               'exercise-6-splitting-all-field-data-into-separate-files'),
+              ('Exercise 7: Splitting field data into separate files and '
+               'folder',
+               1,
+               None,
+               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('Bibliography', 1, None, 'bibliography')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="exercises-readable.html">Exercises</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._exercises-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable002.html#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable004.html#exercise-3-group-data" style="font-size: 80%;"><b>Exercise 3: Group data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable006.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 4: Read tabulated data from file</b></a></li>
+     <!-- navigation toc: --> <li><a href="#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable008.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;"><b>Exercise 5: Splitting data into files using Pandas</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable010.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;"><b>Exercise 6: Splitting all field data into separate files</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable012.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;"><b>Exercise 7: Splitting field data into separate files and folder</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable013.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0007"></a>
+<!-- !split -->
+
+<p>
+<b>Solution</b>
+:</p>
+<h2 id="solution-1-pandas-easy" class="anchor">Solution 1 Pandas (easy): </h2>
+<p>Pandas will most likely be your first choice, because it has so much built in functionalities</p>
+
+<ul>
+<li> Run the following code and explain why the first <code>pd.read_csv</code> fails or does not produce the output we want</li>
+</ul>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
+df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>)
+<span style="color: #008000">print</span>(df)
+df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
+<span style="color: #008000">print</span>(df)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ul>
+<li> Print only the year column from <code>df</code> i) using the label <code>Year</code> and ii) <code>df.columns[0]</code></li>
+<li> Print the column with oil equivalents</li>
+</ul>
+<h2 id="solution-2-numpy-loadtxt-medium" class="anchor">Solution 2 <code>numpy.loadtxt</code> (medium): </h2>
+
+<p><code>Numpy.loadtxt</code> is a build in function in Numpy that reads tabulated data. It does not know how to process header lines, and we need to skip them.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+data<span style="color: #666666">=</span>np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>,skiprows<span style="color: #666666">=1</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ul>
+<li> How can you print out only the year, month, etc. columns from the <code>data</code> variable?</li>
+<li> Use <code>data=np.loadtxt('../data/draugen.txt',skiprows=1,unpack=True)</code>, what changes now?</li> 
+</ul>
+<h2 id="solution-3-vanilla-python-hard" class="anchor">Solution 3 Vanilla Python (hard): </h2>
+
+<p>When accessing files, it can be easy to forget to <em>close</em> the file after opening it. This can lead to problems as an open file, in many cases, cannot be accessed by other programs. To avoid this we use the <code>with</code> statement. The following code can be used to print out all the lines of a file, and Python will open and close the file for you</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&quot;../data/draugen.txt&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> my_file:
+     <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> my_file:
+     	 <span style="color: #008000">print</span>(line)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>After the code is run, the variable <code>line</code> will still hold the last line of the file, which should be <code>'2023\t10\t0.072419\t0.019985\t0\t0.092404\t1.005672\n'</code>. The first two numbers are year (2023) and the month (10), for the rest check the header in the file. The <code>\t</code> means tabular and <code>\n</code> means a newline. In order to parse this line we need to pick out the numbers, the easiest way in Python is to split the line on <code>\t</code>, if you do</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">data_list<span style="color: #666666">=</span>line<span style="color: #666666">.</span>split(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
+<span style="color: #008000">print</span>(data_list)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>we conveniently get all the elements separated by <code>\t</code> into a list (of strings). To convert a string to a number we can do e.g. <code>float(data_list[0])</code>.</p>
+
+<ul>
+<li> Modify the following code to extract year, month, and oil equivalents. Remember we need to skip the first header line, which contains only text.</li>
+</ul>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">years<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
+months<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
+oe<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
+read_first_line<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>
+<span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&quot;../data/draugen.txt&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> my_file:
+     <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> my_file:
+     	 <span style="color: #008000; font-weight: bold">if</span> read_first_line:
+	    data_list<span style="color: #666666">=</span>line<span style="color: #666666">.</span>split(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
+	    years<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(data_list[<span style="color: #666666">0</span>]))
+	    <span style="color: #3D7B7B; font-style: italic">#same for month</span>
+	    <span style="color: #3D7B7B; font-style: italic">#same for oil equivalents</span>
+	 read_first_line<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>
+	 
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 id="store-the-data-in-a-dictionary-optional" class="anchor">Store the data in a dictionary (optional) </h3>
+<p>Tabulated data with a header is perfect for a dictionary, here we create a dictionary based on the header in the file.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">data_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;year&#39;</span>:[], <span style="color: #BA2121">&#39;month&#39;</span>:[],<span style="color: #BA2121">&#39;oil&#39;</span>:[],<span style="color: #BA2121">&#39;gas&#39;</span>:[],<span style="color: #BA2121">&#39;cond&#39;</span>:[],<span style="color: #BA2121">&#39;oe&#39;</span>:[],<span style="color: #BA2121">&#39;wat&#39;</span>:[]}
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ul>
+<li> modify the code above to store all data in each line in the dictionary. To loop over all entries in the <code>data_dict</code>, and the list elements in <code>data_list</code>, you can use the <code>zip</code> function</li>
+</ul>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">for</span> key,data <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(data_dict,data_list):
+    data_dict[key]<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(data))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._exercises-readable006.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._exercises-readable008.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

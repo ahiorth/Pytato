@@ -31,6 +31,7 @@ This has the consequence that we will introduce basic programming concepts such 
 This course is supposed to be self contained, but there are of course plenty of online courses, youtube videos, and books that you should take advantage of to improve your understanding. These resources are extremely valuable if you know exactly what your are looking for. As a complete beginner with little or no knowledge of Python it can be confusing if you do not know what you are looking for. Great online sources that cover much of Python basics are
 * "w3schools":"https://www.w3schools.com/python/default.asp", brief description of different functionality in Python, has an extensive index, which makes it is easy to look up different concepts.
 * "A Whirlwind tour of Python":"https://jakevdp.github.io/WhirlwindTourOfPython/". Basic introduction to Python, from simple to more complex concepts.
+* "Automate the boring stuff":"https://automatetheboringstuff.com/", another comprehensive low level, introduction to Python.
 These resources explains quite briefly important concepts and give examples, such as
 * specific Python syntax,
 * data types (float, int, Boolean, etc.),
@@ -112,7 +113,7 @@ Hopefully you have managed to install Anaconda Python. Next, you want to open a 
 !bc sys
 (base) PS C:\Users\Aksel Hiorth>
 !ec
-The `(base)` to the left indicates that we are in the base environment in Anaconda, `C:\Users\2902412`, show me that I am at the `C` disk, in the `Aksel Hiorth` folder, which is a sub directory of the `User` folder.
+The `(base)` to the left indicates that we are in the base environment in Anaconda, `C:\Users\Aksel Hiorth`, show me that I am at the `C` disk, in the `Aksel Hiorth` folder, which is a sub directory of the `User` folder.
 
 As a general rule we do not want to install new packages or libraries in the `base` environment, this is simply because different packages are not always internally consistent. If you are unlucky you will install two packages that requires two different version of a third package, this will then break your installation and suddenly code that used to run will no longer work.
 
@@ -163,76 +164,12 @@ There are several packages we will need and if we list all packages simultaneous
 !bc sys
 (base) Aksel Hiorth>conda activate MOD321
 (MOD321) Aksel Hiorth>conda install matplotlib pandas jupyter scipy \
-numpy ipykernel pathlib numba 
+numpy ipykernel pathlib numba openpyxl 
 !ec
-(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: `conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba `.)
+(NB: Due to formatting reasons I have added a back slash in the above command, but you can put everything on one line: `conda install matplotlib pandas jupyter scipy numpy ipykernel pathlib numba openpyxl`.)
 If you later find out you need additional packages, you just can just open a terminal window, activate the correct environment and then do `conda install PACKAGE_NAME`. But, as already mentioned if you install more and more very specialized packages, you might get inconsistencies. However, then you can just delete your environment and install everything once more.
 
 !bnotice pip install vs conda install
 If you find a package you would like to install, the documentation may in many cases say run the command `pip install PACKAGE_NAME`. That may very well work, but I would always advice you to do `conda install PACKAGE_NAME` first, because I believe conda is better at checking for internal consistency. If `conda install` fails, you can do `pip install` and 99 out 100 times this will work out just fine. 
 !enotice
 
-!split
-======= Exercise 2: Install Bedmap to visualize Antarctica ice data  =======
-There is currently a great deal of concern about global warming.
-Some critical issues are whether we are more likely to observe
-extreme local temperatures, increased frequencies of natural
-disasters like forest fires and droughts, and if there are
-"tipping points" in the climate system that are, at least on the
-human timescale, irreversible cite{IPCC2021}.
-One particular question to ask is: How much ice is likely to melt?
-And, what would be the consequence of ice melting for sea level rise (SLR)?
-
-Since most of the ice on Planet Earth is located in Antarctica, substantial
-effort has been spent in mapping the ice and the bedrock of this continent.
-Most of the data is freely available, and we can use Python to investigate
-different scenarios. Here we will only show you how to install the packages and visualize the ice thickness. 
-
-<% counter = 0 %>
-<% counter += 1 %>
-__Part ${counter}.__
-
-!bnotice Create a new environment 
-The ice data are located in the *bedmap2* dataset cite{fretwell2013bedmap2}
-The "rockhound":"https://github.com/fatiando/rockhound"
-library can be used to load the data. As an aid to plotting, you might also want to use color maps from the
-"cmocean":"https://pypi.org/project/cmocean/" package cite{thyng2016true}. To install bedmap2 data you have to create a new conda environment (we call it ice)
-!bc sys
-conda config --add channels conda-forge
-conda create -n ice python matplotlib numpy \
-scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
-!ec
-Note that we need a specific version of the `xarray` library.
-!bc pypro
-conda activate project1
-jupyter notebook
-!ec
-!enotice
-
-<% counter += 1 %>
-__Part ${counter}.__
-The code below is taken from the
-"rockound library documentation":"https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html":
-
-!bc pypro
-import rockhound as rh
-import matplotlib.pyplot as plt
-import cmocean
-import numpy as np
-
-bedmap = rh.fetch_bedmap2(datasets=["thickness","surface","bed"])
-plt.figure(figsize=(8, 7))
-ax = plt.subplot(111)
-bedmap.surface.plot.pcolormesh(ax=ax,cmap=cmocean.cm.ice,
-                       cbar_kwargs=dict(pad=0.01, aspect=30))
-plt.title("Bedmap2 Antarctica")
-plt.tight_layout()
-plt.show()
-!ec
-
-* Run the code and reproduce figure ref{fig:bedmap2_ice_thickness}.
-
-FIGURE: [fig-intro/bedmap2_plot.png, width=400 frac=1.0] Visualization of the ice thickness in Antarctica. label{fig:bedmap2_ice_thickness}
-
-This may take quite some time, so it is recommended that you do not execute
-the cell generating the plot more often than you have to.
