@@ -1,0 +1,67 @@
+# Here goes the main text.
+# The text may be split into several files and included here
+# via preprocess: # #include "file1.do.txt" etc
+
+======= What is a function? =======
+As explained in the introduction, a function is several lines of code that perform a specific task. In many ways you can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
+
+You have already used a lot built in functions in Python, such as `print()`, `pandas.DataFrame()`, etc. We can define our own functions using the `def` keyword, it best illustrated with some examples
+!bc pycod
+def my_func():
+    print('My first function')
+my_func()
+!ec
+You can pass arguments to the function, to make them more general
+def my_func(name):
+    print('My name is :' + name)
+my_func('Bob')
+!ec
+
+======= When to define a function? =======
+
+When to use functions? There is no particular rule, *but whenever you
+start to copy and paste code from one place to another, you should
+consider to use a function*. Functions makes the code easier to read.
+It is not easy to identify which part of a program is a good candidate
+for a function, it requires skill and experience. Most likely you will
+end up changing the function definitions as your program develops.
+
+===== What is a good function? =====
+Even if you only write code for yourself, you will quickly forget what the code does. That is why it is so important to write functions that are good, below are some suggestions
+
+A function:
+* should have a descriptive name.
+* should only do one thing.
+* should only be dependent on its input argument and give the same answer independent on how many times it is being called.
+* should contain a doc string (see below for examples).
+* should have a descriptive name, use small letters with an underscore to separate words.
+
+!bnotice DRY - Do not Repeat Yourself cite{thomas2019pragmatic}.
+If you need to change the code in more than one place to extend it, you may forget to change everywhere and introduce bugs. The DRY principle also applies to *knowledge sharing*, it is not only about copy and paste code, but knowledge should only be represented in one place. 
+!enotice
+
+===== Exercise:  Create a function from the following code =====
+When I normally code I usually first write the code, to see that I am able to achieve what I want, and then I create a function based on that code.
+
+__Question:__ Create a function from the following code
+!bc pypro
+# this code replace Norwegian letters by their English counterpart
+name='FRØY'
+chars=["Å", "Ø", "Æ"]
+new_chars=["AA","O","AE"]
+new_name=name
+for ch,nch in zip(chars,new_chars):
+    new_name = new_name.replace(ch, nch)
+
+!ec
+
+__Solution:__
+
+def replace_chars(name):
+    ''' replace Norwegian characters and space in names'''
+    chars=[" ", "/","Å", "Ø", "Æ"]
+    new_chars=["_","_","AA","O","AE"]
+    new_name = name
+    for ch,nch in zip(chars,new_chars):
+        new_name = new_name.replace(ch, nch)
+    return new_name

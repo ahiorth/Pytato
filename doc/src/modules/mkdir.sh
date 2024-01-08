@@ -26,8 +26,7 @@ system cp -r template $name
 system cd $name
 system mv -f NAME.do.txt $name.do.txt
 system mv -f main_NAME.do.txt main_$name.do.txt
-system mv -f exercises_NAME.do.txt exercises_$name.do.txt
-system doconce replace NAME $name $name.do.txt main_$name.do.txt exercises_$name.do.txt make.sh
+system doconce replace NAME $name $name.do.txt main_$name.do.txt  make.sh
 system echo "Customize chapter heading, authors, etc. in $name/main_$name.do.txt"
 system rm -f *~
 system chmod u+rwx make.sh

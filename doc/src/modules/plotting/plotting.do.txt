@@ -1,5 +1,0 @@
-# Here goes the main text.
-# The text may be split into several files and included here
-# via preprocess: # #include "file1.do.txt" etc
-======= Covid-19 data =======
-In this section we will work with Covid-19 data, which can be found in the `data` folder or downloaded from "WHO":"https://covid19.who.int/data".  
