@@ -42,6 +42,7 @@ code { color: inherit; background-color: transparent; }
                1,
                'table_of_contents',
                'table_of_contents'),
+              ('Before you start', 1, None, 'before-you-start'),
               ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
                1,
                None,
@@ -123,6 +124,7 @@ MathJax.Hub.Config({
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="#before-you-start" style="font-size: 80%;"><b>Before you start</b></a></li>
      <!-- navigation toc: --> <li><a href="._exercises-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
      <!-- navigation toc: --> <li><a href="._exercises-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
      <!-- navigation toc: --> <li><a href="._exercises-readable002.html#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
@@ -162,7 +164,7 @@ MathJax.Hub.Config({
 <br>
 <p>University of Stavanger, Institute for Energy Resources, Norway
 <center>
-<h4>Jan 6, 2024</h4>
+<h4>Jan 8, 2024</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -172,6 +174,7 @@ MathJax.Hub.Config({
 <h1 id="table_of_contents">Table of contents</h1>
 
 <div class='toc'>
+<p><a href="#before-you-start"> Before you start </a></p>
 <p><a href="._exercises-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data"> Exercise 1: Install Bedmap to visualize Antarctica ice data  </a></p>
 <p><span class="tab"> <a href="._exercises-readable001.html#background"> Background  </a></p>
 <p><a href="._exercises-readable002.html#exercise-2-matplotlib-visualization"> Exercise 2: Matplotlib visualization  </a></p>
@@ -199,6 +202,43 @@ MathJax.Hub.Config({
 <li> File handling</li>
 <li> Use Pandas to combine and manipulate data from different input, Excel and comma separated values (CSV),  files.</li>
 </ul>
+<h1 id="before-you-start" class="anchor">Before you start </h1>
+<p>In some of these exercises we are going to work with files and folders. It is very important to not spread files and folders everywhere on the computer. My suggestion would be to create a new folder inside the <code>exercise</code> folder called <code>src</code>, <code>src</code> is used to indicate source code, as illustrated in figure <a href="#fig:e1:str">1</a>.</p>
+
+<center> <!-- figure label: --> <div id="fig:e1:str"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 1:  Folder tree structure.  <!-- caption label: fig:e1:str --> </p>
+</center>
+<p><img src="fig-exercises/structure.png" align="bottom" width=800></p>
+</center>
+
+<p>If you have a Python file inside the <code>src</code> folder and wants to access e.g. an Excel file in the <code>data</code> folder, we do that by using <em>relative paths</em>. A double dot <code>..</code> is to step up relative to where you are standing, a slash <code>/</code> followed by a name indicates a directory or file, e.g. the <code>draugen.txt</code> file can be accessed from the <code>src</code> directory by <code>../data/draugen.txt</code>. You can also use the Pathlib library to check if everything went ok</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pathlib</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pt</span>
+p<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>)
+<span style="color: #008000">print</span>(p<span style="color: #666666">.</span>exists()) <span style="color: #3D7B7B; font-style: italic"># will print True if yes </span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">

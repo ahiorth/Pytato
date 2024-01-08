@@ -7,7 +7,17 @@ __Learning objectives.__
 * Use Pandas to combine and manipulate data from different input, Excel and comma separated values (CSV),  files.
 
 
+======= Before you start =======
+In some of these exercises we are going to work with files and folders. It is very important to not spread files and folders everywhere on the computer. My suggestion would be to create a new folder inside the `exercise` folder called `src`, `src` is used to indicate source code, as illustrated in figure ref{fig:e1:str}.
 
+FIGURE: [fig-exercises/structure.png, width=400 frac=1.0] Folder tree structure. label{fig:e1:str}
+
+If you have a Python file inside the `src` folder and wants to access e.g. an Excel file in the `data` folder, we do that by using *relative paths*. A double dot `..` is to step up relative to where you are standing, a slash `/` followed by a name indicates a directory or file, e.g. the `draugen.txt` file can be accessed from the `src` directory by `../data/draugen.txt`. You can also use the Pathlib library to check if everything went ok
+!bc pypro
+import pathlib as pt
+p=pt.Path('../data/draugen.txt')
+print(p.exists()) # will print True if yes 
+!ec
 !split
 <% ex_id = 0 %>
 <% ex_id += 1 %>
