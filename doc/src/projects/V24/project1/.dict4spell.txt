@@ -19,6 +19,7 @@ OLSR
 Opex
 Oseberg
 PDF
+Pathlib
 Pythonic
 SLR
 SciPy
