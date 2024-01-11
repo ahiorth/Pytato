@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -292,9 +293,9 @@ MathJax.Hub.Config({
 <center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 4: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
+<p class="caption">Figure 4:  The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --> </p>
 </center>
-<p><img src="fig-import/group.png" width="800" align="bottom"></p>
+<p><img src="fig-import/group.png" align="bottom" width=800></p>
 </center>
 
 <h2 id="simple-statistics-in-pandas" class="anchor">Simple statistics in Pandas </h2>
@@ -327,9 +328,9 @@ MathJax.Hub.Config({
 <center> <!-- figure label: --> <div id="fig:pandas:desc"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 5: Output from the describe command.  <!-- caption label: fig:pandas:desc --></p>
+<p class="caption">Figure 5:  Output from the describe command.  <!-- caption label: fig:pandas:desc --> </p>
 </center>
-<p><img src="fig-import/describe.png" width="800" align="bottom"></p>
+<p><img src="fig-import/describe.png" align="bottom" width=800></p>
 </center>
 
 <h2 id="joining-two-dataframes" class="anchor">Joining two DataFrames </h2>
@@ -404,9 +405,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:concat"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 6: The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --></p>
+<p class="caption">Figure 6:  The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --> </p>
 </center>
-<p><img src="fig-import/concat.png" width="800" align="bottom"></p>
+<p><img src="fig-import/concat.png" align="bottom" width=800></p>
 </center>
 
 <p>If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing <code>df=pd.concat([df1,df2],ignore_index=True)</code> resets the index. It is also possible to join DataFrames column vise</p>
@@ -476,9 +477,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:join"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 7: The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --></p>
+<p class="caption">Figure 7:  The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --> </p>
 </center>
-<p><img src="fig-import/fig_join.png" width="800" align="bottom"></p>
+<p><img src="fig-import/fig_join.png" align="bottom" width=800></p>
 </center>
 
 <p>To be even more specific, after performing the commands</p>
@@ -511,9 +512,9 @@ df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666"
 <center> <!-- figure label: --> <div id="fig:pd:merge"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 8: Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --></p>
+<p class="caption">Figure 8:  Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --> </p>
 </center>
-<p><img src="fig-import/merge.png" width="800" align="bottom"></p>
+<p><img src="fig-import/merge.png" align="bottom" width=800></p>
 </center>
 
 <p>Clearly in this case we need to choose <code>outer</code>. In the merge process pandas adds an extra subscript <code>_x</code> and <code>_y</code> on columns that contains the same header name. We also need to sum those, which can be done as follows
@@ -554,9 +555,9 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 <center> <!-- figure label: --> <div id="fig:pandas:merge3"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 9: Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --></p>
+<p class="caption">Figure 9:  Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --> </p>
 </center>
-<p><img src="fig-import/merge3.png" width="800" align="bottom"></p>
+<p><img src="fig-import/merge3.png" align="bottom" width=800></p>
 </center>
 
 <h2 id="working-with-folders-and-files" class="anchor">Working with folders and files </h2>
@@ -569,6 +570,7 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._import-readable027.html">&larr; Prev</a>
   </li>
@@ -585,4 +587,5 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 -->
 </body>
 </html>
+    
 
