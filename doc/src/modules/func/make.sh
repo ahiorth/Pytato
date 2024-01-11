@@ -8,7 +8,7 @@ function system {
   fi
 }
 args="$@"
-system bash -x ../make_html.sh main_func $args
-system bash -x ../make.sh main_func $args
+system bash -x ../make_html.sh main_func --encoding=utf-8 $args
+system bash -x ../make.sh main_func --encoding=utf-8 $args
 
 system bash -x ../clean.sh

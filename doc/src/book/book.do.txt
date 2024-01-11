@@ -29,7 +29,7 @@ label{ch:pre}
 # #include "../modules/intro/intro.do.txt"
 
 !split
-========= Introduction to practical applications   =========
+========= Common libraries   =========
 label{ch:pr}
 
 # #include "../modules/import/import.do.txt"
@@ -39,6 +39,18 @@ label{ch:pr}
 label{ch:ex}
 
 # #include "../modules/exercises/exercises.do.txt"
+
+!split
+========= Functions in Python  =========
+label{ch:func}
+
+# #include "../modules/func/func.do.txt"
+
+!split
+========= Classes in Python  =========
+label{ch:class}
+
+# #include "../modules/classes/classes.do.txt"
 
 !split
 ======= References =======

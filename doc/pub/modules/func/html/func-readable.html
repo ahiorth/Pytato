@@ -1,7 +1,6 @@
 <!--
-HTML file automatically generated from DocOnce source
-(https://github.com/doconce/doconce/)
-doconce format html main_func.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=func-readable --html_code_style=inherit
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_func.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=func-readable --html_code_style=inherit --encoding=utf-8
 -->
 <html>
 <head>
@@ -9,9 +8,10 @@ doconce format html main_func.do.txt CHAPTER=document BOOK=document APPENDIX=doc
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Create your own functions">
+<meta name="keywords" content="docstring,positional arguments,default arguments,try, and except,raise,assert">
 <title>Create your own functions</title>
 <!-- Bootstrap style: bootswatch_readable -->
-<!-- doconce format html main_func.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=func-readable --html_code_style=inherit -->
+<!-- doconce format html main_func.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=func-readable --html_code_style=inherit --encoding=utf-8 -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
 <!-- not necessary
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -47,11 +47,72 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'when-to-define-a-function'),
-              ('Exercise:', 2, None, 'exercise'),
+              ('What is a good function?', 2, None, 'what-is-a-good-function'),
+              ('Exercise 1: Create a function from the following code',
+               2,
+               None,
+               'exercise-1-create-a-function-from-the-following-code'),
+              ('Making functions more general',
+               1,
+               None,
+               'making-functions-more-general'),
+              ('Improving robustness of functions',
+               1,
+               None,
+               'improving-robustness-of-functions'),
+              ('Assert, raise and try statements',
+               1,
+               None,
+               'assert-raise-and-try-statements'),
+              ('Try and Except', 2, None, 'try-and-except'),
+              ('Raise', 2, None, 'raise'),
+              ('Exercise: Improve `replace_chars` using raise',
+               3,
+               None,
+               'exercise-improve-replace-chars-using-raise'),
+              ('Using assert to test our code',
+               1,
+               None,
+               'using-assert-to-test-our-code'),
+              ('Advanced topics: Passing functions to functions',
+               1,
+               None,
+               'advanced-topics-passing-functions-to-functions'),
+              ('Scope of variables', 2, None, 'scope-of-variables'),
+              ('Passing arrays and lists to functions',
+               2,
+               None,
+               'passing-arrays-and-lists-to-functions'),
+              ('Call by value or call by reference',
+               2,
+               None,
+               'call-by-value-or-call-by-reference'),
+              ('Floats and integers', 3, None, 'floats-and-integers'),
+              ('Lists and arrays', 3, None, 'lists-and-arrays'),
+              ('Mutable and immutable objects',
+               2,
+               None,
+               'mutable-and-immutable-objects'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
 <body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
 <!-- Bootstrap navigation bar -->
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
@@ -70,7 +131,22 @@ end of tocinfo -->
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="#what-is-a-function" style="font-size: 80%;"><b>What is a function?</b></a></li>
      <!-- navigation toc: --> <li><a href="#when-to-define-a-function" style="font-size: 80%;"><b>When to define a function?</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise:</a></li>
+     <!-- navigation toc: --> <li><a href="#what-is-a-good-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;What is a good function?</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-1-create-a-function-from-the-following-code" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Create a function from the following code</a></li>
+     <!-- navigation toc: --> <li><a href="#making-functions-more-general" style="font-size: 80%;"><b>Making functions more general</b></a></li>
+     <!-- navigation toc: --> <li><a href="#improving-robustness-of-functions" style="font-size: 80%;"><b>Improving robustness of functions</b></a></li>
+     <!-- navigation toc: --> <li><a href="#assert-raise-and-try-statements" style="font-size: 80%;"><b>Assert, raise and try statements</b></a></li>
+     <!-- navigation toc: --> <li><a href="#try-and-except" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Try and Except</a></li>
+     <!-- navigation toc: --> <li><a href="#raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Raise</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-improve-replace-chars-using-raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exercise: Improve <code>replace_chars</code> using raise</a></li>
+     <!-- navigation toc: --> <li><a href="#using-assert-to-test-our-code" style="font-size: 80%;"><b>Using assert to test our code</b></a></li>
+     <!-- navigation toc: --> <li><a href="#advanced-topics-passing-functions-to-functions" style="font-size: 80%;"><b>Advanced topics: Passing functions to functions</b></a></li>
+     <!-- navigation toc: --> <li><a href="#scope-of-variables" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Scope of variables</a></li>
+     <!-- navigation toc: --> <li><a href="#passing-arrays-and-lists-to-functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Passing arrays and lists to functions</a></li>
+     <!-- navigation toc: --> <li><a href="#call-by-value-or-call-by-reference" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Call by value or call by reference</a></li>
+     <!-- navigation toc: --> <li><a href="#floats-and-integers" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floats and integers</a></li>
+     <!-- navigation toc: --> <li><a href="#lists-and-arrays" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lists and arrays</a></li>
+     <!-- navigation toc: --> <li><a href="#mutable-and-immutable-objects" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mutable and immutable objects</a></li>
      <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
@@ -96,7 +172,7 @@ end of tocinfo -->
 <br>
 <p>University of Stavanger
 <center>
-<h4>Jan 6, 2024</h4>
+<h4>Jan 11, 2024</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -108,7 +184,19 @@ end of tocinfo -->
 <div class='toc'>
 <p><a href="#what-is-a-function"> What is a function? </a></p>
 <p><a href="#when-to-define-a-function"> When to define a function? </a></p>
-<p><span class="tab"> <a href="#exercise"> Exercise:  </a></p>
+<p><span class="tab"> <a href="#what-is-a-good-function"> What is a good function? </a></p>
+<p><span class="tab"> <a href="#exercise-1-create-a-function-from-the-following-code"> Exercise 1: Create a function from the following code </a></p>
+<p><a href="#making-functions-more-general"> Making functions more general </a></p>
+<p><a href="#improving-robustness-of-functions"> Improving robustness of functions </a></p>
+<p><a href="#assert-raise-and-try-statements"> Assert, raise and try statements </a></p>
+<p><span class="tab"> <a href="#try-and-except"> Try and Except </a></p>
+<p><span class="tab"> <a href="#raise"> Raise </a></p>
+<p><a href="#using-assert-to-test-our-code"> Using assert to test our code </a></p>
+<p><a href="#advanced-topics-passing-functions-to-functions"> Advanced topics: Passing functions to functions  </a></p>
+<p><span class="tab"> <a href="#scope-of-variables"> Scope of variables  </a></p>
+<p><span class="tab"> <a href="#passing-arrays-and-lists-to-functions"> Passing arrays and lists to functions </a></p>
+<p><span class="tab"> <a href="#call-by-value-or-call-by-reference"> Call by value or call by reference  </a></p>
+<p><span class="tab"> <a href="#mutable-and-immutable-objects"> Mutable and immutable objects </a></p>
 <p><a href="#bibliography"> Bibliography </a></p>
 </div>
 <br>
@@ -121,7 +209,57 @@ end of tocinfo -->
 <h1 id="what-is-a-function" class="anchor">What is a function? </h1>
 <p>As explained in the introduction, a function is several lines of code that perform a specific task. In many ways you can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).</p>
 
-<p>You have already used a lot built in functions in Python, such as <code>print()</code>, <code>pandas.DataFrame()</code>, etc.</p>
+<p>You have already used a lot built in functions in Python, such as <code>print()</code>, <code>pandas.DataFrame()</code>, etc. We can define our own functions using the <code>def</code> keyword, it best illustrated with some examples</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">my_func</span>():
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;My first function&#39;</span>)
+my_func()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can pass arguments to the function, to make them more general</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">my_func</span>(name):
+    <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;My name is :&#39;</span> <span style="color: #666666">+</span> name)
+my_func(<span style="color: #BA2121">&#39;Bob&#39;</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <h1 id="when-to-define-a-function" class="anchor">When to define a function? </h1>
 
 <p>When to use functions? There is no particular rule, <em>but whenever you
@@ -131,16 +269,1422 @@ It is not easy to identify which part of a program is a good candidate
 for a function, it requires skill and experience. Most likely you will
 end up changing the function definitions as your program develops.
 </p>
+<h2 id="what-is-a-good-function" class="anchor">What is a good function? </h2>
+<p>Even if you only write code for yourself, you will quickly forget what the code does. That is why it is so important to write functions that are good, below are some suggestions</p>
 
-<div class="alert alert-block alert-success alert-text-normal"><b>Use short functions</b>
-<p>Short functions makes the code easier to read. Each function has a particular task, and it does only one thing. If functions do too many tasks there is a chance that you will have several functions doing some of the same operations. Whenever you want to extend the program, you may have to make changes several places in the code. The chance then is that you will forget to do the change in some of the functions and introduce a bug.</p>
+<p>A function:</p>
+<ul>
+<li> should have a descriptive name.</li>
+<li> should only do one thing.</li>
+<li> should only be dependent on its input argument and give the same answer independent on how many times it is being called.</li>
+<li> should contain a doc string (see below for examples).</li>
+<li> should have a descriptive name, use small letters with an underscore to separate words.</li>
+</ul>
+<div class="alert alert-block alert-success alert-text-normal"><b>DRY - Do not Repeat Yourself <a href="#thomas2019pragmatic">[1]</a>.</b>
+<p>If you need to change the code in more than one place to extend it, you may forget to change everywhere and introduce bugs. The DRY principle also applies to <em>knowledge sharing</em>, it is not only about copy and paste code, but knowledge should only be represented in one place. </p>
 </div>
 
-<h2 id="exercise" class="anchor">Exercise:  </h2>
+
+<!-- --- begin exercise --- -->
+<h2 id="exercise-1-create-a-function-from-the-following-code" class="anchor">Exercise 1: Create a function from the following code </h2>
+
+<p>When I normally code I usually first write the code, to see that I am able to achieve what I want, and then I create a function based on that code.</p>
+
+<p>
+<b>Question:</b>
+Create a function from the following code</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># this code replace space and slash in names</span>
+name<span style="color: #666666">=</span><span style="color: #BA2121">&#39;16/1-12 Troldhaugen&#39;</span>
+chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>]
+new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]
+new_name<span style="color: #666666">=</span>name
+<span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+    new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Solution:</b>
+</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39;</span>
+<span style="color: #BA2121; font-style: italic">    name: A string </span>
+<span style="color: #BA2121; font-style: italic">    returns input strings where space is removed and slash is</span>
+<span style="color: #BA2121; font-style: italic">    replaced with underscore </span>
+<span style="color: #BA2121; font-style: italic">    &#39;&#39;&#39;</span>
+    chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>]
+    new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]
+    new_name <span style="color: #666666">=</span> name
+    <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+        new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+    <span style="color: #008000; font-weight: bold">return</span> new_name
+name<span style="color: #666666">=</span><span style="color: #BA2121">&#39;16/1-12 Troldhaugen&#39;</span>
+replace_chars(name) <span style="color: #3D7B7B; font-style: italic">#prints 16_1-12Troldhaugen</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Docstring</b>
+<p>In the example above we added some text just after <code>def</code> statement. This is a <em>docstring</em>. A docstring is to tell people what the code does without them having to read the code. If you type <code>help(replace_chars)</code>, Python will print out the docstring.   </p>
+</div>
+
+
+<!-- --- end exercise --- -->
+<h1 id="making-functions-more-general" class="anchor">Making functions more general </h1>
+<p>In the above example, the function is already quite useful, but if you later decide that you e.g. do not want to remove spaces from names, you would have to write a new function. However we can achieve a more general function, by using <em>default arguments</em>. </p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>,<span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39;</span>
+<span style="color: #BA2121; font-style: italic">    name: A string </span>
+<span style="color: #BA2121; font-style: italic">    returns input strings where space is removed and slash is</span>
+<span style="color: #BA2121; font-style: italic">    replaced with underscore </span>
+<span style="color: #BA2121; font-style: italic">    &#39;&#39;&#39;</span>
+    new_name <span style="color: #666666">=</span> name
+    <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+        new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+    <span style="color: #008000; font-weight: bold">return</span> new_name
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now you can use the same call signature as before <code>replace_chars(name)</code>, if you want to only replace <code>/</code>, you write</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">name<span style="color: #666666">=</span><span style="color: #BA2121">&#39;16/1-12 Troldhaugen&#39;</span>
+replace_chars(name,[<span style="color: #BA2121">&quot;/&quot;</span>],[<span style="color: #BA2121">&quot;_&quot;</span>]) <span style="color: #3D7B7B; font-style: italic"># prints 16_1-12 Troldhaugen</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Positional arguments</b>
+<p>The variable <code>name</code> in the function definition of <code>replace_chars</code> is called a <em>positional argument</em>. On the other hand <code>chars=[&quot; &quot;,&quot;/&quot;]</code> is called a <em>default argument</em>. In Python default argument, must always come <em>after</em> positional arguments. Hence, it is not allowed to write <code>def replace_chars(chars=[&quot; &quot;,&quot;/&quot;],new_chars=[&quot;&quot;,&quot;_&quot;], name)</code>.</p>
+</div>
+
+<h1 id="improving-robustness-of-functions" class="anchor">Improving robustness of functions </h1>
+<p>As time goes, you start to forget what a function does, and you can start using it wrong. A typical situation in the above example is that we could mix up the order of <code>new_chars</code> and <code>chars</code>, i.e. we do <code>replace_chars(name,[&quot;_&quot;],[&quot;/&quot;])</code> instead of <code>replace_chars(name,[&quot;/&quot;],[&quot;_&quot;])</code>, which would give the opposite effect. Python has a very neat syntax to avoid this behavior, by adding a <code>*</code> in the argument list</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,<span style="color: #666666">*</span>, chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>,<span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39;</span>
+<span style="color: #BA2121; font-style: italic">    name: A string </span>
+<span style="color: #BA2121; font-style: italic">    returns input strings where space is removed and slash is</span>
+<span style="color: #BA2121; font-style: italic">    replaced with underscore </span>
+<span style="color: #BA2121; font-style: italic">    &#39;&#39;&#39;</span>
+    new_name <span style="color: #666666">=</span> name
+    <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+        new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+    <span style="color: #008000; font-weight: bold">return</span> new_name
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>You can still call the function as before <code>replace_chars(name)</code>, but if you try to do</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">name<span style="color: #666666">=</span><span style="color: #BA2121">&#39;16/1-12 Troldhaugen&#39;</span>
+replace_chars(name,[<span style="color: #BA2121">&quot;/&quot;</span>],[<span style="color: #BA2121">&quot;_&quot;</span>])
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>You will get an error</p>
+<div class="alert alert-block alert-danger alert-text-normal"><b>Warning</b>
+<code>TypeError: replace_chars() takes 1 positional argument but 3 were given</code>
+</div>
+
+<p>This error might be a bit hard to interpret, but basically <code>name</code> is a positional argument according to the definition and the two next arguments are default arguments. When we use the <code>*</code> in the function definition we have to explicitly enter the variable name of the default arguments</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">name<span style="color: #666666">=</span><span style="color: #BA2121">&#39;16/1-12 Troldhaugen&#39;</span>
+replace_chars(name,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;_&quot;</span>])
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>By forcing the user to use <code>chars</code> and <code>new_chars</code> it becomes less probable to mix them up.</p>
+<h1 id="assert-raise-and-try-statements" class="anchor">Assert, raise and try statements </h1>
+<p>Still there are plenty of things that can go wrong with our function, and you could code for ever to if you want to catch every error. In many cases you would like to catch errors as quickly as possible, to help users to discover the errors. Lets look at an example, lets say we wrongly use our function</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">replace_chars(<span style="color: #666666">2</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>We get</p>
+<div class="alert alert-block alert-danger alert-text-normal"><b>Warning</b>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;">new_name <span style="color: #666666">=</span> name
+           <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+<span style="color: #666666">----&gt;</span>          new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+           <span style="color: #008000; font-weight: bold">return</span> new_name
+
+<span style="color: #CB3F38; font-weight: bold">AttributeError</span>: <span style="color: #BA2121">&#39;int&#39;</span> <span style="color: #008000">object</span> has no attribute <span style="color: #BA2121">&#39;replace&#39;</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p>Note that the errors only occurs when we call <code>new_name.replace</code>, because we send in an integer and an integer does not have a function named <code>replace()</code>. The errors happens because the function <code>replace_chars</code> is used wrongly, thus it would be much better if we could catch the error at a very early stage and give the user an error message.</p>
+<h2 id="try-and-except" class="anchor">Try and Except </h2>
+<p>The most lazy, and not recommended, way of improving our function is to declare our function as</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,<span style="color: #666666">*</span>,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; replace Norwegian characters and space in names&#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">try</span>:
+        new_name <span style="color: #666666">=</span> name
+        <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+            new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+        <span style="color: #008000; font-weight: bold">return</span> new_name
+    <span style="color: #008000; font-weight: bold">except</span>:
+        <span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Something went wrong in replace_chars&#39;</span>)
+
+replace_chars(<span style="color: #666666">2</span>)<span style="color: #3D7B7B; font-style: italic"># prints Something went wrong in replace_chars</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Now the code prints out a message if something is not working. There are several drawbacks</p>
+<ol>
+<li> The code is still running, even if something went wrong, the program should stop with an error message</li>
+<li> We do not know exactly where something went wrong, it could be that <code>name</code> is not a string, but it could also be e.g. that the user enters a different length for <code>chars</code> and <code>new_chars</code></li>
+</ol>
+<h2 id="raise" class="anchor">Raise </h2>
+<p>We can raise errors by using the keyword <code>raise</code>. The <code>raise</code> keyword needs to be followed by a function from the <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy" target="_self"><tt>BaseException class</tt></a>, typically you might use <code>raise Exception('Something went wrong in replace_chars')</code></p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,<span style="color: #666666">*</span>,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; replace Norwegian characters and space in names&#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">try</span>:
+        new_name <span style="color: #666666">=</span> name
+        <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+            new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+        <span style="color: #008000; font-weight: bold">return</span> new_name
+    <span style="color: #008000; font-weight: bold">except</span>:
+        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">Exception</span>(<span style="color: #BA2121">&#39;Something went wrong in replace_chars&#39;</span>)
+
+replace_chars(<span style="color: #666666">2</span>)<span style="color: #3D7B7B; font-style: italic"># prints Something went wrong in replace_chars</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Running the following code</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">replace_chars(<span style="color: #666666">2</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>We get</p>
+<div class="alert alert-block alert-danger alert-text-normal"><b>Warning</b>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #ffffff">
+  <pre style="line-height: 125%;"> <span style="color: #008000; font-weight: bold">except</span>:
+<span style="color: #666666">---&gt;</span>          <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">Exception</span>(<span style="color: #BA2121">&#39;Something went wrong in replace_chars&#39;</span>)
+     replace_chars(<span style="color: #666666">2</span>)
+
+<span style="color: #CB3F38; font-weight: bold">Exception</span>: Something went wrong <span style="color: #AA22FF; font-weight: bold">in</span> replace_chars
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p>As compared to before we raise the exception at when our function is called and not when the <code>string.replace()</code> function is called.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Exceptions should be specific</b>
+<p>When raising errors, we should try to be as specific as possible to help the user as much as possible.</p>
+</div>
+
+
+<p>Let us extend our function using more specific raises</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,<span style="color: #666666">*</span>,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; replace Norwegian characters and space in names&#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">type</span>(name)<span style="color: #666666">!=</span><span style="color: #008000">str</span>:
+        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">&#39;replace_chars: name must be a string&#39;</span>)
+    new_name <span style="color: #666666">=</span> name
+    <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+        new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+    <span style="color: #008000; font-weight: bold">return</span> new_name
+replace_chars(<span style="color: #666666">2</span>)<span style="color: #3D7B7B; font-style: italic"># ValueError: replace_chars: name must be a string</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 id="exercise-improve-replace-chars-using-raise" class="anchor">Exercise: Improve <code>replace_chars</code> using raise  </h3>
+
+<p>
+<b>Question:</b>
+How can we improve <code>replace_chars</code> to make sure that the length of <code>chars</code> and <code>new_chars</code> are of equal length?</p>
+
+<p>
+<b>Solution:</b>
+</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">replace_chars</span>(name,<span style="color: #666666">*</span>,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot; &quot;</span>, <span style="color: #BA2121">&quot;/&quot;</span>],new_chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;&quot;</span>,<span style="color: #BA2121">&quot;_&quot;</span>]):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; replace Norwegian characters and space in names&#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">type</span>(name)<span style="color: #666666">!=</span><span style="color: #008000">str</span>:
+        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">&#39;replace_chars: name must be a string&#39;</span>)
+    <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(chars) <span style="color: #666666">!=</span> <span style="color: #008000">len</span>(new_chars):
+        <span style="color: #008000; font-weight: bold">raise</span> <span style="color: #CB3F38; font-weight: bold">ValueError</span>(<span style="color: #BA2121">&#39;replace_chars: chars and new_chars must same size&#39;</span>)
+    new_name <span style="color: #666666">=</span> name
+    <span style="color: #008000; font-weight: bold">for</span> ch,nch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(chars,new_chars):
+        new_name <span style="color: #666666">=</span> new_name<span style="color: #666666">.</span>replace(ch, nch)
+    <span style="color: #008000; font-weight: bold">return</span> new_name
+replace_chars(<span style="color: #BA2121">&#39;2&#39;</span>,chars<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;/&quot;</span>])<span style="color: #3D7B7B; font-style: italic"># ValueError: replace_chars: chars and new_chars must same size</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="using-assert-to-test-our-code" class="anchor">Using assert to test our code </h1>
+<p>When developing code it is extremely useful to design tests that checks that our code does what it is supposed to do. This is mainly done to make sure that the expected behavior of a function does not changes over time. For our small function we can use the specific keyword <code>assert</code>. The syntax is <code>assert &lt;condition&gt;,&lt;error message&gt;</code></p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>assert only works in debug mode</b>
+<p>If you for some reason compile your code or in other ways turn off the debug option in Python, assert will not work.</p>
+</div>
+
+
+
+<!-- code=text (!bc pycode) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">def test_replace_chars():
+    assert replace_chars(&#39;  &#39;) == &#39;&#39;
+    assert replace_chars(&#39;//&#39;) == &#39;__&#39;
+    assert replace_chars(&#39;G O//O D&#39;) ==&#39;GO__OD&#39;
+test_replace_chars()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Each time we start working and stop working on our code , we run all tests that we have defined. If nothing fails we know that no one has introduced errors before we start coding, and that we have not made any changes.</p>
+<h1 id="advanced-topics-passing-functions-to-functions" class="anchor">Advanced topics: Passing functions to functions  </h1>
+
+<p>In many cases, you would also pass a function to another function to make your code more modular. Lets say we want to calculate the derivative of \( \sin x \), using the most basic definition of a derivative \( f^\prime(x) = f(x+\Delta x)-f(x)/\Delta x \), we could do it as</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">derivative_of_sine</span>(x,delta_x):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; returns the derivative of sin x &#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">return</span> (np<span style="color: #666666">.</span>sin(x<span style="color: #666666">+</span>delta_x)<span style="color: #666666">-</span>np<span style="color: #666666">.</span>sin(x))<span style="color: #666666">/</span>delta_x
+
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;The derivative of sinx at x=0 is :&#39;</span>, derivative_of_sine(<span style="color: #666666">0</span>,<span style="color: #666666">1e-3</span>))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If we would like to calculate the derivative at multiple points, that is straightforward since we have used the Numpy version of \( \sin x \).</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">0</span>,<span style="color: #666666">.5</span>,<span style="color: #666666">1</span>])
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Derivative of sinx at x=0,0.5,1 is :&#39;</span>, derivative_of_sine(x,<span style="color: #666666">1e-3</span>))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The challenge with our implementation is that if we want to calculate the derivative of another function we have to implement the derivative rule again for that function. It is better to have a separate function that calculates the derivative</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(x):
+    <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>sin(x)
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">df</span>(x,f,delta_x<span style="color: #666666">=1e-3</span>):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; returns the derivative of f &#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">return</span> (f(x<span style="color: #666666">+</span>delta_x)<span style="color: #666666">-</span>f(x))<span style="color: #666666">/</span>delta_x
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;Derivative of sinx at x=0 is :&#39;</span>, df(<span style="color: #666666">0</span>,f))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Note also that we have put <code>delta_x=1e-3</code> as a <em>default argument</em>. Default arguments have to come at the end of the argument lists, <code>df(x,delta_x=1e-3,f)</code> is not allowed. All of this looks well, but what you would experience is that your functions would not be as simple as \( \sin x \). In many cases your functions need additional arguments to be evaluated e.g.:</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">s</span>(t,s0,v0,a):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39;</span>
+<span style="color: #BA2121; font-style: italic">    t  : time</span>
+<span style="color: #BA2121; font-style: italic">    s0 : initial starting point</span>
+<span style="color: #BA2121; font-style: italic">    v0 : initial velocity</span>
+<span style="color: #BA2121; font-style: italic">    a  : acceleration</span>
+<span style="color: #BA2121; font-style: italic">    returns the distance traveled</span>
+<span style="color: #BA2121; font-style: italic">    &#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">return</span> s0<span style="color: #666666">+</span>v0<span style="color: #666666">*</span>t<span style="color: #666666">+</span>a<span style="color: #666666">*</span>t<span style="color: #666666">*</span>t<span style="color: #666666">*0.5</span> <span style="color: #3D7B7B; font-style: italic">#multiplication (0.5)is general faster</span>
+    	   		     <span style="color: #3D7B7B; font-style: italic">#than division (2)</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>How can we calculate the derivative of this function? If we try to do <code>df(1,s)</code> we will get the following message</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #CB3F38; font-weight: bold">TypeError</span>: s() missing <span style="color: #666666">3</span> required positional
+	   arguments: <span style="color: #BA2121">&#39;s0&#39;</span>, <span style="color: #BA2121">&#39;v0&#39;</span>, <span style="color: #AA22FF; font-weight: bold">and</span> <span style="color: #BA2121">&#39;a&#39;</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>This happens because the <code>df</code> function expect that the function we send into the argument list has a call signature <code>f(x)</code>. What many people do to avoid this error is to use global variable, that is to define <code>s0, v0</code>, and <code>a</code> at the top of the code. This is not always the best solution. Python has a special variable <code>*args</code> which can be used to pass multiple arguments to your function, thus if we rewrite <code>df</code> like this</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">df</span>(x,f,<span style="color: #666666">*</span>args,delta_x<span style="color: #666666">=1e-3</span>):
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&#39;&#39;&#39; returns the derivative of f &#39;&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">return</span> (f(x<span style="color: #666666">+</span>delta_x,<span style="color: #666666">*</span>args)<span style="color: #666666">-</span>f(x,<span style="color: #666666">*</span>args))<span style="color: #666666">/</span>delta_x
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>we can do (assuming <code>s0=0</code>, <code>v0=1</code>, and <code>a=9.8</code>)</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;The derivative of sinx at x=0 is :&#39;</span>, df(<span style="color: #666666">0</span>,f))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;The derivative of s(t) at t=1 is :&#39;</span>, df(<span style="color: #666666">0</span>,s,<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">9.8</span>))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="scope-of-variables" class="anchor">Scope of variables  </h2>
+<p>In small programs you would not care about scope, but once you have several functions, you will easily get into trouble if you do not consider the scope of a variable. By scope of a variable we mean where the variable is available, first some simple examples</p>
+
+<p>
+<b>A variable created inside a function is only available within the function:</b>
+``
+</p>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(x):
+    a<span style="color: #666666">=10</span>
+    b<span style="color: #666666">=20</span>
+    <span style="color: #008000; font-weight: bold">return</span> a<span style="color: #666666">*</span>x<span style="color: #666666">+</span>b
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Doing <code>print(a)</code> outside the function will throw an error: <code>name 'a' is not defined</code>. What happens if we define variable <code>a</code> outside the function?</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">a<span style="color: #666666">=2</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(x):
+    a<span style="color: #666666">=10</span>
+    b<span style="color: #666666">=20</span>
+    <span style="color: #008000; font-weight: bold">return</span> a<span style="color: #666666">*</span>x<span style="color: #666666">+</span>b
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If we first call the function <code>f(0)</code>, and then do <code>print(a)</code> Python would give the answer <code>2</code>, <em>not</em> <code>10</code>. A <em>local</em> variable <code>a</code> is created inside <code>f(x)</code>, that does not interfere with the variable <code>a</code> defined outside the function.</p>
+
+<p>
+<b>The <code>global</code> keyword can be used to pass and access variables in functions:</b>
+</p>
+
+<p>&quot;</p>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">global</span> a
+a<span style="color: #666666">=2</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(x):
+    <span style="color: #008000; font-weight: bold">global</span> a
+    a<span style="color: #666666">=10</span>
+    b<span style="color: #666666">=20</span>
+    <span style="color: #008000; font-weight: bold">return</span> a<span style="color: #666666">*</span>x<span style="color: #666666">+</span>b
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>In this case <code>print(a)</code> <em>before</em> calling <code>f(x)</code> will give the answer <code>2</code> and <em>after</em> calling <code>f(x)</code> will give <code>10</code>.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Use of global variables</b>
+<p>Sometimes global variables can be very useful, and help you to make the code simpler. But make sure to use a <em>naming convention</em>  for them, e.g. end all the global variables with an underscore. In the example above we would write <code>global a_</code>. A person reading the code would then know that all variables ending with an underscore are global, and can potentially be modified by several functions.  </p>
+</div>
+
+<h2 id="passing-arrays-and-lists-to-functions" class="anchor">Passing arrays and lists to functions </h2>
+<p>In the previous section, we looked at some simple examples regarding the scope of variables, and what happened with that variable inside and outside a function. The examples used integer or floats. However in most applications you will pass an array or a list to a function, and then you need to be aware that the behavior is not always would you might expect.</p>
+<div class="alert alert-block alert-success alert-text-normal"><b>Unexpected behavior</b>
+<p>Sometimes functions do not do what you expect, this might be because the function does not treat  the arguments as you might think. The best advice is to make a very simple version of your function and test it for yourself. Is the behavior what you expect? Try to understand why or why not.</p>
+</div>
+
+<p>Let us look at some examples, and try to understand what is going on and why.</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=3</span>
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(x):
+    x <span style="color: #666666">=</span> x<span style="color: #666666">*2</span>
+    <span style="color: #008000; font-weight: bold">return</span> x
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x =&#39;</span>,x)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;f(x) returns &#39;</span>, f(x))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x is now &#39;</span>, x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>In the example above we can use <code>x=3</code>, <code>x=[3]</code>, <code>x=np.array([3])</code>, and after execution <code>x</code> is unchanged (i.e. same value as before <code>f(x)</code>) was called. Based on what we have discussed before, this is maybe what you would expect, but if we now do</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>[<span style="color: #666666">3</span>]
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">append_to_list</span>(x):
+    <span style="color: #008000; font-weight: bold">return</span> x<span style="color: #666666">.</span>append(<span style="color: #666666">1</span>)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x = &#39;</span>,x)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;append_to_list(x) returns &#39;</span>, append_to_list(x))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x is now &#39;</span>, x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>(Clearly this function will only work for lists, due to the append command.) After execution, we get the result</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x <span style="color: #666666">=</span> [<span style="color: #666666">3</span>]
+append_to_list(x) <span style="color: #3D7B7B; font-style: italic">#returns  [3 1], x is now  [3, 1]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Even if this might be exactly what you wanted your function to do, why does <code>x</code> change here when it is a list and not in the previous case when it is a float? Before we explain this behavior let us rewrite the function to work with Numpy arrays</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>])
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">append_to_np</span>(x):
+    <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>append(x,<span style="color: #666666">1</span>)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x = &#39;</span>,x)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;append_to_np(x) returns &#39;</span>, append_to_np(x))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x is now &#39;</span>, x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The output of this code is</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x <span style="color: #666666">=</span>  np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>])
+append_to_np(x) <span style="color: #3D7B7B; font-style: italic">#returns  [3 1], x is now  [3]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>This time <code>x</code> was not changed, what is happening here? It is important to understand what is going on because it deals with how Python handles variables in the memory. If <code>x</code> contains million of values, it can slow down your program, if we do</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">N<span style="color: #666666">=1000000</span>
+x<span style="color: #666666">=</span>[<span style="color: #666666">3</span>]<span style="color: #666666">*</span>N
+<span style="color: #666666">%</span>timeit append_to_list(x)
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>]<span style="color: #666666">*</span>N)
+<span style="color: #666666">%</span>timeit append_to_np(x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>On my computer I found that <code>append_to_list</code> used 76 nano seconds, and <code>append_to_np</code>
+used 512 micro seconds, the Numpy function was about 6000 times slower! To add to the confusion consider the following functions
+</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>])
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_to_np</span>(x):
+    x<span style="color: #666666">=</span>x<span style="color: #666666">+3</span>
+    <span style="color: #008000; font-weight: bold">return</span> x
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_to_np2</span>(x):
+    x<span style="color: #666666">+=3</span>
+    <span style="color: #008000; font-weight: bold">return</span> x
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x = &#39;</span>,x)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;add_to_np(x) returns &#39;</span>, add_to_np(x))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x is now &#39;</span>, x)
+
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x = &#39;</span>,x)
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;add_to_np2(x) returns &#39;</span>, add_to_np2(x))
+<span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;x is now &#39;</span>, x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The output is</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x <span style="color: #666666">=</span>  np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>])
+add_to_np(x) <span style="color: #3D7B7B; font-style: italic">#returns [6], x is now [3] </span>
+x <span style="color: #666666">=</span>  np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>])
+add_to_np2(x) <span style="color: #3D7B7B; font-style: italic">#returns  [6], x is now  [6]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>In both cases the function returns what you expect, but it has an unexpected (or at least a different) behavior regarding the variable <code>x</code>. What about speed?</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">N<span style="color: #666666">=10000000</span>
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>]<span style="color: #666666">*</span>N)
+<span style="color: #666666">%</span>timeit add_to_np(x)
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">3</span>]<span style="color: #666666">*</span>N)
+<span style="color: #666666">%</span>timeit add_to_np2(x)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p><code>add_to_np</code> is about twice as slow as <code>add_to_np2</code>. In the next section we will try to explain the difference in behavior.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>Avoiding unwanted behavior of functions</b>
+<p>The examples in this section are meant to show you that if you pass an array to a function, the array can be altered outside the scope of the function. If this is not what you want, it could lead to bugs that are hard to detect. Thus, if you experience unwanted behavior pick out the part of function involving list or array operations and test one by one in the editor.</p>
+</div>
+
+<h2 id="call-by-value-or-call-by-reference" class="anchor">Call by value or call by reference  </h2>
+<p>For anyone that has programmed in C or C++ call by reference or value is something one need to think about constantly. When we pass a variable to a function there are two choices, should we pass a copy of the variable or should we pass information about where the variable is stored in memory?</p>
+<div class="alert alert-block alert-success alert-text-normal"><b>Value and reference</b>
+<p>In C and C++ pass by value means that we are making a copy in the memory of the variable we are sending to the function, and pass by reference means that we are sending the actual parameter or more specific the address to the memory location of the parameter. In Python all variables are passed by object reference.</p>
+</div>
+
+<p>In C and C++ you always tell in the function definition if the variables are passed by value or reference. Thus if you would like a change in a variable outside the function definition, you pass the variable by reference, otherwise by value. In Python we always pass by (object) reference.</p>
+<h3 id="floats-and-integers" class="anchor">Floats and integers </h3>
+<p>To gain a deeper understanding, we can use the <code>id</code> function, the <code>id</code> function gives the unique id to a variable. In C this would be the actual memory address, lets look at a couple of examples</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">a<span style="color: #666666">=10.0</span>
+<span style="color: #008000">print</span>(<span style="color: #008000">id</span>(a)) <span style="color: #3D7B7B; font-style: italic">#gives on my computer 140587667748656</span>
+a <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+<span style="color: #008000">print</span>(<span style="color: #008000">id</span>(a)) <span style="color: #3D7B7B; font-style: italic">#gives on my computer 140587667748400</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Thus, after adding 1 to <code>a</code>, <code>a</code> is assigned <em>a new place in memory</em>. This is very different from C or C++, in C or C++ the variable, once it is created, <em>always has the same memory address</em>. In Python this is not the case, it works in the opposite way. The statement <code>a=10.0</code>, is executed so that <em>first</em> 10.0 is created in memory, secondly <code>x</code> is assigned the reference to 10.0. The assignment operator <code>=</code> indicates that <code>a</code> should point to whatever is on the right hand side. Another example is     </p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">a<span style="color: #666666">=10.0</span>
+b<span style="color: #666666">=10.0</span>
+<span style="color: #008000">print</span>(a <span style="color: #AA22FF; font-weight: bold">is</span> b) <span style="color: #3D7B7B; font-style: italic"># prints False</span>
+b<span style="color: #666666">=</span>a
+<span style="color: #008000">print</span>(a <span style="color: #AA22FF; font-weight: bold">is</span> b ) <span style="color: #3D7B7B; font-style: italic"># prints True</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>In this case 10.0 is created in two different places in the memory and a different reference is assigned to <code>a</code> and <code>b</code>. However if we put <code>b=a</code>, <code>b</code> points to the same object as <code>a</code> is pointing on. More examples</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">a<span style="color: #666666">=10</span>
+b<span style="color: #666666">=</span>a
+<span style="color: #008000">print</span>(a <span style="color: #AA22FF; font-weight: bold">is</span> b) <span style="color: #3D7B7B; font-style: italic"># True</span>
+a<span style="color: #666666">+=2</span>
+<span style="color: #008000">print</span>(a <span style="color: #AA22FF; font-weight: bold">is</span> b) <span style="color: #3D7B7B; font-style: italic"># False</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>When we add 2 to <code>a</code>, we actually add 2 to the value of 10, the number 12 is assigned a new place in memory and <code>a</code> will be assigned that object, whereas <code>b</code> would still points the old object 10.</p>
+<h3 id="lists-and-arrays" class="anchor">Lists and arrays </h3>
+<p>Yous should think of lists and arrays as containers (or a box). If we do</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>[<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>]
+<span style="color: #008000">print</span>(<span style="color: #008000">id</span>(x))
+x[<span style="color: #666666">0</span>]<span style="color: #666666">=10</span>
+<span style="color: #008000">print</span>(<span style="color: #008000">id</span>(x)) <span style="color: #3D7B7B; font-style: italic"># same id value as before and x=[10,1,2,3,4]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>First, we create a list, which is basically a box with the numbers 0, 1, 2, 3, 4. The variable <code>x</code> points to <em>the box</em>, and <code>x[0]</code> points to 0, and <code>x[1]</code> to 1 etc. Thus if we do <code>x[0]=10</code>, that would be the same as picking 0 out of the box and replacing it with 10, but <em>the box stays the same</em>. Thus when we do <code>print(x)</code>, we print the content of the box. If we do</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>[<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>]
+y<span style="color: #666666">=</span>x
+<span style="color: #008000">print</span>(x <span style="color: #AA22FF; font-weight: bold">is</span> y) <span style="color: #3D7B7B; font-style: italic"># True</span>
+x<span style="color: #666666">.</span>append(<span style="color: #666666">10</span>)  <span style="color: #3D7B7B; font-style: italic"># x is now [0,1,2,3,4,10]</span>
+<span style="color: #008000">print</span>(y)      <span style="color: #3D7B7B; font-style: italic"># y=[0,1,2,3,4,10]</span>
+<span style="color: #008000">print</span>(x <span style="color: #AA22FF; font-weight: bold">is</span> y) <span style="color: #3D7B7B; font-style: italic"># True</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>What happens here is that we create a box with the numbers 0, 1, 2, 3, 4, <code>x</code> is referenced that box. Next, we do <code>y=x</code> so that <code>y</code> is referenced the <em>same box</em> as <code>x</code>. Then, we add the number 10 to that box, and <code>x</code> and <code>y</code> still points to the same box.</p>
+
+<p>Numpy arrays behave differently, and that is basically because if we want to add a number to a Numpy array we have to do <code>x=np.array(x,10)</code>. Because of the assignment operator <code>=</code> , we take the content of the original box add 10 and put it into a <em>new</em> box</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array([<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>,<span style="color: #666666">4</span>])
+y<span style="color: #666666">=</span>x
+<span style="color: #008000">print</span>(x <span style="color: #AA22FF; font-weight: bold">is</span> y)     <span style="color: #3D7B7B; font-style: italic"># True</span>
+x<span style="color: #666666">=</span>np<span style="color: #666666">.</span>append(x,<span style="color: #666666">10</span>) <span style="color: #3D7B7B; font-style: italic"># x is now [0,1,2,3,4,10]</span>
+<span style="color: #008000">print</span>(y)          <span style="color: #3D7B7B; font-style: italic"># y=[0,1,2,3,4]</span>
+<span style="color: #008000">print</span>(x <span style="color: #AA22FF; font-weight: bold">is</span> y)     <span style="color: #3D7B7B; font-style: italic"># False</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>The reason for this behavior is that the elements in Numpy arrays (contrary to lists) have to be continuous in the memory, and the only way to achieve this is to create a new box that is large enough to also contain the new number. This also explains that if you use the <code>np.append(x,some_value)</code> inside a function where <code>x</code> is large it could slow down your code, because the program has to delete <code>x</code> and create a new very large box each time it would want to add a new element. A better way to do it is to create <code>x</code> <em>large enough</em> in the beginning, and then just assign values <code>x[i]=a</code>. </p>
+<h2 id="mutable-and-immutable-objects" class="anchor">Mutable and immutable objects </h2>
+<p>What we have explained in the previous section is related to what is known as mutable and immutable objects. These terms are used to describe objects that have an internal state that can be changed (mutable), and objects that have an internal state that cannot be changed after they have been created. Example of mutable objects are lists, dictionaries, and arrays. Examples of immutable objects are floats, ints, tuples, and strings. Thus if we create the number 10 its value cannot be changed (and why would we do that?). Note that this is <em>not the same as saying that</em>  <code>x=10</code> and that the internal state of <code>x</code> cannot change, this is <em>not</em> true. We are allowed to make <code>x</code> reference another object. If we do <code>x=10</code>, then <code>x is 10</code> will give true and they will have the same value if we use the <code>id</code> operator on <code>x</code> and <code>10</code>. If we later say that <code>a=11</code> then <code>a is 10</code> will give false and <code>id(a)</code> and <code>id(10)</code> give different values, but * <code>id(10)</code> will have the same value as before*.</p>
+
+<p>Lists are mutable objects, and once a list is created, we can change the content without changing the reference to that object. That is why the operations <code>x=[]</code> and <code>x.append(1)</code>, does not change the id of x, and also explain that if we put <code>y=x</code>, <code>y</code> would change if <code>x</code> is changed. Contrary to immutable objects if <code>x=[]</code>, and <code>y=[]</code> then <code>x is y</code> will give false. Thus, whenever you create a list it will be an unique object.    </p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b>A final tip</b>
+<p>You are bound to get into strange, unwanted behavior when working with lists, arrays and dictionaries (mutable) objects in Python. Whenever, you are unsure, just make a simple version of your lists and perform some of the operations on them to investigate if the behavior is what you want.</p>
+</div>
+
+<p>Finally, we show some ``unexpected&quot; behavior, just to demonstrate that it is easy to do mistakes and one should always test code on simple examples. </p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x_old<span style="color: #666666">=</span>[]
+x  <span style="color: #666666">=</span> [<span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>]
+x_old[:] <span style="color: #666666">=</span> x[:] <span style="color: #3D7B7B; font-style: italic"># x_old = [1, 2, 3]</span>
+x[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> <span style="color: #666666">10</span>
+<span style="color: #008000">print</span>(x_old) <span style="color: #3D7B7B; font-style: italic"># &quot;expected&quot; x_old = [10, 2, 3], actual [1, 2, 3] </span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Comment: We put the <em>content</em> of the <code>x</code> container into <code>x_old</code>, but <code>x</code> and <code>x_old</code> reference different containers.  </p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">add_to_list</span>(x,add_to<span style="color: #666666">=</span>[])
+    add_to<span style="color: #666666">.</span>append(x)
+    <span style="color: #008000; font-weight: bold">return</span> add_to
+
+<span style="color: #008000">print</span>(add_to_list(<span style="color: #666666">1</span>)) <span style="color: #3D7B7B; font-style: italic"># &quot;expected&quot; [1] actual [1]</span>
+<span style="color: #008000">print</span>(add_to_list(<span style="color: #666666">2</span>)) <span style="color: #3D7B7B; font-style: italic"># &quot;expected&quot; [2] actual [1, 2]</span>
+<span style="color: #008000">print</span>(add_to_list(<span style="color: #666666">3</span>)) <span style="color: #3D7B7B; font-style: italic"># &quot;expected&quot; [3] actual [1, 2, 3]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Comment: <code>add_to=[]</code> is a default argument and it is created once when the program starts and not each time the function is called.</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">x <span style="color: #666666">=</span> [<span style="color: #666666">10</span>]
+y <span style="color: #666666">=</span> x
+y <span style="color: #666666">=</span> y <span style="color: #666666">+</span> [<span style="color: #666666">1</span>]
+<span style="color: #008000">print</span>(x, y) <span style="color: #3D7B7B; font-style: italic"># prints [10] [10, 1]</span>
+
+x <span style="color: #666666">=</span> [<span style="color: #666666">10</span>]
+y <span style="color: #666666">=</span> x
+y <span style="color: #666666">+=</span> [<span style="color: #666666">1</span>] 
+<span style="color: #008000">print</span>(x, y) <span style="color: #3D7B7B; font-style: italic"># prints [10, 1] [10, 1]</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Comment: In the first case <code>y + [1]</code> creates a new object and the assignment operator <code>=</code> assign <code>y</code> to that object, thus <code>x</code> stays the same. In the second case the <code>+=</code> adds <code>[1]</code> to the <code>y</code> container without changing the container, and thus <code>x</code> also changes.
 <h1 id="bibliography" class="anchor">Bibliography </h1>
+</p>
 
 <!-- begin bibliography -->
-
+<ol>
+ <li> <div id="thomas2019pragmatic"></div> <b>D. Thomas and A. Hunt</b>.  <em>The Pragmatic Programmer: Your Journey to Mastery</em>, Addison-Wesley Professional, 2019.</li>
+</ol>
 <!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
@@ -158,5 +1702,4 @@ end up changing the function definitions as your program develops.
 -->
 </body>
 </html>
-    
 

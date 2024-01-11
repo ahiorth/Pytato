@@ -29,6 +29,7 @@ Vectorized
 bedmap
 cmocean
 conda
+docstring
 infill
 iterable
 learnt

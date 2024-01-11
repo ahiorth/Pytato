@@ -534,16 +534,6 @@
    pages:     247--260
    status:    published
    entrytype: article
-** Bedmap2: Improved Ice Bed, Surface and Thickness Datasets for Antarctica
-   key:       fretwell2013bedmap2
-   author:    Peter Fretwell, Hamish D. Pritchard, David G. Vaughan, Jonathan L. Bamber, Nicholas E. Barrand, R. Bell, C. Bianchi, RG Bingham, Donald D. Blankenship, G. Casassa, others
-   year:      2013
-   journal:   The Cryosphere
-   volume:    7
-   number:    1
-   pages:     375--393
-   status:    published
-   entrytype: article
 ** Antarctic Mapping Tools for {MATLAB}
    key:       greene2017antarctic
    author:    Chad A. Greene, David E. Gwyther, Donald D. Blankenship
@@ -605,6 +595,91 @@
    volume:    16
    number:    6
    pages:     295--300
+   status:    published
+   entrytype: article
+** Bedmap2: Improved Ice Bed, Surface and Thickness Datasets for Antarctica
+   key:       fretwell2013bedmap2
+   author:    Peter Fretwell, Hamish D. Pritchard, David G. Vaughan, Jonathan L. Bamber, Nicholas E. Barrand, R. Bell, C. Bianchi, RG Bingham, Donald D. Blankenship, G. Casassa
+   year:      2013
+   journal:   The Cryosphere
+   volume:    7
+   number:    1
+   pages:     375--393
+   status:    published
+   entrytype: article
+** The Albite-Water System: Part I. the Kinetics of Dissolution As a Function of PH at 100, 200 and 300 C
+   key:       hellmann1994albite
+   author:    Roland Hellmann
+   year:      1994
+   journal:   Geochimica et Cosmochimica Acta
+   publisher: Elsevier
+   volume:    58
+   number:    2
+   pages:     595--611
+   status:    published
+   entrytype: article
+** Steady-State Kinetics and Dissolution Mechanisms of Albite
+   key:       chou1985steady
+   author:    Lei Chou, Roland Wollast
+   year:      1985
+   journal:   American Journal of Science
+   publisher: American Journal of Science
+   volume:    285
+   number:    10
+   pages:     963--993
+   status:    published
+   entrytype: article
+** True Colors of Oceanography: Guidelines for Effective and Accurate Colormap Selection
+   key:       thyng2016true
+   author:    Kristen M. Thyng, Chad A. Greene, Robert D. Hetland, Heather M. Zimmerle, Steven F. DiMarco
+   year:      2016
+   journal:   Oceanography
+   publisher: JSTOR
+   volume:    29
+   number:    3
+   pages:     9--13
+   status:    published
+   entrytype: article
+** Xarray: ND Labeled Arrays and Datasets in {P}ython
+   key:       hoyer2017xarray
+   author:    Stephan Hoyer, Joe Hamman
+   year:      2017
+   journal:   Journal of Open Research Software
+   publisher: Ubiquity Press
+   volume:    5
+   number:    1
+   status:    published
+   entrytype: article
+** Anatomy of a Fall: {G}iovanni {B}attista {R}iccioli and the Story of G
+   key:       graney2012giovanni
+   author:    Christopher M. Graney
+   year:      2012
+   journal:   Phys. Today
+   volume:    65
+   number:    9
+   pages:     36
+   status:    published
+   entrytype: article
+** What Every Computer Scientist Should Know About Floating-Point Arithmetic
+   key:       goldberg1991every
+   author:    David Goldberg
+   year:      1991
+   journal:   ACM computing surveys (CSUR)
+   publisher: ACM New York, NY, USA
+   volume:    23
+   number:    1
+   pages:     5--48
+   status:    published
+   entrytype: article
+** The Melting of Floating Ice Raises the Ocean Level
+   key:       noerdlinger2007melting
+   author:    Peter D. Noerdlinger, Kay R. Brower
+   year:      2007
+   journal:   Geophysical Journal International
+   publisher: Blackwell Publishing Ltd Oxford, UK
+   volume:    170
+   number:    1
+   pages:     145--150
    status:    published
    entrytype: article
 * books
@@ -829,6 +904,22 @@
    institution: United States Air Force Research Laboratory, Munitions Directorate
    status:      published
    entrytype:   techreport
+** A Compilation of Rate Parameters of Water-Mineral Interaction Kinetics for Application to Geochemical Modeling
+   key:         palandri2004compilation
+   author:      James L. Palandri, Yousif K. Kharaka
+   year:        2004
+   institution: Geological Survey Menlo Park CA
+   status:      published
+   entrytype:   techreport
+** {Climate Change 2021: the Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change}
+   key:         IPCC2021
+   author:      V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Pean, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J. B. R. Matthews, T. K. Maycock, T. Waterfield, O. Yelekci, R. Yu, B. Zhou (eds.)
+   year:        2021
+   institution: Cambridge University Press. In Press.
+   status:      published
+   entrytype:   techreport
+   group:       IPCC
+   month:       August
 * misc
 ** Introduction to Electrodynamics
    key:       griffiths2005introduction

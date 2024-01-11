@@ -1,4 +1,10 @@
 
 Aksel
+Docstring
 Hiorth
+Numpy
 Stavanger
+TypeError
+docstring
+ints
+nano

@@ -851,6 +851,13 @@
    publisher: https://github.com/ahiorth/CompEngineering
    status:    published
    entrytype: book
+** The Pragmatic Programmer: Your Journey to Mastery
+   key:       thomas2019pragmatic
+   author:    David Thomas, Andrew Hunt
+   year:      2019
+   publisher: Addison-Wesley Professional
+   status:    published
+   entrytype: book
 * proceedings
 ** {R}eservoir Aspects of {E}kofisk Subsidence
    key:          sulak1988reservoir

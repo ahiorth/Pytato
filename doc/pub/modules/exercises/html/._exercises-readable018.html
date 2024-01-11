@@ -1,0 +1,206 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Exercises">
+<title>Exercises</title>
+<!-- Bootstrap style: bootswatch_readable -->
+<!-- doconce format html main_exercises.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=exercises-readable --html_code_style=inherit -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:64px;      /* fixed header height for style bootswatch_readable */
+  margin:-64px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('Before you start', 1, None, 'before-you-start'),
+              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+               1,
+               None,
+               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
+              ('Background', 2, None, 'background'),
+              ('Exercise 2: Matplotlib visualization',
+               1,
+               None,
+               'exercise-2-matplotlib-visualization'),
+              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
+              ('Convert list to Numpy arrays and plot (easy)',
+               3,
+               None,
+               'convert-list-to-numpy-arrays-and-plot-easy'),
+              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
+              ('Exercise 4: Read tabulated data from file',
+               1,
+               None,
+               'exercise-4-read-tabulated-data-from-file'),
+              ('Solution 1 Pandas (easy):', 2, None, 'solution-1-pandas-easy'),
+              ('Solution 2 `numpy.loadtxt` (medium):',
+               2,
+               None,
+               'solution-2-numpy-loadtxt-medium'),
+              ('Solution 3 Vanilla Python (hard):',
+               2,
+               None,
+               'solution-3-vanilla-python-hard'),
+              ('Store the data in a dictionary (optional)',
+               3,
+               None,
+               'store-the-data-in-a-dictionary-optional'),
+              ('Exercise 5: Splitting data into files using Pandas',
+               1,
+               None,
+               'exercise-5-splitting-data-into-files-using-pandas'),
+              ('Exercise 6: Splitting all field data into separate files',
+               1,
+               None,
+               'exercise-6-splitting-all-field-data-into-separate-files'),
+              ('Exercise 7: Splitting field data into separate files and '
+               'folder',
+               1,
+               None,
+               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('Exercise 8: Create a function for extracting data',
+               1,
+               None,
+               'exercise-8-create-a-function-for-extracting-data'),
+              ('Exercise 9: Improve the previous function',
+               1,
+               None,
+               'exercise-9-improve-the-previous-function'),
+              ('Exercise 10: More improvements',
+               1,
+               None,
+               'exercise-10-more-improvements'),
+              ('Exercise 11: Increase speed',
+               1,
+               None,
+               'exercise-11-increase-speed'),
+              ('Exercise 12: Encapsulate in a class',
+               1,
+               None,
+               'exercise-12-encapsulate-in-a-class'),
+              ('Bibliography', 1, None, 'bibliography')]}
+end of tocinfo -->
+
+<body>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "none"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="exercises-readable.html">Exercises</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._exercises-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable000.html#before-you-start" style="font-size: 80%;"><b>Before you start</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable002.html#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable003.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable004.html#exercise-3-group-data" style="font-size: 80%;"><b>Exercise 3: Group data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable006.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 4: Read tabulated data from file</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable007.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable008.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;"><b>Exercise 5: Splitting data into files using Pandas</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable010.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;"><b>Exercise 6: Splitting all field data into separate files</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable012.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;"><b>Exercise 7: Splitting field data into separate files and folder</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable014.html#exercise-8-create-a-function-for-extracting-data" style="font-size: 80%;"><b>Exercise 8: Create a function for extracting data</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable016.html#exercise-9-improve-the-previous-function" style="font-size: 80%;"><b>Exercise 9: Improve the previous function</b></a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-10-more-improvements" style="font-size: 80%;"><b>Exercise 10: More improvements</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable020.html#exercise-11-increase-speed" style="font-size: 80%;"><b>Exercise 11: Increase speed</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable022.html#exercise-12-encapsulate-in-a-class" style="font-size: 80%;"><b>Exercise 12: Encapsulate in a class</b></a></li>
+     <!-- navigation toc: --> <li><a href="._exercises-readable023.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0018"></a>
+<!-- !split -->
+<h1 id="exercise-10-more-improvements" class="anchor">Exercise 10: More improvements </h1>
+
+<p>
+<b>Question:</b>
+Extend the previous function such that it is case insensitive, i.e. that <code>get_data('draugen')</code> would actually return data.</p>
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._exercises-readable017.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._exercises-readable019.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+
