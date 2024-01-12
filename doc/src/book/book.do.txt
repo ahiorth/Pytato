@@ -29,16 +29,11 @@ label{ch:pre}
 # #include "../modules/intro/intro.do.txt"
 
 !split
-========= Common libraries   =========
+========= Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas  =========
 label{ch:pr}
 
 # #include "../modules/import/import.do.txt"
 
-!split
-========= Exercises  =========
-label{ch:ex}
-
-# #include "../modules/exercises/exercises.do.txt"
 
 !split
 ========= Functions in Python  =========
@@ -51,6 +46,22 @@ label{ch:func}
 label{ch:class}
 
 # #include "../modules/classes/classes.do.txt"
+
+
+!split
+========= Some advanced topics  =========
+label{ch:adv}
+
+# #include "../modules/adv/adv.do.txt"
+
+
+
+!split
+========= Exercises  =========
+label{ch:ex}
+
+# #include "../modules/exercises/exercises.do.txt"
+
 
 !split
 ======= References =======

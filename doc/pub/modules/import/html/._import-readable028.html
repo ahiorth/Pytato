@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -7,9 +8,9 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Introduction to Practical Applications">
+<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas">
 <meta name="keywords" content="data structures,lists,list comprehension">
-<title>Introduction to Practical Applications</title>
+<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -144,10 +145,6 @@ code { color: inherit; background-color: transparent; }
               ('Joining two DataFrames', 2, None, 'joining-two-dataframes'),
               ('Appending DataFrames', 3, None, 'appending-dataframes'),
               ('Merging DataFrames', 3, None, 'merging-dataframes'),
-              ('Working with folders and files',
-               2,
-               None,
-               'working-with-folders-and-files'),
               ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
@@ -176,7 +173,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="import-readable.html">Introduction to Practical Applications</a>
+    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -223,7 +220,6 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#working-with-folders-and-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Working with folders and files</a></li>
      <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
@@ -292,9 +288,9 @@ MathJax.Hub.Config({
 <center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 4: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
+<p class="caption">Figure 4:  The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --> </p>
 </center>
-<p><img src="fig-import/group.png" width="800" align="bottom"></p>
+<p><img src="fig-import/group.png" align="bottom" width=800></p>
 </center>
 
 <h2 id="simple-statistics-in-pandas" class="anchor">Simple statistics in Pandas </h2>
@@ -327,9 +323,9 @@ MathJax.Hub.Config({
 <center> <!-- figure label: --> <div id="fig:pandas:desc"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 5: Output from the describe command.  <!-- caption label: fig:pandas:desc --></p>
+<p class="caption">Figure 5:  Output from the describe command.  <!-- caption label: fig:pandas:desc --> </p>
 </center>
-<p><img src="fig-import/describe.png" width="800" align="bottom"></p>
+<p><img src="fig-import/describe.png" align="bottom" width=800></p>
 </center>
 
 <h2 id="joining-two-dataframes" class="anchor">Joining two DataFrames </h2>
@@ -404,9 +400,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:concat"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 6: The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --></p>
+<p class="caption">Figure 6:  The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --> </p>
 </center>
-<p><img src="fig-import/concat.png" width="800" align="bottom"></p>
+<p><img src="fig-import/concat.png" align="bottom" width=800></p>
 </center>
 
 <p>If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing <code>df=pd.concat([df1,df2],ignore_index=True)</code> resets the index. It is also possible to join DataFrames column vise</p>
@@ -476,9 +472,9 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
 <center> <!-- figure label: --> <div id="fig:pandas:join"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 7: The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --></p>
+<p class="caption">Figure 7:  The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --> </p>
 </center>
-<p><img src="fig-import/fig_join.png" width="800" align="bottom"></p>
+<p><img src="fig-import/fig_join.png" align="bottom" width=800></p>
 </center>
 
 <p>To be even more specific, after performing the commands</p>
@@ -511,9 +507,9 @@ df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666"
 <center> <!-- figure label: --> <div id="fig:pd:merge"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 8: Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --></p>
+<p class="caption">Figure 8:  Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --> </p>
 </center>
-<p><img src="fig-import/merge.png" width="800" align="bottom"></p>
+<p><img src="fig-import/merge.png" align="bottom" width=800></p>
 </center>
 
 <p>Clearly in this case we need to choose <code>outer</code>. In the merge process pandas adds an extra subscript <code>_x</code> and <code>_y</code> on columns that contains the same header name. We also need to sum those, which can be done as follows
@@ -554,13 +550,11 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 <center> <!-- figure label: --> <div id="fig:pandas:merge3"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 9: Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --></p>
+<p class="caption">Figure 9:  Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --> </p>
 </center>
-<p><img src="fig-import/merge3.png" width="800" align="bottom"></p>
+<p><img src="fig-import/merge3.png" align="bottom" width=800></p>
 </center>
 
-<h2 id="working-with-folders-and-files" class="anchor">Working with folders and files </h2>
-<p>When working with big data sets you might want to split data into smaller sets, and also write them to different folders (or files) to view each individually in excel. Working with files and folders in a way that will work on any kind of platform has always been a challenge, but it is greatly simplified by the <a href="https://docs.python.org/3/library/pathlib.html" target="_self">Pathlib library</a>.</p>
 <h1 id="bibliography" class="anchor">Bibliography </h1>
 
 <!-- begin bibliography -->
@@ -569,6 +563,7 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._import-readable027.html">&larr; Prev</a>
   </li>
@@ -585,4 +580,5 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 -->
 </body>
 </html>
+    
 

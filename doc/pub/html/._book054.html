@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book
 -->
 <html>
@@ -8,7 +9,7 @@ doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --ex
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="E-MOD321 Basic Python coding for subsurface applications">
-<meta name="keywords" content="data structures,lists,list comprehension">
+<meta name="keywords" content="data structures,lists,list comprehension,docstring,positional arguments,default arguments,try, and except,raise,assert">
 <title>E-MOD321 Basic Python coding for subsurface applications</title>
 <!-- Bootstrap style: bootswatch_journal -->
 <!-- doconce format html book.do.txt CHAPTER=chapter BOOK=book APPENDIX=appendix --exercise_numbering=chapter --html_style=bootswatch_journal --html_code_style=inherit --html_output=book -->
@@ -70,7 +71,11 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'exercise-install-a-python-library-in-a-separate-environment'),
-              ('Introduction to practical applications', 0, 'ch:pr', 'ch:pr'),
+              ('Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, '
+               'Pandas',
+               0,
+               'ch:pr',
+               'ch:pr'),
               ('One reason Python is so popular: The import statement',
                1,
                None,
@@ -173,10 +178,91 @@ code { color: inherit; background-color: transparent; }
               ('Joining two DataFrames', 2, None, 'joining-two-dataframes'),
               ('Appending DataFrames', 3, None, 'appending-dataframes'),
               ('Merging DataFrames', 3, None, 'merging-dataframes'),
-              ('Working with folders and files',
+              ('Functions in Python', 0, 'ch:func', 'ch:func'),
+              ('What is a function?', 1, None, 'what-is-a-function'),
+              ('How to create a function in Python',
                2,
                None,
-               'working-with-folders-and-files'),
+               'how-to-create-a-function-in-python'),
+              ('When to define a function?',
+               1,
+               None,
+               'when-to-define-a-function'),
+              ('What is a good function?', 2, None, 'what-is-a-good-function'),
+              ('Special use of functions', 1, None, 'special-use-of-functions'),
+              ('Example: remove white space from rows in Pandas',
+               3,
+               None,
+               'example-remove-white-space-from-rows-in-pandas'),
+              ('Pythons lambda function', 1, None, 'pythons-lambda-function'),
+              ('Exercise:  Create a function from the following code',
+               1,
+               None,
+               'exercise-create-a-function-from-the-following-code'),
+              ('Making functions more general',
+               1,
+               None,
+               'making-functions-more-general'),
+              ('Improving robustness of functions',
+               1,
+               None,
+               'improving-robustness-of-functions'),
+              ('Assert, raise and try statements',
+               1,
+               None,
+               'assert-raise-and-try-statements'),
+              ('Try and Except', 2, None, 'try-and-except'),
+              ('Raise', 2, None, 'raise'),
+              ('Exercise: Improve `replace_chars` using raise',
+               3,
+               None,
+               'exercise-improve-replace_chars-using-raise'),
+              ('Using assert to test our code',
+               1,
+               None,
+               'using-assert-to-test-our-code'),
+              ('Classes in Python', 0, 'ch:class', 'ch:class'),
+              ('Why classes?', 1, None, 'why-classes'),
+              ('Example: A class for production data',
+               1,
+               None,
+               'example-a-class-for-production-data'),
+              ('Example: A class for a mathematical function',
+               1,
+               'exer:crash_course',
+               'exer:crash_course'),
+              ('Some advanced topics', 0, 'ch:adv', 'ch:adv'),
+              ('Running Python files from command line',
+               1,
+               None,
+               'running-python-files-from-command-line'),
+              ('Search for files of a specific type',
+               2,
+               None,
+               'search-for-files-of-a-specific-type'),
+              ('Creating executable programs from Python file',
+               1,
+               None,
+               'creating-executable-programs-from-python-file'),
+              ('Passing functions to functions',
+               1,
+               None,
+               'passing-functions-to-functions'),
+              ('Scope of variables', 1, None, 'scope-of-variables'),
+              ('Passing arrays and lists to functions',
+               1,
+               None,
+               'passing-arrays-and-lists-to-functions'),
+              ('Call by value or call by reference',
+               1,
+               None,
+               'call-by-value-or-call-by-reference'),
+              ('Floats and integers', 2, None, 'floats-and-integers'),
+              ('Lists and arrays', 2, None, 'lists-and-arrays'),
+              ('Mutable and immutable objects',
+               1,
+               None,
+               'mutable-and-immutable-objects'),
               ('Exercises', 0, 'ch:ex', 'ch:ex'),
               ('Before you start', 1, None, 'before-you-start'),
               ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
@@ -224,6 +310,26 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'exercise-7-splitting-field-data-into-separate-files-and-folder'),
+              ('Exercise 8: Create a function for extracting data',
+               1,
+               None,
+               'exercise-8-create-a-function-for-extracting-data'),
+              ('Exercise 9: Improve the previous function',
+               1,
+               None,
+               'exercise-9-improve-the-previous-function'),
+              ('Exercise 10: More improvements',
+               1,
+               None,
+               'exercise-10-more-improvements'),
+              ('Exercise 11: Increase speed',
+               1,
+               None,
+               'exercise-11-increase-speed'),
+              ('Exercise 12: Encapsulate in a class',
+               1,
+               None,
+               'exercise-12-encapsulate-in-a-class'),
               ('References', 1, None, 'references')]}
 end of tocinfo -->
 
@@ -273,7 +379,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._book010.html#objects-and-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects and Classes</a></li>
      <!-- navigation toc: --> <li><a href="._book011.html#library" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</a></li>
      <!-- navigation toc: --> <li><a href="._book012.html#exercise-install-a-python-library-in-a-separate-environment" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise: Install a Python library in a separate environment</a></li>
-     <!-- navigation toc: --> <li><a href="._book013.html#ch:pr" style="font-size: 80%;"><b>Introduction to practical applications</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book013.html#ch:pr" style="font-size: 80%;"><b>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</b></a></li>
      <!-- navigation toc: --> <li><a href="._book014.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;One reason Python is so popular: The import statement</a></li>
      <!-- navigation toc: --> <li><a href="._book015.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Matplotlib: Basic plotting in Python</a></li>
      <!-- navigation toc: --> <li><a href="._book016.html#exercise-1-reproduce-a-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Reproduce a plot</a></li>
@@ -313,24 +419,59 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="._book041.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="._book041.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
      <!-- navigation toc: --> <li><a href="._book041.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._book041.html#working-with-folders-and-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Working with folders and files</a></li>
-     <!-- navigation toc: --> <li><a href="._book042.html#ch:ex" style="font-size: 80%;"><b>Exercises</b></a></li>
-     <!-- navigation toc: --> <li><a href="._book042.html#before-you-start" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Before you start</a></li>
-     <!-- navigation toc: --> <li><a href="._book043.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Install Bedmap to visualize Antarctica ice data</a></li>
-     <!-- navigation toc: --> <li><a href="._book043.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background</a></li>
-     <!-- navigation toc: --> <li><a href="._book044.html#exercise-2-matplotlib-visualization" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Matplotlib visualization</a></li>
-     <!-- navigation toc: --> <li><a href="._book045.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
-     <!-- navigation toc: --> <li><a href="._book045.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
-     <!-- navigation toc: --> <li><a href="._book046.html#exercise-3-group-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Group data</a></li>
-     <!-- navigation toc: --> <li><a href="._book048.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 4: Read tabulated data from file</a></li>
-     <!-- navigation toc: --> <li><a href="._book049.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
-     <!-- navigation toc: --> <li><a href="._book049.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
-     <!-- navigation toc: --> <li><a href="._book049.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
-     <!-- navigation toc: --> <li><a href="._book049.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
-     <!-- navigation toc: --> <li><a href="._book050.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 5: Splitting data into files using Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._book052.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 6: Splitting all field data into separate files</a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 7: Splitting field data into separate files and folder</a></li>
-     <!-- navigation toc: --> <li><a href="._book056.html#references" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;References</a></li>
+     <!-- navigation toc: --> <li><a href="._book042.html#ch:func" style="font-size: 80%;"><b>Functions in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book043.html#what-is-a-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;What is a function?</a></li>
+     <!-- navigation toc: --> <li><a href="._book044.html#how-to-create-a-function-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How to create a function in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._book045.html#when-to-define-a-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;When to define a function?</a></li>
+     <!-- navigation toc: --> <li><a href="._book046.html#what-is-a-good-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What is a good function?</a></li>
+     <!-- navigation toc: --> <li><a href="._book047.html#special-use-of-functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Special use of functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book047.html#example-remove-white-space-from-rows-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: remove white space from rows in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book048.html#pythons-lambda-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pythons lambda function</a></li>
+     <!-- navigation toc: --> <li><a href="._book049.html#exercise-create-a-function-from-the-following-code" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise:  Create a function from the following code</a></li>
+     <!-- navigation toc: --> <li><a href="._book051.html#making-functions-more-general" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Making functions more general</a></li>
+     <!-- navigation toc: --> <li><a href="._book052.html#improving-robustness-of-functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Improving robustness of functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book053.html#assert-raise-and-try-statements" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Assert, raise and try statements</a></li>
+     <!-- navigation toc: --> <li><a href="._book053.html#try-and-except" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Try and Except</a></li>
+     <!-- navigation toc: --> <li><a href="._book053.html#raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Raise</a></li>
+     <!-- navigation toc: --> <li><a href="._book053.html#exercise-improve-replace_chars-using-raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exercise: Improve <code>replace_chars</code> using raise</a></li>
+     <!-- navigation toc: --> <li><a href="#using-assert-to-test-our-code" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Using assert to test our code</a></li>
+     <!-- navigation toc: --> <li><a href="._book055.html#ch:class" style="font-size: 80%;"><b>Classes in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book055.html#why-classes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Why classes?</a></li>
+     <!-- navigation toc: --> <li><a href="._book055.html#example-a-class-for-production-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Example: A class for production data</a></li>
+     <!-- navigation toc: --> <li><a href="._book055.html#exer:crash_course" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Example: A class for a mathematical function</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#ch:adv" style="font-size: 80%;"><b>Some advanced topics</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#running-python-files-from-command-line" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Running Python files from command line</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#search-for-files-of-a-specific-type" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search for files of a specific type</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#creating-executable-programs-from-python-file" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Creating executable programs from Python file</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#passing-functions-to-functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Passing functions to functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#scope-of-variables" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Scope of variables</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#passing-arrays-and-lists-to-functions" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Passing arrays and lists to functions</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#call-by-value-or-call-by-reference" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Call by value or call by reference</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#floats-and-integers" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Floats and integers</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#lists-and-arrays" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lists and arrays</a></li>
+     <!-- navigation toc: --> <li><a href="._book056.html#mutable-and-immutable-objects" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mutable and immutable objects</a></li>
+     <!-- navigation toc: --> <li><a href="._book057.html#ch:ex" style="font-size: 80%;"><b>Exercises</b></a></li>
+     <!-- navigation toc: --> <li><a href="._book057.html#before-you-start" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Before you start</a></li>
+     <!-- navigation toc: --> <li><a href="._book058.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Install Bedmap to visualize Antarctica ice data</a></li>
+     <!-- navigation toc: --> <li><a href="._book058.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background</a></li>
+     <!-- navigation toc: --> <li><a href="._book059.html#exercise-2-matplotlib-visualization" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 2: Matplotlib visualization</a></li>
+     <!-- navigation toc: --> <li><a href="._book060.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
+     <!-- navigation toc: --> <li><a href="._book060.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
+     <!-- navigation toc: --> <li><a href="._book061.html#exercise-3-group-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 3: Group data</a></li>
+     <!-- navigation toc: --> <li><a href="._book063.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 4: Read tabulated data from file</a></li>
+     <!-- navigation toc: --> <li><a href="._book064.html#solution-1-pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 1 Pandas (easy):</a></li>
+     <!-- navigation toc: --> <li><a href="._book064.html#solution-2-numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 2 <code>numpy.loadtxt</code> (medium):</a></li>
+     <!-- navigation toc: --> <li><a href="._book064.html#solution-3-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution 3 Vanilla Python (hard):</a></li>
+     <!-- navigation toc: --> <li><a href="._book064.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
+     <!-- navigation toc: --> <li><a href="._book065.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 5: Splitting data into files using Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._book067.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 6: Splitting all field data into separate files</a></li>
+     <!-- navigation toc: --> <li><a href="._book069.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 7: Splitting field data into separate files and folder</a></li>
+     <!-- navigation toc: --> <li><a href="._book071.html#exercise-8-create-a-function-for-extracting-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 8: Create a function for extracting data</a></li>
+     <!-- navigation toc: --> <li><a href="._book073.html#exercise-9-improve-the-previous-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 9: Improve the previous function</a></li>
+     <!-- navigation toc: --> <li><a href="._book075.html#exercise-10-more-improvements" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 10: More improvements</a></li>
+     <!-- navigation toc: --> <li><a href="._book077.html#exercise-11-increase-speed" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 11: Increase speed</a></li>
+     <!-- navigation toc: --> <li><a href="._book079.html#exercise-12-encapsulate-in-a-class" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 12: Encapsulate in a class</a></li>
+     <!-- navigation toc: --> <li><a href="._book081.html#references" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;References</a></li>
 
         </ul>
       </li>
@@ -342,18 +483,51 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0054"></a>
 <!-- !split -->
-<h1 id="exercise-7-splitting-field-data-into-separate-files-and-folder" class="anchor">Exercise 7: Splitting field data into separate files and folder  </h1>
-<p>Splitting the data into different Excel files generates a lot of files in the same directory.</p>
+<h1 id="using-assert-to-test-our-code" class="anchor">Using assert to test our code </h1>
+<p>When developing code it is extremely useful to design tests that checks that our code does what it is supposed to do. This is mainly done to make sure that the expected behavior of a function does not changes over time. For our small function we can use the specific keyword <code>assert</code>. The syntax is <code>assert &lt;condition&gt;,&lt;error message&gt;</code></p>
 
-<p>
-<b>Question:</b>
-Use Pathlib to split the data into a different folder. All data should be stored in a folder named <code>tmp_data</code>, the <code>tmp_data</code> should contain a directory named after the field and this folder should contain a file named <code>production_data.xlsx</code> containing only data for that field.</p>
+<div class="alert alert-block alert-success alert-text-normal"><b>assert only works in debug mode</b>
+<p>If you for some reason compile your code or in other ways turn off the debug option in Python, assert will not work.</p>
+</div>
+
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_replace_chars</span>():
+    <span style="color: #008000; font-weight: bold">assert</span> replace_chars(<span style="color: #BA2121">&#39;  &#39;</span>) <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;&#39;</span>
+    <span style="color: #008000; font-weight: bold">assert</span> replace_chars(<span style="color: #BA2121">&#39;//&#39;</span>) <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;__&#39;</span>
+    <span style="color: #008000; font-weight: bold">assert</span> replace_chars(<span style="color: #BA2121">&#39;G O//O D&#39;</span>) <span style="color: #666666">==</span><span style="color: #BA2121">&#39;GO__OD&#39;</span>
+test_replace_chars()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Each time we start working and stop working on our code , we run all tests that we have defined. If nothing fails we know that no one has introduced errors before we start coding, and that we have not made any changes.</p>
+
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._book053.html">&larr; Prev</a>
   </li>
+
   <li class="next">
     <a href="._book055.html">Next &rarr;</a>
   </li>
@@ -370,4 +544,5 @@ Use Pathlib to split the data into a different folder. All data should be stored
 -->
 </body>
 </html>
+    
 

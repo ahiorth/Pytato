@@ -296,10 +296,10 @@ __List all files of a type:__
 Below we use `p.rglob()`, and not `p.iterdir()`, the difference is that `rglob()` also lists recursively the sub directories, and files within.
 !bc pycod
 p=pt.Path('.')
-for p in p.rglob("*.xlsx"):# rglob means recursively, searches sub directories
-    print(p.name)
+for x in p.rglob("*.xlsx"):# rglob means recursively, searches sub directories
+    print(x.name)
 !ec
-If you want to print the full path do `print(p.absolute())`.
+If you want to print the full path do `print(x.absolute())`.
 
 !split
 __Create a directory, files and joining paths:__
@@ -684,7 +684,4 @@ df=df.drop(columns=['ELAPSED_TIME_SINCE_OUTBREAK_y','ELAPSED_TIME_SINCE_OUTBREAK
 # #if FORMAT not in ("ipynb")
 FIGURE: [fig-import/merge3.png, width=400 frac=1.0] Result of outer merging and summing. label{fig:pandas:merge3}
 # #endif
-
-===== Working with folders and files =====
-When working with big data sets you might want to split data into smaller sets, and also write them to different folders (or files) to view each individually in excel. Working with files and folders in a way that will work on any kind of platform has always been a challenge, but it is greatly simplified by the "Pathlib library":"https://docs.python.org/3/library/pathlib.html".
 

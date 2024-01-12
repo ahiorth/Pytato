@@ -3,11 +3,22 @@
 # via preprocess: # #include "file1.do.txt" etc
 
 ======= Why classes? =======
-A class can be a way for you to create a clean interface to your code. You have already used a lot of classes. The `DataFrame()` in Pandas is a class, and we access functions inside this class by using a `.`. Classes also provides encapsulation: 
+A class can be a way for you to create a clean interface to your code. You have already used a lot of classes. The `DataFrame()` in Pandas is a class, and we access functions inside this class by using a dot (`.`). Classes also provides encapsulation: 
 By wrapping parts of your code into classes, and particular realizations of
 classes (objects), you facilitate code re-use, and it can make your code
 easier to understand and work with, thus reducing the probability of
 introducing bugs which may be hard to track down.
+
+To get started, there are really only a couple of things you need to know.
+First, all of your classes should include a special function called `__init__`,
+in which you declare the variables (attributes) you wish an instance / object
+of the class to keep track of.
+
+Second, when setting, updating, or fetching attributes stored within the class,
+you should always use the prefix `self`, followed by a dot.
+Furthermore, the functions you define inside the class should have `self` as
+the first function argument ("there are exceptions":"https://realpython.com/python3-object-oriented-programming/"),
+but we will not consider those here.
 
 ======= Example: A class for production data =======
 Earlier in this course we have made functions to read data from an Excel file, and plot the data. This can also be done within a class, below is an example
@@ -21,7 +32,7 @@ class ProdData:
     A class to extract production data from FactPages
     """
     def __init__(self):
-        self.df_prod=pd.read_excel('../../import/data/field_production_gross_monthly.xlsx')
+        self.df_prod=pd.read_excel('../data/field_production_gross_monthly.xlsx')
     
     def get_data(self,field):
         """
@@ -57,25 +68,14 @@ ff.plot('EKOFISK')
 ======= Example: A class for a mathematical function =======
 label{exer:crash_course}
 
-Here we will implement a class that contains the mathematical function in equation (ref{eq:p1:f}) and also a function to plot this function.
+A mathematical function should be the perfect example of *when to use a function*, but it turns out that it can be quite convenient to use a class. Here we will consider the mathematical function in the equation below
 !bt
 \begin{equation}
-f(x) = \sin(bx)\cdot e^{-ax^2}
+f(x) = \sin(bx)\cdot e^{-ax^2}.
 label{eq:p1:f}
 \end{equation}
 !et
-To get started, there are really only a couple of things you need to know.
-First, all of your classes should include a special function called `__init__`,
-in which you declare the variables (attributes) you wish an instance / object
-of the class to keep track of.
-
-Second, when setting, updating, or fetching attributes stored within the class,
-you should always use the prefix `self`, followed by a dot.
-Furthermore, the functions you define inside the class should have `self` as
-the first function argument ("there are exceptions":"https://realpython.com/python3-object-oriented-programming/",
-but we will not consider those here.
-
-All of this is best understood via an example:
+If we implement this function in a class, we can also add other functionalities to our function such as an ability to plot itself
 !bc pypro
 class WavePacket:
     """
@@ -146,7 +146,7 @@ class FancyWavePacket:
 !ec
 Compared to the first example of the class, observe that we have replaced the
 function `f` by `__call__` (with two underscores on both sides of "call").
-This way, we we can write our code *as if `FancyWavePacket` was a function*:
+This way, we we can write our code as if `FancyWavePacket` was a function:
 !bc pypro
 WP1 = FancyWavePacket(0.1, 2)  # a=0.1, b=2
 WP2 = FancyWavePacket(0.1, 10)  # a = 0.1, b=10

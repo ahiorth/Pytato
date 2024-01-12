@@ -109,13 +109,7 @@ fi
 if [ ! -d $dest/html ]; then
     mkdir $dest/html
 fi
-if [ ! -d $dest/notebook ]; then
-    mkdir $dest/notebook
-fi
 
-if [ ! -d $dest/exercises ]; then
-    mkdir $dest/exercises
-fi
 
 cp -v ${nickname}*.pdf $dest/pdf/
 
@@ -127,16 +121,26 @@ if [ -d $datadir ]; then
         cp -rv $datadir* $dest/data
 fi
 
-doconce format ipynb ${mainname} $args
-system doconce replace 'width="400"' 'width="800"' ${mainname}.ipynb
-system doconce replace 'width=400' 'width=800' ${mainname}.ipynb
-system doconce replace 'width=\"400\"' 'width=\"800\"' ${mainname}.ipynb
-cp ${mainname}.ipynb $dest/notebook/
-if [ -e ipynb-${mainname}*.tar.gz ]; then
-  tar xvfz ipynb-${mainname}*.tar.gz  -C $dest/notebook/
+if [ $mainname != "main_exercises" ]; then
+    if [ ! -d $dest/notebook ]; then
+	mkdir $dest/notebook
+    fi
+
+    doconce format ipynb ${mainname} $args
+    system doconce replace 'width="400"' 'width="800"' ${mainname}.ipynb
+    system doconce replace 'width=400' 'width=800' ${mainname}.ipynb
+    system doconce replace 'width=\"400\"' 'width=\"800\"' ${mainname}.ipynb
+    cp ${mainname}.ipynb $dest/notebook/
+    if [ -e ipynb-${mainname}*.tar.gz ]; then
+	tar xvfz ipynb-${mainname}*.tar.gz  -C $dest/notebook/
 #  cp ipynb*.tar.gz  $dest/notebook/
+    fi
 fi
 if [ -e exercises_*.do.txt ]; then
+  if [ ! -d $dest/exercises ]; then
+    mkdir $dest/exercises
+  fi
+
   doconce format ipynb exercises_${nickname} $args 
   cp exercises_${nickname}.ipynb $dest/exercises
   system doconce format pdflatex exercises_${nickname} $opt  --latex_todonotes --device=paper --latex_admon_color=1,1,1 --latex_admon=mdfbox -DSOLUTIONS --latex_list_of_exercises=toc --latex_table_format=left "--latex_code_style=default:lst[style=blue1]@pypro:lst[style=blue1bar]@dat:lst[style=gray]@sys:vrb[frame=lines,label=\\fbox{{\tiny Terminal}},framesep=2.5mm,framerule=0.7pt]"

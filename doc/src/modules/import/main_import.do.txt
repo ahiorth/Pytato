@@ -1,4 +1,4 @@
-TITLE:  Introduction to Practical Applications
+TITLE:  Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas
 AUTHOR: Aksel Hiorth
 University of Stavanger
 DATE: today

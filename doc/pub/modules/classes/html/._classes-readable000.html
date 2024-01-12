@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_classes.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=classes-readable --html_code_style=inherit
 -->
 <html>
@@ -114,7 +115,7 @@ MathJax.Hub.Config({
 <br>
 <p>University of Stavanger
 <center>
-<h4>Jan 11, 2024</h4>
+<h4>Jan 12, 2024</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -137,11 +138,24 @@ MathJax.Hub.Config({
 <!-- The text may be split into several files and included here -->
 <!-- via preprocess: # #include "file1.do.txt" etc -->
 <h1 id="why-classes" class="anchor">Why classes? </h1>
-<p>A class can be a way for you to create a clean interface to your code. You have already used a lot of classes. The <code>DataFrame()</code> in Pandas is a class, and we access functions inside this class by using a <code>.</code>. Classes also provides encapsulation: 
+<p>A class can be a way for you to create a clean interface to your code. You have already used a lot of classes. The <code>DataFrame()</code> in Pandas is a class, and we access functions inside this class by using a dot (<code>.</code>). Classes also provides encapsulation: 
 By wrapping parts of your code into classes, and particular realizations of
 classes (objects), you facilitate code re-use, and it can make your code
 easier to understand and work with, thus reducing the probability of
 introducing bugs which may be hard to track down.
+</p>
+
+<p>To get started, there are really only a couple of things you need to know.
+First, all of your classes should include a special function called <code>__init__</code>,
+in which you declare the variables (attributes) you wish an instance / object
+of the class to keep track of.
+</p>
+
+<p>Second, when setting, updating, or fetching attributes stored within the class,
+you should always use the prefix <code>self</code>, followed by a dot.
+Furthermore, the functions you define inside the class should have <code>self</code> as
+the first function argument (<a href="https://realpython.com/python3-object-oriented-programming/" target="_self">there are exceptions</a>),
+but we will not consider those here.
 </p>
 <h1 id="example-a-class-for-production-data" class="anchor">Example: A class for production data </h1>
 <p>Earlier in this course we have made functions to read data from an Excel file, and plot the data. This can also be done within a class, below is an example</p>
@@ -161,7 +175,7 @@ introducing bugs which may be hard to track down.
 <span style="color: #BA2121; font-style: italic">    A class to extract production data from FactPages</span>
 <span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../../import/data/field_production_gross_monthly.xlsx&#39;</span>)
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
     
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>,field):
 <span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
@@ -227,28 +241,15 @@ ff<span style="color: #666666">.</span>plot(<span style="color: #BA2121">&#39;DR
 </div>
 <h1 id="exer:crash_course" class="anchor">Example: A class for a mathematical function</h1>
 
-<p>Here we will implement a class that contains the mathematical function in equation <a href="#mjx-eqn-1">(1)</a> and also a function to plot this function.</p>
+<p>A mathematical function should be the perfect example of <em>when to use a function</em>, but it turns out that it can be quite convenient to use a class. Here we will consider the mathematical function in the equation below</p>
 $$
 \begin{equation}
-f(x) = \sin(bx)\cdot e^{-ax^2}
+f(x) = \sin(bx)\cdot e^{-ax^2}.
 \tag{1}
 \end{equation}
 $$
 
-<p>To get started, there are really only a couple of things you need to know.
-First, all of your classes should include a special function called <code>__init__</code>,
-in which you declare the variables (attributes) you wish an instance / object
-of the class to keep track of.
-</p>
-
-<p>Second, when setting, updating, or fetching attributes stored within the class,
-you should always use the prefix <code>self</code>, followed by a dot.
-Furthermore, the functions you define inside the class should have <code>self</code> as
-the first function argument (<a href="https://realpython.com/python3-object-oriented-programming/" target="_self">there are exceptions</a>,
-but we will not consider those here.
-</p>
-
-<p>All of this is best understood via an example:</p>
+<p>If we implement this function in a class, we can also add other functionalities to our function such as an ability to plot itself</p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -379,7 +380,7 @@ defining the special <a href="https://www.realpythonproject.com/python-magic-oop
 
 <p>Compared to the first example of the class, observe that we have replaced the
 function <code>f</code> by <code>__call__</code> (with two underscores on both sides of "call").
-This way, we we can write our code *as if <code>FancyWavePacket</code> was a function*:
+This way, we we can write our code as if <code>FancyWavePacket</code> was a function:
 </p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
@@ -430,4 +431,5 @@ x <span style="color: #666666">=</span> <span style="color: #666666">1</span>
 -->
 </body>
 </html>
+    
 

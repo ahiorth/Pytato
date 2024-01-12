@@ -1,0 +1,10 @@
+
+Aksel
+Hiorth
+IDE
+Jupyter
+Numpy
+Spyder
+Stavanger
+ints
+nano
