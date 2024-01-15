@@ -23,11 +23,15 @@ Pathlib
 Pythonic
 SLR
 SciPy
+Sm
 Taylor's
 Vectorized
+app
 bedmap
 cmocean
 conda
+csv
+docstring
 infill
 iterable
 learnt

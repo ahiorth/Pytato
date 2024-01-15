@@ -2,14 +2,6 @@ TITLE: E-MOD321 Basic Python coding for subsurface applications
 AUTHOR: Aksel Hiorth
 DATE: today
 
-# #ifdef EXTRA_INCLUDES
-# #if FORMAT in ("ipynb")
-!bc pycod
-import scipy.optimize
-import scipy.special
-!ec
-# #endif
-# #endif
 
 # #if FORMAT in ("ipynb")
 !bc pycod
@@ -17,26 +9,14 @@ import numpy as np
 import scipy as sp
 import pandas as pd
 import matplotlib.pyplot as plt
-import pathlib
-import statsmodels.api as sm
-from sklearn.linear_model import LinearRegression
+import pathlib as pt
 !ec
-# #endif
-## old:
-##from mpl_toolkits.mplot3d import axes3d
-##from matplotlib import cm
-
-##__Summary.__
-
+# # endif
 __Learning objectives.__
 * Create an environment using conda and install required packages
 * Use Pandas to combine and manipulate data from different input, Excel and comma separated values (CSV),  files.
 * Wrap code in functions to reuse them
 * Visualize data using "`matplotlib`":"https://matplotlib.org" and the "Pandas library":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html".  
-
-
-The work done to answer the exercises should be documented clearly in a
-handed-in Jupyter notebook.
 
 TOC: on
 
@@ -44,430 +24,355 @@ TOC: on
 <% ex_id = 0 %>
 <% ex_id += 1 %>
 
-======= Exercise ${ex_id}: Install Bedmap to visualize Antarctica ice data  =======
-
-===== Background  =====
-There is currently a great deal of concern about global warming.
-Some critical issues are whether we are more likely to observe
-extreme local temperatures, increased frequencies of natural
-disasters like forest fires and droughts, and if there are
-"tipping points" in the climate system that are, at least on the
-human timescale, irreversible cite{IPCC2021}.
-One particular question to ask is: How much ice is likely to melt?
-And, what would be the consequence of ice melting for sea level rise (SLR)?
-
-Since most of the ice on Planet Earth is located in Antarctica, substantial
-effort has been spent in mapping the ice and the bedrock of this continent.
-Most of the data is freely available, and we can use Python to investigate
-different scenarios. Here we will only show you how to install the packages and visualize the ice thickness. 
-
-<% counter = 0 %>
-<% counter += 1 %>
-__Part ${counter}.__
-
-!bnotice Create a new environment 
-The ice data are located in the *bedmap2* dataset cite{fretwell2013bedmap2}
-The "rockhound":"https://github.com/fatiando/rockhound"
-library can be used to load the data. As an aid to plotting, you might also want to use color maps from the
-"cmocean":"https://pypi.org/project/cmocean/" package cite{thyng2016true}. To install bedmap2 data you have to create a new conda environment (we call it ice)
-!bc sys
-conda config --add channels conda-forge
-conda create -n ice python matplotlib numpy \
-scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
-!ec
-Note that we need a specific version of the `xarray` library.
-!bc pycod
-conda activate ice
-jupyter notebook
-!ec
-!enotice
-
-<% counter += 1 %>
-__Part ${counter}.__
-The code below is taken from the
-"rockound library documentation":"https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html":
-
-!bc pycod
-import rockhound as rh
-import matplotlib.pyplot as plt
-import cmocean
-import numpy as np
-
-bedmap = rh.fetch_bedmap2(datasets=["thickness","surface","bed"])
-plt.figure(figsize=(8, 7))
-ax = plt.subplot(111)
-bedmap.surface.plot.pcolormesh(ax=ax,cmap=cmocean.cm.ice,
-                       cbar_kwargs=dict(pad=0.01, aspect=30))
-plt.title("Bedmap2 Antarctica")
-plt.tight_layout()
-plt.show()
-!ec
-
-* Run the code and reproduce figure ref{fig:bedmap2_ice_thickness}, modify the code to plot the ice surface or the bed rock.
-
-FIGURE: [fig-project1/bedmap2_plot.png, width=400 frac=1.0] Visualization of the ice thickness in Antarctica. label{fig:bedmap2_ice_thickness}
-
-* Check out "the gallery":"https://www.fatiando.org/rockhound/latest/gallery/index.html". Choose one of the datasets, copy and paste the code and reproduce one of the figures in the gallery. 
-
-<% ex_id += 1 %>
 ======= Exercise ${ex_id}: Matplotlib visualization  =======
-To access the data a bit easier I have added a file `draugen_pandas.py` in the `data` folder containing our data as lists. We can access them by importing them directly into our script. However, as we are in the `src` folder it causes a practical problem to access a Python file in a different folder and the only way to do this is to add the `data` folder to our path
+In `jotun_data.py` in the `data` folder "official production data":" https://factpages.sodir.no/en/field/PageView/All/43604" are available as lists. You can import them as 
 !bc pycod
 import sys
-sys.path.append('../data/')
-from draugen_data import years,months,oil,gas,wat,cond,oe
+sys.path.append('../data/')# alternatively put jotun_data.py in your folder
+from jotun_data import years, months, oil_gross, gas_gross, oe_gross, wat_prod
 !ec
 
-__Question1:__
-* Use matplotlib to plot oil equivalents, `oe`, vs the `years` data, compare with the "official data":"https://factpages.sodir.no/en/field/PageView/All/43758".
+__Question:__
+* Use matplotlib to plot oil equivalents, `oe_gross` vs the `years` data. Try to make the plot as similar as possible to figure ref{p1:jotun}.
 
-__Solution:__
+FIGURE: [fig-project1/jotun.png, width=400 frac=1.0] Jotun production data. label{p1:jotun}
+
+!bc pycod
+#answer
+!ec
+
+# #ifdef SOLUTIONS
 !bc pycod
 import matplotlib.pyplot as plt
-plt.plot(years,oe)
+plt.plot(years,oe_gross,'-o',c='g',label='Oil Equivalents')
+plt.xlabel('Years')
+plt.ylabel('Produced volumes [10$^6$ Sm$^3$]')
+plt.title('Jotun')
+plt.grid()
+plt.legend()
 !ec
-
-__Question2:__
-Our plot looks a bit strange, because we do not take into account the month column. Instead of only plotting the year array, plot  `years+months/12` on the x-axis.
-
-__Solution:__
-
-=== Use vanilla Python (hard) ===
-Here we need to loop over all elements and for each year add the month, divided by 12 to convert the month to year. What we want is
-
-o To start with an empty list `year_month=[]`
-o Loop over all elements and add first year and first month divided by 12
-
-!bnotice How do we do loop over elements in Python?
-We loop over elements using a `for` loop. The keyword `for` is always accompanied by the `in` keyword. 
-!enotice 
-
-__Method 1:__
-
-If you have coded before, this might be very familiar.
-!bc pycod
-N=len(years) # N is the length of the years list
-year_month=[]
-for i in range(N):
-    year_month.append(years[i]+months[i]/12)   
-!ec
-
-!bnotice Indentation matters!
-The for-loop above ends with `:`, and then Python uses indentation (a tab) to indicate a block of code. *You have to use the same amount of spaces in the same block of code.* The following code will give an *error*.
-!bc pycod
-for i in range(N):
-year_month.append(years[i]+months[i]/12)#Error!! because no indentation
-!ec
-!enotice
-
-The statement `range(N)` is a *generator* and it generates a sequence of integers with length $N$, starting from zero to $N-1$.
-
-__Method2:__
-
-This method is slightly more pythonic, than the previous. Instead of accessing the different elements in `years` by `years[i]`, we can loop directly over them
-!bc pycod
-i=0
-for year in years:
-    year_month.append(year+months[i]/12)
-    i = i+1
-!ec
-
-!bnotice Meaningful variable names
-The specific name we give the counter, `year`, is not important for the computer. But if you choose a descriptive name it makes the code easier to read for humans.
-!enotice
-
-The code above is ok, but it seems unnecessary to introduce the extra counter `i`, the way that we have done it. To access the index of each element in addition to the value, we can use the `enumerate()` function 
-!bc pycod
-
-for i,year in enumerate(years):
-    year_month.append(year+months[i]/12)
-!ec
-
-__Method3:__
-
-If you have lists of the same length we can access the elements in a loop using the `zip` function
-!bc pycod
-
-for month,year in zip(months,years):
-    year_month.append(year+month/12)
-!ec
-The `zip` function uses a nice feature in Python, which is called *variable unpacking*. This is a special assignment operation, where we can assign all variables in a an iterable object in one go e.g.
-
-!bc pycod
-my_list=[2024,1,9]
-year,month,day=my_list #year=2024,month=1,day=9
-!ec
-
-__Method4:__
-
-"*List comprehension*":"https://www.w3schools.com/python/python_lists_comprehension.asp" is a very pythonic way of creating new lists. It allows us to write a for loop while creating a python list.
-!bc pycod
-year_month = [year+month/12 for month,year in zip(months,years)]
-!ec
-
-* Use one of the methods above `year_month=np.array(year)+np.array(month)/12` and create a new plot, with `year_month` on the x-axis.
-* Try to make the plot as similar as possible to figure ref{fig:p1:ose} 
-
-
-=== Convert list to Numpy arrays and plot (easy) ===
-
-As we have seen `year_month=year+month/12` will not work for lists as Python does not understand what `month/12` is, and even if it did the `+` operation would not give the expected results. But, if we convert our list to a Numpy array, life becomes easy. To convert a list to a Numpy array, we use what programmers calls "*casting*":"https://www.w3schools.com/python/python_casting.asp". Casting is when we tell the computer to convert a variable from one type to another, e.g.
-!bc pycod
-my_list=[1,2,3]
-my_np_array=np.array(my_list) # cast to array
-# more examples
-a='1' # a is a string
-b='2' # b is a string
-a+b # gives a new string '12'
-int(a)+int(b) # gives integer 3
-float(a)+float(b) # gives float 3.0
-!ec
-
-!bnotice Vectorized operations in Numpy
-One of the major strengths of Numpy is that it is vectorized. This means that mathematical operations you do with numbers such as `+`, `-`, `/`, `*`, you can also do with Numpy arrays with the effect that the operation is done on each element. *This only works if the arrays have the same length.* The only exception is if one of the elements is a single number, e.g.
-!bc pycod
-# will divide all elements in month by 12
-np.array(months)/12
-# add first element in year with first element in month/12 and so on
-np.array(years)+np.array(months)/12 
-!ec
-!enotice
-
-* Use `year_month=np.array(years)+np.array(months)/12` and create a new plot, with `year_month` on the x-axis.
-* Try to make the plot as similar as possible to figure ref{fig:p1:ose} 
-
-
-FIGURE: [fig-project1/oseberg.png, width=400 frac=1.0] Production of oil equivalents on the Draugen vs time. label{fig:p1:ose}
-
+# #endif
 
 <% ex_id += 1 %>
-======= Exercise ${ex_id}: Group data  =======
-If you compare the plot in figure ref{fig:p1:ose} with "the official plot":"https://factpages.sodir.no/en/field/PageView/All/43758", and for convenience illustrated below in figure ref{fig:p1:ose2}, you will see that they are different. The difference is that the production in figure ref{fig:p1:ose} is per month, whereas in figure ref{fig:p1:ose2} the production is per year.     
+======= Exercise ${ex_id}: Loop over data  =======
+Oil equivalents are simply the sum of oil volumes and gas volumes. (Or to be more specific: The convention used when comparing gas volumes with oil volumes is to divide the gas volumes by 1000, see "conversion factors":"https://www.sodir.no/en/about-us/use-of-content/conversion-table/". However, we do not need to do anything here because the unit of the gas volumes in `jotun_data.py` is $10^9$ Sm$^3$ and the oil volumes in $10^6$ Sm$^3$.)
 
-FIGURE: [fig-project1/oseberg_npd.png, width=400 frac=1.0] Production of oil equivalents on the Draugen field. label{fig:p1:ose2}
+Thus, to calculate oil equivalents from our lists that contain oil and gas volumes you just have to add them together.
 
-__Question:__
-Use the imported data for Draugen, and plot the production per year vs time. That means we want to sum up all oil equivalents when the years have the same value. 
+__Question 1:__ Use vanilla Python to loop over `oil_gross` and `gas_gross`, create a new *list*, which holds your calculated oil equivalents volumes. Note: You can compare with `oe_gross` to check if your calculations are correct.
 
-__Solution1, Vanilla Python (hard):__
-
-There are probably many ways of solving this problem, but here we will use a dictionary. The reason we use a dictionary is that there will be an unique key (the year) for each entry. The tricky part is the initialization
-* if the key exists in the dictionary, we want to add the oil equivalents to the previous values,
-* if the key does not exists (we have not summed the oil equivalents for that year) we need for that key to set the first value.
-Thus we need to check if the key already exists
-!bc pycod
-data={} #just an empty dictionary
-for year,o in zip(years,oe):
-    key=year
-    if key in data: #key exists
-       data[key] += o #add oil equivalents
-    else: # new key
-       data[key] = o  #set equal to first month	    	  
-!ec
-Next, we need to extract all oil equivalents for each year, and make the plot
-!bc pycod
-oe_per_year=[data[key] for key in data] #list comprehension
-year=[key for key in data]
-plt.plot(year,oe_per_year)
-plt.bar(year,oe_per_year,color='orange')
-!ec
-
-__Solution2, Numpy and Boolean masking (hard):__
-
-We can also Boolean masking, if we convert the lists to Numpy arrays. If we want to pick out all data for a specific year, e.g. 2008 and sum the oil equivalents we can do as follows
-* `np.array(years) == 2008` will give `True` for all entries containing 2008 and `False` otherwise
-* If we pass this to our oil equivalent array, only the values corresponding to `True` will be picked out and then we can quickly sum them by `np.sum`
+__Question 2:__ Convert your lists to `numpy.arrays`, by doing e.g. `np.array(oil_gross)`. Perform the same calculation as in Question 1, but this time using Numpy (and no loop).
 
 !bc pycod
-years=np.array(years) # cast to Numpy array
-oe=np.array(oe) # ditto
-np.sum(oe[years==2008]) # 4.265517 mill Sm^3
-!ec
-Now, we just need to loop over all the years and collect the data
-!bc pycod
-unique_list=np.unique(years) #remove duplicates
-oe_tot=[] # empty list
-for year in unique_list:
-    oe_tot.append(np.sum(oe[years==year]))
-#make the plot
-plt.plot(unique_list,oe_tot)
-plt.bar(unique_list,oe_tot,color='orange')
-!ec
-
-__Solution3, Pandas (easy):__
-
-To use Pandas we need to make a DataFrame of the data and then we use the "`groupby`":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html" function in Pandas, which is extremely powerful.
-!bc pycod
-import pandas as pd
-df=pd.DataFrame() # empty DataFrame
-df['Year']=years
-df['oe']=oe
-print(df) # inspect to see what happens
-df2=df.groupby(by='Year').sum()
-print(df2) # inspect to see what happens
-df2.plot.bar() #make the plot
-!ec
-Note that most of the code above was to create the DataFrame. Pandas also has built-in plotting.
-
-<% ex_id += 1 %>
-======= Exercise ${ex_id}: Read tabulated data from file =======
-As part of this project we will look at some of the datasets that
-are available at the Norwegian Offshore Directorate
-"website":"https://factpages.sodir.no/".
-
-!bnotice Data directory
-In the following we will assume that you have a `src` directory containing all your Python code and a `data` folder inside your course folder. Thus, if you are in your `src` folder you can access files in the `data` folder by moving one folder up an down inside your `data` folder.
-!enotice
-
-Choose one or more of the exercises below
-===== Pandas (easy): =====
-Pandas will most likely be your first choice, because it has so much built in functionalities
-
-* Run the following code and explain why the first `pd.read_csv` fails or does not produce the output we want
-
-!bc pycod
-import pandas as pd
-df=pd.read_csv('../data/draugen.txt')
-print(df)
-df=pd.read_csv('../data/draugen.txt',sep='\t')
-print(df)
-!ec
-
-* Print only the year column from `df` i) using the label `Year` and ii) `df.columns[0]`
-* Print the column with oil equivalents
-
-===== `numpy.loadtxt` (medium): =====
-
-`Numpy.loadtxt` is a build in function in Numpy that reads tabulated data. It does not know how to process header lines, and we need to skip them.
-
-!bc pycod
-import numpy as np
-data=np.loadtxt('../data/draugen.txt',skiprows=1)
-!ec
-
-* How can you print out only the year, month, etc. columns from the `data` variable?
-* Use `data=np.loadtxt('../data/draugen.txt',skiprows=1,unpack=True)`, what changes now? 
-
-
-===== Vanilla Python (hard): =====
-
-When accessing files, it can be easy to forget to *close* the file after opening it. This can lead to problems as an open file, in many cases, cannot be accessed by other programs. To avoid this we use the `with` statement. The following code can be used to print out all the lines of a file, and Python will open and close the file for you
-!bc pycod
-with open("../data/draugen.txt") as my_file:
-     for line in my_file:
-     	 print(line)
-!ec
-After the code is run, the variable `line` will still hold the last line of the file, which should be `'2023\t10\t0.072419\t0.019985\t0\t0.092404\t1.005672\n'`. The first two numbers are year (2023) and the month (10), for the rest check the header in the file. The `\t` means tabular and `\n` means a newline. In order to parse this line we need to pick out the numbers, the easiest way in Python is to split the line on `\t`, if you do
-!bc pycod
-data_list=line.split('\t')
-print(data_list)
-!ec
-we conveniently get all the elements separated by `\t` into a list (of strings). To convert a string to a number we can do e.g. `float(data_list[0])`.
-
-* Modify the following code to extract year, month, and oil equivalents. Remember we need to skip the first header line, which contains only text.
-
-!bc pycod
-years=[] # empty list
-months=[] # empty list
-oe=[] # empty list
-read_first_line=False
-with open("../data/draugen.txt") as my_file:
-     for line in my_file:
-     	 if read_first_line:
-	    data_list=line.split('\t')
-	    years.append(float(data_list[0]))
-	    #same for month
-	    #same for oil equivalents
-	 read_first_line=True
-	 
-!ec
-
-=== Store the data in a dictionary (optional) ===
-Tabulated data with a header is perfect for a dictionary, here we create a dictionary based on the header in the file.
-!bc pycod
-data_dict={'year':[], 'month':[],'oil':[],'gas':[],'cond':[],'oe':[],'wat':[]}
-!ec
-
-* modify the code above to store all data in each line in the dictionary. To loop over all entries in the `data_dict`, and the list elements in `data_list`, you can use the `zip` function
-
-!bc pycod
-for key,data in zip(data_dict,data_list):
-    data_dict[key].append(float(data))
+#answer
 !ec
 
 
 <% ex_id += 1 %>
-======= Exercise ${ex_id}: Splitting data into files using Pandas  =======
-If you open the file `field_production_gross_monthly.xlsx` in the `data` folder in Excel, you will see that the field names are listed in the leftmost column.
+======= Exercise ${ex_id}: Boolean masking  =======
 
-__Question:__
-Open the file `field_production_gross_monthly.xlsx` in Pandas and write a new file in the same directory containing only data for a given field.
+__Question 1:__ Use vanilla Python to create a loop and sum up all oil equivalents that was produced for the year 2000. (If you did everything correct you should get 7.529206 10$^6$Sm$^3$ for the year 2000.)
 
-__Solution:__
+Create to new `numpy.arrays`, by
+!bc pycod
+years_np=np.array(years)
+oe_np=np.array(oe_gross)
+!ec
+
+__Question 2:__ Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use `np.sum()` to sum all the volumes. 
+
+__Question 3:__ Use `np.unique()` to create a unique `np.array()` of years. Loop over this array and use Boolean masking to create a new list (or `np.array()`) that holds the total produced oil equivalents for that year.
+
+__Question 4:__ Use the results in the previous question to create a bar plot and compare with figure ref{p1:jotun2}
+
+FIGURE: [fig-project1/jotun_oe.png, width=400 frac=1.0] Jotun production data. label{p1:jotun2}
+
+
+
+# #ifdef SOLUTIONS
+!bc pycod
+years_np=np.array(years)
+oe_np=np.array(oe_gross)
+y_un=np.unique(years_np)
+oe_tot=[]
+for y in y_un:
+    oe_tot.append(np.sum(oe_np[years_np==y]))
+
+plt.bar(y_un,oe_tot,label='Oil Equivalents')
+plt.xlabel('Years')
+plt.ylabel('Produced volumes [10$^6$ Sm$^3$] per year')
+plt.title('Jotun')
+plt.grid()
+plt.legend()
+!ec
+# #endif
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Dictionaries and Pandas DataFrame =======
+
+__Question 1:__ Create a dictionary that holds all the Jotun data you imported in Exercise 1. Choose suitable key names.
+
+__Question 2:__ Create a loop over all the keys in the dictionary and show how you can print out the keys and the values in the dictionary.
+
+__Question 3:__ Create a DataFrame from your dictionary. Show how we can use `DataFrame.groupby().sum()` to find production of oil, gas, water, and oil equivalents per year. 
+
+!bc pycod
+#answer
+!ec
+
+
+# #ifdef SOLUTIONS
+!bc pypro
+my_dict={'year':years,'month':months,'oil':oil_gross,
+         'gas':gas_gross,'wat':wat_prod,'oe':oe_gross}
+for key in my_dict:
+    print(key)
+    print(my_dict[key])
+
+df=pd.DataFrame(my_dict)
+df.groupby('year').sum()
+!ec
+# #endif
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Extract data using a function  =======
+
+__Question:__ Create a function from the following code. The function should take as argument the field name and return a DataFrame with field data. Include a docstring in the function.
+!bc pycod
+df_prod=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+df=df_prod[df_prod['Field (Discovery)'] == 'JOTUN']
+!ec
+
+!bc pycod
+def get_data(field):
+    # write code here ..
+    return #...
+!ec
+
+__Optional:__ Make the function more robust, by allowing for case insensitive names and/or give a warning if no data was extracted for the field.
+
+
+!bc pycod
+#answer
+!ec
+
+
+# #ifdef SOLUTIONS
+!bc pycod
+def get_data(field):
+        """
+        Extracts data for a specific field
+        """
+	field = field.upper() #optional
+	df_prod=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+        df= df_prod[df_prod['Field (Discovery)'] == field]
+	if df.empty: #optional
+	   print('No data for ', field)
+        return df
+# example of use
+df=get_data('JOTUN')
+# #endif
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Create a function for plotting data  =======
+
+__Question 1:__ Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. Hint: you should use the function you wrote in the previous exercise to extract the data. 
+
+__Question 2:__ Extend the function such that if no data is extracted from the field, write a warning and do not make the plot. (Note: you can use `DataFrame.empty()` to check if the DataFrame contains data.) 
+
+__Optional:__ Extend the function such that it can take in a list of values (e.g. gas, oil, etc.) that should be plotted in the same plot.
+
+!bc pycod
+#answer
+!ec
+
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Write data to files  =======
+
+__Question 1:__ Explain what the following code does. By adding comment lines to each line of the following code.
 
 !bc pypro
-import pandas as pd 
-df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
-field='DRAUGEN'
-file_out='../data/'+field+'.xlsx'
+field='JOTUN' # com1
+#--------- start --------
+df=get_data(field) # com2
+data_folder=pt.Path('tmp_data') # com3 
+data_folder.mkdir(exist_ok=True)# etc.
+new_name=str.replace(field,'/','')
+new_path=data_folder / new_name
+new_path.mkdir(exist_ok=True)
 df2=df[df[df.columns[0]]==field]
-df2.to_excel(file_out,index=False)
+df2.to_excel(new_path/'production_data.xlsx',index=False)
+#-------- stop ----------
 !ec
 
-The tricky part is perhaps the syntax `df[df[df.columns[0]]==field]`. To understand it in more detail, start by printing the innermost statements and work from there
-!bc pypro
-print(df.columns[0]) # gives the header of the first column
-# gives True for all entries in the first column that contains
-# the specific field name (in this case DRAGUEN) 
-df[df.columns[0]]==field
-# Following code is equivalent, we use iloc to specify the first column
-df.iloc[:,0]==field
+__Question 2:__ Create a function from the code between `-- start --` and `-- stop --`. It should take as argument the field name.
+
+!bc pycod
+def write_data(field):
+    # ....
+    return #optional 
 !ec
 
 
-<% ex_id += 1 %>
-======= Exercise ${ex_id}: Splitting all field data into separate files   =======
+__Question 3:__ If your Excel file is open in another program, the command `df2.to_excel(new_path/'production_data.xlsx',index=False)`, will fail. Use the `try:` and `except:` commands to try and write the Excel file, and if this fails, give the user a warning.
 
-__Question:__ Split all production in `field_production_gross_monthly.xlsx` into different Excel files containing only data from one specific field.
+__Optional:__ Extend the previous function and introduce a default argument, representing `tmp_data` so that the user can specify the directory name.
 
-To help you, here are the different steps
+!bc pycod
+#answer
+!ec
 
-o First we need to find a unique list of all field names, this can be done by `fields=df[df.columns[0]].unique()`
-o Then we need to loop over all these fields and perform the operations as in the previous exercise
-
-__Solution:__
-
-There is one problem, and that is that some of the field names contains a slash `/`. A `/` indicates a new directory which does not exists, hence we need to replace the slash  with something else
-!bc pypro
-df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
-fields=df[df.columns[0]].unique()
-for field in fields:
+# #ifdef
+!bc pycod
+def write_data(field):
+    df=get_data(field)
+    data_folder=pt.Path('tmp_data')
+    data_folder.mkdir(exist_ok=True)
     new_name=str.replace(field,'/','')
-    file_out='../data/'+new_name+'.xlsx'
+    new_path=data_folder / new_name
+    new_path.mkdir(exist_ok=True)
     df2=df[df[df.columns[0]]==field]
-    df2.to_excel(file_out,index=False)
+    try:
+        df2.to_excel(new_path/'production_data.xlsx',index=False)
+    except:
+        print('Failed to save data, for field ')
+    return 
 !ec
-
+# #endif
 
 <% ex_id += 1 %>
-======= Exercise ${ex_id}: Splitting field data into separate files and folder  =======
-Splitting the data into different Excel files generates a lot of files in the same directory.
-
-__Question:__ Use Pathlib to split the data into a different folder. All data should be stored in a folder named `tmp_data`, the `tmp_data` should contain a directory named after the field and this folder should contain a file named `production_data.xlsx` containing only data for that field.
-
-__Solution:__
-
+======= Exercise ${ex_id}: Loop over all fields  =======
+The following code writes all field data to separate Excel files.
 !bc pypro
 df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
 fields=df[df.columns[0]].unique() #skip duplicates
-data_folder=pt.Path('../tmp_data')
+data_folder=pt.Path('tmp_data')
 data_folder.mkdir(exist_ok=True)
 for field in fields:
     new_name=str.replace(field,'/','')
     new_path=data_folder / new_name
     new_path.mkdir(exist_ok=True)
+    df2=df[df[df.columns[0]]==field]
     df2.to_excel(new_path/'production_data.xlsx',index=False)
 !ec
 
-======= Bibliography =======
-BIBFILE: ../papers.pub
+__Question:__ Use one or several functions to achieve the same as the block of code above does. Comment on your choice.
+
+!bc pycod
+#answer
+!ec
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: lambda functions  =======
+Rewrite the following functions, using Pythons `lambda` function
+!bc pycod
+def remove_space(x):
+    return x.strip()
+!ec
+
+!bc pycod
+def upper_case(x):
+    return x.upper()
+!ec
+
+!bc pycod
+#answer
+!ec
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: Assert your code  =======
+Create two assert tests for `remove_space` and `upper_case` defined in the previous exercise.
+
+!bc pycod
+#answer
+!ec
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: A simple class  =======
+
+__Question1:__ Take a look at the following class, and explain what each line does, by adding comments behind each line.
+!bc pycod
+
+class DeclineCurve:
+    def __init__(self,q,tau):
+        self.q=q 
+        self.tau=tau
+    
+    def f(self,t):
+        return self.q*np.exp(-t/self.tau)
+
+!ec
+
+__Question2:__ Add a function to the class, named `plot()`, such that the following code produce the output in figure ref{fig:p1:dec}. (To create a suitable list of `t` values you can do `t=np.linspace(0,10,1000)`, or more general `t=np.linspace(0,10*self.tau,1000)`)
+
+!bc pycod
+A=DeclineCurve(1,1)
+A.plot()
+!ec
+
+FIGURE: [fig-project1/decline.png, width=400 frac=1.0] An exponential decline curve. label{fig:p1:dec}
+
+
+<% ex_id += 1 %>
+======= Exercise ${ex_id}: A more comprehensive class  =======
+Inspect the following class
+!bc pycod
+class ProdData:
+    """
+    A class to extract production data from FactPages
+    """
+    def __init__(self):
+        self.df_prod=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+    
+    def get_data(self,field):
+        """
+        Extracts data for a specific field
+        """
+        df= self.df_prod[(self.df_prod['Field (Discovery)'] == field)]
+        return df   
+!ec
+Add the following functions to the class:
+o `write_data(field)` write data for a single field to an Excel file
+o `write_all_data()` write an Excel file for each field
+o A function to plot production data for a field
+
+__The following is optional:__
+o Add some checking to the functions, this could be a sensible error message if e.g. the file `../data/field_production_gross_monthly.xlsx` does not exists or that it is not possible to write data to file.
+o Add some unit tests using assert, this could be to check that the oil produced for a certain year (and month) for a specific field is equal to a specific value.
+
+<% ex_id += 1 %>
+======= (OPTIONAL) Exercise ${ex_id}: The Dash library  =======
+"The Dash library":"https://dash.plotly.com/" is one of the most popular libraries. Install it by doing
+!bc sys
+conda install dash
+!ec
+(If this fails, run `pip install dash`). Run the following code, which is copied from "a minimal dash app":"https://dash.plotly.com/minimal-app".
+!bc pypro
+from dash import Dash, html, dcc, callback, Output, Input
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv')
+
+app = Dash(__name__)
+
+app.layout = html.Div([
+    html.H1(children='Title of Dash App', style={'textAlign':'center'}),
+    dcc.Dropdown(df.country.unique(), 'Canada', id='dropdown-selection'),
+    dcc.Graph(id='graph-content')
+])
+
+@callback(
+    Output('graph-content', 'figure'),
+    Input('dropdown-selection', 'value')
+)
+def update_graph(value):
+    dff = df[df.country==value]
+    return px.line(dff, x='year', y='pop')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+!ec
+
+__Question:__ Can you modify the code above to read and plot our data in `../data/field_production_gross_monthly.xlsx`? (Note: you can also download the production data directly by copying the correct address, by right-clicking on the Excel (or csv) tab "here":"https://factpages.sodir.no/en/field/TableView/Production/SumWellbores/Monthly".) 

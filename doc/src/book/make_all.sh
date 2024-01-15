@@ -8,6 +8,6 @@ function system {
 }
 
 
-system python -c "import scripts as s; s.compile_chapters()"
+system python -c "import scripts as s; s.make_links(); s.compile_chapters()"
 system ./make.sh
 system ./make_html.sh

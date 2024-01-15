@@ -460,6 +460,7 @@ for field in fields:
     new_name=str.replace(field,'/','')
     new_path=data_folder / new_name
     new_path.mkdir(exist_ok=True)
+	df2=df[df[df.columns[0]]==field]
     df2.to_excel(new_path/'production_data.xlsx',index=False)
 !ec
 

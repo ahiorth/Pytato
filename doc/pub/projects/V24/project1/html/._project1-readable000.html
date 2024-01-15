@@ -41,46 +41,58 @@ code { color: inherit; background-color: transparent; }
                1,
                'table_of_contents',
                'table_of_contents'),
-              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+              ('Exercise 1: Matplotlib visualization',
                1,
                None,
-               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
-              ('Background', 2, None, 'background'),
-              ('Exercise 2: Matplotlib visualization',
+               'exercise-1-matplotlib-visualization'),
+              ('Exercise 2: Loop over data',
                1,
                None,
-               'exercise-2-matplotlib-visualization'),
-              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
-              ('Convert list to Numpy arrays and plot (easy)',
-               3,
-               None,
-               'convert-list-to-numpy-arrays-and-plot-easy'),
-              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
-              ('Exercise 4: Read tabulated data from file',
+               'exercise-2-loop-over-data'),
+              ('Exercise 3: Boolean masking',
                1,
                None,
-               'exercise-4-read-tabulated-data-from-file'),
-              ('Pandas (easy):', 2, None, 'pandas-easy'),
-              ('`numpy.loadtxt` (medium):', 2, None, 'numpy-loadtxt-medium'),
-              ('Vanilla Python (hard):', 2, None, 'vanilla-python-hard'),
-              ('Store the data in a dictionary (optional)',
-               3,
-               None,
-               'store-the-data-in-a-dictionary-optional'),
-              ('Exercise 5: Splitting data into files using Pandas',
+               'exercise-3-boolean-masking'),
+              ('Exercise 4: Dictionaries and Pandas DataFrame',
                1,
                None,
-               'exercise-5-splitting-data-into-files-using-pandas'),
-              ('Exercise 6: Splitting all field data into separate files',
+               'exercise-4-dictionaries-and-pandas-dataframe'),
+              ('Exercise 5: Extract data using a function',
                1,
                None,
-               'exercise-6-splitting-all-field-data-into-separate-files'),
-              ('Exercise 7: Splitting field data into separate files and '
-               'folder',
+               'exercise-5-extract-data-using-a-function'),
+              ('Exercise 6: Create a function for plotting data',
                1,
                None,
-               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
-              ('Bibliography', 1, None, 'bibliography')]}
+               'exercise-6-create-a-function-for-plotting-data'),
+              ('Exercise 7: Write data to files',
+               1,
+               None,
+               'exercise-7-write-data-to-files'),
+              ('Exercise 8: Loop over all fields',
+               1,
+               None,
+               'exercise-8-loop-over-all-fields'),
+              ('Exercise 9: lambda functions',
+               1,
+               None,
+               'exercise-9-lambda-functions'),
+              ('Exercise 10: Assert your code',
+               1,
+               None,
+               'exercise-10-assert-your-code'),
+              ('Exercise 11: A simple class',
+               1,
+               None,
+               'exercise-11-a-simple-class'),
+              ('Exercise 12: A more comprehensive class',
+               1,
+               None,
+               'exercise-12-a-more-comprehensive-class'),
+              ('(OPTIONAL) Exercise 13: The Dash library',
+               1,
+               None,
+               'optional-exercise-13-the-dash-library')]}
 end of tocinfo -->
 
 <body>
@@ -115,22 +127,20 @@ MathJax.Hub.Config({
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-3-group-data" style="font-size: 80%;"><b>Exercise 3: Group data</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 4: Read tabulated data from file</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas (easy):</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;`numpy.loadtxt` (medium):</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Vanilla Python (hard):</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;"><b>Exercise 5: Splitting data into files using Pandas</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;"><b>Exercise 6: Splitting all field data into separate files</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;"><b>Exercise 7: Splitting field data into separate files and folder</b></a></li>
-     <!-- navigation toc: --> <li><a href="._project1-readable001.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;">Table of contents</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-1-matplotlib-visualization" style="font-size: 80%;">Exercise 1: Matplotlib visualization</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-2-loop-over-data" style="font-size: 80%;">Exercise 2: Loop over data</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-3-boolean-masking" style="font-size: 80%;">Exercise 3: Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-4-dictionaries-and-pandas-dataframe" style="font-size: 80%;">Exercise 4: Dictionaries and Pandas DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-5-extract-data-using-a-function" style="font-size: 80%;">Exercise 5: Extract data using a function</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-6-create-a-function-for-plotting-data" style="font-size: 80%;">Exercise 6: Create a function for plotting data</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-7-write-data-to-files" style="font-size: 80%;">Exercise 7: Write data to files</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-8-loop-over-all-fields" style="font-size: 80%;">Exercise 8: Loop over all fields</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-9-lambda-functions" style="font-size: 80%;">Exercise 9: lambda functions</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-10-assert-your-code" style="font-size: 80%;">Exercise 10: Assert your code</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-11-a-simple-class" style="font-size: 80%;">Exercise 11: A simple class</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#exercise-12-a-more-comprehensive-class" style="font-size: 80%;">Exercise 12: A more comprehensive class</a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable001.html#optional-exercise-13-the-dash-library" style="font-size: 80%;">(OPTIONAL) Exercise 13: The Dash library</a></li>
 
         </ul>
       </li>
@@ -154,7 +164,7 @@ MathJax.Hub.Config({
 <!-- institution(s) -->
 <br>
 <center>
-<h4>Jan 10, 2024</h4>
+<h4>Jan 15, 2024</h4>
 </center> <!-- date -->
 <br>
 
@@ -167,27 +177,24 @@ MathJax.Hub.Config({
 <li> Wrap code in functions to reuse them</li>
 <li> Visualize data using <a href="https://matplotlib.org" target="_self"><tt>matplotlib</tt></a> and the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html" target="_self">Pandas library</a>.</li>  
 </ul>
-<p>The work done to answer the exercises should be documented clearly in a
-handed-in Jupyter notebook.
-</p>
-
 
 </div> <!-- end jumbotron -->
 <h1 id="table_of_contents">Table of contents</h1>
 
 <div class='toc'>
-<p><a href="._project1-readable001.html#exercise-1-install-bedmap-to-visualize-antarctica-ice-data"> Exercise 1: Install Bedmap to visualize Antarctica ice data  </a></p>
-<p><span class="tab"> <a href="._project1-readable001.html#background"> Background  </a></p>
-<p><a href="._project1-readable001.html#exercise-2-matplotlib-visualization"> Exercise 2: Matplotlib visualization  </a></p>
-<p><a href="._project1-readable001.html#exercise-3-group-data"> Exercise 3: Group data  </a></p>
-<p><a href="._project1-readable001.html#exercise-4-read-tabulated-data-from-file"> Exercise 4: Read tabulated data from file </a></p>
-<p><span class="tab"> <a href="._project1-readable001.html#pandas-easy"> Pandas (easy): </a></p>
-<p><span class="tab"> <a href="._project1-readable001.html#numpy-loadtxt-medium"> <code>numpy.loadtxt</code> (medium): </a></p>
-<p><span class="tab"> <a href="._project1-readable001.html#vanilla-python-hard"> Vanilla Python (hard): </a></p>
-<p><a href="._project1-readable001.html#exercise-5-splitting-data-into-files-using-pandas"> Exercise 5: Splitting data into files using Pandas  </a></p>
-<p><a href="._project1-readable001.html#exercise-6-splitting-all-field-data-into-separate-files"> Exercise 6: Splitting all field data into separate files   </a></p>
-<p><a href="._project1-readable001.html#exercise-7-splitting-field-data-into-separate-files-and-folder"> Exercise 7: Splitting field data into separate files and folder  </a></p>
-<p><a href="._project1-readable001.html#bibliography"> Bibliography </a></p>
+<p><a href="._project1-readable001.html#exercise-1-matplotlib-visualization"> Exercise 1: Matplotlib visualization  </a></p>
+<p><a href="._project1-readable001.html#exercise-2-loop-over-data"> Exercise 2: Loop over data  </a></p>
+<p><a href="._project1-readable001.html#exercise-3-boolean-masking"> Exercise 3: Boolean masking  </a></p>
+<p><a href="._project1-readable001.html#exercise-4-dictionaries-and-pandas-dataframe"> Exercise 4: Dictionaries and Pandas DataFrame </a></p>
+<p><a href="._project1-readable001.html#exercise-5-extract-data-using-a-function"> Exercise 5: Extract data using a function  </a></p>
+<p><a href="._project1-readable001.html#exercise-6-create-a-function-for-plotting-data"> Exercise 6: Create a function for plotting data  </a></p>
+<p><a href="._project1-readable001.html#exercise-7-write-data-to-files"> Exercise 7: Write data to files  </a></p>
+<p><a href="._project1-readable001.html#exercise-8-loop-over-all-fields"> Exercise 8: Loop over all fields  </a></p>
+<p><a href="._project1-readable001.html#exercise-9-lambda-functions"> Exercise 9: lambda functions  </a></p>
+<p><a href="._project1-readable001.html#exercise-10-assert-your-code"> Exercise 10: Assert your code  </a></p>
+<p><a href="._project1-readable001.html#exercise-11-a-simple-class"> Exercise 11: A simple class  </a></p>
+<p><a href="._project1-readable001.html#exercise-12-a-more-comprehensive-class"> Exercise 12: A more comprehensive class  </a></p>
+<p><a href="._project1-readable001.html#optional-exercise-13-the-dash-library"> (OPTIONAL) Exercise 13: The Dash library  </a></p>
 </div>
 <br>
 

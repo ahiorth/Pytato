@@ -41,46 +41,58 @@ code { color: inherit; background-color: transparent; }
                1,
                'table_of_contents',
                'table_of_contents'),
-              ('Exercise 1: Install Bedmap to visualize Antarctica ice data',
+              ('Exercise 1: Matplotlib visualization',
                1,
                None,
-               'exercise-1-install-bedmap-to-visualize-antarctica-ice-data'),
-              ('Background', 2, None, 'background'),
-              ('Exercise 2: Matplotlib visualization',
+               'exercise-1-matplotlib-visualization'),
+              ('Exercise 2: Loop over data',
                1,
                None,
-               'exercise-2-matplotlib-visualization'),
-              ('Use vanilla Python (hard)', 3, None, 'use-vanilla-python-hard'),
-              ('Convert list to Numpy arrays and plot (easy)',
-               3,
-               None,
-               'convert-list-to-numpy-arrays-and-plot-easy'),
-              ('Exercise 3: Group data', 1, None, 'exercise-3-group-data'),
-              ('Exercise 4: Read tabulated data from file',
+               'exercise-2-loop-over-data'),
+              ('Exercise 3: Boolean masking',
                1,
                None,
-               'exercise-4-read-tabulated-data-from-file'),
-              ('Pandas (easy):', 2, None, 'pandas-easy'),
-              ('`numpy.loadtxt` (medium):', 2, None, 'numpy-loadtxt-medium'),
-              ('Vanilla Python (hard):', 2, None, 'vanilla-python-hard'),
-              ('Store the data in a dictionary (optional)',
-               3,
-               None,
-               'store-the-data-in-a-dictionary-optional'),
-              ('Exercise 5: Splitting data into files using Pandas',
+               'exercise-3-boolean-masking'),
+              ('Exercise 4: Dictionaries and Pandas DataFrame',
                1,
                None,
-               'exercise-5-splitting-data-into-files-using-pandas'),
-              ('Exercise 6: Splitting all field data into separate files',
+               'exercise-4-dictionaries-and-pandas-dataframe'),
+              ('Exercise 5: Extract data using a function',
                1,
                None,
-               'exercise-6-splitting-all-field-data-into-separate-files'),
-              ('Exercise 7: Splitting field data into separate files and '
-               'folder',
+               'exercise-5-extract-data-using-a-function'),
+              ('Exercise 6: Create a function for plotting data',
                1,
                None,
-               'exercise-7-splitting-field-data-into-separate-files-and-folder'),
-              ('Bibliography', 1, None, 'bibliography')]}
+               'exercise-6-create-a-function-for-plotting-data'),
+              ('Exercise 7: Write data to files',
+               1,
+               None,
+               'exercise-7-write-data-to-files'),
+              ('Exercise 8: Loop over all fields',
+               1,
+               None,
+               'exercise-8-loop-over-all-fields'),
+              ('Exercise 9: lambda functions',
+               1,
+               None,
+               'exercise-9-lambda-functions'),
+              ('Exercise 10: Assert your code',
+               1,
+               None,
+               'exercise-10-assert-your-code'),
+              ('Exercise 11: A simple class',
+               1,
+               None,
+               'exercise-11-a-simple-class'),
+              ('Exercise 12: A more comprehensive class',
+               1,
+               None,
+               'exercise-12-a-more-comprehensive-class'),
+              ('(OPTIONAL) Exercise 13: The Dash library',
+               1,
+               None,
+               'optional-exercise-13-the-dash-library')]}
 end of tocinfo -->
 
 <body>
@@ -115,22 +127,20 @@ MathJax.Hub.Config({
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="._project1-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-1-install-bedmap-to-visualize-antarctica-ice-data" style="font-size: 80%;"><b>Exercise 1: Install Bedmap to visualize Antarctica ice data</b></a></li>
-     <!-- navigation toc: --> <li><a href="#background" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Background</a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-2-matplotlib-visualization" style="font-size: 80%;"><b>Exercise 2: Matplotlib visualization</b></a></li>
-     <!-- navigation toc: --> <li><a href="#use-vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use vanilla Python (hard)</a></li>
-     <!-- navigation toc: --> <li><a href="#convert-list-to-numpy-arrays-and-plot-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert list to Numpy arrays and plot (easy)</a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-3-group-data" style="font-size: 80%;"><b>Exercise 3: Group data</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-4-read-tabulated-data-from-file" style="font-size: 80%;"><b>Exercise 4: Read tabulated data from file</b></a></li>
-     <!-- navigation toc: --> <li><a href="#pandas-easy" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas (easy):</a></li>
-     <!-- navigation toc: --> <li><a href="#numpy-loadtxt-medium" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;`numpy.loadtxt` (medium):</a></li>
-     <!-- navigation toc: --> <li><a href="#vanilla-python-hard" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Vanilla Python (hard):</a></li>
-     <!-- navigation toc: --> <li><a href="#store-the-data-in-a-dictionary-optional" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Store the data in a dictionary (optional)</a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-5-splitting-data-into-files-using-pandas" style="font-size: 80%;"><b>Exercise 5: Splitting data into files using Pandas</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-6-splitting-all-field-data-into-separate-files" style="font-size: 80%;"><b>Exercise 6: Splitting all field data into separate files</b></a></li>
-     <!-- navigation toc: --> <li><a href="#exercise-7-splitting-field-data-into-separate-files-and-folder" style="font-size: 80%;"><b>Exercise 7: Splitting field data into separate files and folder</b></a></li>
-     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._project1-readable000.html#table_of_contents" style="font-size: 80%;">Table of contents</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-1-matplotlib-visualization" style="font-size: 80%;">Exercise 1: Matplotlib visualization</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-2-loop-over-data" style="font-size: 80%;">Exercise 2: Loop over data</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-3-boolean-masking" style="font-size: 80%;">Exercise 3: Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-4-dictionaries-and-pandas-dataframe" style="font-size: 80%;">Exercise 4: Dictionaries and Pandas DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-5-extract-data-using-a-function" style="font-size: 80%;">Exercise 5: Extract data using a function</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-6-create-a-function-for-plotting-data" style="font-size: 80%;">Exercise 6: Create a function for plotting data</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-7-write-data-to-files" style="font-size: 80%;">Exercise 7: Write data to files</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-8-loop-over-all-fields" style="font-size: 80%;">Exercise 8: Loop over all fields</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-9-lambda-functions" style="font-size: 80%;">Exercise 9: lambda functions</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-10-assert-your-code" style="font-size: 80%;">Exercise 10: Assert your code</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-11-a-simple-class" style="font-size: 80%;">Exercise 11: A simple class</a></li>
+     <!-- navigation toc: --> <li><a href="#exercise-12-a-more-comprehensive-class" style="font-size: 80%;">Exercise 12: A more comprehensive class</a></li>
+     <!-- navigation toc: --> <li><a href="#optional-exercise-13-the-dash-library" style="font-size: 80%;">(OPTIONAL) Exercise 13: The Dash library</a></li>
 
         </ul>
       </li>
@@ -142,144 +152,8 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0001"></a>
 <!-- !split -->
-<h1 id="exercise-1-install-bedmap-to-visualize-antarctica-ice-data" class="anchor">Exercise 1: Install Bedmap to visualize Antarctica ice data  </h1>
-<h2 id="background" class="anchor">Background  </h2>
-<p>There is currently a great deal of concern about global warming.
-Some critical issues are whether we are more likely to observe
-extreme local temperatures, increased frequencies of natural
-disasters like forest fires and droughts, and if there are
-"tipping points" in the climate system that are, at least on the
-human timescale, irreversible <a href="#IPCC2021">[1]</a>.
-One particular question to ask is: How much ice is likely to melt?
-And, what would be the consequence of ice melting for sea level rise (SLR)?
-</p>
-
-<p>Since most of the ice on Planet Earth is located in Antarctica, substantial
-effort has been spent in mapping the ice and the bedrock of this continent.
-Most of the data is freely available, and we can use Python to investigate
-different scenarios. Here we will only show you how to install the packages and visualize the ice thickness. 
-</p>
-
-<p>
-<b>Part 1.</b>
-</p>
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Create a new environment</b>
-<p>The ice data are located in the <em>bedmap2</em> dataset <a href="#fretwell2013bedmap2">[2]</a>
-The <a href="https://github.com/fatiando/rockhound" target="_self">rockhound</a>
-library can be used to load the data. As an aid to plotting, you might also want to use color maps from the
-<a href="https://pypi.org/project/cmocean/" target="_self">cmocean</a> package <a href="#thyng2016true">[3]</a>. To install bedmap2 data you have to create a new conda environment (we call it ice)
-</p>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;">conda config --add channels conda-forge
-conda create -n ice python matplotlib numpy \ 
-scipy xarray==0.19.0 pandas rockhound cmocean pip jupyter
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Note that we need a specific version of the <code>xarray</code> library.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;">conda activate ice
-jupyter notebook
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<p>
-<b>Part 2.</b>
-The code below is taken from the
-<a href="https://www.fatiando.org/rockhound/latest/api/generated/rockhound.fetch_bedmap2.html" target="_self">rockound library documentation</a>:
-</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">rockhound</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">rh</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">cmocean</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
-
-bedmap <span style="color: #666666">=</span> rh<span style="color: #666666">.</span>fetch_bedmap2(datasets<span style="color: #666666">=</span>[<span style="color: #BA2121">&quot;thickness&quot;</span>,<span style="color: #BA2121">&quot;surface&quot;</span>,<span style="color: #BA2121">&quot;bed&quot;</span>])
-plt<span style="color: #666666">.</span>figure(figsize<span style="color: #666666">=</span>(<span style="color: #666666">8</span>, <span style="color: #666666">7</span>))
-ax <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>subplot(<span style="color: #666666">111</span>)
-bedmap<span style="color: #666666">.</span>surface<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>pcolormesh(ax<span style="color: #666666">=</span>ax,cmap<span style="color: #666666">=</span>cmocean<span style="color: #666666">.</span>cm<span style="color: #666666">.</span>ice,
-                       cbar_kwargs<span style="color: #666666">=</span><span style="color: #008000">dict</span>(pad<span style="color: #666666">=0.01</span>, aspect<span style="color: #666666">=30</span>))
-plt<span style="color: #666666">.</span>title(<span style="color: #BA2121">&quot;Bedmap2 Antarctica&quot;</span>)
-plt<span style="color: #666666">.</span>tight_layout()
-plt<span style="color: #666666">.</span>show()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ul>
-<li> Run the code and reproduce figure <a href="#fig:bedmap2_ice_thickness">1</a>, modify the code to plot the ice surface or the bed rock.</li>
-</ul>
-<center> <!-- figure label: --> <div id="fig:bedmap2_ice_thickness"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 1: Visualization of the ice thickness in Antarctica.  <!-- caption label: fig:bedmap2_ice_thickness --></p>
-</center>
-<p><img src="fig-project1/bedmap2_plot.png" width="800" align="bottom"></p>
-</center>
-
-<ul>
-<li> Check out <a href="https://www.fatiando.org/rockhound/latest/gallery/index.html" target="_self">the gallery</a>. Choose one of the datasets, copy and paste the code and reproduce one of the figures in the gallery.</li> 
-</ul>
-<h1 id="exercise-2-matplotlib-visualization" class="anchor">Exercise 2: Matplotlib visualization  </h1>
-<p>To access the data a bit easier I have added a file <code>draugen_pandas.py</code> in the <code>data</code> folder containing our data as lists. We can access them by importing them directly into our script. However, as we are in the <code>src</code> folder it causes a practical problem to access a Python file in a different folder and the only way to do this is to add the <code>data</code> folder to our path</p>
+<h1 id="exercise-1-matplotlib-visualization" class="anchor">Exercise 1: Matplotlib visualization  </h1>
+<p>In <code>jotun_data.py</code> in the <code>data</code> folder "official production data":" <a href="https://factpages.sodir.no/en/field/PageView/All/43604" target="_self"><tt>https://factpages.sodir.no/en/field/PageView/All/43604</tt></a>" are available as lists. You can import them as </p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -288,8 +162,8 @@ plt<span style="color: #666666">.</span>show()
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
   <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
-sys<span style="color: #666666">.</span>path<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;../data/&#39;</span>)
-<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">draugen_data</span> <span style="color: #008000; font-weight: bold">import</span> years,months,oil,gas,wat,cond,oe
+sys<span style="color: #666666">.</span>path<span style="color: #666666">.</span>append(<span style="color: #BA2121">&#39;../data/&#39;</span>)<span style="color: #3D7B7B; font-style: italic"># alternatively put jotun_data.py in your folder</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">jotun_data</span> <span style="color: #008000; font-weight: bold">import</span> years, months, oil_gross, gas_gross, oe_gross, wat_prod
 </pre>
 </div>
       </div>
@@ -306,14 +180,19 @@ sys<span style="color: #666666">.</span>path<span style="color: #666666">.</span
 </div>
 
 <p>
-<b>Question1:</b>
+<b>Question:</b>
 </p>
 <ul>
-<li> Use matplotlib to plot oil equivalents, <code>oe</code>, vs the <code>years</code> data, compare with the <a href="https://factpages.sodir.no/en/field/PageView/All/43758" target="_self">official data</a>.</li>
+<li> Use matplotlib to plot oil equivalents, <code>oe_gross</code> vs the <code>years</code> data. Try to make the plot as similar as possible to figure <a href="#p1:jotun">1</a>.</li>
 </ul>
-<p>
-<b>Solution:</b>
-</p>
+<center> <!-- figure label: --> <div id="p1:jotun"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 1: Jotun production data.  <!-- caption label: p1:jotun --></p>
+</center>
+<p><img src="fig-project1/jotun.png" width="800" align="bottom"></p>
+</center>
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -321,8 +200,524 @@ sys<span style="color: #666666">.</span>path<span style="color: #666666">.</span
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
-plt<span style="color: #666666">.</span>plot(years,oe)
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-2-loop-over-data" class="anchor">Exercise 2: Loop over data  </h1>
+<p>Oil equivalents are simply the sum of oil volumes and gas volumes. (Or to be more specific: The convention used when comparing gas volumes with oil volumes is to divide the gas volumes by 1000, see <a href="https://www.sodir.no/en/about-us/use-of-content/conversion-table/" target="_self">conversion factors</a>. However, we do not need to do anything here because the unit of the gas volumes in <code>jotun_data.py</code> is \( 10^9 \) Sm$^3$ and the oil volumes in \( 10^6 \) Sm$^3$.)</p>
+
+<p>Thus, to calculate oil equivalents from our lists that contain oil and gas volumes you just have to add them together.</p>
+
+<p>
+<b>Question 1:</b>
+Use vanilla Python to loop over <code>oil_gross</code> and <code>gas_gross</code>, create a new <em>list</em>, which holds your calculated oil equivalents volumes. Note: You can compare with <code>oe_gross</code> to check if your calculations are correct.</p>
+
+<p>
+<b>Question 2:</b>
+Convert your lists to <code>numpy.arrays</code>, by doing e.g. <code>np.array(oil_gross)</code>. Perform the same calculation as in Question 1, but this time using Numpy (and no loop).</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-3-boolean-masking" class="anchor">Exercise 3: Boolean masking  </h1>
+
+<p>
+<b>Question 1:</b>
+Use vanilla Python to create a loop and sum up all oil equivalents that was produced for the year 2000. (If you did everything correct you should get 7.529206 10$^6$Sm$^3$ for the year 2000.)</p>
+
+<p>Create to new <code>numpy.arrays</code>, by</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">years_np<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array(years)
+oe_np<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array(oe_gross)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Question 2:</b>
+Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use <code>np.sum()</code> to sum all the volumes. </p>
+
+<p>
+<b>Question 3:</b>
+Use <code>np.unique()</code> to create a unique <code>np.array()</code> of years. Loop over this array and use Boolean masking to create a new list (or <code>np.array()</code>) that holds the total produced oil equivalents for that year.</p>
+
+<p>
+<b>Question 4:</b>
+Use the results in the previous question to create a bar plot and compare with figure <a href="#p1:jotun2">2</a></p>
+
+<center> <!-- figure label: --> <div id="p1:jotun2"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 2: Jotun production data.  <!-- caption label: p1:jotun2 --></p>
+</center>
+<p><img src="fig-project1/jotun_oe.png" width="800" align="bottom"></p>
+</center>
+
+<h1 id="exercise-4-dictionaries-and-pandas-dataframe" class="anchor">Exercise 4: Dictionaries and Pandas DataFrame </h1>
+
+<p>
+<b>Question 1:</b>
+Create a dictionary that holds all the Jotun data you imported in Exercise 1. Choose suitable key names.</p>
+
+<p>
+<b>Question 2:</b>
+Create a loop over all the keys in the dictionary and show how you can print out the keys and the values in the dictionary.</p>
+
+<p>
+<b>Question 3:</b>
+Create a DataFrame from your dictionary. Show how we can use <code>DataFrame.groupby().sum()</code> to find production of oil, gas, water, and oil equivalents per year. </p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-5-extract-data-using-a-function" class="anchor">Exercise 5: Extract data using a function  </h1>
+
+<p>
+<b>Question:</b>
+Create a function from the following code. The function should take as argument the field name and return a DataFrame with field data. Include a docstring in the function.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df_prod<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
+df<span style="color: #666666">=</span>df_prod[df_prod[<span style="color: #BA2121">&#39;Field (Discovery)&#39;</span>] <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;JOTUN&#39;</span>]
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(field):
+    <span style="color: #3D7B7B; font-style: italic"># write code here ..</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #3D7B7B; font-style: italic">#...</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Optional:</b>
+Make the function more robust, by allowing for case insensitive names and/or give a warning if no data was extracted for the field.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-6-create-a-function-for-plotting-data" class="anchor">Exercise 6: Create a function for plotting data  </h1>
+
+<p>
+<b>Question 1:</b>
+Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. Hint: you should use the function you wrote in the previous exercise to extract the data. </p>
+
+<p>
+<b>Question 2:</b>
+Extend the function such that if no data is extracted from the field, write a warning and do not make the plot. (Note: you can use <code>DataFrame.empty()</code> to check if the DataFrame contains data.) </p>
+
+<p>
+<b>Optional:</b>
+Extend the function such that it can take in a list of values (e.g. gas, oil, etc.) that should be plotted in the same plot.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-7-write-data-to-files" class="anchor">Exercise 7: Write data to files  </h1>
+
+<p>
+<b>Question 1:</b>
+Explain what the following code does. By adding comment lines to each line of the following code.</p>
+
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">field<span style="color: #666666">=</span><span style="color: #BA2121">&#39;JOTUN&#39;</span> <span style="color: #3D7B7B; font-style: italic"># com1</span>
+<span style="color: #3D7B7B; font-style: italic">#--------- start --------</span>
+df<span style="color: #666666">=</span>get_data(field) <span style="color: #3D7B7B; font-style: italic"># com2</span>
+data_folder<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;tmp_data&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># com3 </span>
+data_folder<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)<span style="color: #3D7B7B; font-style: italic"># etc.</span>
+new_name<span style="color: #666666">=</span><span style="color: #008000">str</span><span style="color: #666666">.</span>replace(field,<span style="color: #BA2121">&#39;/&#39;</span>,<span style="color: #BA2121">&#39;&#39;</span>)
+new_path<span style="color: #666666">=</span>data_folder <span style="color: #666666">/</span> new_name
+new_path<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+df2<span style="color: #666666">=</span>df[df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">==</span>field]
+df2<span style="color: #666666">.</span>to_excel(new_path<span style="color: #666666">/</span><span style="color: #BA2121">&#39;production_data.xlsx&#39;</span>,index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>)
+<span style="color: #3D7B7B; font-style: italic">#-------- stop ----------</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Question 2:</b>
+Create a function from the code between <code>-- start --</code> and <code>-- stop --</code>. It should take as argument the field name.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">write_data</span>(field):
+    <span style="color: #3D7B7B; font-style: italic"># ....</span>
+    <span style="color: #008000; font-weight: bold">return</span> <span style="color: #3D7B7B; font-style: italic">#optional </span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Question 3:</b>
+If your Excel file is open in another program, the command <code>df2.to_excel(new_path/'production_data.xlsx',index=False)</code>, will fail. Use the <code>try:</code> and <code>except:</code> commands to try and write the Excel file, and if this fails, give the user a warning.</p>
+
+<p>
+<b>Optional:</b>
+Extend the previous function and introduce a default argument, representing <code>tmp_data</code> so that the user can specify the directory name.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-8-loop-over-all-fields" class="anchor">Exercise 8: Loop over all fields  </h1>
+<p>The following code writes all field data to separate Excel files.</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
+fields<span style="color: #666666">=</span>df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">.</span>unique() <span style="color: #3D7B7B; font-style: italic">#skip duplicates</span>
+data_folder<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;tmp_data&#39;</span>)
+data_folder<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+<span style="color: #008000; font-weight: bold">for</span> field <span style="color: #AA22FF; font-weight: bold">in</span> fields:
+    new_name<span style="color: #666666">=</span><span style="color: #008000">str</span><span style="color: #666666">.</span>replace(field,<span style="color: #BA2121">&#39;/&#39;</span>,<span style="color: #BA2121">&#39;&#39;</span>)
+    new_path<span style="color: #666666">=</span>data_folder <span style="color: #666666">/</span> new_name
+    new_path<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+    df2<span style="color: #666666">=</span>df[df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">==</span>field]
+    df2<span style="color: #666666">.</span>to_excel(new_path<span style="color: #666666">/</span><span style="color: #BA2121">&#39;production_data.xlsx&#39;</span>,index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>
+<b>Question:</b>
+Use one or several functions to achieve the same as the block of code above does. Comment on your choice.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-9-lambda-functions" class="anchor">Exercise 9: lambda functions  </h1>
+<p>Rewrite the following functions, using Pythons <code>lambda</code> function</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_space</span>(x):
+    <span style="color: #008000; font-weight: bold">return</span> x<span style="color: #666666">.</span>strip()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">upper_case</span>(x):
+    <span style="color: #008000; font-weight: bold">return</span> x<span style="color: #666666">.</span>upper()
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-10-assert-your-code" class="anchor">Exercise 10: Assert your code  </h1>
+<p>Create two assert tests for <code>remove_space</code> and <code>upper_case</code> defined in the previous exercise.</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 id="exercise-11-a-simple-class" class="anchor">Exercise 11: A simple class  </h1>
+
+<p>
+<b>Question1:</b>
+Take a look at the following class, and explain what each line does, by adding comments behind each line.</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">DeclineCurve</span>:
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>,q,tau):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>q<span style="color: #666666">=</span>q 
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>tau<span style="color: #666666">=</span>tau
+    
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(<span style="color: #008000">self</span>,t):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>q<span style="color: #666666">*</span>np<span style="color: #666666">.</span>exp(<span style="color: #666666">-</span>t<span style="color: #666666">/</span><span style="color: #008000">self</span><span style="color: #666666">.</span>tau)
 </pre>
 </div>
       </div>
@@ -340,178 +735,7 @@ plt<span style="color: #666666">.</span>plot(years,oe)
 
 <p>
 <b>Question2:</b>
-Our plot looks a bit strange, because we do not take into account the month column. Instead of only plotting the year array, plot  <code>years+months/12</code> on the x-axis.
-</p>
-
-<p>
-<b>Solution:</b>
-</p>
-<h3 id="use-vanilla-python-hard" class="anchor">Use vanilla Python (hard) </h3>
-<p>Here we need to loop over all elements and for each year add the month, divided by 12 to convert the month to year. What we want is</p>
-
-<ol>
-<li> To start with an empty list <code>year_month=[]</code></li>
-<li> Loop over all elements and add first year and first month divided by 12</li>
-</ol>
-<div class="alert alert-block alert-success alert-text-normal"><b>How do we do loop over elements in Python?</b>
-<p>We loop over elements using a <code>for</code> loop. The keyword <code>for</code> is always accompanied by the <code>in</code> keyword. </p>
-</div>
-
-
-<p>
-<b>Method 1:</b>
-</p>
-
-<p>If you have coded before, this might be very familiar.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">N<span style="color: #666666">=</span><span style="color: #008000">len</span>(years) <span style="color: #3D7B7B; font-style: italic"># N is the length of the years list</span>
-year_month<span style="color: #666666">=</span>[]
-<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
-    year_month<span style="color: #666666">.</span>append(years[i]<span style="color: #666666">+</span>months[i]<span style="color: #666666">/12</span>)   
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Indentation matters!</b>
-<p>The for-loop above ends with <code>:</code>, and then Python uses indentation (a tab) to indicate a block of code. <em>You have to use the same amount of spaces in the same block of code.</em> The following code will give an <em>error</em>.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
-year_month<span style="color: #666666">.</span>append(years[i]<span style="color: #666666">+</span>months[i]<span style="color: #666666">/12</span>)<span style="color: #3D7B7B; font-style: italic">#Error!! because no indentation</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<p>The statement <code>range(N)</code> is a <em>generator</em> and it generates a sequence of integers with length \( N \), starting from zero to \( N-1 \).</p>
-
-<p>
-<b>Method2:</b>
-</p>
-
-<p>This method is slightly more pythonic, than the previous. Instead of accessing the different elements in <code>years</code> by <code>years[i]</code>, we can loop directly over them</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">i<span style="color: #666666">=0</span>
-<span style="color: #008000; font-weight: bold">for</span> year <span style="color: #AA22FF; font-weight: bold">in</span> years:
-    year_month<span style="color: #666666">.</span>append(year<span style="color: #666666">+</span>months[i]<span style="color: #666666">/12</span>)
-    i <span style="color: #666666">=</span> i<span style="color: #666666">+1</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Meaningful variable names</b>
-<p>The specific name we give the counter, <code>year</code>, is not important for the computer. But if you choose a descriptive name it makes the code easier to read for humans.</p>
-</div>
-
-
-<p>The code above is ok, but it seems unnecessary to introduce the extra counter <code>i</code>, the way that we have done it. To access the index of each element in addition to the value, we can use the <code>enumerate()</code> function </p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">for</span> i,year <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(years):
-    year_month<span style="color: #666666">.</span>append(year<span style="color: #666666">+</span>months[i]<span style="color: #666666">/12</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>
-<b>Method3:</b>
-</p>
-
-<p>If you have lists of the same length we can access the elements in a loop using the <code>zip</code> function</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">for</span> month,year <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(months,years):
-    year_month<span style="color: #666666">.</span>append(year<span style="color: #666666">+</span>month<span style="color: #666666">/12</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The <code>zip</code> function uses a nice feature in Python, which is called <em>variable unpacking</em>. This is a special assignment operation, where we can assign all variables in a an iterable object in one go e.g.</p>
+Add a function to the class, named <code>plot()</code>, such that the following code produce the output in figure <a href="#fig:p1:dec">3</a>. (To create a suitable list of <code>t</code> values you can do <code>t=np.linspace(0,10,1000)</code>, or more general <code>t=np.linspace(0,10*self.tau,1000)</code>)</p>
 
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
@@ -520,36 +744,8 @@ year_month<span style="color: #666666">.</span>append(years[i]<span style="color
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">=</span>[<span style="color: #666666">2024</span>,<span style="color: #666666">1</span>,<span style="color: #666666">9</span>]
-year,month,day<span style="color: #666666">=</span>my_list <span style="color: #3D7B7B; font-style: italic">#year=2024,month=1,day=9</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>
-<b>Method4:</b>
-</p>
-
-<p><a href="https://www.w3schools.com/python/python_lists_comprehension.asp" target="_self">*List comprehension*</a> is a very pythonic way of creating new lists. It allows us to write a for loop while creating a python list.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">year_month <span style="color: #666666">=</span> [year<span style="color: #666666">+</span>month<span style="color: #666666">/12</span> <span style="color: #008000; font-weight: bold">for</span> month,year <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(months,years)]
+  <pre style="line-height: 125%;">A<span style="color: #666666">=</span>DeclineCurve(<span style="color: #666666">1</span>,<span style="color: #666666">1</span>)
+A<span style="color: #666666">.</span>plot()
 </pre>
 </div>
       </div>
@@ -566,112 +762,16 @@ year,month,day<span style="color: #666666">=</span>my_list <span style="color: #
 </div>
 
 
-<ul>
-<li> Use one of the methods above <code>year_month=np.array(year)+np.array(month)/12</code> and create a new plot, with <code>year_month</code> on the x-axis.</li>
-<li> Try to make the plot as similar as possible to figure <a href="#fig:p1:ose">2</a></li> 
-</ul>
-<h3 id="convert-list-to-numpy-arrays-and-plot-easy" class="anchor">Convert list to Numpy arrays and plot (easy) </h3>
-
-<p>As we have seen <code>year_month=year+month/12</code> will not work for lists as Python does not understand what <code>month/12</code> is, and even if it did the <code>+</code> operation would not give the expected results. But, if we convert our list to a Numpy array, life becomes easy. To convert a list to a Numpy array, we use what programmers calls <a href="https://www.w3schools.com/python/python_casting.asp" target="_self">*casting*</a>. Casting is when we tell the computer to convert a variable from one type to another, e.g.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_list<span style="color: #666666">=</span>[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>]
-my_np_array<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array(my_list) <span style="color: #3D7B7B; font-style: italic"># cast to array</span>
-<span style="color: #3D7B7B; font-style: italic"># more examples</span>
-a<span style="color: #666666">=</span><span style="color: #BA2121">&#39;1&#39;</span> <span style="color: #3D7B7B; font-style: italic"># a is a string</span>
-b<span style="color: #666666">=</span><span style="color: #BA2121">&#39;2&#39;</span> <span style="color: #3D7B7B; font-style: italic"># b is a string</span>
-a<span style="color: #666666">+</span>b <span style="color: #3D7B7B; font-style: italic"># gives a new string &#39;12&#39;</span>
-<span style="color: #008000">int</span>(a)<span style="color: #666666">+</span><span style="color: #008000">int</span>(b) <span style="color: #3D7B7B; font-style: italic"># gives integer 3</span>
-<span style="color: #008000">float</span>(a)<span style="color: #666666">+</span><span style="color: #008000">float</span>(b) <span style="color: #3D7B7B; font-style: italic"># gives float 3.0</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Vectorized operations in Numpy</b>
-<p>One of the major strengths of Numpy is that it is vectorized. This means that mathematical operations you do with numbers such as <code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, you can also do with Numpy arrays with the effect that the operation is done on each element. <em>This only works if the arrays have the same length.</em> The only exception is if one of the elements is a single number, e.g.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #ffffff">
-  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># will divide all elements in month by 12</span>
-np<span style="color: #666666">.</span>array(months)<span style="color: #666666">/12</span>
-<span style="color: #3D7B7B; font-style: italic"># add first element in year with first element in month/12 and so on</span>
-np<span style="color: #666666">.</span>array(years)<span style="color: #666666">+</span>np<span style="color: #666666">.</span>array(months)<span style="color: #666666">/12</span> 
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<ul>
-<li> Use <code>year_month=np.array(years)+np.array(months)/12</code> and create a new plot, with <code>year_month</code> on the x-axis.</li>
-<li> Try to make the plot as similar as possible to figure <a href="#fig:p1:ose">2</a></li> 
-</ul>
-<center> <!-- figure label: --> <div id="fig:p1:ose"></div> <!-- FIGURE -->
+<center> <!-- figure label: --> <div id="fig:p1:dec"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 2: Production of oil equivalents on the Draugen vs time.  <!-- caption label: fig:p1:ose --></p>
+<p class="caption">Figure 3: An exponential decline curve.  <!-- caption label: fig:p1:dec --></p>
 </center>
-<p><img src="fig-project1/oseberg.png" width="800" align="bottom"></p>
-</center>
-
-<h1 id="exercise-3-group-data" class="anchor">Exercise 3: Group data  </h1>
-<p>If you compare the plot in figure <a href="#fig:p1:ose">2</a> with <a href="https://factpages.sodir.no/en/field/PageView/All/43758" target="_self">the official plot</a>, and for convenience illustrated below in figure <a href="#fig:p1:ose2">3</a>, you will see that they are different. The difference is that the production in figure <a href="#fig:p1:ose">2</a> is per month, whereas in figure <a href="#fig:p1:ose2">3</a> the production is per year.     </p>
-
-<center> <!-- figure label: --> <div id="fig:p1:ose2"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 3: Production of oil equivalents on the Draugen field.  <!-- caption label: fig:p1:ose2 --></p>
-</center>
-<p><img src="fig-project1/oseberg_npd.png" width="800" align="bottom"></p>
+<p><img src="fig-project1/decline.png" width="800" align="bottom"></p>
 </center>
 
-<p>
-<b>Question:</b>
-Use the imported data for Draugen, and plot the production per year vs time. That means we want to sum up all oil equivalents when the years have the same value. 
-</p>
-
-<p>
-<b>Solution1, Vanilla Python (hard):</b>
-</p>
-
-<p>There are probably many ways of solving this problem, but here we will use a dictionary. The reason we use a dictionary is that there will be an unique key (the year) for each entry. The tricky part is the initialization</p>
-<ul>
-<li> if the key exists in the dictionary, we want to add the oil equivalents to the previous values,</li>
-<li> if the key does not exists (we have not summed the oil equivalents for that year) we need for that key to set the first value.</li>
-</ul>
-<p>Thus we need to check if the key already exists</p>
+<h1 id="exercise-12-a-more-comprehensive-class" class="anchor">Exercise 12: A more comprehensive class  </h1>
+<p>Inspect the following class</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -679,13 +779,19 @@ Use the imported data for Draugen, and plot the production per year vs time. Tha
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">data<span style="color: #666666">=</span>{} <span style="color: #3D7B7B; font-style: italic">#just an empty dictionary</span>
-<span style="color: #008000; font-weight: bold">for</span> year,o <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(years,oe):
-    key<span style="color: #666666">=</span>year
-    <span style="color: #008000; font-weight: bold">if</span> key <span style="color: #AA22FF; font-weight: bold">in</span> data: <span style="color: #3D7B7B; font-style: italic">#key exists</span>
-       data[key] <span style="color: #666666">+=</span> o <span style="color: #3D7B7B; font-style: italic">#add oil equivalents</span>
-    <span style="color: #008000; font-weight: bold">else</span>: <span style="color: #3D7B7B; font-style: italic"># new key</span>
-       data[key] <span style="color: #666666">=</span> o  <span style="color: #3D7B7B; font-style: italic">#set equal to first month	    	  </span>
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ProdData</span>:
+<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">    A class to extract production data from FactPages</span>
+<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
+    
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>,field):
+<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Extracts data for a specific field</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        df<span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod[(<span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod[<span style="color: #BA2121">&#39;Field (Discovery)&#39;</span>] <span style="color: #666666">==</span> field)]
+        <span style="color: #008000; font-weight: bold">return</span> df   
 </pre>
 </div>
       </div>
@@ -701,460 +807,29 @@ Use the imported data for Draugen, and plot the production per year vs time. Tha
   </div>
 </div>
 
-<p>Next, we need to extract all oil equivalents for each year, and make the plot</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">oe_per_year<span style="color: #666666">=</span>[data[key] <span style="color: #008000; font-weight: bold">for</span> key <span style="color: #AA22FF; font-weight: bold">in</span> data] <span style="color: #3D7B7B; font-style: italic">#list comprehension</span>
-year<span style="color: #666666">=</span>[key <span style="color: #008000; font-weight: bold">for</span> key <span style="color: #AA22FF; font-weight: bold">in</span> data]
-plt<span style="color: #666666">.</span>plot(year,oe_per_year)
-plt<span style="color: #666666">.</span>bar(year,oe_per_year,color<span style="color: #666666">=</span><span style="color: #BA2121">&#39;orange&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>
-<b>Solution2, Numpy and Boolean masking (hard):</b>
-</p>
-
-<p>We can also Boolean masking, if we convert the lists to Numpy arrays. If we want to pick out all data for a specific year, e.g. 2008 and sum the oil equivalents we can do as follows</p>
-<ul>
-<li> <code>np.array(years) == 2008</code> will give <code>True</code> for all entries containing 2008 and <code>False</code> otherwise</li>
-<li> If we pass this to our oil equivalent array, only the values corresponding to <code>True</code> will be picked out and then we can quickly sum them by <code>np.sum</code></li>
-</ul>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">years<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array(years) <span style="color: #3D7B7B; font-style: italic"># cast to Numpy array</span>
-oe<span style="color: #666666">=</span>np<span style="color: #666666">.</span>array(oe) <span style="color: #3D7B7B; font-style: italic"># ditto</span>
-np<span style="color: #666666">.</span>sum(oe[years<span style="color: #666666">==2008</span>]) <span style="color: #3D7B7B; font-style: italic"># 4.265517 mill Sm^3</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Now, we just need to loop over all the years and collect the data</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">unique_list<span style="color: #666666">=</span>np<span style="color: #666666">.</span>unique(years) <span style="color: #3D7B7B; font-style: italic">#remove duplicates</span>
-oe_tot<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
-<span style="color: #008000; font-weight: bold">for</span> year <span style="color: #AA22FF; font-weight: bold">in</span> unique_list:
-    oe_tot<span style="color: #666666">.</span>append(np<span style="color: #666666">.</span>sum(oe[years<span style="color: #666666">==</span>year]))
-<span style="color: #3D7B7B; font-style: italic">#make the plot</span>
-plt<span style="color: #666666">.</span>plot(unique_list,oe_tot)
-plt<span style="color: #666666">.</span>bar(unique_list,oe_tot,color<span style="color: #666666">=</span><span style="color: #BA2121">&#39;orange&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>
-<b>Solution3, Pandas (easy):</b>
-</p>
-
-<p>To use Pandas we need to make a DataFrame of the data and then we use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html" target="_self"><tt>groupby</tt></a> function in Pandas, which is extremely powerful.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame() <span style="color: #3D7B7B; font-style: italic"># empty DataFrame</span>
-df[<span style="color: #BA2121">&#39;Year&#39;</span>]<span style="color: #666666">=</span>years
-df[<span style="color: #BA2121">&#39;oe&#39;</span>]<span style="color: #666666">=</span>oe
-<span style="color: #008000">print</span>(df) <span style="color: #3D7B7B; font-style: italic"># inspect to see what happens</span>
-df2<span style="color: #666666">=</span>df<span style="color: #666666">.</span>groupby(by<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Year&#39;</span>)<span style="color: #666666">.</span>sum()
-<span style="color: #008000">print</span>(df2) <span style="color: #3D7B7B; font-style: italic"># inspect to see what happens</span>
-df2<span style="color: #666666">.</span>plot<span style="color: #666666">.</span>bar() <span style="color: #3D7B7B; font-style: italic">#make the plot</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Note that most of the code above was to create the DataFrame. Pandas also has built-in plotting.</p>
-<h1 id="exercise-4-read-tabulated-data-from-file" class="anchor">Exercise 4: Read tabulated data from file </h1>
-<p>As part of this project we will look at some of the datasets that
-are available at the Norwegian Offshore Directorate
-<a href="https://factpages.sodir.no/" target="_self">website</a>.
-</p>
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Data directory</b>
-<p>In the following we will assume that you have a <code>src</code> directory containing all your Python code and a <code>data</code> folder inside your course folder. Thus, if you are in your <code>src</code> folder you can access files in the <code>data</code> folder by moving one folder up an down inside your <code>data</code> folder.</p>
-</div>
-
-
-<p>Choose one or more of the exercises below
-<h2 id="pandas-easy" class="anchor">Pandas (easy): </h2>
-Pandas will most likely be your first choice, because it has so much built in functionalities
-</p>
-
-<ul>
-<li> Run the following code and explain why the first <code>pd.read_csv</code> fails or does not produce the output we want</li>
-</ul>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>)
-<span style="color: #008000">print</span>(df)
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
-<span style="color: #008000">print</span>(df)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ul>
-<li> Print only the year column from <code>df</code> i) using the label <code>Year</code> and ii) <code>df.columns[0]</code></li>
-<li> Print the column with oil equivalents</li>
-</ul>
-<h2 id="numpy-loadtxt-medium" class="anchor"><code>numpy.loadtxt</code> (medium): </h2>
-
-<p><code>Numpy.loadtxt</code> is a build in function in Numpy that reads tabulated data. It does not know how to process header lines, and we need to skip them.</p>
-
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
-data<span style="color: #666666">=</span>np<span style="color: #666666">.</span>loadtxt(<span style="color: #BA2121">&#39;../data/draugen.txt&#39;</span>,skiprows<span style="color: #666666">=1</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ul>
-<li> How can you print out only the year, month, etc. columns from the <code>data</code> variable?</li>
-<li> Use <code>data=np.loadtxt('../data/draugen.txt',skiprows=1,unpack=True)</code>, what changes now?</li> 
-</ul>
-<h2 id="vanilla-python-hard" class="anchor">Vanilla Python (hard): </h2>
-
-<p>When accessing files, it can be easy to forget to <em>close</em> the file after opening it. This can lead to problems as an open file, in many cases, cannot be accessed by other programs. To avoid this we use the <code>with</code> statement. The following code can be used to print out all the lines of a file, and Python will open and close the file for you</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&quot;../data/draugen.txt&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> my_file:
-     <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> my_file:
-     	 <span style="color: #008000">print</span>(line)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>After the code is run, the variable <code>line</code> will still hold the last line of the file, which should be <code>'2023\t10\t0.072419\t0.019985\t0\t0.092404\t1.005672\n'</code>. The first two numbers are year (2023) and the month (10), for the rest check the header in the file. The <code>\t</code> means tabular and <code>\n</code> means a newline. In order to parse this line we need to pick out the numbers, the easiest way in Python is to split the line on <code>\t</code>, if you do</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">data_list<span style="color: #666666">=</span>line<span style="color: #666666">.</span>split(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
-<span style="color: #008000">print</span>(data_list)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>we conveniently get all the elements separated by <code>\t</code> into a list (of strings). To convert a string to a number we can do e.g. <code>float(data_list[0])</code>.</p>
-
-<ul>
-<li> Modify the following code to extract year, month, and oil equivalents. Remember we need to skip the first header line, which contains only text.</li>
-</ul>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">years<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
-months<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
-oe<span style="color: #666666">=</span>[] <span style="color: #3D7B7B; font-style: italic"># empty list</span>
-read_first_line<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>
-<span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&quot;../data/draugen.txt&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> my_file:
-     <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> my_file:
-     	 <span style="color: #008000; font-weight: bold">if</span> read_first_line:
-	    data_list<span style="color: #666666">=</span>line<span style="color: #666666">.</span>split(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>)
-	    years<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(data_list[<span style="color: #666666">0</span>]))
-	    <span style="color: #3D7B7B; font-style: italic">#same for month</span>
-	    <span style="color: #3D7B7B; font-style: italic">#same for oil equivalents</span>
-	 read_first_line<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>
-	 
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h3 id="store-the-data-in-a-dictionary-optional" class="anchor">Store the data in a dictionary (optional) </h3>
-<p>Tabulated data with a header is perfect for a dictionary, here we create a dictionary based on the header in the file.</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">data_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;year&#39;</span>:[], <span style="color: #BA2121">&#39;month&#39;</span>:[],<span style="color: #BA2121">&#39;oil&#39;</span>:[],<span style="color: #BA2121">&#39;gas&#39;</span>:[],<span style="color: #BA2121">&#39;cond&#39;</span>:[],<span style="color: #BA2121">&#39;oe&#39;</span>:[],<span style="color: #BA2121">&#39;wat&#39;</span>:[]}
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ul>
-<li> modify the code above to store all data in each line in the dictionary. To loop over all entries in the <code>data_dict</code>, and the list elements in <code>data_list</code>, you can use the <code>zip</code> function</li>
-</ul>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">for</span> key,data <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">zip</span>(data_dict,data_list):
-    data_dict[key]<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(data))
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h1 id="exercise-5-splitting-data-into-files-using-pandas" class="anchor">Exercise 5: Splitting data into files using Pandas  </h1>
-<p>If you open the file <code>field_production_gross_monthly.xlsx</code> in the <code>data</code> folder in Excel, you will see that the field names are listed in the leftmost column.</p>
-
-<p>
-<b>Question:</b>
-Open the file <code>field_production_gross_monthly.xlsx</code> in Pandas and write a new file in the same directory containing only data for a given field.
-</p>
-
-<p>
-<b>Solution:</b>
-</p>
-
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span> 
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
-field<span style="color: #666666">=</span><span style="color: #BA2121">&#39;DRAUGEN&#39;</span>
-file_out<span style="color: #666666">=</span><span style="color: #BA2121">&#39;../data/&#39;</span><span style="color: #666666">+</span>field<span style="color: #666666">+</span><span style="color: #BA2121">&#39;.xlsx&#39;</span>
-df2<span style="color: #666666">=</span>df[df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">==</span>field]
-df2<span style="color: #666666">.</span>to_excel(file_out,index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The tricky part is perhaps the syntax <code>df[df[df.columns[0]]==field]</code>. To understand it in more detail, start by printing the innermost statements and work from there</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]) <span style="color: #3D7B7B; font-style: italic"># gives the header of the first column</span>
-<span style="color: #3D7B7B; font-style: italic"># gives True for all entries in the first column that contains</span>
-<span style="color: #3D7B7B; font-style: italic"># the specific field name (in this case DRAGUEN) </span>
-df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">==</span>field
-<span style="color: #3D7B7B; font-style: italic"># Following code is equivalent, we use iloc to specify the first column</span>
-df<span style="color: #666666">.</span>iloc[:,<span style="color: #666666">0</span>]<span style="color: #666666">==</span>field
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h1 id="exercise-6-splitting-all-field-data-into-separate-files" class="anchor">Exercise 6: Splitting all field data into separate files   </h1>
-
-<p>
-<b>Question:</b>
-Split all production in <code>field_production_gross_monthly.xlsx</code> into different Excel files containing only data from one specific field.</p>
-
-<p>To help you, here are the different steps</p>
-
+<p>Add the following functions to the class:</p>
 <ol>
-<li> First we need to find a unique list of all field names, this can be done by <code>fields=df[df.columns[0]].unique()</code></li>
-<li> Then we need to loop over all these fields and perform the operations as in the previous exercise</li>
+<li> <code>write_data(field)</code> write data for a single field to an Excel file</li>
+<li> <code>write_all_data()</code> write an Excel file for each field</li>
+<li> A function to plot production data for a field</li>
 </ol>
 <p>
-<b>Solution:</b>
+<b>The following is optional:</b>
 </p>
+<ol>
+<li> Add some checking to the functions, this could be a sensible error message if e.g. the file <code>../data/field_production_gross_monthly.xlsx</code> does not exists or that it is not possible to write data to file.</li>
+<li> Add some unit tests using assert, this could be to check that the oil produced for a certain year (and month) for a specific field is equal to a specific value.</li>
+</ol>
+<h1 id="optional-exercise-13-the-dash-library" class="anchor">(OPTIONAL) Exercise 13: The Dash library  </h1>
+<p><a href="https://dash.plotly.com/" target="_self">The Dash library</a> is one of the most popular libraries. Install it by doing</p>
 
-<p>There is one problem, and that is that some of the field names contains a slash <code>/</code>. A <code>/</code> indicates a new directory which does not exists, hence we need to replace the slash  with something else</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<!-- code=text (!bc sys) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
-fields<span style="color: #666666">=</span>df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">.</span>unique()
-<span style="color: #008000; font-weight: bold">for</span> field <span style="color: #AA22FF; font-weight: bold">in</span> fields:
-    new_name<span style="color: #666666">=</span><span style="color: #008000">str</span><span style="color: #666666">.</span>replace(field,<span style="color: #BA2121">&#39;/&#39;</span>,<span style="color: #BA2121">&#39;&#39;</span>)
-    file_out<span style="color: #666666">=</span><span style="color: #BA2121">&#39;../data/&#39;</span><span style="color: #666666">+</span>new_name<span style="color: #666666">+</span><span style="color: #BA2121">&#39;.xlsx&#39;</span>
-    df2<span style="color: #666666">=</span>df[df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">==</span>field]
-    df2<span style="color: #666666">.</span>to_excel(file_out,index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>)
+  <pre style="line-height: 125%;">conda install dash
 </pre>
 </div>
       </div>
@@ -1169,56 +844,57 @@ fields<span style="color: #666666">=</span>df[df<span style="color: #666666">.</
     </div>
   </div>
 </div>
-<h1 id="exercise-7-splitting-field-data-into-separate-files-and-folder" class="anchor">Exercise 7: Splitting field data into separate files and folder  </h1>
-<p>Splitting the data into different Excel files generates a lot of files in the same directory.</p>
+
+<p>(If this fails, run <code>pip install dash</code>). Run the following code, which is copied from <a href="https://dash.plotly.com/minimal-app" target="_self">a minimal dash app</a>.</p>
+
+<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">dash</span> <span style="color: #008000; font-weight: bold">import</span> Dash, html, dcc, callback, Output, Input
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">plotly.express</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">px</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
+
+df <span style="color: #666666">=</span> pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv&#39;</span>)
+
+app <span style="color: #666666">=</span> Dash(<span style="color: #19177C">__name__</span>)
+
+app<span style="color: #666666">.</span>layout <span style="color: #666666">=</span> html<span style="color: #666666">.</span>Div([
+    html<span style="color: #666666">.</span>H1(children<span style="color: #666666">=</span><span style="color: #BA2121">&#39;Title of Dash App&#39;</span>, style<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;textAlign&#39;</span>:<span style="color: #BA2121">&#39;center&#39;</span>}),
+    dcc<span style="color: #666666">.</span>Dropdown(df<span style="color: #666666">.</span>country<span style="color: #666666">.</span>unique(), <span style="color: #BA2121">&#39;Canada&#39;</span>, <span style="color: #008000">id</span><span style="color: #666666">=</span><span style="color: #BA2121">&#39;dropdown-selection&#39;</span>),
+    dcc<span style="color: #666666">.</span>Graph(<span style="color: #008000">id</span><span style="color: #666666">=</span><span style="color: #BA2121">&#39;graph-content&#39;</span>)
+])
+
+<span style="color: #AA22FF">@callback</span>(
+    Output(<span style="color: #BA2121">&#39;graph-content&#39;</span>, <span style="color: #BA2121">&#39;figure&#39;</span>),
+    Input(<span style="color: #BA2121">&#39;dropdown-selection&#39;</span>, <span style="color: #BA2121">&#39;value&#39;</span>)
+)
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">update_graph</span>(value):
+    dff <span style="color: #666666">=</span> df[df<span style="color: #666666">.</span>country<span style="color: #666666">==</span>value]
+    <span style="color: #008000; font-weight: bold">return</span> px<span style="color: #666666">.</span>line(dff, x<span style="color: #666666">=</span><span style="color: #BA2121">&#39;year&#39;</span>, y<span style="color: #666666">=</span><span style="color: #BA2121">&#39;pop&#39;</span>)
+
+<span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;__main__&#39;</span>:
+    app<span style="color: #666666">.</span>run(debug<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p>
 <b>Question:</b>
-Use Pathlib to split the data into a different folder. All data should be stored in a folder named <code>tmp_data</code>, the <code>tmp_data</code> should contain a directory named after the field and this folder should contain a file named <code>production_data.xlsx</code> containing only data for that field.</p>
-
-<p>
-<b>Solution:</b>
-</p>
-
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
-fields<span style="color: #666666">=</span>df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">0</span>]]<span style="color: #666666">.</span>unique() <span style="color: #3D7B7B; font-style: italic">#skip duplicates</span>
-data_folder<span style="color: #666666">=</span>pt<span style="color: #666666">.</span>Path(<span style="color: #BA2121">&#39;../tmp_data&#39;</span>)
-data_folder<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
-<span style="color: #008000; font-weight: bold">for</span> field <span style="color: #AA22FF; font-weight: bold">in</span> fields:
-    new_name<span style="color: #666666">=</span><span style="color: #008000">str</span><span style="color: #666666">.</span>replace(field,<span style="color: #BA2121">&#39;/&#39;</span>,<span style="color: #BA2121">&#39;&#39;</span>)
-    new_path<span style="color: #666666">=</span>data_folder <span style="color: #666666">/</span> new_name
-    new_path<span style="color: #666666">.</span>mkdir(exist_ok<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
-    df2<span style="color: #666666">.</span>to_excel(new_path<span style="color: #666666">/</span><span style="color: #BA2121">&#39;production_data.xlsx&#39;</span>,index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h1 id="bibliography" class="anchor">Bibliography </h1>
-
-<!-- begin bibliography -->
-<ol>
- <li> <div id="IPCC2021"></div> <b>V. Masson-Delmotte, P. Zhai, A. Pirani, S. L. Connors, C. Pean, S. Berger, N. Caud, Y. Chen, L. Goldfarb, M. I. Gomis, M. Huang, K. Leitzell, E. Lonnoy, J. B. R. Matthews, T. K. Maycock, T. Waterfield, O. Yelekci, R. Yu and B. Z. (eds.)</b>.  Climate Change 2021: the Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, <em>Cambridge University Press. In Press.</em>, 2021.</li>
- <li> <div id="fretwell2013bedmap2"></div> <b>P. Fretwell, H. D. Pritchard, D. G. Vaughan, J. L. Bamber, N. E. Barrand, R. Bell, C. Bianchi, R. Bingham, D. D. Blankenship and G. Casassa</b>.  Bedmap2: Improved Ice Bed, Surface and Thickness Datasets for Antarctica, <em>The Cryosphere</em>, 7(1), pp. 375-393, 2013.</li>
- <li> <div id="thyng2016true"></div> <b>K. M. Thyng, C. A. Greene, R. D. Hetland, H. M. Zimmerle and S. F. DiMarco</b>.  True Colors of Oceanography: Guidelines for Effective and Accurate Colormap Selection, <em>Oceanography</em>, 29(3), pp. 9-13, 2016.</li>
-</ol>
-<!-- end bibliography -->
+Can you modify the code above to read and plot our data in <code>../data/field_production_gross_monthly.xlsx</code>? (Note: you can also download the production data directly by copying the correct address, by right-clicking on the Excel (or csv) tab <a href="https://factpages.sodir.no/en/field/TableView/Production/SumWellbores/Monthly" target="_self">here</a>.) </p>
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">

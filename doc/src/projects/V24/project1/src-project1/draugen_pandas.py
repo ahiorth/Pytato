@@ -182,3 +182,159 @@ import matplotlib.pyplot as plt
 
 plt.plot(year,oe)
 # %%
+import pandas as pd
+field='JOTUN'
+col='Field (Discovery)'
+df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+df2=df[df[col] == field]
+# %%
+cols=[1,2,3,4,6,7]
+names=['years','months','oil_gross','gas_gross','oe_gross','wat_prod']
+
+with open(field.lower()+'_data.py','w') as f:
+    for col,coln in zip(cols,names):
+        f.write(coln+'=')
+        f.write(str(list(df2.iloc[:,col])))
+        f.write('\n')
+
+
+
+
+# %%
+from jotun_data import years, months, oil_gross,gas_gross, oe_gross, wat_prod
+# %%
+import matplotlib.pyplot as plt
+plt.plot(years,oe_gross,'-o',c='g',label='Oil Equivalents')
+plt.xlabel('Years')
+plt.ylabel('Produced volumes [10$^6$ Sm$^3$] per month')
+plt.title('Jotun')
+plt.grid()
+plt.legend()
+plt.savefig('../fig-project1/jotun.png')
+# %%
+import numpy as np
+xx=np.array(oil_gross)+np.array(gas_gross)
+print(xx[:10])
+oe_gross[:10]
+# %%
+years_np=np.array(years)
+oe_np=np.array(oe_gross)
+y_un=np.unique(years_np)
+oe_tot=[]
+for y in y_un:
+    oe_tot.append(np.sum(oe_np[years_np==y]))
+
+plt.bar(y_un,oe_tot,label='Oil Equivalents')
+plt.xlabel('Years')
+plt.ylabel('Produced volumes [10$^6$ Sm$^3$] per year')
+plt.title('Jotun')
+plt.grid()
+plt.legend()
+plt.savefig('../fig-project1/jotun_oe.png')
+# %%
+
+np.sum(oe_np[years_np==2000])
+
+# %%
+my_dict={'year':years,'month':months,'oil':oil_gross,
+         'gas':gas_gross,'wat':wat_prod,'oe':oe_gross}
+
+for key in my_dict:
+    print(key)
+    print(my_dict[key])
+# %%
+df=pd.DataFrame(my_dict)
+df.groupby('year').sum()
+# %%
+df.groupby('year').sum()
+# %%
+import pathlib as pt
+def get_data(field):
+    """
+    Extracts data for a specific field
+    """
+    field = field.upper() #optional
+    df_prod=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+    df= df_prod[df_prod['Field (Discovery)'] == field]
+    if df.empty: #optional
+        print('No data for ', field)
+    return df
+field='JOTUN'
+df=get_data(field)
+data_folder=pt.Path('tmp_data')
+data_folder.mkdir(exist_ok=True)
+new_name=str.replace(field,'/','')
+new_path=data_folder / new_name
+new_path.mkdir(exist_ok=True)
+df2=df[df[df.columns[0]]==field]
+df2.to_excel(new_path/'production_data.xlsx',index=False)
+# %%
+def write_data(field):
+    df=get_data(field)
+    data_folder=pt.Path('tmp_data')
+    data_folder.mkdir(exist_ok=True)
+    new_name=str.replace(field,'/','')
+    new_path=data_folder / new_name
+    new_path.mkdir(exist_ok=True)
+    df2=df[df[df.columns[0]]==field]
+    try:
+        df2.to_excel(new_path/'production_data.xlsx',index=False)
+    except:
+        print('Failed to save data, for field ')
+    return 
+
+write_data('JOTUN')
+# %%
+df=pd.read_excel('../data/field_production_gross_monthly.xlsx')
+fields=df[df.columns[0]].unique() #skip duplicates
+data_folder=pt.Path('tmp_data')
+data_folder.mkdir(exist_ok=True)
+for field in fields:
+    new_name=str.replace(field,'/','')
+    new_path=data_folder / new_name
+    new_path.mkdir(exist_ok=True)
+    df2=df[df[df.columns[0]]==field]
+    file=new_name+'.xlsx'
+    df2.to_excel(new_path/file,index=False)
+# %%
+def find_files_of_type(dir='.',extensions=['.xlsx','.txt','.INC']):
+    """
+    return a list files of type defined in extensions
+    """
+    p=pt.Path(dir)
+    files=[]
+    for ext in extensions:
+        for x in p.rglob("*"+ext):
+            if x.is_file():
+                files.append(x.absolute())
+    return files
+
+import shutil 
+p=pt.Path('.')
+trash_folder=pt.Path('Trash')
+trash_folder.mkdir(exist_ok=True)
+for x in p.rglob('*.xlsx'):
+    if x.is_file():
+        shutil.move(x,trash_folder)
+# %%
+import numpy as np
+import matplotlib.pyplot as plt
+class DeclineCurve:
+    def __init__(self,q,tau):
+        self.q=q 
+        self.tau=tau
+    
+    def f(self,t):
+        return self.q*np.exp(-t/self.tau)
+
+    def plot(self):
+        t=np.linspace(0,10,1000)
+        y=self.f(t)
+        plt.plot(t,y)
+        plt.grid()
+        plt.xlabel('t')
+        plt.ylabel('f(t)')
+        plt.savefig('../fig-project1/decline.png')    
+A=DeclineCurve(1,1)
+A.plot()
+# %%

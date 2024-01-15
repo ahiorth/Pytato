@@ -110,16 +110,16 @@ if [ ! -d $dest ]; then
   mkdir $dest
   mkdir $dest/pdf
   mkdir $dest/html
-#  mkdir $dest/notebook
+  mkdir $dest/notebook
 fi
 cp -v ${nickname}*.pdf $dest/pdf/
 
-#doconce format ipynb ${mainname}
-#cp ${mainname}.ipynb $dest/notebook/
-#if [ -e ipynb-${mainname}*.tar.gz ]; then
-#  tar xvfz ipynb-${mainname}*.tar.gz  -C $dest/notebook/
-#  cp ipynb*.tar.gz  $dest/notebook/
-#fi
+doconce format ipynb ${mainname}
+cp ${mainname}.ipynb $dest/notebook/
+if [ -e ipynb-${mainname}*.tar.gz ]; then
+  tar xvfz ipynb-${mainname}*.tar.gz  -C $dest/notebook/
+  cp ipynb*.tar.gz  $dest/notebook/
+fi
 
 
 datadir=data/
