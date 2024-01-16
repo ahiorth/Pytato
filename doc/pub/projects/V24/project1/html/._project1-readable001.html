@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html project1.do.txt LANG=C.UTF-8 --html_style=bootswatch_readable --html_output=project1-readable --html_code_style=inherit
 -->
 <html>
@@ -7,8 +8,8 @@ doconce format html project1.do.txt LANG=C.UTF-8 --html_style=bootswatch_readabl
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="E-MOD321 Basic Python coding for subsurface applications">
-<title>E-MOD321 Basic Python coding for subsurface applications</title>
+<meta name="description" content="E-MOD321 Project in Basic Python coding for subsurface applications">
+<title>E-MOD321 Project in Basic Python coding for subsurface applications</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html project1.do.txt LANG=C.UTF-8 --html_style=bootswatch_readable --html_output=project1-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -120,7 +121,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="project1-readable.html">E-MOD321 Basic Python coding for subsurface applications</a>
+    <a class="navbar-brand" href="project1-readable.html">E-MOD321 Project in Basic Python coding for subsurface applications</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -188,9 +189,9 @@ sys<span style="color: #666666">.</span>path<span style="color: #666666">.</span
 <center> <!-- figure label: --> <div id="p1:jotun"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 1: Jotun production data.  <!-- caption label: p1:jotun --></p>
+<p class="caption">Figure 1:  Jotun production data.  <!-- caption label: p1:jotun --> </p>
 </center>
-<p><img src="fig-project1/jotun.png" width="800" align="bottom"></p>
+<p><img src="fig-project1/jotun.png" align="bottom" width=800></p>
 </center>
 
 
@@ -256,7 +257,10 @@ Convert your lists to <code>numpy.arrays</code>, by doing e.g. <code>np.array(oi
 <b>Question 1:</b>
 Use vanilla Python to create a loop and sum up all oil equivalents that was produced for the year 2000. (If you did everything correct you should get 7.529206 10$^6$Sm$^3$ for the year 2000.)</p>
 
-<p>Create to new <code>numpy.arrays</code>, by</p>
+<p>
+<b>Question 2:</b>
+Create to new <code>numpy.arrays</code>, by
+</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -281,9 +285,7 @@ oe_np<span style="color: #666666">=</span>np<span style="color: #666666">.</span
   </div>
 </div>
 
-<p>
-<b>Question 2:</b>
-Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use <code>np.sum()</code> to sum all the volumes. </p>
+<p>Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use <code>np.sum()</code> to sum all the volumes. </p>
 
 <p>
 <b>Question 3:</b>
@@ -296,25 +298,16 @@ Use the results in the previous question to create a bar plot and compare with f
 <center> <!-- figure label: --> <div id="p1:jotun2"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 2: Jotun production data.  <!-- caption label: p1:jotun2 --></p>
+<p class="caption">Figure 2:  Jotun production data.  <!-- caption label: p1:jotun2 --> </p>
 </center>
-<p><img src="fig-project1/jotun_oe.png" width="800" align="bottom"></p>
+<p><img src="fig-project1/jotun_oe.png" align="bottom" width=800></p>
 </center>
 
 <h1 id="exercise-4-dictionaries-and-pandas-dataframe" class="anchor">Exercise 4: Dictionaries and Pandas DataFrame </h1>
 
 <p>
 <b>Question 1:</b>
-Create a dictionary that holds all the Jotun data you imported in Exercise 1. Choose suitable key names.</p>
-
-<p>
-<b>Question 2:</b>
-Create a loop over all the keys in the dictionary and show how you can print out the keys and the values in the dictionary.</p>
-
-<p>
-<b>Question 3:</b>
-Create a DataFrame from your dictionary. Show how we can use <code>DataFrame.groupby().sum()</code> to find production of oil, gas, water, and oil equivalents per year. </p>
-
+Create a dictionary that holds all the Jotun data (i.e. <code>years, months, oil_gross, gas_gross, oe_gross, wat_prod</code>) you imported in Exercise 1. Choose suitable key names to use in the dictionary.</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -322,7 +315,7 @@ Create a DataFrame from your dictionary. Show how we can use <code>DataFrame.gro
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic">#answer</span>
+  <pre style="line-height: 125%;">data_dict<span style="color: #666666">=</span>{<span style="color: #3D7B7B; font-style: italic"># fill inn}</span>
 </pre>
 </div>
       </div>
@@ -337,6 +330,14 @@ Create a DataFrame from your dictionary. Show how we can use <code>DataFrame.gro
     </div>
   </div>
 </div>
+
+<p>
+<b>Question 2:</b>
+Create a loop over all the keys in <code>data_dict</code> and show how you can print out the keys and the values in the dictionary.</p>
+
+<p>
+<b>Question 3:</b>
+Create a DataFrame from your dictionary. Show how we can use <code>DataFrame.groupby().sum()</code> to find production of oil, gas, water, and oil equivalents per year. </p>
 <h1 id="exercise-5-extract-data-using-a-function" class="anchor">Exercise 5: Extract data using a function  </h1>
 
 <p>
@@ -418,7 +419,31 @@ Make the function more robust, by allowing for case insensitive names and/or giv
 
 <p>
 <b>Question 1:</b>
-Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. Hint: you should use the function you wrote in the previous exercise to extract the data. </p>
+Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. (Hint: you should use the function you wrote in the previous exercise to extract the data.)</p>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">plot_field</span>(field):
+    <span style="color: #3D7B7B; font-style: italic"># create plot ...</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p>
 <b>Question 2:</b>
@@ -765,9 +790,9 @@ A<span style="color: #666666">.</span>plot()
 <center> <!-- figure label: --> <div id="fig:p1:dec"></div> <!-- FIGURE -->
 <hr class="figure">
 <center>
-<p class="caption">Figure 3: An exponential decline curve.  <!-- caption label: fig:p1:dec --></p>
+<p class="caption">Figure 3:  An exponential decline curve.  <!-- caption label: fig:p1:dec --> </p>
 </center>
-<p><img src="fig-project1/decline.png" width="800" align="bottom"></p>
+<p><img src="fig-project1/decline.png" align="bottom" width=800></p>
 </center>
 
 <h1 id="exercise-12-a-more-comprehensive-class" class="anchor">Exercise 12: A more comprehensive class  </h1>
@@ -898,6 +923,7 @@ Can you modify the code above to read and plot our data in <code>../data/field_p
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._project1-readable000.html">&larr; Prev</a>
   </li>
@@ -914,4 +940,5 @@ Can you modify the code above to read and plot our data in <code>../data/field_p
 -->
 </body>
 </html>
+    
 

@@ -1,4 +1,4 @@
-TITLE: E-MOD321 Basic Python coding for subsurface applications 
+TITLE: E-MOD321 Project in Basic Python coding for subsurface applications 
 AUTHOR: Aksel Hiorth
 DATE: today
 
@@ -13,10 +13,11 @@ import pathlib as pt
 !ec
 # # endif
 __Learning objectives.__
-* Create an environment using conda and install required packages
-* Use Pandas to combine and manipulate data from different input, Excel and comma separated values (CSV),  files.
-* Wrap code in functions to reuse them
-* Visualize data using "`matplotlib`":"https://matplotlib.org" and the "Pandas library":"https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html".  
+* Create simple plots using "`matplotlib`":"https://matplotlib.org".
+* Loop over, group and filter data.
+* Use vanilla Python, Numpy and Pandas to achieve similar results.
+* Wrap code in functions to reuse code.
+* Wrap data and functions into classes to create good interfaces.
 
 TOC: on
 
@@ -73,13 +74,14 @@ __Question 2:__ Convert your lists to `numpy.arrays`, by doing e.g. `np.array(oi
 
 __Question 1:__ Use vanilla Python to create a loop and sum up all oil equivalents that was produced for the year 2000. (If you did everything correct you should get 7.529206 10$^6$Sm$^3$ for the year 2000.)
 
+
+__Question 2:__
 Create to new `numpy.arrays`, by
 !bc pycod
 years_np=np.array(years)
 oe_np=np.array(oe_gross)
 !ec
-
-__Question 2:__ Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use `np.sum()` to sum all the volumes. 
+Show how you can use Boolean masking to pick out only produced oil equivalents for the year 2000, without using a loop. Use `np.sum()` to sum all the volumes. 
 
 __Question 3:__ Use `np.unique()` to create a unique `np.array()` of years. Loop over this array and use Boolean masking to create a new list (or `np.array()`) that holds the total produced oil equivalents for that year.
 
@@ -110,16 +112,14 @@ plt.legend()
 <% ex_id += 1 %>
 ======= Exercise ${ex_id}: Dictionaries and Pandas DataFrame =======
 
-__Question 1:__ Create a dictionary that holds all the Jotun data you imported in Exercise 1. Choose suitable key names.
-
-__Question 2:__ Create a loop over all the keys in the dictionary and show how you can print out the keys and the values in the dictionary.
-
-__Question 3:__ Create a DataFrame from your dictionary. Show how we can use `DataFrame.groupby().sum()` to find production of oil, gas, water, and oil equivalents per year. 
-
+__Question 1:__ Create a dictionary that holds all the Jotun data (i.e. `years, months, oil_gross, gas_gross, oe_gross, wat_prod`) you imported in Exercise 1. Choose suitable key names to use in the dictionary.
 !bc pycod
-#answer
+data_dict={# fill inn}
 !ec
 
+__Question 2:__ Create a loop over all the keys in `data_dict` and show how you can print out the keys and the values in the dictionary.
+
+__Question 3:__ Create a DataFrame from your dictionary. Show how we can use `DataFrame.groupby().sum()` to find production of oil, gas, water, and oil equivalents per year. 
 
 # #ifdef SOLUTIONS
 !bc pypro
@@ -176,7 +176,12 @@ df=get_data('JOTUN')
 <% ex_id += 1 %>
 ======= Exercise ${ex_id}: Create a function for plotting data  =======
 
-__Question 1:__ Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. Hint: you should use the function you wrote in the previous exercise to extract the data. 
+__Question 1:__ Create a function that takes as argument the name of a field, and plots oil equivalent production vs time. (Hint: you should use the function you wrote in the previous exercise to extract the data.)
+
+!bc pycod
+def plot_field(field):
+    # create plot ...
+!ec
 
 __Question 2:__ Extend the function such that if no data is extracted from the field, write a warning and do not make the plot. (Note: you can use `DataFrame.empty()` to check if the DataFrame contains data.) 
 
