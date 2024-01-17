@@ -1,6 +1,6 @@
-TITLE: Exercises-I
+TITLE: Exercises II
 AUTHOR: Aksel Hiorth
-University of Stavanger, Institute for Energy Resources, Norway
+University of Stavanger
 DATE: today
 
 TOC: on
@@ -9,7 +9,7 @@ TOC: on
 # Common Mako variables and functions
 # #include "../mako_code.txt"
 
-# #include "exercises.do.txt"
+# #include "ex2.do.txt"
 
 ======= Bibliography =======
 
