@@ -1,0 +1,192 @@
+<!--
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_functions.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=functions-readable --html_code_style=inherit --encoding=utf-8
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Create your own functions">
+<meta name="keywords" content="docstring,positional arguments,default arguments,try, and except,raise,assert">
+<title>Create your own functions</title>
+<!-- Bootstrap style: bootswatch_readable -->
+<!-- doconce format html main_functions.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=functions-readable --html_code_style=inherit --encoding=utf-8 -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
+<!-- not necessary
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+-->
+<style type="text/css">
+/* Let inline verbatim have the same color as the surroundings */
+code { color: inherit; background-color: transparent; }
+/* Add scrollbar to dropdown menus in bootstrap navigation bar */
+.dropdown-menu {
+   height: auto;
+   max-height: 400px;
+   overflow-x: hidden;
+}
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:64px;      /* fixed header height for style bootswatch_readable */
+  margin:-64px 0 0; /* negative fixed header height */
+}
+</style>
+</head>
+
+<!-- tocinfo
+{'highest level': 1,
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('What is a function?', 1, None, 'what-is-a-function'),
+              ('How to create a function in Python',
+               2,
+               None,
+               'how-to-create-a-function-in-python'),
+              ('When to define a function?',
+               1,
+               None,
+               'when-to-define-a-function'),
+              ('What is a good function?', 2, None, 'what-is-a-good-function'),
+              ('Special use of functions', 1, None, 'special-use-of-functions'),
+              ('Example: remove white space from rows in Pandas',
+               3,
+               None,
+               'example-remove-white-space-from-rows-in-pandas'),
+              ('Pythons lambda function', 1, None, 'pythons-lambda-function'),
+              ('Exercise:  Create a function from the following code',
+               1,
+               None,
+               'exercise-create-a-function-from-the-following-code'),
+              ('Making functions more general',
+               1,
+               None,
+               'making-functions-more-general'),
+              ('Improving robustness of functions',
+               1,
+               None,
+               'improving-robustness-of-functions'),
+              ('Assert, raise and try statements',
+               1,
+               None,
+               'assert-raise-and-try-statements'),
+              ('Try and Except', 2, None, 'try-and-except'),
+              ('Raise', 2, None, 'raise'),
+              ('Exercise: Improve `replace_chars` using raise',
+               3,
+               None,
+               'exercise-improve-replace-chars-using-raise'),
+              ('Using assert to test our code',
+               1,
+               None,
+               'using-assert-to-test-our-code'),
+              ('Bibliography', 1, None, 'bibliography')]}
+end of tocinfo -->
+
+<body>
+<!-- Bootstrap navigation bar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="functions-readable.html">Create your own functions</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._functions-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable001.html#what-is-a-function" style="font-size: 80%;"><b>What is a function?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable002.html#how-to-create-a-function-in-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;How to create a function in Python</a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable003.html#when-to-define-a-function" style="font-size: 80%;"><b>When to define a function?</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable004.html#what-is-a-good-function" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;What is a good function?</a></li>
+     <!-- navigation toc: --> <li><a href="#special-use-of-functions" style="font-size: 80%;"><b>Special use of functions</b></a></li>
+     <!-- navigation toc: --> <li><a href="#example-remove-white-space-from-rows-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: remove white space from rows in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable006.html#pythons-lambda-function" style="font-size: 80%;"><b>Pythons lambda function</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable007.html#exercise-create-a-function-from-the-following-code" style="font-size: 80%;"><b>Exercise:  Create a function from the following code</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable009.html#making-functions-more-general" style="font-size: 80%;"><b>Making functions more general</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable010.html#improving-robustness-of-functions" style="font-size: 80%;"><b>Improving robustness of functions</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable011.html#assert-raise-and-try-statements" style="font-size: 80%;"><b>Assert, raise and try statements</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable011.html#try-and-except" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Try and Except</a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable011.html#raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Raise</a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable011.html#exercise-improve-replace-chars-using-raise" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exercise: Improve <code>replace_chars</code> using raise</a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable012.html#using-assert-to-test-our-code" style="font-size: 80%;"><b>Using assert to test our code</b></a></li>
+     <!-- navigation toc: --> <li><a href="._functions-readable012.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div> <!-- end of navigation bar -->
+<div class="container">
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
+<a name="part0005"></a>
+<!-- !split -->
+<h1 id="special-use-of-functions" class="anchor">Special use of functions </h1>
+<p>Before proceeding, and discuss how you best can build your own functions. It is worth noting that to use some libraries effectively, you sometimes need to interact with the library via functions. Let us consider a simple example, assume that you have a DataFrame that contains white spaces or some other symbols you would like to remove. Then you can define your own function that does what you want on a single element and use the <code>apply()</code> function in Pandas</p>
+<h3 id="example-remove-white-space-from-rows-in-pandas" class="anchor">Example: remove white space from rows in Pandas </h3>
+
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># first create a simple DataFrame</span>
+<span style="color: #008000">dict</span><span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;col1&#39;</span>:[<span style="color: #BA2121">&#39;aa&#39;</span>, <span style="color: #BA2121">&#39; aa &#39;</span>, <span style="color: #BA2121">&#39;a b c &#39;</span>],<span style="color: #BA2121">&#39;col2&#39;</span>:[<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>]}
+df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(<span style="color: #008000">dict</span>)
+<span style="color: #008000">print</span>(df)
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">remove_space</span>(x):<span style="color: #3D7B7B; font-style: italic"># only works for single elements</span>
+    <span style="color: #008000; font-weight: bold">return</span> x<span style="color: #666666">.</span>strip()
+df[<span style="color: #BA2121">&#39;col1&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;col1&#39;</span>]<span style="color: #666666">.</span>apply(remove_space)
+<span style="color: #008000">print</span>(df)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Note: There already exists a function in Pandas for removing spaces (<code>df['col1'].str.strip()</code>), but with the above example you can easily extend the function to do other things.</p>
+
+<p>
+<!-- navigation buttons at the bottom of the page -->
+<ul class="pager">
+  <li class="previous">
+    <a href="._functions-readable004.html">&larr; Prev</a>
+  </li>
+  <li class="next">
+    <a href="._functions-readable006.html">Next &rarr;</a>
+  </li>
+</ul>
+<!-- ------------------- end of main content --------------- -->
+</div>  <!-- end container -->
+<!-- include javascript, jQuery *first* -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap footer
+<footer>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
+</footer>
+-->
+</body>
+</html>
+

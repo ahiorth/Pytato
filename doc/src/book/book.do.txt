@@ -34,12 +34,18 @@ label{ch:pr}
 
 # #include "../modules/import/import.do.txt"
 
+!split
+========= Exercises  =========
+label{ch:ex}
+
+# #include "../modules/exercises/exercises.do.txt"
+
 
 !split
 ========= Functions in Python  =========
 label{ch:func}
 
-# #include "../modules/func/func.do.txt"
+# #include "../modules/functions/functions.do.txt"
 
 !split
 ========= Classes in Python  =========
@@ -47,20 +53,19 @@ label{ch:class}
 
 # #include "../modules/classes/classes.do.txt"
 
+!split
+========= Exercises II  =========
+label{ch:ex2}
+
+# #include "../modules/exercises-2/exercises-2.do.txt"
 
 !split
 ========= Some advanced topics  =========
 label{ch:adv}
 
-# #include "../modules/adv/adv.do.txt"
+# #include "../modules/advanced/advanced.do.txt"
 
 
-
-!split
-========= Exercises  =========
-label{ch:ex}
-
-# #include "../modules/exercises/exercises.do.txt"
 
 
 !split

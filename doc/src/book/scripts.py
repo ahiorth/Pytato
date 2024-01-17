@@ -1,6 +1,6 @@
 import sys, re, os, shutil, glob
 
-chapters = "intro import exercises func classes adv".split()
+chapters = "intro import exercises exercises-2 functions classes advanced".split()
 chaptersdir = 'modules'
 
 ignored_files = '*.o *.so *.a *.pyc *.bak *.swp *~ .*~ *.old tmp* temp* .#* \\#* *.log *.dvi *.aux *.blg *.idx *.nav *.out *.toc *.snm *.vrb *.cproject *.project .DS_Store Trash'.split()
