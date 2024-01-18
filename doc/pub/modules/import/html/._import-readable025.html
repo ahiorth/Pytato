@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -7,9 +8,9 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas">
-<meta name="keywords" content="data structures,lists,list comprehension">
-<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</title>
+<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime">
+<meta name="keywords" content="vanilla Python,for loop,lists,generator,zip,append,matplotlib,data structures,lists,list comprehension,dictionaries,tuples,numpy,boolean masking,pathlib,pandas,DataFrame">
+<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -46,6 +47,20 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'one-reason-python-is-so-popular-the-import-statement'),
+              ('Vanilla Python', 1, None, 'vanilla-python'),
+              ('Vanilla Python: for loops',
+               1,
+               None,
+               'vanilla-python-for-loops'),
+              ('A more pythonic for loop', 2, None, 'a-more-pythonic-for-loop'),
+              ('Zip: how to loop over more than one list?',
+               2,
+               None,
+               'zip-how-to-loop-over-more-than-one-list'),
+              ('Append: create a new list',
+               2,
+               None,
+               'append-create-a-new-list'),
               ('Matplotlib: Basic plotting in Python',
                1,
                None,
@@ -58,6 +73,8 @@ code { color: inherit; background-color: transparent; }
               ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
               ('Lists', 2, None, 'lists'),
               ('List comprehension', 3, None, 'list-comprehension'),
+              ('List arithmetic', 3, None, 'list-arithmetic'),
+              ('List slicing', 3, None, 'list-slicing'),
               ('Exercise 2: Make a plot of $y=x^3$',
                1,
                None,
@@ -172,7 +189,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</a>
+    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -181,45 +198,52 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="._import-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable003.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable005.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable006.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable007.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable008.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable010.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable011.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable012.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable013.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable015.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable017.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable018.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable019.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable022.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable024.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
-     <!-- navigation toc: --> <li><a href="#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
-     <!-- navigation toc: --> <li><a href="#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
-     <!-- navigation toc: --> <li><a href="#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable026.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable002.html#vanilla-python" style="font-size: 80%;"><b>Vanilla Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#vanilla-python-for-loops" style="font-size: 80%;"><b>Vanilla Python: for loops</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#a-more-pythonic-for-loop" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;A more pythonic for loop</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#zip-how-to-loop-over-more-than-one-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Zip: how to loop over more than one list?</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#append-create-a-new-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Append: create a new list</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable005.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable007.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable008.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-arithmetic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List arithmetic</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-slicing" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List slicing</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable010.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable012.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable013.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable014.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable015.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable017.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable019.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable020.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable021.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable024.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
+     <!-- navigation toc: --> <li><a href="#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable026.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -231,10 +255,22 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0025"></a>
 <!-- !split -->
-<h2 id="accessing-data-in-dataframes" class="anchor">Accessing data in  DataFrames </h2>
-<h3 id="selecting-columns" class="anchor">Selecting columns  </h3>
+<h2 id="dataframe-the-basic-object-in-pandas" class="anchor">DataFrame: The basic object in Pandas </h2>
+<div class="alert alert-block alert-success alert-text-normal"><b>What is a DataFrame?</b>
+<p>You should think of a DataFrame as a single sheet in Excel with tabulated data. A DataFrame will typically have data stored with a header name and data in an array associated with that header, as illustrated in <a href="#fig:file">5</a>.  </p>
+</div>
 
-<p>If we want to pick out a specific column we can access it in the following ways</p>
+
+<center> <!-- figure label: --> <div id="fig:file"></div> <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 5:  Official Covid-19 data, and example of files (left) tab separated (right) excel file.  <!-- caption label: fig:file --> </p>
+</center>
+<p><img src="fig-import/covid_comb.png" align="bottom" width=800></p>
+</center>
+
+<p>If we have file in the <code>data</code> directory, we can import them into a DataFrame as follows</p>
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -242,13 +278,9 @@ MathJax.Hub.Config({
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># following two are equivalent</span>
-df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/corona_data.xlsx&#39;</span>)
-time<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;TIME&#39;</span>] <span style="color: #3D7B7B; font-style: italic"># by the name, alternatively</span>
-time<span style="color: #666666">=</span>df[df<span style="color: #666666">.</span>columns[<span style="color: #666666">1</span>]]
-<span style="color: #3D7B7B; font-style: italic"># following two are equivalent</span>
-time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>loc[:,[<span style="color: #BA2121">&#39;TIME&#39;</span>]] <span style="color: #3D7B7B; font-style: italic"># by loc[] if we use name</span>
-time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>iloc[:,<span style="color: #666666">1</span>] <span style="color: #3D7B7B; font-style: italic"># by iloc, pick column number 1</span>
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
+df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/corona_data.xlsx&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># excel file</span>
+df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/corona_data.dat&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># csv tab separated file</span>
 </pre>
 </div>
       </div>
@@ -264,34 +296,9 @@ time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>
   </div>
 </div>
 
-<p>The <code>loc[]</code> and <code>iloc[]</code> functions also allows for list slicing, one can then pick e.g. every second element in the column by <code>time=df.iloc[::2,1]</code> etc. The difference is that <code>loc[]</code> uses the name, and <code>iloc[]</code> the index (usually an integer). </p>
+<p>If the excel file has several sheets, you can give the sheet name directly, e.g. <code>df=pd.read_excel('file.xlsx',sheet_name=&quot;Sheet1&quot;)</code>, for more information see the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html" target="_self">documentation</a>. </p>
 
-<p>Why several ways of doing the same operation? It turns out that although we are able to extract what we want with these operations, they are of different type</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #008000">type</span>(df[<span style="color: #BA2121">&#39;TIME&#39;</span>]))
-<span style="color: #008000">print</span>(<span style="color: #008000">type</span>(df<span style="color: #666666">.</span>loc[:,[<span style="color: #BA2121">&#39;TIME&#39;</span>]]))
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h3 id="selecting-rows" class="anchor">Selecting rows  </h3>
-<p>When selecting rows in a DataFrame, we can use the <code>loc[]</code> and <code>iloc[]</code> functions</p>
+<p>We can easily save the data frame to excel format and open it in excel</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
@@ -299,9 +306,7 @@ time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># pick column number 0 and 1</span>
-time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>loc[<span style="color: #666666">0</span>:<span style="color: #666666">1</span>,:] <span style="color: #3D7B7B; font-style: italic"># by loc[] </span>
-time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>iloc[<span style="color: #666666">0</span>:<span style="color: #666666">2</span>,:] <span style="color: #3D7B7B; font-style: italic"># by iloc</span>
+  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>to_excel(<span style="color: #BA2121">&#39;covid19.xlsx&#39;</span>, index<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">False</span>) <span style="color: #3D7B7B; font-style: italic"># what happens if you put index=True?</span>
 </pre>
 </div>
       </div>
@@ -318,99 +323,18 @@ time<span style="color: #666666">=</span>df<span style="color: #666666">.</span>
 </div>
 
 
-<div class="alert alert-block alert-success alert-text-normal"><b><code>pandas.DataFrame.loc</code> vs <code>pandas.DataFrame.iloc</code></b>
-<p>When selecting rows <code>loc</code> and <code>iloc</code> they behave differently, <code>loc</code> includes the endpoints (in the example above both row 0 and 1), whereas <code>iloc</code> includes the starting point and up to 1 minus the endpoint. </p>
+<div class="alert alert-block alert-success alert-text-normal"><b>Index column</b>
+<p>Whenever you create a DataFrame Pandas by default create an index column, it contains an integer for each row starting at zero. It can be accessed by <code>df.index</code>, and it is also possible to define another column as index column. </p>
 </div>
-
-<h3 id="challenges-when-accessing-columns-or-rows" class="anchor">Challenges when accessing columns or rows </h3>
-
-<div class="alert alert-block alert-success alert-text-normal"><b>Special characters</b>
-<p>Sometimes when reading files from excel, headers may contains invisible characters like newline <code>\n</code> or tab <code>\t</code> or maybe Norwegian special letters that have not been read in properly. If you have problem accessing a column by name do <code>print(df.columns)</code> and check if the name matches what you would expect.  </p>
-</div>
-
-
-<p>If the header names has unwanted white space, one can do</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&#39; &#39;</span>, <span style="color: #BA2121">&#39;&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># all white spaces</span>
-df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>lstrip() <span style="color: #3D7B7B; font-style: italic"># the beginning of string</span>
-df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>rstrip() <span style="color: #3D7B7B; font-style: italic"># end of string</span>
-df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>strip()  <span style="color: #3D7B7B; font-style: italic"># both ends</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Similarly for unwanted tabs</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>columns <span style="color: #666666">=</span> df<span style="color: #666666">.</span>columns<span style="color: #666666">.</span>str<span style="color: #666666">.</span>replace(<span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>, <span style="color: #BA2121">&#39;&#39;</span>) <span style="color: #3D7B7B; font-style: italic"># remove tab</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>If you want to make sure that the columns does not contain any white spaces, one can use <a href="https://pandas.pydata.org/pandas-docs/version/1.2.4/reference/api/pandas.Series.str.strip.html" target="_self"><tt>pandas.Series.str.strip()</tt></a></p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;LOCATION&#39;</span>]<span style="color: #666666">.</span>str<span style="color: #666666">.</span>strip()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._import-readable024.html">&larr; Prev</a>
   </li>
+
   <li class="next">
     <a href="._import-readable026.html">Next &rarr;</a>
   </li>
@@ -427,4 +351,5 @@ df<span style="color: #666666">.</span>columns <span style="color: #666666">=</s
 -->
 </body>
 </html>
+    
 

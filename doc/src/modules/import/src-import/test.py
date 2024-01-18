@@ -79,3 +79,61 @@ for field in fields:
     df2.to_excel(new_path/'production_data.xlsx',index=False)
 
 # %%
+import matplotlib.pyplot as plt
+x=[1,2,3,4]
+y=[2,4,9,16] # y=x*x
+plt.plot(x,y,'-o',label='y=$x^2$')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Title of my plot')
+plt.legend() # try to remove and see what happens
+plt.grid()   # try to remove and see what happens
+plt.savefig('../fig-import/my_plot.png')
+# %%
+import numpy as np
+x=np.array([4,5,7,8,9]) #create numpy array from a list
+print(x>5) # [False, False, True, True, True]
+print(np.sum(x>5)) # 3
+print(x[x>5]) # [7,8,9]
+print(np.sum(x[x>5]))
+# %%
+list1=[10,20,30] # numbers, integers
+list2=[0.1,0.2,0.3] # numbers, floats
+list3=['dog','cat','mouse'] #strings
+# %%
+def replace_chars(name,*,chars=[" ", "/"],new_chars=["","_"]):
+    '''
+    returns a string where chars with new_chars are replaced in name
+    '''
+    if type(name)!=str:
+        raise ValueError('replace_chars: name must be a string')
+    if len(chars) != len(new_chars):
+        raise ValueError('replace_chars: chars and new_chars must same size')
+    new_name = name
+    for ch,nch in zip(chars,new_chars):
+        new_name = new_name.replace(ch, nch)
+    return new_name
+def apply(f,list):
+    '''
+    apply f on each element in the list
+    '''
+    new_list=[]
+    for l in list:
+        new_list.append(f(l))
+    return new_list
+my_list=[' / /', 'a/b/c']
+apply(replace_chars,my_list) # ['__','a_b_c']
+
+# %%
+def apply(f,list, *args,**kwargs):
+    '''
+    apply f on each element in the list
+    '''
+    new_list=[]
+    for l in list:
+        new_list.append(f(l,*args,**kwargs))
+    return new_list
+my_list=[' / /', 'a/b/c']
+apply(replace_chars,my_list,chars=[' '],new_chars=['X']) # ['X/X/','a/b/c']
+
+# %%

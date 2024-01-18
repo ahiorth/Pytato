@@ -53,57 +53,54 @@ Next, we must create an executable, run the following command (where your python
 
 ======= Passing functions to functions  =======
 
-In many cases, you would also pass a function to another function to make your code more modular. Lets say we want to calculate the derivative of $\sin x$, using the most basic definition of a derivative $f^\prime(x) = f(x+\Delta x)-f(x)/\Delta x$, we could do it as
-!bc pypro
-def derivative_of_sine(x,delta_x):
-    ''' returns the derivative of sin x '''
-    return (np.sin(x+delta_x)-np.sin(x))/delta_x
-
-print('The derivative of sinx at x=0 is :', derivative_of_sine(0,1e-3))
-!ec
-If we would like to calculate the derivative at multiple points, that is straightforward since we have used the Numpy version of $\sin x$.
-!bc pypro
-x=np.array([0,.5,1])
-print('Derivative of sinx at x=0,0.5,1 is :', derivative_of_sine(x,1e-3))
-!ec
-The challenge with our implementation is that if we want to calculate the derivative of another function we have to implement the derivative rule again for that function. It is better to have a separate function that calculates the derivative
-!bc pypro
-def f(x):
-    return np.sin(x)
-
-def df(x,f,delta_x=1e-3):
-    ''' returns the derivative of f '''
-    return (f(x+delta_x)-f(x))/delta_x
-print('Derivative of sinx at x=0 is :', df(0,f))
-!ec
-Note also that we have put `delta_x=1e-3` as a *default argument*. Default arguments have to come at the end of the argument lists, `df(x,delta_x=1e-3,f)` is not allowed. All of this looks well, but what you would experience is that your functions would not be as simple as $\sin x$. In many cases your functions need additional arguments to be evaluated e.g.:
-!bc pypro
-def s(t,s0,v0,a):
+In many cases it can be very beneficial to pass a function to another function to make your code smaller and reusable. To illustrate this we will make our own version of Pandas `apply()` function. In the chapter about functions we made a function that replaced characters in a string, for completeness we repeat it here
+!bc pycod
+def replace_chars(name,*,chars=[" ", "/"],new_chars=["","_"]):
     '''
-    t  : time
-    s0 : initial starting point
-    v0 : initial velocity
-    a  : acceleration
-    returns the distance traveled
+    returns a string where chars with new_chars are replaced in name
     '''
-    return s0+v0*t+a*t*t*0.5 #multiplication (0.5)is general faster
-    	   		     #than division (2)
+    if type(name)!=str:
+        raise ValueError('replace_chars: name must be a string')
+    if len(chars) != len(new_chars):
+        raise ValueError('replace_chars: chars and new_chars must same size')
+    new_name = name
+    for ch,nch in zip(chars,new_chars):
+        new_name = new_name.replace(ch, nch)
+    return new_name
 !ec
-How can we calculate the derivative of this function? If we try to do `df(1,s)` we will get the following message
-!bc pypro
-TypeError: s() missing 3 required positional
-	   arguments: 's0', 'v0', and 'a'
+`replace_chars` does not work on lists or arrays. However if we make the following function
+!bc pycod
+def apply(f,list):
+    '''
+    apply f on each element in the list
+    '''
+    new_list=[]
+    for l in list:
+        new_list.append(f(l))
+    return new_list
 !ec
-This happens because the `df` function expect that the function we send into the argument list has a call signature `f(x)`. What many people do to avoid this error is to use global variable, that is to define `s0, v0`, and `a` at the top of the code. This is not always the best solution. Python has a special variable `*args` which can be used to pass multiple arguments to your function, thus if we rewrite `df` like this
-!bc pypro
-def df(x,f,*args,delta_x=1e-3):
-    ''' returns the derivative of f '''
-    return (f(x+delta_x,*args)-f(x,*args))/delta_x
+We can now run the following code
+!bc pycod
+my_list=[' / /', 'a/b/c']
+apply(replace_chars,my_list) # ['__','a_b_c']
 !ec
-we can do (assuming `s0=0`, `v0=1`, and `a=9.8`)
-!bc pypro
-print('The derivative of sinx at x=0 is :', df(0,f))
-print('The derivative of s(t) at t=1 is :', df(0,s,0,1,9.8))
+The `apply()` function is extremely useful. But, it is not perfect. If we instead wanted to replace a white space with `X`, it is not possible to achieve this with the `apply()` function as it is defined now. The reason is that the `apply()` function assumes that the first argument in `apply()`, `f`, has a call signature `f(l)`, it is not possible to send arguments to `f(l)`. What we really want to do is to use `replace_chars(x,chars=[' '], new_chars=['X'])` on each element in the list.
+
+Python has a certain syntax to achieve this, it is possible to use `*args` for positional arguments and `**kwargs` for default arguments. By simply adding these two variables to the definition of our `apply()` function it becomes completely general
+!bc pycod
+def apply(f,list, *args,**kwargs):
+    '''
+    apply f on each element in the list
+    '''
+    new_list=[]
+    for l in list:
+        new_list.append(f(l,*args,**kwargs))
+    return new_list
+!ec
+The effect is that variables we would like to send to `f`, we have to add at the end of the `apply()` function.
+!bc pycod
+my_list=[' / /', 'a/b/c']
+apply(replace_chars,my_list,chars=[' '],new_chars=['X']) # ['X/X/','a/b/c']
 !ec
 
 ======= Scope of variables =======

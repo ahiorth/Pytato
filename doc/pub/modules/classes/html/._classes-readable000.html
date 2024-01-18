@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_classes.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=classes-readable --html_code_style=inherit
 -->
 <html>
@@ -86,10 +87,10 @@ MathJax.Hub.Config({
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="#table_of_contents" style="font-size: 80%;">Table of contents</a></li>
-     <!-- navigation toc: --> <li><a href="#why-classes" style="font-size: 80%;">Why classes?</a></li>
-     <!-- navigation toc: --> <li><a href="#example-a-class-for-production-data" style="font-size: 80%;">Example: A class for production data</a></li>
-     <!-- navigation toc: --> <li><a href="#exer:crash_course" style="font-size: 80%;">Example: A class for a mathematical function</a></li>
-     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;">Bibliography</a></li>
+     <!-- navigation toc: --> <li><a href="._classes-readable001.html#why-classes" style="font-size: 80%;">Why classes?</a></li>
+     <!-- navigation toc: --> <li><a href="._classes-readable001.html#example-a-class-for-production-data" style="font-size: 80%;">Example: A class for production data</a></li>
+     <!-- navigation toc: --> <li><a href="._classes-readable001.html#exer:crash_course" style="font-size: 80%;">Example: A class for a mathematical function</a></li>
+     <!-- navigation toc: --> <li><a href="._classes-readable001.html#bibliography" style="font-size: 80%;">Bibliography</a></li>
 
         </ul>
       </li>
@@ -114,7 +115,7 @@ MathJax.Hub.Config({
 <br>
 <p>University of Stavanger
 <center>
-<h4>Jan 17, 2024</h4>
+<h4>Jan 18, 2024</h4>
 </center> <!-- date -->
 <br>
 </p>
@@ -124,299 +125,20 @@ MathJax.Hub.Config({
 <h1 id="table_of_contents">Table of contents</h1>
 
 <div class='toc'>
-<p><a href="#why-classes"> Why classes? </a></p>
-<p><a href="#example-a-class-for-production-data"> Example: A class for production data </a></p>
-<p><a href="#exer:crash_course"> Example: A class for a mathematical function </a></p>
-<p><a href="#bibliography"> Bibliography </a></p>
+<p><a href="._classes-readable001.html#why-classes"> Why classes? </a></p>
+<p><a href="._classes-readable001.html#example-a-class-for-production-data"> Example: A class for production data </a></p>
+<p><a href="._classes-readable001.html#exer:crash_course"> Example: A class for a mathematical function </a></p>
+<p><a href="._classes-readable001.html#bibliography"> Bibliography </a></p>
 </div>
 <br>
 
-<!-- Common Mako variables and functions -->
-
-<!-- Here goes the main text. -->
-<!-- The text may be split into several files and included here -->
-<!-- via preprocess: # #include "file1.do.txt" etc -->
-<h1 id="why-classes" class="anchor">Why classes? </h1>
-<p>A class can be a way for you to create a clean interface to your code. You have already used a lot of classes. The <code>DataFrame()</code> in Pandas is a class, and we access functions inside this class by using a dot (<code>.</code>). Classes also provides encapsulation: 
-By wrapping parts of your code into classes, and particular realizations of
-classes (objects), you facilitate code re-use, and it can make your code
-easier to understand and work with, thus reducing the probability of
-introducing bugs which may be hard to track down.
-</p>
-
-<p>To get started, there are really only a couple of things you need to know.
-First, all of your classes should include a special function called <code>__init__</code>,
-in which you declare the variables (attributes) you wish an instance / object
-of the class to keep track of.
-</p>
-
-<p>Second, when setting, updating, or fetching attributes stored within the class,
-you should always use the prefix <code>self</code>, followed by a dot.
-Furthermore, the functions you define inside the class should have <code>self</code> as
-the first function argument (<a href="https://realpython.com/python3-object-oriented-programming/" target="_self">there are exceptions</a>),
-but we will not consider those here.
-</p>
-<h1 id="example-a-class-for-production-data" class="anchor">Example: A class for production data </h1>
-<p>Earlier in this course we have made functions to read data from an Excel file, and plot the data. This can also be done within a class, below is an example</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span> 
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">pd</span>
-<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
-
-<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ProdData</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">    A class to extract production data from FactPages</span>
-<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>):
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/field_production_gross_monthly.xlsx&#39;</span>)
-    
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_data</span>(<span style="color: #008000">self</span>,field):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">        Extracts data for a specific field</span>
-<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
-        df<span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod[(<span style="color: #008000">self</span><span style="color: #666666">.</span>df_prod[<span style="color: #BA2121">&#39;Field (Discovery)&#39;</span>] <span style="color: #666666">==</span> field)]
-        <span style="color: #008000; font-weight: bold">return</span> df
-    
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">plot</span>(<span style="color: #008000">self</span>,field,cols<span style="color: #666666">=</span>[<span style="color: #666666">3</span>,<span style="color: #666666">4</span>,<span style="color: #666666">5</span>,<span style="color: #666666">6</span>,<span style="color: #666666">7</span>]):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">        Plots the different columns in the DataFrame</span>
-<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
-        df<span style="color: #666666">=</span><span style="color: #008000">self</span><span style="color: #666666">.</span>get_data(field)
-        xcol<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;Year&#39;</span>]<span style="color: #666666">+</span>df[<span style="color: #BA2121">&#39;Month&#39;</span>]<span style="color: #666666">/12</span>
-        <span style="color: #008000; font-weight: bold">for</span> col <span style="color: #AA22FF; font-weight: bold">in</span> cols:
-            plt<span style="color: #666666">.</span>plot(xcol,df<span style="color: #666666">.</span>iloc[:,col],label<span style="color: #666666">=</span>df<span style="color: #666666">.</span>columns[col])
-        plt<span style="color: #666666">.</span>legend(loc<span style="color: #666666">=</span><span style="color: #BA2121">&#39;center&#39;</span>, bbox_to_anchor<span style="color: #666666">=</span>(<span style="color: #666666">0.5</span>,<span style="color: #666666">-.3</span>),
-          ncol<span style="color: #666666">=3</span>, fancybox<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>, shadow<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
-        plt<span style="color: #666666">.</span>title(field)
-        plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;Years&#39;</span>)
-        plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;mill Sm$^3$&#39;</span>)
-        plt<span style="color: #666666">.</span>grid()
-       
-ff<span style="color: #666666">=</span>ProdData()
-ff<span style="color: #666666">.</span>plot(<span style="color: #BA2121">&#39;DRAUGEN&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The nice thing about the class is that it has a very nice interface, if the user wants to plot data from another field, it is just give the name of that field</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">ff<span style="color: #666666">.</span>plot(<span style="color: #BA2121">&#39;EKOFISK&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h1 id="exer:crash_course" class="anchor">Example: A class for a mathematical function</h1>
-
-<p>A mathematical function should be the perfect example of <em>when to use a function</em>, but it turns out that it can be quite convenient to use a class. Here we will consider the mathematical function in the equation below</p>
-$$
-\begin{equation}
-f(x) = \sin(bx)\cdot e^{-ax^2}.
-\tag{1}
-\end{equation}
-$$
-
-<p>If we implement this function in a class, we can also add other functionalities to our function such as an ability to plot itself</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">WavePacket</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">    A class representation of a wave packet-function.</span>
-<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, a, b):
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>a <span style="color: #666666">=</span> a
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>b <span style="color: #666666">=</span> b
-
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(<span style="color: #008000">self</span>, x):
-        <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>sin(<span style="color: #008000">self</span><span style="color: #666666">.</span>b<span style="color: #666666">*</span>x)<span style="color: #666666">*</span>np<span style="color: #666666">.</span>exp(<span style="color: #666666">-</span><span style="color: #008000">self</span><span style="color: #666666">.</span>a<span style="color: #666666">*</span>x<span style="color: #666666">*</span>x)
-
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">plot</span>(<span style="color: #008000">self</span>, x_min<span style="color: #666666">=-10</span>, x_max<span style="color: #666666">=10</span>, dx<span style="color: #666666">=0.01</span>):
-<span style="color: #bbbbbb">        </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">        A simple plotting routine for plotting f(x) in some range.</span>
-<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
-        x <span style="color: #666666">=</span> np<span style="color: #666666">.</span>arange(x_min, x_max, dx)
-        y <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>f(x)
-        fig <span style="color: #666666">=</span> plt<span style="color: #666666">.</span>figure()
-        plt<span style="color: #666666">.</span>plot(x, y)
-        plt<span style="color: #666666">.</span>grid()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Besides the initialization method and a function that calculates \( f(x) \) from
-equation <a href="#mjx-eqn-1">(1)</a>, the class includes a simple plotting routine.
-A major difference from before is the following: when our function \( f(x) \)
-is defined inside a class, we do not have to pass around \( a \) and \( b \) as
-arguments to the function <code>f</code>. Instead, we simply access \( a \) and \( b \) from
-inside the class itself (using the <code>self</code>-prefix).
-</p>
-<!--  -->
-<!-- both when referring to the variables / attributes, and as the first input -->
-<!-- argument to the function. -->
-
-<p>Below is an example of how to use the class:</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #3D7B7B; font-style: italic"># Create two WavePacket objects, having their own parameter values</span>
-WP1 <span style="color: #666666">=</span> WavePacket(<span style="color: #666666">0.1</span>, <span style="color: #666666">2</span>)  <span style="color: #3D7B7B; font-style: italic"># a=0.1, b=2</span>
-WP2 <span style="color: #666666">=</span> WavePacket(<span style="color: #666666">0.1</span>, <span style="color: #666666">10</span>)  <span style="color: #3D7B7B; font-style: italic"># a = 0.1, b=10</span>
-
-<span style="color: #3D7B7B; font-style: italic"># Evaluate the two functions at a specific point</span>
-x <span style="color: #666666">=</span> <span style="color: #666666">1</span>
-<span style="color: #008000">print</span>(WP1<span style="color: #666666">.</span>f(x))
-<span style="color: #008000">print</span>(WP2<span style="color: #666666">.</span>f(x))
-
-<span style="color: #3D7B7B; font-style: italic"># Plot the two functions</span>
-WP1<span style="color: #666666">.</span>plot()
-WP2<span style="color: #666666">.</span>plot()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Although we had to write slightly more code, we hope you appreciate
-how easy this makes running parallel simulations with different parameters.
-Actually, Python provides a way for us to simplify even further, by
-defining the special <a href="https://www.realpythonproject.com/python-magic-oop-dunder/" target="_self"><tt>__call__</tt></a>  method for the class:
-</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">FancyWavePacket</span>:
-<span style="color: #bbbbbb">    </span><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">    A slightly more fancy class representation of a wave packet-function.</span>
-
-<span style="color: #BA2121; font-style: italic">    In this version, we define the dunder (double-underscore) method __call__,</span>
-<span style="color: #BA2121; font-style: italic">    which lets us treat objects of the class as if they were real functions!</span>
-<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, a, b):
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>a <span style="color: #666666">=</span> a
-        <span style="color: #008000">self</span><span style="color: #666666">.</span>b <span style="color: #666666">=</span> b
-
-    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__call__</span>(<span style="color: #008000">self</span>, x):
-        <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>sin(<span style="color: #008000">self</span><span style="color: #666666">.</span>b<span style="color: #666666">*</span>x)<span style="color: #666666">*</span>np<span style="color: #666666">.</span>exp(<span style="color: #666666">-</span><span style="color: #008000">self</span><span style="color: #666666">.</span>a<span style="color: #666666">*</span>x<span style="color: #666666">*</span>x)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Compared to the first example of the class, observe that we have replaced the
-function <code>f</code> by <code>__call__</code> (with two underscores on both sides of "call").
-This way, we we can write our code as if <code>FancyWavePacket</code> was a function:
-</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">WP1 <span style="color: #666666">=</span> FancyWavePacket(<span style="color: #666666">0.1</span>, <span style="color: #666666">2</span>)  <span style="color: #3D7B7B; font-style: italic"># a=0.1, b=2</span>
-WP2 <span style="color: #666666">=</span> FancyWavePacket(<span style="color: #666666">0.1</span>, <span style="color: #666666">10</span>)  <span style="color: #3D7B7B; font-style: italic"># a = 0.1, b=10</span>
-
-<span style="color: #3D7B7B; font-style: italic"># Evaluate the two functions at a specific point</span>
-x <span style="color: #666666">=</span> <span style="color: #666666">1</span>
-<span style="color: #008000">print</span>(WP1(x))  <span style="color: #3D7B7B; font-style: italic"># If WP1 had been a function, the syntax would be the same here!</span>
-<span style="color: #008000">print</span>(WP2(x))  <span style="color: #3D7B7B; font-style: italic"># Again, we no longer have to type &quot;WP2.f(x)&quot;, we can do &quot;WP2(x)&quot;.</span>
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<h1 id="bibliography" class="anchor">Bibliography </h1>
-
-<!-- begin bibliography -->
-
-<!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
+  <li class="next">
+    <a href="._classes-readable001.html">Next &rarr;</a>
+  </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
 </div>  <!-- end container -->
@@ -430,4 +152,5 @@ x <span style="color: #666666">=</span> <span style="color: #666666">1</span>
 -->
 </body>
 </html>
+    
 

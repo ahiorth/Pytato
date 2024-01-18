@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -7,9 +8,9 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas">
-<meta name="keywords" content="data structures,lists,list comprehension">
-<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</title>
+<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime">
+<meta name="keywords" content="vanilla Python,for loop,lists,generator,zip,append,matplotlib,data structures,lists,list comprehension,dictionaries,tuples,numpy,boolean masking,pathlib,pandas,DataFrame">
+<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -46,6 +47,20 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'one-reason-python-is-so-popular-the-import-statement'),
+              ('Vanilla Python', 1, None, 'vanilla-python'),
+              ('Vanilla Python: for loops',
+               1,
+               None,
+               'vanilla-python-for-loops'),
+              ('A more pythonic for loop', 2, None, 'a-more-pythonic-for-loop'),
+              ('Zip: how to loop over more than one list?',
+               2,
+               None,
+               'zip-how-to-loop-over-more-than-one-list'),
+              ('Append: create a new list',
+               2,
+               None,
+               'append-create-a-new-list'),
               ('Matplotlib: Basic plotting in Python',
                1,
                None,
@@ -58,6 +73,8 @@ code { color: inherit; background-color: transparent; }
               ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
               ('Lists', 2, None, 'lists'),
               ('List comprehension', 3, None, 'list-comprehension'),
+              ('List arithmetic', 3, None, 'list-arithmetic'),
+              ('List slicing', 3, None, 'list-slicing'),
               ('Exercise 2: Make a plot of $y=x^3$',
                1,
                None,
@@ -172,7 +189,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</a>
+    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -181,45 +198,52 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="._import-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable003.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable005.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable006.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable007.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable008.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable010.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable011.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable012.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable013.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable015.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable017.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable018.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable019.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable022.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable026.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable028.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable002.html#vanilla-python" style="font-size: 80%;"><b>Vanilla Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#vanilla-python-for-loops" style="font-size: 80%;"><b>Vanilla Python: for loops</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#a-more-pythonic-for-loop" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;A more pythonic for loop</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#zip-how-to-loop-over-more-than-one-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Zip: how to loop over more than one list?</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#append-create-a-new-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Append: create a new list</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable005.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable007.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable008.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-arithmetic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List arithmetic</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-slicing" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List slicing</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable010.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable012.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable013.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable014.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable015.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable017.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable019.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable020.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable021.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable026.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable028.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -231,42 +255,21 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0024"></a>
 <!-- !split -->
-<h2 id="create-dataframe-from-dictionary" class="anchor">Create DataFrame from dictionary </h2>
-<p>A DataFrame can be quite easily be generated from a dictionary. A dictionary is a special data structure, where an unique key is associated with a data type (key:value pair). In this case, the key would be the title of the column, and the value would be the data in the columns.</p>
+<h1 id="pandas-working-with-tabulated-data-excel-files" class="anchor">Pandas: Working with tabulated data (Excel files) </h1>
+<p>Pandas is a Python package that among many things are used to handle data, and perform operations on groups of data. It is built on top of Numpy, which makes it easy to perform vectorized operations. Pandas is written by Wes McKinney, and one of it objectives is according to the official website <a href="https://pandas.pydata.org/" target="_self"> '' providing fast, flexible, and expressive data structures designed to make working with ''relational'' or ''labeled'' data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python''</a>. Pandas also has excellent functions for reading and writing excel and csv files.  An excel file is read directly into memory in what is called a <code>DataFrame</code> in Pandas. A DataFrame is a two dimensional object where data are typically stored in column or row format.</p>
 
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;ints&#39;</span>:[<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>], <span style="color: #BA2121">&#39;floats&#39;</span>:[<span style="color: #666666">4.</span>,<span style="color: #666666">5.</span>,<span style="color: #666666">6.</span>,<span style="color: #666666">7.</span>],
-<span style="color: #BA2121">&#39;tools&#39;</span>:[<span style="color: #BA2121">&#39;hammer&#39;</span>,<span style="color: #BA2121">&#39;saw&#39;</span>,<span style="color: #BA2121">&#39;rock&#39;</span>,<span style="color: #BA2121">&#39;nail&#39;</span>]
-}
-my_df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict)
-<span style="color: #008000">print</span>(my_df) <span style="color: #3D7B7B; font-style: italic"># to view</span>
-</pre>
+<div class="alert alert-block alert-success alert-text-normal"><b>Pandas has a lot of functionality</b>
+<p>Pandas has so much functionality that it is almost like a programming language. Here we will only use it to read and write excel files, and do some basic filtering of data. However, there is a high probability that whatever you would like to do with your data, e.g. clean, filter, mathematical operations, there is already a Pandas command to achieve your goal.</p>
 </div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._import-readable023.html">&larr; Prev</a>
   </li>
+
   <li class="next">
     <a href="._import-readable025.html">Next &rarr;</a>
   </li>
@@ -283,4 +286,5 @@ my_df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span
 -->
 </body>
 </html>
+    
 

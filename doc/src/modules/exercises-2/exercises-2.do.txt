@@ -1,7 +1,7 @@
 # Here goes the main text.
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
-!split
+
 <% ex_id = 0 %>
 <% ex_id += 1 %>
 ======= Exercise ${ex_id}: Create a function for extracting data =======

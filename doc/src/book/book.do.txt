@@ -29,7 +29,7 @@ label{ch:pre}
 # #include "../modules/intro/intro.do.txt"
 
 !split
-========= Introduction to some common libraries: Matplotlib, Numpy, Pathlib, Pandas  =========
+========= Introduction to some common libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime  =========
 label{ch:pr}
 
 # #include "../modules/import/import.do.txt"

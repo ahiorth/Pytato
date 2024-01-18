@@ -1,5 +1,6 @@
 <!--
-File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+HTML file automatically generated from DocOnce source
+(https://github.com/doconce/doconce/)
 doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit
 -->
 <html>
@@ -7,9 +8,9 @@ doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=d
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas">
-<meta name="keywords" content="data structures,lists,list comprehension">
-<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</title>
+<meta name="description" content="Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime">
+<meta name="keywords" content="vanilla Python,for loop,lists,generator,zip,append,matplotlib,data structures,lists,list comprehension,dictionaries,tuples,numpy,boolean masking,pathlib,pandas,DataFrame">
+<title>Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</title>
 <!-- Bootstrap style: bootswatch_readable -->
 <!-- doconce format html main_import.do.txt CHAPTER=document BOOK=document APPENDIX=document --html_style=bootswatch_readable --html_output=import-readable --html_code_style=inherit -->
 <link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet">
@@ -46,6 +47,20 @@ code { color: inherit; background-color: transparent; }
                1,
                None,
                'one-reason-python-is-so-popular-the-import-statement'),
+              ('Vanilla Python', 1, None, 'vanilla-python'),
+              ('Vanilla Python: for loops',
+               1,
+               None,
+               'vanilla-python-for-loops'),
+              ('A more pythonic for loop', 2, None, 'a-more-pythonic-for-loop'),
+              ('Zip: how to loop over more than one list?',
+               2,
+               None,
+               'zip-how-to-loop-over-more-than-one-list'),
+              ('Append: create a new list',
+               2,
+               None,
+               'append-create-a-new-list'),
               ('Matplotlib: Basic plotting in Python',
                1,
                None,
@@ -58,6 +73,8 @@ code { color: inherit; background-color: transparent; }
               ('Data structures  (Basic)', 1, None, 'data-structures-basic'),
               ('Lists', 2, None, 'lists'),
               ('List comprehension', 3, None, 'list-comprehension'),
+              ('List arithmetic', 3, None, 'list-arithmetic'),
+              ('List slicing', 3, None, 'list-slicing'),
               ('Exercise 2: Make a plot of $y=x^3$',
                1,
                None,
@@ -172,7 +189,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas</a>
+    <a class="navbar-brand" href="import-readable.html">Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -181,45 +198,52 @@ MathJax.Hub.Config({
         <ul class="dropdown-menu">
      <!-- navigation toc: --> <li><a href="._import-readable000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._import-readable001.html#one-reason-python-is-so-popular-the-import-statement" style="font-size: 80%;"><b>One reason Python is so popular: The import statement</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable002.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable003.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable005.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable006.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable007.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable008.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable010.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable011.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable012.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable013.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable015.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable017.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable018.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable019.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable022.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable023.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable024.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable025.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable026.html#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="._import-readable027.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
-     <!-- navigation toc: --> <li><a href="#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
-     <!-- navigation toc: --> <li><a href="#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
-     <!-- navigation toc: --> <li><a href="#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
-     <!-- navigation toc: --> <li><a href="#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable002.html#vanilla-python" style="font-size: 80%;"><b>Vanilla Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#vanilla-python-for-loops" style="font-size: 80%;"><b>Vanilla Python: for loops</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#a-more-pythonic-for-loop" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;A more pythonic for loop</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#zip-how-to-loop-over-more-than-one-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Zip: how to loop over more than one list?</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable003.html#append-create-a-new-list" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Append: create a new list</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable004.html#matplotlib-basic-plotting-in-python" style="font-size: 80%;"><b>Matplotlib: Basic plotting in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable005.html#exercise-1-reproduce-a-plot" style="font-size: 80%;"><b>Exercise 1: Reproduce a plot</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution:</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable007.html#data-structures-basic" style="font-size: 80%;"><b>Data structures  (Basic)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable008.html#lists" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Lists</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-comprehension" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List comprehension</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-arithmetic" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List arithmetic</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable009.html#list-slicing" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List slicing</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable010.html#exercise-2-make-a-plot-of-y-x-3" style="font-size: 80%;"><b>Exercise 2: Make a plot of \( y=x^3 \)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable012.html#dictionaries" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Dictionaries</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable013.html#example-add-numbers-to-dictionary-and-plot" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: Add numbers to dictionary and plot</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable014.html#tuples" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Tuples</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable015.html#numpy-working-with-numerical-arrays-in-python" style="font-size: 80%;"><b>Numpy: Working with numerical arrays in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;"><b>Boolean masking</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable017.html#exercise-3-make-a-plot-of-y-x-3-using-numpy" style="font-size: 80%;"><b>Exercise 3: Make a plot of \( y=x^3 \) using Numpy</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable019.html#pathlib-working-with-files-and-folders-in-python" style="font-size: 80%;"><b>Pathlib: Working with files and folders in Python</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable020.html#pathlib-cwd-current-working-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pathlib cwd(): Current working directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable021.html#list-all-files-and-folder-in-current-directory" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;List all files and folder in current directory</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable024.html#pandas-working-with-tabulated-data-excel-files" style="font-size: 80%;"><b>Pandas: Working with tabulated data (Excel files)</b></a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable025.html#dataframe-the-basic-object-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;DataFrame: The basic object in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable026.html#create-dataframe-from-dictionary" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Create DataFrame from dictionary</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#accessing-data-in-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Accessing data in  DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-columns" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting columns</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#selecting-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selecting rows</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable027.html#challenges-when-accessing-columns-or-rows" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Challenges when accessing columns or rows</a></li>
+     <!-- navigation toc: --> <li><a href="#datetime-time-columns-not-parsed-properly" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Datetime: Time columns not parsed properly</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#pandas-filtering-and-visualizing-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Pandas: Filtering and visualizing data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#boolean-masking" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean masking</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#plotting-a-dataframe" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting a DataFrame</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#performing-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Performing mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#example-mathematical-operations-on-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Example: mathematical operations on DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable029.html#solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Solution</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#grouping-filtering-and-aggregating-data" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Grouping, filtering and aggregating data</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#simple-statistics-in-pandas" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Simple statistics in Pandas</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#joining-two-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Joining two DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#appending-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Appending DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#merging-dataframes" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Merging DataFrames</a></li>
+     <!-- navigation toc: --> <li><a href="._import-readable030.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -231,129 +255,30 @@ MathJax.Hub.Config({
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
 <a name="part0028"></a>
 <!-- !split -->
-<h2 id="grouping-filtering-and-aggregating-data" class="anchor">Grouping, filtering and aggregating data </h2>
-<p>Whenever you have a data set, you would like to do some exploratory analysis. That typically means that you would like to group, filter or aggregate data. Perhaps, we would like to plot the covid data not per country, but the data as a function of dates. Then you first must sort the data according to date, and then sum all the occurrences on that particular date. For all of these purposes we can use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html " target="_self"><tt>pd.DataFrame.groupby()</tt></a> function. To sort our DataFrame on dates and sum the occurrences we can do</p>
+<h2 id="datetime-time-columns-not-parsed-properly" class="anchor">Datetime: Time columns not parsed properly  </h2>
+
+<p>If you have dates in the file (as in our case for the <code>TIME</code> column), you should check if they are in the <code>datetime</code> format and not read as <code>str</code>.</p>
+
+<div class="alert alert-block alert-success alert-text-normal"><b><code>datetime</code></b>
+<p>The <code>datetime</code> library is very useful for working with dates. Data types of the type <code>datetime</code> (or equivalently <code>timestamp</code> used by Pandas) contains both date and time in the format <code>YYYY-MM-DD hh:mm:ss</code>. We can initialize a variable, <code>a</code>, by <code>a=datetime.datetime(2022,8,30,10,14,1)</code>, to access the hour we do <code>a.hour</code>, the year by <code>a.year</code> etc. It also easy to increase e.g. the day by one by doing <code>a+datetime.timedelta(days=1)</code>. </p>
+</div>
+
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;TIME&#39;</span>)<span style="color: #666666">.</span>sum()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Another case could be that we wanted to find the total number of confirmed, deaths and recovered cases in the full database. As always in Python it can be done in different ways, by e.g. splitting the database into individual countries and do  <code>df[['CONFIRMED','DEATHS','RECOVERED']].sum()</code> or accessing each column individually and sum each of them e.g. <code>np.sum(df['CONFIRMED'])</code>.  However, with the <code>groupby()</code> function
-(see figure <a href="#fig:pandas:group">4</a> for final result)
-</p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>groupby(<span style="color: #BA2121">&#39;LOCATION&#39;</span>)<span style="color: #666666">.</span>sum()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>Here Pandas sum all columns with the same location, and drop columns that cannot be summed. By doing <code>df.groupby('LOCATION').mean()</code> or <code>df.groupby('LOCATION').std()</code> we can find the mean or standard deviation (per day).</p>
-
-<center> <!-- figure label: --> <div id="fig:pandas:group"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 4: The results of <code>df.groupby('LOCATION').sum()</code>.  <!-- caption label: fig:pandas:group --></p>
-</center>
-<p><img src="fig-import/group.png" width="800" align="bottom"></p>
-</center>
-
-<h2 id="simple-statistics-in-pandas" class="anchor">Simple statistics in Pandas </h2>
-<p>At the end it is worth mentioning the built in methods <code>pd.DataFrame.mean</code>, <code>pd.DataFrame.median</code>, <code>pd.DataFrame.std</code> which calculates the mean, median and standard deviation on the columns in the DataFrame where it make sense (i.e. avoid strings and dates). To get all these values in one go (and a few more) on can also use <code>pd.DataFrame.describe()</code></p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">.</span>describe()
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>The output is shown in figure <a href="#fig:pandas:desc">5</a></p>
-
-<center> <!-- figure label: --> <div id="fig:pandas:desc"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 5: Output from the describe command.  <!-- caption label: fig:pandas:desc --></p>
-</center>
-<p><img src="fig-import/describe.png" width="800" align="bottom"></p>
-</center>
-
-<h2 id="joining-two-dataframes" class="anchor">Joining two DataFrames </h2>
-<h3 id="appending-dataframes" class="anchor">Appending DataFrames  </h3>
-<p>The DataFrame with the Covid-19 data in the previous section could have been created from two separate DataFrames, using <a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html" target="_self"><tt>concat()</tt></a>. First, create two DataFrames </p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
   <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">datetime</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">dt</span>
-a<span style="color: #666666">=</span>dt<span style="color: #666666">.</span>datetime(<span style="color: #666666">2020</span>,<span style="color: #666666">2</span>,<span style="color: #666666">24</span>,<span style="color: #666666">23</span>,<span style="color: #666666">59</span>)
-b<span style="color: #666666">=</span>dt<span style="color: #666666">.</span>datetime(<span style="color: #666666">2020</span>,<span style="color: #666666">2</span>,<span style="color: #666666">7</span>,<span style="color: #666666">23</span>,<span style="color: #666666">59</span>)
-my_dict1<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #BA2121">&#39;Afghanistan&#39;</span>], 
-<span style="color: #BA2121">&#39;TIME&#39;</span>:[a<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">7</span>)],
-<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>],
-<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">1</span>],
-<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">0</span>],
-<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">7*</span>[<span style="color: #666666">0</span>]}
-my_dict2<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">6*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
-<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">6</span>)],
-<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>],
-<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:[<span style="color: #666666">61</span>, <span style="color: #666666">61</span>, <span style="color: #666666">64</span>, <span style="color: #666666">135</span>, <span style="color: #666666">135</span>, <span style="color: #666666">175</span>],
-<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">6*</span>[<span style="color: #666666">0</span>],
-<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">6*</span>[<span style="color: #666666">0</span>]}
-df1<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict1)
-df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict2)
+df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_excel(<span style="color: #BA2121">&#39;../data/corona_data.xlsx&#39;</span>)
+time<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;TIME&#39;</span>]
+<span style="color: #3D7B7B; font-style: italic"># what happens if you set</span>
+<span style="color: #3D7B7B; font-style: italic"># df2=pd.read_csv(&#39;../data/corona_data.dat&#39;,sep=&#39;\t&#39;) # csv tab separated file</span>
+<span style="color: #3D7B7B; font-style: italic"># time=df2[&#39;TIME&#39;] #i.e df2 is from pd.read_csv ?</span>
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>])
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>]<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=1</span>))
 </pre>
 </div>
       </div>
@@ -369,17 +294,21 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
   </div>
 </div>
 
-<p>Next, add them row wise (see figure <a href="#fig:pandas:concat">6</a>)</p>
+<p>The code above might work fine or in some cases a date is parsed as a string by Pandas, then we need to convert that column to the correct format. If not, we get into problems if you want to plot data vs the time column.</p>
 
+<p>Below are two ways of converting the <code>TIME</code> column</p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>concat([df1,df2])
-<span style="color: #008000">print</span>(df) <span style="color: #3D7B7B; font-style: italic"># to view</span>
+  <pre style="line-height: 125%;">df2[<span style="color: #BA2121">&#39;TIME&#39;</span>]<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>to_datetime(df2[<span style="color: #BA2121">&#39;TIME&#39;</span>])
+<span style="color: #3D7B7B; font-style: italic"># just for testing that everything went ok</span>
+time<span style="color: #666666">=</span>df2[<span style="color: #BA2121">&#39;TIME&#39;</span>]
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>])
+<span style="color: #008000">print</span>(time[<span style="color: #666666">0</span>]<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=1</span>))
 </pre>
 </div>
       </div>
@@ -395,24 +324,15 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
   </div>
 </div>
 
+<p>Another possibility is to do the conversion when reading the data:</p>
 
-<center> <!-- figure label: --> <div id="fig:pandas:concat"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 6: The result of <code>concat()</code>.  <!-- caption label: fig:pandas:concat --></p>
-</center>
-<p><img src="fig-import/concat.png" width="800" align="bottom"></p>
-</center>
-
-<p>If you compare this DataFrame with the previous one, you will see that the index column is different. This is because when joining two DataFrames Pandas does not reset the index by default, doing <code>df=pd.concat([df1,df2],ignore_index=True)</code> resets the index. It is also possible to join DataFrames column vise</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">pd<span style="color: #666666">.</span>concat([df1,df2],axis<span style="color: #666666">=1</span>)
+  <pre style="line-height: 125%;">df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/corona_data.dat&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>,parse_dates<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;TIME&#39;</span>]) 
 </pre>
 </div>
       </div>
@@ -427,30 +347,17 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
     </div>
   </div>
 </div>
-<h3 id="merging-dataframes" class="anchor">Merging DataFrames </h3>
 
-<p>In the previous example we had two non overlapping DataFrames (separate countries and times). It could also be the case that some of the data was overlapping e.g. continuing with the Covid-19 data, one could assume that there was one data set from one region and one from another region in the same country</p>
+<p>If you have a need to specify all data types, to avoid potential problems down the line this can also be done. First create a dictionary, with column names and data types</p>
 
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
 <div class="cell border-box-sizing code_cell rendered">
   <div class="input">
     <div class="inner_cell">
       <div class="input_area">
         <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">my_dict1<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
-<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">7</span>)],
-<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>, <span style="color: #666666">2</span>, <span style="color: #666666">3</span>, <span style="color: #666666">4</span>, <span style="color: #666666">5</span>, <span style="color: #666666">6</span>],
-<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">1</span>],
-<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">7*</span>[<span style="color: #666666">0</span>],
-<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">7*</span>[<span style="color: #666666">0</span>]}
-my_dict2<span style="color: #666666">=</span>{<span style="color: #BA2121">&#39;LOCATION&#39;</span>:<span style="color: #666666">2*</span>[<span style="color: #BA2121">&#39;Diamond Princess&#39;</span>], 
-<span style="color: #BA2121">&#39;TIME&#39;</span>:[b<span style="color: #666666">+</span>dt<span style="color: #666666">.</span>timedelta(days<span style="color: #666666">=</span>i) <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">2</span>)],
-<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>:[<span style="color: #666666">0</span>, <span style="color: #666666">1</span>],
-<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>:[<span style="color: #666666">60</span>, <span style="color: #666666">60</span>],
-<span style="color: #BA2121">&#39;DEATHS&#39;</span>:<span style="color: #666666">2*</span>[<span style="color: #666666">0</span>],
-<span style="color: #BA2121">&#39;RECOVERED&#39;</span>: <span style="color: #666666">2*</span>[<span style="color: #666666">0</span>]}
-df1<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict1)
-df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>DataFrame(my_dict2)
+  <pre style="line-height: 125%;">types_dict<span style="color: #666666">=</span>{<span style="color: #BA2121">&quot;LOCATION&quot;</span>:<span style="color: #008000">str</span>,<span style="color: #BA2121">&quot;TIME&quot;</span>:<span style="color: #008000">str</span>,<span style="color: #BA2121">&quot;ELAPSED_TIME_SINCE_OUTBREAK&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;CONFIRMED&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;DEATHS&quot;</span>:<span style="color: #008000">int</span>,<span style="color: #BA2121">&quot;RECOVERED&quot;</span>:<span style="color: #008000">int</span>}
+df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>read_csv(<span style="color: #BA2121">&#39;../data/corona_data.dat&#39;</span>,sep<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\t</span><span style="color: #BA2121">&#39;</span>,dtype<span style="color: #666666">=</span>types_dict,parse_dates<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;TIME&#39;</span>]) <span style="color: #3D7B7B; font-style: italic"># set data types explicit</span>
 </pre>
 </div>
       </div>
@@ -466,104 +373,18 @@ df2<span style="color: #666666">=</span>pd<span style="color: #666666">.</span>D
   </div>
 </div>
 
-<p>If we do <code>pd.concat([df1,df2])</code> we will simply add all values after each other. What we want to do is to sum the number of confirmed, recovered and deaths for the same date. This can be done in several ways, but one way is to use <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html" target="_self"><tt>pd.DataFrame.merge()</tt></a>.You can specify the columns to merge on, and choose <code>outer</code> which is union (all data from both frames) or <code>inner</code> which means the intersect (only data which you merge on that exists in both frames), see figure <a href="#fig:pandas:join">7</a> for a visual image.</p>
+<p>Note that the time data type is <code>str</code>, but we explicitly tell Pandas to convert those to <code>datetime</code>.</p>
 
-<center> <!-- figure label: --> <div id="fig:pandas:join"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 7: The result of using <code>how=outer, inner, left</code>, or <code>right</code> in <code>pd.DataFrame.merge()</code>.  <!-- caption label: fig:pandas:join --></p>
-</center>
-<p><img src="fig-import/fig_join.png" width="800" align="bottom"></p>
-</center>
-
-<p>To be even more specific, after performing the commands</p>
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;outer&#39;</span>)
-df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;inner&#39;</span>)
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<p>we get the results in figure <a href="#fig:pd:merge">8</a> </p>
-
-<center> <!-- figure label: --> <div id="fig:pd:merge"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 8: Merging to DataFrame using <code>outer</code> (top) and <code>inner</code> (bottom).  <!-- caption label: fig:pd:merge --></p>
-</center>
-<p><img src="fig-import/merge.png" width="800" align="bottom"></p>
-</center>
-
-<p>Clearly in this case we need to choose <code>outer</code>. In the merge process pandas adds an extra subscript <code>_x</code> and <code>_y</code> on columns that contains the same header name. We also need to sum those, which can be done as follows
-(see figure <a href="#fig:pandas:merge3">9</a> for the final result)
-</p>
-
-
-<!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="cell border-box-sizing code_cell rendered">
-  <div class="input">
-    <div class="inner_cell">
-      <div class="input_area">
-        <div class="highlight" style="background: #f8f8f8">
-  <pre style="line-height: 125%;">df<span style="color: #666666">=</span>df1<span style="color: #666666">.</span>merge(df2,on<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;LOCATION&#39;</span>,<span style="color: #BA2121">&#39;TIME&#39;</span>],how<span style="color: #666666">=</span><span style="color: #BA2121">&#39;outer&#39;</span>)
-cols<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;CONFIRMED&#39;</span>,<span style="color: #BA2121">&#39;DEATHS&#39;</span>, <span style="color: #BA2121">&#39;RECOVERED&#39;</span>]
-<span style="color: #008000; font-weight: bold">for</span> col <span style="color: #AA22FF; font-weight: bold">in</span> cols:
-    df[col]<span style="color: #666666">=</span>df[[col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_x&#39;</span>,col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_y&#39;</span>]]<span style="color: #666666">.</span>sum(axis<span style="color: #666666">=1</span>) <span style="color: #3D7B7B; font-style: italic"># sum row elements</span>
-    df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>drop(columns<span style="color: #666666">=</span>[col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_x&#39;</span>,col<span style="color: #666666">+</span><span style="color: #BA2121">&#39;_y&#39;</span>]) <span style="color: #3D7B7B; font-style: italic"># remove obsolete columns</span>
-<span style="color: #3D7B7B; font-style: italic"># final clean up</span>
-df[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK&#39;</span>]<span style="color: #666666">=</span>df[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_x&#39;</span>]		
-df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>drop(columns<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_y&#39;</span>,<span style="color: #BA2121">&#39;ELAPSED_TIME_SINCE_OUTBREAK_x&#39;</span>])
-</pre>
-</div>
-      </div>
-    </div>
-  </div>
-  <div class="output_wrapper">
-    <div class="output">
-      <div class="output_area">
-        <div class="output_subarea output_stream output_stdout output_text">          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<center> <!-- figure label: --> <div id="fig:pandas:merge3"></div> <!-- FIGURE -->
-<hr class="figure">
-<center>
-<p class="caption">Figure 9: Result of outer merging and summing.  <!-- caption label: fig:pandas:merge3 --></p>
-</center>
-<p><img src="fig-import/merge3.png" width="800" align="bottom"></p>
-</center>
-
-<h1 id="bibliography" class="anchor">Bibliography </h1>
-
-<!-- begin bibliography -->
-
-<!-- end bibliography -->
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
+
   <li class="previous">
     <a href="._import-readable027.html">&larr; Prev</a>
+  </li>
+
+  <li class="next">
+    <a href="._import-readable029.html">Next &rarr;</a>
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
@@ -578,4 +399,5 @@ df<span style="color: #666666">=</span>df<span style="color: #666666">.</span>dr
 -->
 </body>
 </html>
+    
 

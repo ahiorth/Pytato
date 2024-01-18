@@ -5,6 +5,7 @@ DATE: today
 
 TOC: on
 
+!split
 
 # Common Mako variables and functions
 # #include "../mako_code.txt"

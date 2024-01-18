@@ -1,9 +1,9 @@
 # Here goes the main text.
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
-!split
+
 ======= What is a function? =======
-As explained in the introduction, a function is several lines of code that perform a specific task. In many ways you can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
+As explained in the introduction, a function is several lines of code that perform a specific task. We use functions to reuse code. In many ways you can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
 
 You have already used built in functions in Python, such as `print()`, `pandas.DataFrame()`, etc.
 !split
@@ -13,13 +13,14 @@ We can define our own functions using the `def` keyword, it best illustrated wit
 !bc pycod
 def my_func():
     print('My first function')
-my_func() #My first function
+my_func() #prints:  My first function
 !ec
 You can pass arguments to the function, to make them more general
 !bc pycod
 def greeting(name):
     print('My name is :', name)
-greeting('Bob') # My name is Bob
+greeting('Bob') # prints:  My name is Bob
+greeting('Aksel') # prints:  My name is Aksel
 !ec
 It is also common practice to add a docstring to help people better understand what the function does. 
 !bc pycod
@@ -28,7 +29,7 @@ def greeting(name):
     prints out a greeting  
     '''
     print('My name is :', name)
-greeting('Bob') # My name is Bob
+greeting('Bob') # prints: My name is Bob
 !ec
 If we do `help(greeting)`, Python will print out our docstring. A function can also return something
 !bc pycod

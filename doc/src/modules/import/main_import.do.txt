@@ -1,11 +1,11 @@
-TITLE:  Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas
+TITLE:  Introduction to Common Libraries: Matplotlib, Numpy, Pathlib, Pandas, Datetime
 AUTHOR: Aksel Hiorth
 University of Stavanger
 DATE: today
 
 TOC: on
 
-
+!split
 # Common Mako variables and functions
 # #include "../mako_code.txt"
 

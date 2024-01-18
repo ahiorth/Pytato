@@ -8,7 +8,9 @@ Fortan
 GeoProvider
 Hiorth
 Matplotlib
+NB
 Numpy
+Ok
 Pathlib
 Stavanger
 Wes
@@ -17,4 +19,5 @@ csv
 cwd
 int
 pyplot
+pythonic
 vectorized

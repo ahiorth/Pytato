@@ -1,7 +1,7 @@
 # Here goes the main text.
 # The text may be split into several files and included here
 # via preprocess: # #include "file1.do.txt" etc
-!split
+
 ======= Is it possible to learn Python in two days? =======
 
 
@@ -69,32 +69,32 @@ Here I have collected stuff that will make your life easier, and increase the sp
 
 !split
 ===== Variable =====
-Coding is very much about passing information around and do something with that information. In Python we can easily import an Excel sheet, then we typically pass the Excel sheet around in the code and do some mathematical operations on the different columns. To pass data around in our code we use *variables*, below are two variables called `x` and `y` 
+Coding is very much about passing data from one part to another part of your code. In Python we can easily import an Excel sheet, then a typical task is to pass the Excel sheet around in the code and do some mathematical operations on the different columns. To pass data around in our code we use *variables*, below are an example of two variables called `x` and `y` 
 !bc pypro
 x=13
 y='Dog'
 !ec
-We use the equal sign, `=`, to create a binding between what is on the left and right side. Here we have assigned the value 13 and the string `Dog` to `x` and `y`, respectively. The value 13 (or the string `Dog`) is stored somewhere in the computer memory. In many ways you can consider the operation of creating a variable as to pick a box, put something in it, and labeling it, as illustrated in figure ref{fig:intro:var}.
+We use the equal sign, `=`, to create a binding between what is on the right and  left hand side. Here we have assigned the integer 13 and the string `Dog` to `x` and `y`, respectively. The value 13 (or the string `Dog`) is stored somewhere in the computer memory. In many ways you can consider the operation of creating a variable to be similar to pick a box, put something in it, and labeling it, as illustrated in figure ref{fig:intro:var}.
 
 FIGURE: [fig-intro/box.png, width=400 frac=1.0] A visualization of a variable. label{fig:intro:var}
 
-The illustration in figure ref{fig:intro:var} also indicate that the size of the box may vary dependent on the content. Note that `x` and `y` are labels, it does not matter what kind of label we use, it is the content of the box that is important not the label you put on it. Normally you would use a more descriptive name than `x` or `y` to simply help other humans to better understand your code.
+The illustration in figure ref{fig:intro:var} also indicate that the size of the box may vary dependent on the content. Note that `x` and `y` are labels, it does not matter what kind of label we use, it is the content of the box that is important not the label you put on it. Normally you would use a more descriptive name than `x` or `y` to simply help humans to better understand your code.
 
 !split
 ===== Functions =====
 
-A function is several lines of code that perform a specific task. We can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
+Functions are useful because they allow us to reuse code. A function is several lines of code that perform a specific task. We can think of a function as a recipe, e.g. a cake recipe. To make a cake we need a certain input, eggs, flour, sugar, chocolate, then we follow a specific set of operations to produce the cake. A function in Python operates in the same way, it takes something as input (different variables), follow certain steps and returns a product (the cake).
 
-Functions are useful because it allows us to wrap several lines of code that we believe we will use many times into reusable functions. Thus, we write the function (recipe) once and every time we want to make the same cake, we invoke the function to produce the output (cake), see figure ref{fig:intro:batter}. 
+We write the function (recipe) once and every time we want to make the same cake, we invoke the function to produce the output (cake), see figure ref{fig:intro:batter}. 
 
 FIGURE: [fig-intro/batter.png, width=400 frac=1.0] My favorite chocolate fondant recipe and a Python code. label{fig:intro:batter}
 
 !split
 ===== Objects and Classes =====
 
-In Python everything is an object. An object is a variable (a box) that contains data and functions. That means that the boxes in figure ref{fig:intro:var} is more than just  pieces of memory. To continue the with the recipe example above, we can think of an object as a cookbook that also contains ingredients, in Norwegian ''matkasse'' or in English a ''meal kit''. There will be many recipes in this meal kit and many ingredients. In Python the syntax for accessing the functions (recipes) or data (ingredients) is by using the `.` syntax. In figure ref{fig:intro:ide}, this is illustrated. When we write `x='This is a string'`, we can e.g. do `x.capitalize()`, which will (not surprisingly) transform all the small letters to capital letters, `'THIS IS A STRING'`.
+In Python everything is an object. An object is a variable (a box) that contains data and functions. That means that the boxes in figure ref{fig:intro:var} is more than just  pieces of memory. To continue the with the recipe example above, we can think of an object as a cookbook that also contains ingredients, in Norwegian ''matkasse'' or in English a ''meal kit''. There will be many recipes in this meal kit and many ingredients. In Python the syntax for accessing the functions (recipes) or data (ingredients) inside the box is to use the `.` syntax. In figure ref{fig:intro:ide}, this is illustrated. When we write `x='This is a string'`, we can e.g. do `x.capitalize()`, which will (not surprisingly) transform all the small letters to capital letters, `'THIS IS A STRING'`.
 
-Thus in Python there will be a lot of ready made functions that you can use to quickly perform simple operations on your variables.
+Thus in Python there is a lot ready made functions that you can use to perform simple operations on your variables.
 
 FIGURE: [fig-intro/food_box.png, width=400 frac=1.0] A visualization of an object, containing functions (recipes) and variables (ingredients). label{fig:intro:obj}
 
@@ -148,16 +148,6 @@ Here I tell python create a new environment called MOD321, which is the course c
 !bc sys
 (base) Aksel Hiorth>conda activate MOD321
 !ec
-!bnotice Delete environments
-If something goes wrong you can always delete the environment and create it once more. You simply has to deactivate it
-!bc sys
-(MOD321) Aksel Hiorth>conda deactivate 
-!ec
-Then you delete it
-!bc sys
-(base) Aksel Hiorth>conda remove --name MOD321 --all 
-!ec
-!enotice
 
 __Step 3 (Install packages):__
 There are several packages we will need and if we list all packages simultaneously conda will make sure that they are internally consistent. Enter the following command
@@ -173,3 +163,13 @@ If you later find out you need additional packages, you just can just open a ter
 If you find a package you would like to install, the documentation may in many cases say run the command `pip install PACKAGE_NAME`. That may very well work, but I would always advice you to do `conda install PACKAGE_NAME` first, because I believe conda is better at checking for internal consistency. If `conda install` fails, you can do `pip install` and 99 out 100 times this will work out just fine. 
 !enotice
 
+!bnotice Delete environments
+If something goes wrong you can always delete the environment and create it once more. You simply has to deactivate it
+!bc sys
+(MOD321) Aksel Hiorth>conda deactivate 
+!ec
+Then you delete it
+!bc sys
+(base) Aksel Hiorth>conda remove --name MOD321 --all 
+!ec
+!enotice

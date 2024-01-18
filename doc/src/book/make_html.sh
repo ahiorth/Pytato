@@ -20,7 +20,7 @@ function system {
   fi
 }
 
-preprocess -DFORMAT=html ../chapters/newcommands.p.tex > newcommands_keep.tex
+preprocess -DFORMAT=html ../modules/newcommands.p.tex > newcommands_keep.tex
 
 opt="CHAPTER=$CHAPTER BOOK=$BOOK APPENDIX=$APPENDIX"
 opt="$opt --exercise_numbering=chapter"
