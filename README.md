@@ -1,5 +1,5 @@
 # Basic Python coding for subsurface applications
-(Work in progress) Material prepared for MOD321 at University of Stavanger. The documents have been prepared by the use of [doconce](https://github.com/doconce/doconce). All modules can be found in the [pub](https://github.com/ahiorth/Pytato/tree/master/doc/pub/) directory. The modules can be read as pdf, html or interactive Jupyter Notebooks. 
+The documents have been prepared by the use of [doconce](https://github.com/doconce/doconce). All modules can be found in the [pub](https://github.com/ahiorth/Pytato/tree/master/doc/pub/) directory. The modules can be read as pdf, html or interactive Jupyter Notebooks. 
 
 ## Index
 

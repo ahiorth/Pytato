@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "MyPackage"
+authors = [ {name = "Aksel Hiorth", email="aksel.hiorth@uis.no"} ]
+version = "0.0.1"
+description = "An example package"
+keywords = ["Python", "Learning"]
+requires-python = ">=3.10"
+classifiers = ["Development Status :: 1 - Planning",
+ "Environment :: Console",
+ "Intended Audience :: Science/Research",
+ "Operating System :: OS Independent",
+ "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "pathlib",
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "scipy",
+  "dash"
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov[all]"
+]
+lint = [
+  "black",
+  "ruff"
+]
+plot = [
+  "cmocean"
+]
+
+[tool.black]
+line-length = 119
+skip-string-normalization = 1
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 119
+
